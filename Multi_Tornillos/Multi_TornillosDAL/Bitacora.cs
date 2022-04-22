@@ -12,13 +12,15 @@ namespace Multi_TornillosDAL
     using System;
     using System.Collections.Generic;
     
-    public partial class CierreDia
+    public partial class Bitacora
     {
-        public int CierreDiaId { get; set; }
-        public decimal CierreDiaTotal { get; set; }
-        public System.DateTime CierreDiaFecha { get; set; }
-        public int SemanaId { get; set; }
+        public int Bitacora_Id { get; set; }
+        public string BitacoraDescripcion { get; set; }
+        public Nullable<System.DateTime> BitacoraFecha { get; set; }
+        public int UsuarioId { get; set; }
+        public int CierreDia_Id { get; set; }
     
-        public virtual Semana Semana { get; set; }
+        public virtual CierreDias CierreDias { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

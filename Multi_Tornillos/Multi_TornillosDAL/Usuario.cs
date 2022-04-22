@@ -17,16 +17,25 @@ namespace Multi_TornillosDAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuario()
         {
-            this.Transaccion = new HashSet<Transaccion>();
+            this.Bitacora = new HashSet<Bitacora>();
+            this.CierreDias = new HashSet<CierreDias>();
+            this.Cierres = new HashSet<Cierres>();
+            this.SaldosIniciales = new HashSet<SaldosIniciales>();
         }
     
         public int UsuarioId { get; set; }
         public string UsuarioNombre { get; set; }
-        public string UsuarioRTN { get; set; }
+        public string UsuarioDNI { get; set; }
         public string UsuarioPassword { get; set; }
         public string UsuarioTipo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Transaccion> Transaccion { get; set; }
+        public virtual ICollection<Bitacora> Bitacora { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CierreDias> CierreDias { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cierres> Cierres { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SaldosIniciales> SaldosIniciales { get; set; }
     }
 }

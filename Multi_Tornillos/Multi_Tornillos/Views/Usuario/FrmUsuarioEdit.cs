@@ -24,7 +24,7 @@ namespace Multi_Tornillos.Views.Usuario
             txtId.Text = usuario.UsuarioId.ToString();
             txtNombre.Text = usuario.UsuarioNombre;
             txtPassword.Text = usuario.UsuarioPassword;
-            txtRTN.Text = usuario.UsuarioRTN;
+            txtRTN.Text = usuario.UsuarioDNI;
             if (usuario.UsuarioTipo == "Usuario")
             {
                 rbUsuario.Checked = true;
@@ -58,7 +58,7 @@ namespace Multi_Tornillos.Views.Usuario
                     UsuarioId = Convert.ToInt32(txtId.Text),
                     UsuarioNombre = txtNombre.Text,
                     UsuarioPassword = txtPassword.Text,
-                    UsuarioRTN = txtRTN.Text,
+                    UsuarioDNI = txtRTN.Text,
                     UsuarioTipo = tipo
                 };
 

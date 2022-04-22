@@ -31,9 +31,8 @@ namespace Multi_Tornillos.Views.Caja
         {
             this.mnuPrincipal = new System.Windows.Forms.MenuStrip();
             this.mnuListaCajas = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuListaDias = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new JacksiroKe.MdiTabCtrl.TabControl();
-            this.listaSemanasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,8 +40,7 @@ namespace Multi_Tornillos.Views.Caja
             // 
             this.mnuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuListaCajas,
-            this.mnuListaDias,
-            this.listaSemanasToolStripMenuItem});
+            this.usuariosToolStripMenuItem});
             this.mnuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnuPrincipal.Name = "mnuPrincipal";
             this.mnuPrincipal.Size = new System.Drawing.Size(800, 24);
@@ -56,13 +54,6 @@ namespace Multi_Tornillos.Views.Caja
             this.mnuListaCajas.Text = "Lista cajas";
             this.mnuListaCajas.Click += new System.EventHandler(this.mnuListaCajas_Click);
             // 
-            // mnuListaDias
-            // 
-            this.mnuListaDias.Name = "mnuListaDias";
-            this.mnuListaDias.Size = new System.Drawing.Size(68, 20);
-            this.mnuListaDias.Text = "Lista Dias";
-            this.mnuListaDias.Click += new System.EventHandler(this.mnuListaDias_Click);
-            // 
             // tabControl1
             // 
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -75,12 +66,12 @@ namespace Multi_Tornillos.Views.Caja
             this.tabControl1.TabCloseButtonImageHot = null;
             this.tabControl1.TabIndex = 1;
             // 
-            // listaSemanasToolStripMenuItem
+            // usuariosToolStripMenuItem
             // 
-            this.listaSemanasToolStripMenuItem.Name = "listaSemanasToolStripMenuItem";
-            this.listaSemanasToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
-            this.listaSemanasToolStripMenuItem.Text = "Lista Semanas";
-            this.listaSemanasToolStripMenuItem.Click += new System.EventHandler(this.listaSemanasToolStripMenuItem_Click);
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // FrmMenu
             // 
@@ -105,7 +96,6 @@ namespace Multi_Tornillos.Views.Caja
         private System.Windows.Forms.MenuStrip mnuPrincipal;
         private JacksiroKe.MdiTabCtrl.TabControl tabControl1;
         private System.Windows.Forms.ToolStripMenuItem mnuListaCajas;
-        private System.Windows.Forms.ToolStripMenuItem mnuListaDias;
-        private System.Windows.Forms.ToolStripMenuItem listaSemanasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
     }
 }

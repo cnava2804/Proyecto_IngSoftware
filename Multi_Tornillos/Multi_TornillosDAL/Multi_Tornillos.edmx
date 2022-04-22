@@ -5,6 +5,16 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="FlujoDeCajaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bitacora">
+          <Key>
+            <PropertyRef Name="Bitacora_Id" />
+          </Key>
+          <Property Name="Bitacora_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BitacoraDescripcion" Type="varchar" MaxLength="50" />
+          <Property Name="BitacoraFecha" Type="datetime" />
+          <Property Name="UsuarioId" Type="int" Nullable="false" />
+          <Property Name="CierreDia_Id" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Caja">
           <Key>
             <PropertyRef Name="CajaId" />
@@ -12,47 +22,38 @@
           <Property Name="CajaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CajaNumero" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
-        <EntityType Name="CierreDia">
+        <EntityType Name="CierreDias">
           <Key>
-            <PropertyRef Name="CierreDiaId" />
+            <PropertyRef Name="CierreDia_Id" />
           </Key>
-          <Property Name="CierreDiaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CierreDiaTotal" Type="decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="CierreDiaFecha" Type="date" Nullable="false" />
-          <Property Name="SemanaId" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Dia">
-          <Key>
-            <PropertyRef Name="DiaId" />
-          </Key>
-          <Property Name="DiaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DiaNombre" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Semana">
-          <Key>
-            <PropertyRef Name="SemanaId" />
-          </Key>
-          <Property Name="SemanaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SemanaNombre" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Transaccion">
-          <Key>
-            <PropertyRef Name="TransaccionId" />
-          </Key>
-          <Property Name="TransaccionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CierreDia_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CierreDiaTotal" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CierreDiaFecha" Type="datetime" />
+          <Property Name="SaldoInicial_Id" Type="int" Nullable="false" />
           <Property Name="UsuarioId" Type="int" Nullable="false" />
           <Property Name="CajaId" Type="int" Nullable="false" />
-          <Property Name="DiaId" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="TransaccionDetalle">
+        <EntityType Name="Cierres">
           <Key>
-            <PropertyRef Name="TransaccionDetalleId" />
+            <PropertyRef Name="Cierre_Id" />
           </Key>
-          <Property Name="TransaccionDetalleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TransaccionId" Type="int" Nullable="false" />
-          <Property Name="Saldo" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Tipo" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="Cierre_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CierreTotal" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CierreFechaInicial" Type="datetime" />
+          <Property Name="CierreFechaFinal" Type="datetime" />
+          <Property Name="CajaId" Type="int" Nullable="false" />
+          <Property Name="UsuarioId" Type="int" Nullable="false" />
+          <Property Name="CierreDia_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SaldosIniciales">
+          <Key>
+            <PropertyRef Name="SaldoInicial_Id" />
+          </Key>
+          <Property Name="SaldoInicial_Id" Type="int" Nullable="false" />
+          <Property Name="SaldoInicialTotal" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="SaldoInicialFecha" Type="datetime" />
+          <Property Name="UsuarioId" Type="int" Nullable="false" />
+          <Property Name="CajaId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -60,294 +61,461 @@
           </Key>
           <Property Name="UsuarioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UsuarioNombre" Type="varchar" MaxLength="150" Nullable="false" />
-          <Property Name="UsuarioRTN" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="UsuarioDNI" Type="varchar" MaxLength="14" Nullable="false" />
           <Property Name="UsuarioPassword" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="UsuarioTipo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UsuarioTipo" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
-        <Association Name="FK_CierreDia_Semana">
-          <End Role="Semana" Type="Self.Semana" Multiplicity="1" />
-          <End Role="CierreDia" Type="Self.CierreDia" Multiplicity="*" />
+        <Association Name="FK_Bitacora_CierreDias">
+          <End Role="CierreDias" Type="Self.CierreDias" Multiplicity="1" />
+          <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Semana">
-              <PropertyRef Name="SemanaId" />
+            <Principal Role="CierreDias">
+              <PropertyRef Name="CierreDia_Id" />
             </Principal>
-            <Dependent Role="CierreDia">
-              <PropertyRef Name="SemanaId" />
+            <Dependent Role="Bitacora">
+              <PropertyRef Name="CierreDia_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Transaccion_Caja">
-          <End Role="Caja" Type="Self.Caja" Multiplicity="1" />
-          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Caja">
-              <PropertyRef Name="CajaId" />
-            </Principal>
-            <Dependent Role="Transaccion">
-              <PropertyRef Name="CajaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Transaccion_Dia">
-          <End Role="Dia" Type="Self.Dia" Multiplicity="1" />
-          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Dia">
-              <PropertyRef Name="DiaId" />
-            </Principal>
-            <Dependent Role="Transaccion">
-              <PropertyRef Name="DiaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Transaccion_Semana">
-          <End Role="Semana" Type="Self.Semana" Multiplicity="1" />
-          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Semana">
-              <PropertyRef Name="SemanaId" />
-            </Principal>
-            <Dependent Role="Transaccion">
-              <PropertyRef Name="DiaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Transaccion_Usuario">
+        <Association Name="FK_Bitacora_Usuario">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
-          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+          <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuario">
               <PropertyRef Name="UsuarioId" />
             </Principal>
-            <Dependent Role="Transaccion">
+            <Dependent Role="Bitacora">
               <PropertyRef Name="UsuarioId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TransaccionDetalle_Transaccion">
-          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="1" />
-          <End Role="TransaccionDetalle" Type="Self.TransaccionDetalle" Multiplicity="*" />
+        <Association Name="FK_CierreDias_Caja">
+          <End Role="Caja" Type="Self.Caja" Multiplicity="1" />
+          <End Role="CierreDias" Type="Self.CierreDias" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Transaccion">
-              <PropertyRef Name="TransaccionId" />
+            <Principal Role="Caja">
+              <PropertyRef Name="CajaId" />
             </Principal>
-            <Dependent Role="TransaccionDetalle">
-              <PropertyRef Name="TransaccionId" />
+            <Dependent Role="CierreDias">
+              <PropertyRef Name="CajaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CierreDias_Caja1">
+          <End Role="Caja" Type="Self.Caja" Multiplicity="1" />
+          <End Role="CierreDias" Type="Self.CierreDias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caja">
+              <PropertyRef Name="CajaId" />
+            </Principal>
+            <Dependent Role="CierreDias">
+              <PropertyRef Name="CajaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CierreDias_SaldosIniciales">
+          <End Role="SaldosIniciales" Type="Self.SaldosIniciales" Multiplicity="1" />
+          <End Role="CierreDias" Type="Self.CierreDias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SaldosIniciales">
+              <PropertyRef Name="SaldoInicial_Id" />
+            </Principal>
+            <Dependent Role="CierreDias">
+              <PropertyRef Name="SaldoInicial_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CierreDias_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="CierreDias" Type="Self.CierreDias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="CierreDias">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cierres_Caja">
+          <End Role="Caja" Type="Self.Caja" Multiplicity="1" />
+          <End Role="Cierres" Type="Self.Cierres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caja">
+              <PropertyRef Name="CajaId" />
+            </Principal>
+            <Dependent Role="Cierres">
+              <PropertyRef Name="CajaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cierres_CierreDias">
+          <End Role="CierreDias" Type="Self.CierreDias" Multiplicity="1" />
+          <End Role="Cierres" Type="Self.Cierres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CierreDias">
+              <PropertyRef Name="CierreDia_Id" />
+            </Principal>
+            <Dependent Role="Cierres">
+              <PropertyRef Name="CierreDia_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cierres_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Cierres" Type="Self.Cierres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Cierres">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaldosIniciales_Caja">
+          <End Role="Caja" Type="Self.Caja" Multiplicity="1" />
+          <End Role="SaldosIniciales" Type="Self.SaldosIniciales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caja">
+              <PropertyRef Name="CajaId" />
+            </Principal>
+            <Dependent Role="SaldosIniciales">
+              <PropertyRef Name="CajaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaldosIniciales_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="SaldosIniciales" Type="Self.SaldosIniciales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="SaldosIniciales">
+              <PropertyRef Name="UsuarioId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="FlujoDeCajaModelStoreContainer">
+          <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Caja" EntityType="Self.Caja" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CierreDia" EntityType="Self.CierreDia" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Dia" EntityType="Self.Dia" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Semana" EntityType="Self.Semana" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Transaccion" EntityType="Self.Transaccion" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TransaccionDetalle" EntityType="Self.TransaccionDetalle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CierreDias" EntityType="Self.CierreDias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cierres" EntityType="Self.Cierres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SaldosIniciales" EntityType="Self.SaldosIniciales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_CierreDia_Semana" Association="Self.FK_CierreDia_Semana">
-            <End Role="Semana" EntitySet="Semana" />
-            <End Role="CierreDia" EntitySet="CierreDia" />
+          <AssociationSet Name="FK_Bitacora_CierreDias" Association="Self.FK_Bitacora_CierreDias">
+            <End Role="CierreDias" EntitySet="CierreDias" />
+            <End Role="Bitacora" EntitySet="Bitacora" />
           </AssociationSet>
-          <AssociationSet Name="FK_Transaccion_Caja" Association="Self.FK_Transaccion_Caja">
-            <End Role="Caja" EntitySet="Caja" />
-            <End Role="Transaccion" EntitySet="Transaccion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Transaccion_Dia" Association="Self.FK_Transaccion_Dia">
-            <End Role="Dia" EntitySet="Dia" />
-            <End Role="Transaccion" EntitySet="Transaccion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Transaccion_Semana" Association="Self.FK_Transaccion_Semana">
-            <End Role="Semana" EntitySet="Semana" />
-            <End Role="Transaccion" EntitySet="Transaccion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Transaccion_Usuario" Association="Self.FK_Transaccion_Usuario">
+          <AssociationSet Name="FK_Bitacora_Usuario" Association="Self.FK_Bitacora_Usuario">
             <End Role="Usuario" EntitySet="Usuario" />
-            <End Role="Transaccion" EntitySet="Transaccion" />
+            <End Role="Bitacora" EntitySet="Bitacora" />
           </AssociationSet>
-          <AssociationSet Name="FK_TransaccionDetalle_Transaccion" Association="Self.FK_TransaccionDetalle_Transaccion">
-            <End Role="Transaccion" EntitySet="Transaccion" />
-            <End Role="TransaccionDetalle" EntitySet="TransaccionDetalle" />
+          <AssociationSet Name="FK_CierreDias_Caja" Association="Self.FK_CierreDias_Caja">
+            <End Role="Caja" EntitySet="Caja" />
+            <End Role="CierreDias" EntitySet="CierreDias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CierreDias_Caja1" Association="Self.FK_CierreDias_Caja1">
+            <End Role="Caja" EntitySet="Caja" />
+            <End Role="CierreDias" EntitySet="CierreDias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CierreDias_SaldosIniciales" Association="Self.FK_CierreDias_SaldosIniciales">
+            <End Role="SaldosIniciales" EntitySet="SaldosIniciales" />
+            <End Role="CierreDias" EntitySet="CierreDias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CierreDias_Usuario" Association="Self.FK_CierreDias_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="CierreDias" EntitySet="CierreDias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cierres_Caja" Association="Self.FK_Cierres_Caja">
+            <End Role="Caja" EntitySet="Caja" />
+            <End Role="Cierres" EntitySet="Cierres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cierres_CierreDias" Association="Self.FK_Cierres_CierreDias">
+            <End Role="CierreDias" EntitySet="CierreDias" />
+            <End Role="Cierres" EntitySet="Cierres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cierres_Usuario" Association="Self.FK_Cierres_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Cierres" EntitySet="Cierres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaldosIniciales_Caja" Association="Self.FK_SaldosIniciales_Caja">
+            <End Role="Caja" EntitySet="Caja" />
+            <End Role="SaldosIniciales" EntitySet="SaldosIniciales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaldosIniciales_Usuario" Association="Self.FK_SaldosIniciales_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="SaldosIniciales" EntitySet="SaldosIniciales" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FlujoDeCajaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="FlujoDeCajaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bitacora" EntityType="FlujoDeCajaModel.Bitacora" />
+          <EntitySet Name="Caja" EntityType="FlujoDeCajaModel.Caja" />
+          <EntitySet Name="CierreDias" EntityType="FlujoDeCajaModel.CierreDias" />
+          <EntitySet Name="SaldosIniciales" EntityType="FlujoDeCajaModel.SaldosIniciales" />
+          <AssociationSet Name="FK_Bitacora_CierreDias" Association="FlujoDeCajaModel.FK_Bitacora_CierreDias">
+            <End Role="CierreDias" EntitySet="CierreDias" />
+            <End Role="Bitacora" EntitySet="Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CierreDias_Caja" Association="FlujoDeCajaModel.FK_CierreDias_Caja">
+            <End Role="Caja" EntitySet="Caja" />
+            <End Role="CierreDias" EntitySet="CierreDias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CierreDias_Caja1" Association="FlujoDeCajaModel.FK_CierreDias_Caja1">
+            <End Role="Caja" EntitySet="Caja" />
+            <End Role="CierreDias" EntitySet="CierreDias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaldosIniciales_Caja" Association="FlujoDeCajaModel.FK_SaldosIniciales_Caja">
+            <End Role="Caja" EntitySet="Caja" />
+            <End Role="SaldosIniciales" EntitySet="SaldosIniciales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CierreDias_SaldosIniciales" Association="FlujoDeCajaModel.FK_CierreDias_SaldosIniciales">
+            <End Role="SaldosIniciales" EntitySet="SaldosIniciales" />
+            <End Role="CierreDias" EntitySet="CierreDias" />
+          </AssociationSet>
+          <EntitySet Name="Cierres" EntityType="FlujoDeCajaModel.Cierres" />
+          <AssociationSet Name="FK_Cierres_Caja" Association="FlujoDeCajaModel.FK_Cierres_Caja">
+            <End Role="Caja" EntitySet="Caja" />
+            <End Role="Cierres" EntitySet="Cierres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cierres_CierreDias" Association="FlujoDeCajaModel.FK_Cierres_CierreDias">
+            <End Role="CierreDias" EntitySet="CierreDias" />
+            <End Role="Cierres" EntitySet="Cierres" />
+          </AssociationSet>
+          <EntitySet Name="Usuario" EntityType="FlujoDeCajaModel.Usuario" />
+          <AssociationSet Name="FK_Bitacora_Usuario" Association="FlujoDeCajaModel.FK_Bitacora_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Bitacora" EntitySet="Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CierreDias_Usuario" Association="FlujoDeCajaModel.FK_CierreDias_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="CierreDias" EntitySet="CierreDias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cierres_Usuario" Association="FlujoDeCajaModel.FK_Cierres_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Cierres" EntitySet="Cierres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaldosIniciales_Usuario" Association="FlujoDeCajaModel.FK_SaldosIniciales_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="SaldosIniciales" EntitySet="SaldosIniciales" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Bitacora">
+          <Key>
+            <PropertyRef Name="Bitacora_Id" />
+          </Key>
+          <Property Name="Bitacora_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BitacoraDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BitacoraFecha" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+          <Property Name="CierreDia_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CierreDias" Relationship="FlujoDeCajaModel.FK_Bitacora_CierreDias" FromRole="Bitacora" ToRole="CierreDias" />
+          <NavigationProperty Name="Usuario" Relationship="FlujoDeCajaModel.FK_Bitacora_Usuario" FromRole="Bitacora" ToRole="Usuario" />
+        </EntityType>
         <EntityType Name="Caja">
           <Key>
             <PropertyRef Name="CajaId" />
           </Key>
           <Property Name="CajaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CajaNumero" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Transaccion" Relationship="Self.FK_Transaccion_Caja" FromRole="Caja" ToRole="Transaccion" />
+          <Property Name="CajaNumero" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CierreDias" Relationship="FlujoDeCajaModel.FK_CierreDias_Caja" FromRole="Caja" ToRole="CierreDias" />
+          <NavigationProperty Name="CierreDias1" Relationship="FlujoDeCajaModel.FK_CierreDias_Caja1" FromRole="Caja" ToRole="CierreDias" />
+          <NavigationProperty Name="SaldosIniciales" Relationship="FlujoDeCajaModel.FK_SaldosIniciales_Caja" FromRole="Caja" ToRole="SaldosIniciales" />
+          <NavigationProperty Name="Cierres" Relationship="FlujoDeCajaModel.FK_Cierres_Caja" FromRole="Caja" ToRole="Cierres" />
         </EntityType>
-        <EntityType Name="CierreDia">
+        <EntityType Name="CierreDias">
           <Key>
-            <PropertyRef Name="CierreDiaId" />
+            <PropertyRef Name="CierreDia_Id" />
           </Key>
-          <Property Name="CierreDiaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CierreDiaTotal" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="CierreDiaFecha" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="SemanaId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Semana" Relationship="Self.FK_CierreDia_Semana" FromRole="CierreDia" ToRole="Semana" />
-        </EntityType>
-
-        <EntityType Name="Semana">
-          <Key>
-            <PropertyRef Name="SemanaId" />
-          </Key>
-          <Property Name="SemanaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SemanaNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CierreDia" Relationship="Self.FK_CierreDia_Semana" FromRole="Semana" ToRole="CierreDia" />
-          <NavigationProperty Name="Transaccion" Relationship="Self.FK_Transaccion_Semana" FromRole="Semana" ToRole="Transaccion" />
-        </EntityType>
-        <EntityType Name="Transaccion">
-          <Key>
-            <PropertyRef Name="TransaccionId" />
-          </Key>
-          <Property Name="TransaccionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CierreDia_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CierreDiaTotal" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CierreDiaFecha" Type="DateTime" Precision="3" />
+          <Property Name="SaldoInicial_Id" Type="Int32" Nullable="false" />
           <Property Name="UsuarioId" Type="Int32" Nullable="false" />
           <Property Name="CajaId" Type="Int32" Nullable="false" />
-          <Property Name="DiaId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Caja" Relationship="Self.FK_Transaccion_Caja" FromRole="Transaccion" ToRole="Caja" />
-          <NavigationProperty Name="Semana" Relationship="Self.FK_Transaccion_Semana" FromRole="Transaccion" ToRole="Semana" />
-          <NavigationProperty Name="Usuario" Relationship="Self.FK_Transaccion_Usuario" FromRole="Transaccion" ToRole="Usuario" />
-          <NavigationProperty Name="TransaccionDetalle" Relationship="Self.FK_TransaccionDetalle_Transaccion" FromRole="Transaccion" ToRole="TransaccionDetalle" />
-          <NavigationProperty Name="Dia" Relationship="FlujoDeCajaModel.FK_Transaccion_Dia" FromRole="Transaccion" ToRole="Dia" />
+          <NavigationProperty Name="Bitacora" Relationship="FlujoDeCajaModel.FK_Bitacora_CierreDias" FromRole="CierreDias" ToRole="Bitacora" />
+          <NavigationProperty Name="Caja" Relationship="FlujoDeCajaModel.FK_CierreDias_Caja" FromRole="CierreDias" ToRole="Caja" />
+          <NavigationProperty Name="Caja1" Relationship="FlujoDeCajaModel.FK_CierreDias_Caja1" FromRole="CierreDias" ToRole="Caja" />
+          <NavigationProperty Name="SaldosIniciales" Relationship="FlujoDeCajaModel.FK_CierreDias_SaldosIniciales" FromRole="CierreDias" ToRole="SaldosIniciales" />
+          <NavigationProperty Name="Cierres" Relationship="FlujoDeCajaModel.FK_Cierres_CierreDias" FromRole="CierreDias" ToRole="Cierres" />
+          <NavigationProperty Name="Usuario" Relationship="FlujoDeCajaModel.FK_CierreDias_Usuario" FromRole="CierreDias" ToRole="Usuario" />
         </EntityType>
-        <EntityType Name="TransaccionDetalle">
+        <EntityType Name="SaldosIniciales">
           <Key>
-            <PropertyRef Name="TransaccionDetalleId" />
+            <PropertyRef Name="SaldoInicial_Id" />
           </Key>
-          <Property Name="TransaccionDetalleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TransaccionId" Type="Int32" Nullable="false" />
-          <Property Name="Saldo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Cantidad" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Transaccion" Relationship="Self.FK_TransaccionDetalle_Transaccion" FromRole="TransaccionDetalle" ToRole="Transaccion" />
+          <Property Name="SaldoInicial_Id" Type="Int32" Nullable="false" />
+          <Property Name="SaldoInicialTotal" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="SaldoInicialFecha" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+          <Property Name="CajaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Caja" Relationship="FlujoDeCajaModel.FK_SaldosIniciales_Caja" FromRole="SaldosIniciales" ToRole="Caja" />
+          <NavigationProperty Name="CierreDias" Relationship="FlujoDeCajaModel.FK_CierreDias_SaldosIniciales" FromRole="SaldosIniciales" ToRole="CierreDias" />
+          <NavigationProperty Name="Usuario" Relationship="FlujoDeCajaModel.FK_SaldosIniciales_Usuario" FromRole="SaldosIniciales" ToRole="Usuario" />
         </EntityType>
+        <Association Name="FK_Bitacora_CierreDias">
+          <End Type="FlujoDeCajaModel.CierreDias" Role="CierreDias" Multiplicity="1" />
+          <End Type="FlujoDeCajaModel.Bitacora" Role="Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CierreDias">
+              <PropertyRef Name="CierreDia_Id" />
+            </Principal>
+            <Dependent Role="Bitacora">
+              <PropertyRef Name="CierreDia_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CierreDias_Caja">
+          <End Type="FlujoDeCajaModel.Caja" Role="Caja" Multiplicity="1" />
+          <End Type="FlujoDeCajaModel.CierreDias" Role="CierreDias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caja">
+              <PropertyRef Name="CajaId" />
+            </Principal>
+            <Dependent Role="CierreDias">
+              <PropertyRef Name="CajaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CierreDias_Caja1">
+          <End Type="FlujoDeCajaModel.Caja" Role="Caja" Multiplicity="1" />
+          <End Type="FlujoDeCajaModel.CierreDias" Role="CierreDias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caja">
+              <PropertyRef Name="CajaId" />
+            </Principal>
+            <Dependent Role="CierreDias">
+              <PropertyRef Name="CajaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaldosIniciales_Caja">
+          <End Type="FlujoDeCajaModel.Caja" Role="Caja" Multiplicity="1" />
+          <End Type="FlujoDeCajaModel.SaldosIniciales" Role="SaldosIniciales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caja">
+              <PropertyRef Name="CajaId" />
+            </Principal>
+            <Dependent Role="SaldosIniciales">
+              <PropertyRef Name="CajaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CierreDias_SaldosIniciales">
+          <End Type="FlujoDeCajaModel.SaldosIniciales" Role="SaldosIniciales" Multiplicity="1" />
+          <End Type="FlujoDeCajaModel.CierreDias" Role="CierreDias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SaldosIniciales">
+              <PropertyRef Name="SaldoInicial_Id" />
+            </Principal>
+            <Dependent Role="CierreDias">
+              <PropertyRef Name="SaldoInicial_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Cierres">
+          <Key>
+            <PropertyRef Name="Cierre_Id" />
+          </Key>
+          <Property Name="Cierre_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CierreTotal" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CierreFechaInicial" Type="DateTime" Precision="3" />
+          <Property Name="CierreFechaFinal" Type="DateTime" Precision="3" />
+          <Property Name="CajaId" Type="Int32" Nullable="false" />
+          <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+          <Property Name="CierreDia_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Caja" Relationship="FlujoDeCajaModel.FK_Cierres_Caja" FromRole="Cierres" ToRole="Caja" />
+          <NavigationProperty Name="CierreDias" Relationship="FlujoDeCajaModel.FK_Cierres_CierreDias" FromRole="Cierres" ToRole="CierreDias" />
+          <NavigationProperty Name="Usuario" Relationship="FlujoDeCajaModel.FK_Cierres_Usuario" FromRole="Cierres" ToRole="Usuario" />
+        </EntityType>
+        <Association Name="FK_Cierres_Caja">
+          <End Type="FlujoDeCajaModel.Caja" Role="Caja" Multiplicity="1" />
+          <End Type="FlujoDeCajaModel.Cierres" Role="Cierres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caja">
+              <PropertyRef Name="CajaId" />
+            </Principal>
+            <Dependent Role="Cierres">
+              <PropertyRef Name="CajaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cierres_CierreDias">
+          <End Type="FlujoDeCajaModel.CierreDias" Role="CierreDias" Multiplicity="1" />
+          <End Type="FlujoDeCajaModel.Cierres" Role="Cierres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CierreDias">
+              <PropertyRef Name="CierreDia_Id" />
+            </Principal>
+            <Dependent Role="Cierres">
+              <PropertyRef Name="CierreDia_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="Usuario">
           <Key>
             <PropertyRef Name="UsuarioId" />
           </Key>
           <Property Name="UsuarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UsuarioNombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="UsuarioRTN" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="UsuarioPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="UsuarioTipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Transaccion" Relationship="Self.FK_Transaccion_Usuario" FromRole="Usuario" ToRole="Transaccion" />
+          <Property Name="UsuarioNombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioDNI" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioTipo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bitacora" Relationship="FlujoDeCajaModel.FK_Bitacora_Usuario" FromRole="Usuario" ToRole="Bitacora" />
+          <NavigationProperty Name="CierreDias" Relationship="FlujoDeCajaModel.FK_CierreDias_Usuario" FromRole="Usuario" ToRole="CierreDias" />
+          <NavigationProperty Name="Cierres" Relationship="FlujoDeCajaModel.FK_Cierres_Usuario" FromRole="Usuario" ToRole="Cierres" />
+          <NavigationProperty Name="SaldosIniciales" Relationship="FlujoDeCajaModel.FK_SaldosIniciales_Usuario" FromRole="Usuario" ToRole="SaldosIniciales" />
         </EntityType>
-        <Association Name="FK_Transaccion_Caja">
-          <End Role="Caja" Type="Self.Caja" Multiplicity="1" />
-          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Caja">
-              <PropertyRef Name="CajaId" />
-            </Principal>
-            <Dependent Role="Transaccion">
-              <PropertyRef Name="CajaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CierreDia_Semana">
-          <End Role="Semana" Type="Self.Semana" Multiplicity="1" />
-          <End Role="CierreDia" Type="Self.CierreDia" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Semana">
-              <PropertyRef Name="SemanaId" />
-            </Principal>
-            <Dependent Role="CierreDia">
-              <PropertyRef Name="SemanaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Transaccion_Semana">
-          <End Role="Semana" Type="Self.Semana" Multiplicity="1" />
-          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Semana">
-              <PropertyRef Name="SemanaId" />
-            </Principal>
-            <Dependent Role="Transaccion">
-              <PropertyRef Name="DiaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Transaccion_Usuario">
-          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
-          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+        <Association Name="FK_Bitacora_Usuario">
+          <End Type="FlujoDeCajaModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="FlujoDeCajaModel.Bitacora" Role="Bitacora" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuario">
               <PropertyRef Name="UsuarioId" />
             </Principal>
-            <Dependent Role="Transaccion">
+            <Dependent Role="Bitacora">
               <PropertyRef Name="UsuarioId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TransaccionDetalle_Transaccion">
-          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="1" />
-          <End Role="TransaccionDetalle" Type="Self.TransaccionDetalle" Multiplicity="*" />
+        <Association Name="FK_CierreDias_Usuario">
+          <End Type="FlujoDeCajaModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="FlujoDeCajaModel.CierreDias" Role="CierreDias" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Transaccion">
-              <PropertyRef Name="TransaccionId" />
+            <Principal Role="Usuario">
+              <PropertyRef Name="UsuarioId" />
             </Principal>
-            <Dependent Role="TransaccionDetalle">
-              <PropertyRef Name="TransaccionId" />
+            <Dependent Role="CierreDias">
+              <PropertyRef Name="UsuarioId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="FlujoDeCajaEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Caja" EntityType="Self.Caja" />
-          <EntitySet Name="CierreDia" EntityType="Self.CierreDia" />
-
-          <EntitySet Name="Semana" EntityType="Self.Semana" />
-          <EntitySet Name="Transaccion" EntityType="Self.Transaccion" />
-          <EntitySet Name="TransaccionDetalle" EntityType="Self.TransaccionDetalle" />
-          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
-          <AssociationSet Name="FK_Transaccion_Caja" Association="Self.FK_Transaccion_Caja">
-            <End Role="Caja" EntitySet="Caja" />
-            <End Role="Transaccion" EntitySet="Transaccion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CierreDia_Semana" Association="Self.FK_CierreDia_Semana">
-            <End Role="Semana" EntitySet="Semana" />
-            <End Role="CierreDia" EntitySet="CierreDia" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Transaccion_Semana" Association="Self.FK_Transaccion_Semana">
-            <End Role="Semana" EntitySet="Semana" />
-            <End Role="Transaccion" EntitySet="Transaccion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Transaccion_Usuario" Association="Self.FK_Transaccion_Usuario">
-            <End Role="Usuario" EntitySet="Usuario" />
-            <End Role="Transaccion" EntitySet="Transaccion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransaccionDetalle_Transaccion" Association="Self.FK_TransaccionDetalle_Transaccion">
-            <End Role="Transaccion" EntitySet="Transaccion" />
-            <End Role="TransaccionDetalle" EntitySet="TransaccionDetalle" />
-          </AssociationSet>
-          <EntitySet Name="Dia" EntityType="FlujoDeCajaModel.Dia" />
-          <AssociationSet Name="FK_Transaccion_Dia" Association="FlujoDeCajaModel.FK_Transaccion_Dia">
-            <End Role="Dia" EntitySet="Dia" />
-            <End Role="Transaccion" EntitySet="Transaccion" />
-          </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="Dia">
-          <Key>
-            <PropertyRef Name="DiaId" />
-          </Key>
-          <Property Name="DiaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DiaNombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Transaccion" Relationship="FlujoDeCajaModel.FK_Transaccion_Dia" FromRole="Dia" ToRole="Transaccion" />
-        </EntityType>
-        <Association Name="FK_Transaccion_Dia">
-          <End Type="FlujoDeCajaModel.Dia" Role="Dia" Multiplicity="1" />
-          <End Type="FlujoDeCajaModel.Transaccion" Role="Transaccion" Multiplicity="*" />
+        <Association Name="FK_Cierres_Usuario">
+          <End Type="FlujoDeCajaModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="FlujoDeCajaModel.Cierres" Role="Cierres" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Dia">
-              <PropertyRef Name="DiaId" />
+            <Principal Role="Usuario">
+              <PropertyRef Name="UsuarioId" />
             </Principal>
-            <Dependent Role="Transaccion">
-              <PropertyRef Name="DiaId" />
+            <Dependent Role="Cierres">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaldosIniciales_Usuario">
+          <End Type="FlujoDeCajaModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="FlujoDeCajaModel.SaldosIniciales" Role="SaldosIniciales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="SaldosIniciales">
+              <PropertyRef Name="UsuarioId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -357,69 +525,69 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="FlujoDeCajaModelStoreContainer" CdmEntityContainer="FlujoDeCajaEntities">
+          <EntitySetMapping Name="Bitacora">
+            <EntityTypeMapping TypeName="FlujoDeCajaModel.Bitacora">
+              <MappingFragment StoreEntitySet="Bitacora">
+                <ScalarProperty Name="CierreDia_Id" ColumnName="CierreDia_Id" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="BitacoraFecha" ColumnName="BitacoraFecha" />
+                <ScalarProperty Name="BitacoraDescripcion" ColumnName="BitacoraDescripcion" />
+                <ScalarProperty Name="Bitacora_Id" ColumnName="Bitacora_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Caja">
             <EntityTypeMapping TypeName="FlujoDeCajaModel.Caja">
               <MappingFragment StoreEntitySet="Caja">
-                <ScalarProperty Name="CajaId" ColumnName="CajaId" />
                 <ScalarProperty Name="CajaNumero" ColumnName="CajaNumero" />
+                <ScalarProperty Name="CajaId" ColumnName="CajaId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CierreDia">
-            <EntityTypeMapping TypeName="FlujoDeCajaModel.CierreDia">
-              <MappingFragment StoreEntitySet="CierreDia">
-                <ScalarProperty Name="CierreDiaId" ColumnName="CierreDiaId" />
-                <ScalarProperty Name="CierreDiaTotal" ColumnName="CierreDiaTotal" />
+          <EntitySetMapping Name="CierreDias">
+            <EntityTypeMapping TypeName="FlujoDeCajaModel.CierreDias">
+              <MappingFragment StoreEntitySet="CierreDias">
+                <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="SaldoInicial_Id" ColumnName="SaldoInicial_Id" />
                 <ScalarProperty Name="CierreDiaFecha" ColumnName="CierreDiaFecha" />
-                <ScalarProperty Name="SemanaId" ColumnName="SemanaId" />
+                <ScalarProperty Name="CierreDiaTotal" ColumnName="CierreDiaTotal" />
+                <ScalarProperty Name="CierreDia_Id" ColumnName="CierreDia_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Semana">
-            <EntityTypeMapping TypeName="FlujoDeCajaModel.Semana">
-              <MappingFragment StoreEntitySet="Semana">
-                <ScalarProperty Name="SemanaId" ColumnName="SemanaId" />
-                <ScalarProperty Name="SemanaNombre" ColumnName="SemanaNombre" />
+          <EntitySetMapping Name="SaldosIniciales">
+            <EntityTypeMapping TypeName="FlujoDeCajaModel.SaldosIniciales">
+              <MappingFragment StoreEntitySet="SaldosIniciales">
+                <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="SaldoInicialFecha" ColumnName="SaldoInicialFecha" />
+                <ScalarProperty Name="SaldoInicialTotal" ColumnName="SaldoInicialTotal" />
+                <ScalarProperty Name="SaldoInicial_Id" ColumnName="SaldoInicial_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Transaccion">
-            <EntityTypeMapping TypeName="FlujoDeCajaModel.Transaccion">
-              <MappingFragment StoreEntitySet="Transaccion">
-                <ScalarProperty Name="TransaccionId" ColumnName="TransaccionId" />
+          <EntitySetMapping Name="Cierres">
+            <EntityTypeMapping TypeName="FlujoDeCajaModel.Cierres">
+              <MappingFragment StoreEntitySet="Cierres">
+                <ScalarProperty Name="CierreDia_Id" ColumnName="CierreDia_Id" />
                 <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
                 <ScalarProperty Name="CajaId" ColumnName="CajaId" />
-                <ScalarProperty Name="DiaId" ColumnName="DiaId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TransaccionDetalle">
-            <EntityTypeMapping TypeName="FlujoDeCajaModel.TransaccionDetalle">
-              <MappingFragment StoreEntitySet="TransaccionDetalle">
-                <ScalarProperty Name="TransaccionDetalleId" ColumnName="TransaccionDetalleId" />
-                <ScalarProperty Name="TransaccionId" ColumnName="TransaccionId" />
-                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="CierreFechaFinal" ColumnName="CierreFechaFinal" />
+                <ScalarProperty Name="CierreFechaInicial" ColumnName="CierreFechaInicial" />
+                <ScalarProperty Name="CierreTotal" ColumnName="CierreTotal" />
+                <ScalarProperty Name="Cierre_Id" ColumnName="Cierre_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="FlujoDeCajaModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
-                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
-                <ScalarProperty Name="UsuarioNombre" ColumnName="UsuarioNombre" />
-                <ScalarProperty Name="UsuarioRTN" ColumnName="UsuarioRTN" />
-                <ScalarProperty Name="UsuarioPassword" ColumnName="UsuarioPassword" />
                 <ScalarProperty Name="UsuarioTipo" ColumnName="UsuarioTipo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Dia">
-            <EntityTypeMapping TypeName="FlujoDeCajaModel.Dia">
-              <MappingFragment StoreEntitySet="Dia">
-                <ScalarProperty Name="DiaNombre" ColumnName="DiaNombre" />
-                <ScalarProperty Name="DiaId" ColumnName="DiaId" />
+                <ScalarProperty Name="UsuarioPassword" ColumnName="UsuarioPassword" />
+                <ScalarProperty Name="UsuarioDNI" ColumnName="UsuarioDNI" />
+                <ScalarProperty Name="UsuarioNombre" ColumnName="UsuarioNombre" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

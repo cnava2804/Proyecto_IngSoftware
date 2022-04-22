@@ -12,18 +12,23 @@ namespace Multi_TornillosDAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Dia
+    public partial class SaldosIniciales
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Dia()
+        public SaldosIniciales()
         {
-            this.Transaccion = new HashSet<Transaccion>();
+            this.CierreDias = new HashSet<CierreDias>();
         }
     
-        public int DiaId { get; set; }
-        public string DiaNombre { get; set; }
+        public int SaldoInicial_Id { get; set; }
+        public Nullable<decimal> SaldoInicialTotal { get; set; }
+        public Nullable<System.DateTime> SaldoInicialFecha { get; set; }
+        public int UsuarioId { get; set; }
+        public int CajaId { get; set; }
     
+        public virtual Caja Caja { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Transaccion> Transaccion { get; set; }
+        public virtual ICollection<CierreDias> CierreDias { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

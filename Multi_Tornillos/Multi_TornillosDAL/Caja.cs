@@ -17,13 +17,22 @@ namespace Multi_TornillosDAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Caja()
         {
-            this.Transaccion = new HashSet<Transaccion>();
+            this.CierreDias = new HashSet<CierreDias>();
+            this.CierreDias1 = new HashSet<CierreDias>();
+            this.SaldosIniciales = new HashSet<SaldosIniciales>();
+            this.Cierres = new HashSet<Cierres>();
         }
     
         public int CajaId { get; set; }
         public string CajaNumero { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Transaccion> Transaccion { get; set; }
+        public virtual ICollection<CierreDias> CierreDias { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CierreDias> CierreDias1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SaldosIniciales> SaldosIniciales { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cierres> Cierres { get; set; }
     }
 }

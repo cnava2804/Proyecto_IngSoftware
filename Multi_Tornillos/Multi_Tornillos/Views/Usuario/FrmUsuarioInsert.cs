@@ -42,7 +42,7 @@ namespace Multi_Tornillos.Views.Usuario
                 {
                     UsuarioNombre = txtNombre.Text,
                     UsuarioPassword = txtPassword.Text,
-                    UsuarioRTN = txtRTN.Text,
+                    UsuarioDNI = txtRTN.Text,
                     UsuarioTipo = tipo
                 };
 

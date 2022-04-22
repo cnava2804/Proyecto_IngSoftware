@@ -23,16 +23,10 @@ namespace Multi_Tornillos.Views.Caja
             tabControl1.TabPages.Add(cajas);
         }
 
-        private void mnuListaDias_Click(object sender, EventArgs e)
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmDiasList dias = new FrmDiasList();
-            tabControl1.TabPages.Add(dias);
-        }
-
-        private void listaSemanasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmSemanasList semanas = new FrmSemanasList();
-            tabControl1.TabPages.Add(semanas);
+            Multi_Tornillos.Views.Usuario.FrmUsuarioList user = new Usuario.FrmUsuarioList();
+            tabControl1.TabPages.Add(user);
         }
     }
 }
