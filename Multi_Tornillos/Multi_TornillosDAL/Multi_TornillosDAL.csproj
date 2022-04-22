@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DF0A1DEE-79EA-49BF-80C1-B5C26EA3FE08}</ProjectGuid>
+    <ProjectGuid>{63DDC249-63FF-4813-ABA1-95BC19C4CF56}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Multi_TornillosDAL</RootNamespace>
@@ -87,7 +87,9 @@
     <Compile Include="Usuario.cs">
       <DependentUpon>Multi_Tornillos.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\UsuarioViewModel.cs" />
+    <Compile Include="ViewModels\CajaViewModel.cs" />
+    <Compile Include="ViewModels\DiaViewModel.cs" />
+    <Compile Include="ViewModels\SemanaViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Multi_Tornillos.edmx">

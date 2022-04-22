@@ -32,5 +32,6 @@ namespace Multi_TornillosDAL
         public virtual DbSet<Transaccion> Transaccion { get; set; }
         public virtual DbSet<TransaccionDetalle> TransaccionDetalle { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Dia> Dia { get; set; }
     }
 }

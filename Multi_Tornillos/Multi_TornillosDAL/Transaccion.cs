@@ -26,10 +26,11 @@ namespace Multi_TornillosDAL
         public int DiaId { get; set; }
     
         public virtual Caja Caja { get; set; }
-        public virtual Dia Dia { get; set; }
         public virtual Semana Semana { get; set; }
         public virtual Usuario Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TransaccionDetalle> TransaccionDetalle { get; set; }
+        public virtual Dia Dia { get; set; }
+
     }
 }
