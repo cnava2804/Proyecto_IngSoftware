@@ -191,6 +191,7 @@
           <Property Name="SemanaId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Semana" Relationship="Self.FK_CierreDia_Semana" FromRole="CierreDia" ToRole="Semana" />
         </EntityType>
+
         <EntityType Name="Semana">
           <Key>
             <PropertyRef Name="SemanaId" />
@@ -299,6 +300,7 @@
         <EntityContainer Name="FlujoDeCajaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Caja" EntityType="Self.Caja" />
           <EntitySet Name="CierreDia" EntityType="Self.CierreDia" />
+
           <EntitySet Name="Semana" EntityType="Self.Semana" />
           <EntitySet Name="Transaccion" EntityType="Self.Transaccion" />
           <EntitySet Name="TransaccionDetalle" EntityType="Self.TransaccionDetalle" />

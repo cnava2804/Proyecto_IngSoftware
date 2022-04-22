@@ -31,5 +31,6 @@ namespace Multi_TornillosDAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TransaccionDetalle> TransaccionDetalle { get; set; }
         public virtual Dia Dia { get; set; }
+
     }
 }
