@@ -24,7 +24,7 @@ namespace Multi_Tornillos.Views.Usuario
             txtId.Text = usuario.UsuarioId.ToString();
             txtNombre.Text = usuario.UsuarioNombre;
             txtPassword.Text = usuario.UsuarioPassword;
-            txtRTN.Text = usuario.UsuarioRTN;
+            txtRTN.Text = usuario.UsuarioDNI;
             if (usuario.UsuarioTipo == "Usuario")
             {
                 rbUsuario.Checked = true;

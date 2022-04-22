@@ -12,14 +12,18 @@ namespace Multi_TornillosDAL
     using System;
     using System.Collections.Generic;
     
-    public partial class TransaccionDetalle
+    public partial class Cierres
     {
-        public int TransaccionDetalleId { get; set; }
-        public int TransaccionId { get; set; }
-        public string Saldo { get; set; }
-        public string Tipo { get; set; }
-        public int Cantidad { get; set; }
+        public int Cierre_Id { get; set; }
+        public Nullable<decimal> CierreTotal { get; set; }
+        public Nullable<System.DateTime> CierreFechaInicial { get; set; }
+        public Nullable<System.DateTime> CierreFechaFinal { get; set; }
+        public int CajaId { get; set; }
+        public int UsuarioId { get; set; }
+        public int CierreDia_Id { get; set; }
     
-        public virtual Transaccion Transaccion { get; set; }
+        public virtual Caja Caja { get; set; }
+        public virtual CierreDias CierreDias { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

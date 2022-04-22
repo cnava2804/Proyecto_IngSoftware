@@ -13,7 +13,7 @@ namespace Multi_TornillosBLL
     {
         private readonly FlujoDeCajaEntities db;
 
-        public UsuarioController() 
+        public UsuarioController()
         {
             db = new FlujoDeCajaEntities();
         }
@@ -21,8 +21,8 @@ namespace Multi_TornillosBLL
         public List<UsuarioViewModel> GetUsuarios(string search)
         {
             List<Usuario> usuarios = new List<Usuario>();
-            usuarios = db.Usuario.Where(u => u.UsuarioId.ToString().Contains(search) || 
-                                             u.UsuarioRTN.Contains(search) || u.UsuarioNombre.Contains(search) ||
+            usuarios = db.Usuario.Where(u => u.UsuarioId.ToString().Contains(search) ||
+                                             u.UsuarioDNI.Contains(search) || u.UsuarioNombre.Contains(search) ||
                                              u.UsuarioTipo.Contains(search)).ToList();
 
             return ToViewModelList(usuarios);
@@ -33,11 +33,11 @@ namespace Multi_TornillosBLL
             List<UsuarioViewModel> usuariosViewModel = new List<UsuarioViewModel>();
             foreach (var usuario in usuarios)
             {
-                usuariosViewModel.Add(new UsuarioViewModel 
+                usuariosViewModel.Add(new UsuarioViewModel
                 {
                     Id = usuario.UsuarioId,
                     Nombre = usuario.UsuarioNombre,
-                    RTN = usuario.UsuarioRTN,
+                    DNI = usuario.UsuarioDNI,
                     Password = usuario.UsuarioPassword,
                     Tipo = usuario.UsuarioTipo
                 });
@@ -50,7 +50,7 @@ namespace Multi_TornillosBLL
             return db.Usuario.Find(id);
         }
 
-        
+
         public bool Add(Usuario usuario)
         {
             try

@@ -11,7 +11,7 @@ namespace Multi_TornillosDAL.ViewModels
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public string RTN { get; set; }
+        public string DNI { get; set; }
         [DisplayName("Contraseña")]
         public string Password { get; set; }
         [DisplayName("Tipo de Usuario")]

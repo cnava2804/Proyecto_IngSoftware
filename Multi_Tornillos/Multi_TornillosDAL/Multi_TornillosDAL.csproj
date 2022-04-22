@@ -50,13 +50,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bitacora.cs">
+      <DependentUpon>Multi_Tornillos.tt</DependentUpon>
+    </Compile>
     <Compile Include="Caja.cs">
       <DependentUpon>Multi_Tornillos.tt</DependentUpon>
     </Compile>
-    <Compile Include="CierreDia.cs">
+    <Compile Include="CierreDias.cs">
       <DependentUpon>Multi_Tornillos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Dia.cs">
+    <Compile Include="Cierres.cs">
       <DependentUpon>Multi_Tornillos.tt</DependentUpon>
     </Compile>
     <Compile Include="Multi_Tornillos.Context.cs">
@@ -75,21 +78,14 @@
       <DependentUpon>Multi_Tornillos.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Semana.cs">
-      <DependentUpon>Multi_Tornillos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Transaccion.cs">
-      <DependentUpon>Multi_Tornillos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TransaccionDetalle.cs">
+    <Compile Include="SaldosIniciales.cs">
       <DependentUpon>Multi_Tornillos.tt</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs">
       <DependentUpon>Multi_Tornillos.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\CajaViewModel.cs" />
-    <Compile Include="ViewModels\DiaViewModel.cs" />
-    <Compile Include="ViewModels\SemanaViewModel.cs" />
+    <Compile Include="ViewModels\UsuarioViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Multi_Tornillos.edmx">

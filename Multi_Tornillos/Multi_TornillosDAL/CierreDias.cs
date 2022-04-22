@@ -12,25 +12,29 @@ namespace Multi_TornillosDAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Transaccion
+    public partial class CierreDias
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Transaccion()
+        public CierreDias()
         {
-            this.TransaccionDetalle = new HashSet<TransaccionDetalle>();
+            this.Bitacora = new HashSet<Bitacora>();
+            this.Cierres = new HashSet<Cierres>();
         }
     
-        public int TransaccionId { get; set; }
+        public int CierreDia_Id { get; set; }
+        public Nullable<decimal> CierreDiaTotal { get; set; }
+        public Nullable<System.DateTime> CierreDiaFecha { get; set; }
+        public int SaldoInicial_Id { get; set; }
         public int UsuarioId { get; set; }
         public int CajaId { get; set; }
-        public int DiaId { get; set; }
     
-        public virtual Caja Caja { get; set; }
-        public virtual Semana Semana { get; set; }
-        public virtual Usuario Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TransaccionDetalle> TransaccionDetalle { get; set; }
-        public virtual Dia Dia { get; set; }
-
+        public virtual ICollection<Bitacora> Bitacora { get; set; }
+        public virtual Caja Caja { get; set; }
+        public virtual Caja Caja1 { get; set; }
+        public virtual SaldosIniciales SaldosIniciales { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cierres> Cierres { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }
