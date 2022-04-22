@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,7 +36,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="JacksiroKe.MdiTabCtrl, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MdiTabCtrl.1.0.0.1\lib\net40\JacksiroKe.MdiTabCtrl.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -54,6 +67,84 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Dia\FrmDiasDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Dia\FrmDiasDelete.Designer.cs">
+      <DependentUpon>FrmDiasDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dia\FrmDiasEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Dia\FrmDiasEdit.Designer.cs">
+      <DependentUpon>FrmDiasEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dia\FrmDiasList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Dia\FrmDiasList.Designer.cs">
+      <DependentUpon>FrmDiasList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dia\FrmDiasInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Dia\FrmDiasInsert.Designer.cs">
+      <DependentUpon>FrmDiasInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Caja\FrmCajaDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Caja\FrmCajaDelete.Designer.cs">
+      <DependentUpon>FrmCajaDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Caja\FrmCajaEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Caja\FrmCajaEdit.Designer.cs">
+      <DependentUpon>FrmCajaEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Caja\FrmCajaInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Caja\FrmCajaInsert.Designer.cs">
+      <DependentUpon>FrmCajaInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Caja\FrmCajaList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Caja\FrmCajaList.Designer.cs">
+      <DependentUpon>FrmCajaList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Semana\FrmSemanaDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Semana\FrmSemanaDelete.Designer.cs">
+      <DependentUpon>FrmSemanaDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Semana\FrmSemanaEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Semana\FrmSemanaEdit.Designer.cs">
+      <DependentUpon>FrmSemanaEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Semana\FrmSemanaInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Semana\FrmSemanaInsert.Designer.cs">
+      <DependentUpon>FrmSemanaInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Semana\FrmSemanasList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Semana\FrmSemanasList.Designer.cs">
+      <DependentUpon>FrmSemanasList.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +154,46 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Dia\FrmDiasDelete.resx">
+      <DependentUpon>FrmDiasDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Dia\FrmDiasEdit.resx">
+      <DependentUpon>FrmDiasEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Dia\FrmDiasList.resx">
+      <DependentUpon>FrmDiasList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Dia\FrmDiasInsert.resx">
+      <DependentUpon>FrmDiasInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Caja\FrmCajaDelete.resx">
+      <DependentUpon>FrmCajaDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Caja\FrmCajaEdit.resx">
+      <DependentUpon>FrmCajaEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Caja\FrmCajaInsert.resx">
+      <DependentUpon>FrmCajaInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Caja\FrmCajaList.resx">
+      <DependentUpon>FrmCajaList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Semana\FrmSemanaDelete.resx">
+      <DependentUpon>FrmSemanaDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Semana\FrmSemanaEdit.resx">
+      <DependentUpon>FrmSemanaEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Semana\FrmSemanaInsert.resx">
+      <DependentUpon>FrmSemanaInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Semana\FrmSemanasList.resx">
+      <DependentUpon>FrmSemanasList.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -76,5 +207,24 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Multi_TornillosBLL\Multi_TornillosBLL.csproj">
+      <Project>{6e87d569-959b-461c-8b77-c5834a42e89c}</Project>
+      <Name>Multi_TornillosBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Multi_TornillosDAL\Multi_TornillosDAL.csproj">
+      <Project>{63ddc249-63ff-4813-aba1-95bc19c4cf56}</Project>
+      <Name>Multi_TornillosDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>
