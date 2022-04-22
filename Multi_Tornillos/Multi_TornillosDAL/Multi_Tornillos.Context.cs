@@ -27,10 +27,10 @@ namespace Multi_TornillosDAL
     
         public virtual DbSet<Caja> Caja { get; set; }
         public virtual DbSet<CierreDia> CierreDia { get; set; }
-        public virtual DbSet<Dia> Dia { get; set; }
         public virtual DbSet<Semana> Semana { get; set; }
         public virtual DbSet<Transaccion> Transaccion { get; set; }
         public virtual DbSet<TransaccionDetalle> TransaccionDetalle { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Dia> Dia { get; set; }
     }
 }

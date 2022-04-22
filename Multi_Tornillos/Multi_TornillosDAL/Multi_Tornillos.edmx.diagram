@@ -7,17 +7,17 @@
       <Diagram DiagramId="a57cfbb9d8e34b5f83b1a3390333a9d4" Name="Diagram1">
         <EntityTypeShape EntityType="FlujoDeCajaModel.Caja" Width="1.5" PointX="3.75" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="FlujoDeCajaModel.CierreDia" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="FlujoDeCajaModel.Dia" Width="1.5" PointX="3.75" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="FlujoDeCajaModel.Semana" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="FlujoDeCajaModel.Transaccion" Width="1.5" PointX="6" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="FlujoDeCajaModel.TransaccionDetalle" Width="1.5" PointX="8.25" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FlujoDeCajaModel.Usuario" Width="1.5" PointX="3.75" PointY="10.875" IsExpanded="true" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_Transaccion_Caja" ManuallyRouted="false" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_CierreDia_Semana" ManuallyRouted="false" />
-        <AssociationConnector Association="FlujoDeCajaModel.FK_Transaccion_Dia" ManuallyRouted="false" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_Transaccion_Semana" ManuallyRouted="false" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_Transaccion_Usuario" ManuallyRouted="false" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_TransaccionDetalle_Transaccion" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FlujoDeCajaModel.Dia" Width="1.5" PointX="3.75" PointY="8.875" />
+        <AssociationConnector Association="FlujoDeCajaModel.FK_Transaccion_Dia" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
