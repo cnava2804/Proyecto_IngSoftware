@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Multi_Tornillos.Views.SaldosIniciales;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +28,12 @@ namespace Multi_Tornillos.Views.Caja
         {
             Multi_Tornillos.Views.Usuario.FrmUsuarioList user = new Usuario.FrmUsuarioList();
             tabControl1.TabPages.Add(user);
+        }
+
+        private void saldoInicialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmSaldoInicialList saldoInicial = new FrmSaldoInicialList();
+            tabControl1.TabPages.Add(saldoInicial);
         }
     }
 }

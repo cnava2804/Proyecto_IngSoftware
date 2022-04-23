@@ -66,6 +66,18 @@
     <Compile Include="Views\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\SaldosIniciales\FrmSaldoInicialInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SaldosIniciales\FrmSaldoInicialInsert.Designer.cs">
+      <DependentUpon>FrmSaldoInicialInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SaldosIniciales\FrmSaldoInicialList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SaldosIniciales\FrmSaldoInicialList.Designer.cs">
+      <DependentUpon>FrmSaldoInicialList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Usuario\FrmUsuarioDelete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +161,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Caja\FrmCajaList.resx">
       <DependentUpon>FrmCajaList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SaldosIniciales\FrmSaldoInicialInsert.resx">
+      <DependentUpon>FrmSaldoInicialInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SaldosIniciales\FrmSaldoInicialList.resx">
+      <DependentUpon>FrmSaldoInicialList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usuario\FrmUsuarioList.resx">
       <DependentUpon>FrmUsuarioList.cs</DependentUpon>
