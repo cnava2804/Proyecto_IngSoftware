@@ -1,5 +1,6 @@
 
-﻿using Multi_Tornillos.Views.Caja;
+using Multi_Tornillos.Views;
+using Multi_Tornillos.Views.Caja;
 using Multi_Tornillos.Views.Usuario;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace Multi_Tornillos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMenu());
+            Application.Run(new FrmLogin());
         }
     }
 }
