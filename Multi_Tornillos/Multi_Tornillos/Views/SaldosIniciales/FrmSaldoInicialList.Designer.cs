@@ -1,7 +1,6 @@
-﻿
-namespace Multi_Tornillos.Views.Usuario
+﻿namespace Multi_Tornillos.Views.SaldosIniciales
 {
-    partial class FrmUsuarioList
+    partial class FrmSaldoInicialList
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +28,6 @@ namespace Multi_Tornillos.Views.Usuario
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgDatos = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnNuevo = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -40,26 +38,17 @@ namespace Multi_Tornillos.Views.Usuario
             this.txtBuscar = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btnBuscar = new System.Windows.Forms.ToolStripButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dgDatos)).BeginInit();
+            this.dgDatos = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDatos)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgDatos
-            // 
-            this.dgDatos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgDatos.Location = new System.Drawing.Point(0, 23);
-            this.dgDatos.Margin = new System.Windows.Forms.Padding(2);
-            this.dgDatos.Name = "dgDatos";
-            this.dgDatos.RowHeadersWidth = 51;
-            this.dgDatos.RowTemplate.Height = 24;
-            this.dgDatos.Size = new System.Drawing.Size(652, 403);
-            this.dgDatos.TabIndex = 1;
             // 
             // toolStrip1
             // 
+            this.toolStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnNuevo,
@@ -71,10 +60,10 @@ namespace Multi_Tornillos.Views.Usuario
             this.txtBuscar,
             this.toolStripSeparator4,
             this.btnBuscar});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 12);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(652, 25);
-            this.toolStrip1.TabIndex = 2;
+            this.toolStrip1.Size = new System.Drawing.Size(332, 25);
+            this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btnNuevo
@@ -96,7 +85,6 @@ namespace Multi_Tornillos.Views.Usuario
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(41, 22);
             this.btnEditar.Text = "Editar";
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // toolStripSeparator2
             // 
@@ -109,7 +97,6 @@ namespace Multi_Tornillos.Views.Usuario
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(54, 22);
             this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // toolStripSeparator3
             // 
@@ -134,20 +121,32 @@ namespace Multi_Tornillos.Views.Usuario
             this.btnBuscar.Size = new System.Drawing.Size(46, 22);
             this.btnBuscar.Text = "Buscar";
             // 
-            // FrmUsuarioList
+            // dgDatos
+            // 
+            this.dgDatos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgDatos.Location = new System.Drawing.Point(11, 39);
+            this.dgDatos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgDatos.Name = "dgDatos";
+            this.dgDatos.RowHeadersWidth = 51;
+            this.dgDatos.RowTemplate.Height = 24;
+            this.dgDatos.Size = new System.Drawing.Size(778, 400);
+            this.dgDatos.TabIndex = 3;
+            // 
+            // FrmSaldoInicialList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 425);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dgDatos);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "FrmUsuarioList";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrnUsuarioList";
-            ((System.ComponentModel.ISupportInitialize)(this.dgDatos)).EndInit();
+            this.Name = "FrmSaldoInicialList";
+            this.Text = "FrmSaldoInicialList";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDatos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,7 +154,6 @@ namespace Multi_Tornillos.Views.Usuario
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgDatos;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnNuevo;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -166,5 +164,6 @@ namespace Multi_Tornillos.Views.Usuario
         private System.Windows.Forms.ToolStripTextBox txtBuscar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripButton btnBuscar;
+        private System.Windows.Forms.DataGridView dgDatos;
     }
 }

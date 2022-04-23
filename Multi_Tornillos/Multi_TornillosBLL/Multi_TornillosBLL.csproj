@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="CajaController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaldosInicialesController.cs" />
     <Compile Include="UsuarioController.cs" />
     <Compile Include="UsuarioLog.cs" />
   </ItemGroup>
