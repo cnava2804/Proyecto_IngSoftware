@@ -18,6 +18,24 @@ namespace Multi_TornillosBLL
             db = new FlujoDeCajaEntities();
         }
 
+        public int log(string correo, string pass)
+        {
+            var log = from o in db.Usuario where o.UsuarioDNI == correo && o.UsuarioPassword == pass select o;
+
+
+            if (log.Count() > 0)
+            {
+                UsuarioLog.UsuarioId = log.FirstOrDefault().UsuarioId;
+                UsuarioLog.UsuarioNombre = log.FirstOrDefault().UsuarioNombre;
+                UsuarioLog.UsuarioTipo = log.FirstOrDefault().UsuarioTipo;
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
         public List<UsuarioViewModel> GetUsuarios(string search)
         {
             List<Usuario> usuarios = new List<Usuario>();
