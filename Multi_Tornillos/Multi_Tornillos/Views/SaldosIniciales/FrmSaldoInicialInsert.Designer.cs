@@ -65,6 +65,10 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnsumar = new System.Windows.Forms.Button();
+            this.lblusuario = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtTotalsaldoi = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblBilletes
@@ -231,7 +235,8 @@
             // 
             // txtTotalBilletes
             // 
-            this.txtTotalBilletes.Location = new System.Drawing.Point(250, 196);
+            this.txtTotalBilletes.Enabled = false;
+            this.txtTotalBilletes.Location = new System.Drawing.Point(254, 214);
             this.txtTotalBilletes.Multiline = true;
             this.txtTotalBilletes.Name = "txtTotalBilletes";
             this.txtTotalBilletes.Size = new System.Drawing.Size(100, 35);
@@ -240,7 +245,8 @@
             // 
             // txtTotalMonedas
             // 
-            this.txtTotalMonedas.Location = new System.Drawing.Point(671, 196);
+            this.txtTotalMonedas.Enabled = false;
+            this.txtTotalMonedas.Location = new System.Drawing.Point(649, 101);
             this.txtTotalMonedas.Multiline = true;
             this.txtTotalMonedas.Name = "txtTotalMonedas";
             this.txtTotalMonedas.Size = new System.Drawing.Size(100, 35);
@@ -341,7 +347,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(247, 175);
+            this.label3.Location = new System.Drawing.Point(251, 193);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 42;
@@ -350,7 +356,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(668, 175);
+            this.label4.Location = new System.Drawing.Point(646, 80);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 43;
@@ -358,25 +364,27 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(551, 376);
+            this.btnGuardar.Location = new System.Drawing.Point(590, 415);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 44;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(644, 376);
+            this.btnCancelar.Location = new System.Drawing.Point(713, 415);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 45;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnsumar
             // 
-            this.btnsumar.Location = new System.Drawing.Point(250, 363);
+            this.btnsumar.Location = new System.Drawing.Point(453, 415);
             this.btnsumar.Name = "btnsumar";
             this.btnsumar.Size = new System.Drawing.Size(75, 23);
             this.btnsumar.TabIndex = 46;
@@ -384,11 +392,51 @@
             this.btnsumar.UseVisualStyleBackColor = true;
             this.btnsumar.Click += new System.EventHandler(this.btnsumar_Click);
             // 
+            // lblusuario
+            // 
+            this.lblusuario.AutoSize = true;
+            this.lblusuario.Location = new System.Drawing.Point(1, 0);
+            this.lblusuario.Name = "lblusuario";
+            this.lblusuario.Size = new System.Drawing.Size(16, 13);
+            this.lblusuario.TabIndex = 47;
+            this.lblusuario.Text = "...";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(772, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(16, 13);
+            this.label6.TabIndex = 48;
+            this.label6.Text = "...";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(268, 332);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 13);
+            this.label5.TabIndex = 49;
+            this.label5.Text = "Total Final";
+            // 
+            // txtTotalsaldoi
+            // 
+            this.txtTotalsaldoi.Enabled = false;
+            this.txtTotalsaldoi.Location = new System.Drawing.Point(254, 348);
+            this.txtTotalsaldoi.Multiline = true;
+            this.txtTotalsaldoi.Name = "txtTotalsaldoi";
+            this.txtTotalsaldoi.Size = new System.Drawing.Size(100, 35);
+            this.txtTotalsaldoi.TabIndex = 50;
+            // 
             // FrmSaldoInicialInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtTotalsaldoi);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.btnsumar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
@@ -472,5 +520,9 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnsumar;
+        private System.Windows.Forms.Label lblusuario;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtTotalsaldoi;
     }
 }

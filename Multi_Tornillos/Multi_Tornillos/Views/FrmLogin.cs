@@ -22,8 +22,16 @@ namespace Multi_Tornillos.Views
         {
             InitializeComponent();
             controller = new UsuarioController();
+            caja();
         }
 
+        CajaController caj = new CajaController();
+        private void caja()
+        {
+            cmbCajas.DataSource = caj.GetCajas(cmbCajas.Text);
+            cmbCajas.DisplayMember = "Cajaid";
+            cmbCajas.ValueMember = "Cajaid";
+        }
         private void button2_Click_1(object sender, EventArgs e)
         {
             this.Close();
@@ -51,5 +59,7 @@ namespace Multi_Tornillos.Views
                 MessageBox.Show("Credenciales Incorrectas");
             }
         }
+
+
     }
 }

@@ -32,8 +32,8 @@ namespace Multi_Tornillos.Views.Caja
             this.mnuPrincipal = new System.Windows.Forms.MenuStrip();
             this.mnuListaCajas = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1 = new JacksiroKe.MdiTabCtrl.TabControl();
             this.saldoInicialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabControl1 = new JacksiroKe.MdiTabCtrl.TabControl();
             this.mnuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +63,13 @@ namespace Multi_Tornillos.Views.Caja
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
+            // saldoInicialToolStripMenuItem
+            // 
+            this.saldoInicialToolStripMenuItem.Name = "saldoInicialToolStripMenuItem";
+            this.saldoInicialToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.saldoInicialToolStripMenuItem.Text = "Saldo Inicial";
+            this.saldoInicialToolStripMenuItem.Click += new System.EventHandler(this.saldoInicialToolStripMenuItem_Click);
+            // 
             // tabControl1
             // 
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -75,13 +82,6 @@ namespace Multi_Tornillos.Views.Caja
             this.tabControl1.TabCloseButtonImageHot = null;
             this.tabControl1.TabIndex = 1;
             // 
-            // saldoInicialToolStripMenuItem
-            // 
-            this.saldoInicialToolStripMenuItem.Name = "saldoInicialToolStripMenuItem";
-            this.saldoInicialToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
-            this.saldoInicialToolStripMenuItem.Text = "Saldo Inicial";
-            this.saldoInicialToolStripMenuItem.Click += new System.EventHandler(this.saldoInicialToolStripMenuItem_Click);
-            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -92,7 +92,7 @@ namespace Multi_Tornillos.Views.Caja
             this.KeyPreview = true;
             this.MainMenuStrip = this.mnuPrincipal;
             this.Name = "FrmMenu";
-            this.Text = "FrmCajaList";
+            this.Text = "Menu Principal";
             this.mnuPrincipal.ResumeLayout(false);
             this.mnuPrincipal.PerformLayout();
             this.ResumeLayout(false);
