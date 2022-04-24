@@ -1,6 +1,6 @@
-﻿namespace Multi_Tornillos.Views.SaldosIniciales
+﻿namespace Multi_Tornillos.Views.CierreDia
 {
-    partial class FrmSaldoInicialInsert
+    partial class FrmCierreDiaInsert
     {
         /// <summary>
         /// Required designer variable.
@@ -69,6 +69,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTotalsaldoi = new System.Windows.Forms.TextBox();
+            this.cmbSaldoInicial = new System.Windows.Forms.ComboBox();
+            this.lblSaldoInicial = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblBilletes
@@ -428,11 +430,30 @@
             this.txtTotalsaldoi.Size = new System.Drawing.Size(100, 35);
             this.txtTotalsaldoi.TabIndex = 50;
             // 
-            // FrmSaldoInicialInsert
+            // cmbSaldoInicial
+            // 
+            this.cmbSaldoInicial.FormattingEnabled = true;
+            this.cmbSaldoInicial.Location = new System.Drawing.Point(473, 254);
+            this.cmbSaldoInicial.Name = "cmbSaldoInicial";
+            this.cmbSaldoInicial.Size = new System.Drawing.Size(121, 21);
+            this.cmbSaldoInicial.TabIndex = 51;
+            // 
+            // lblSaldoInicial
+            // 
+            this.lblSaldoInicial.AutoSize = true;
+            this.lblSaldoInicial.Location = new System.Drawing.Point(470, 236);
+            this.lblSaldoInicial.Name = "lblSaldoInicial";
+            this.lblSaldoInicial.Size = new System.Drawing.Size(64, 13);
+            this.lblSaldoInicial.TabIndex = 52;
+            this.lblSaldoInicial.Text = "Saldo Inicial";
+            // 
+            // FrmCierreDiaInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblSaldoInicial);
+            this.Controls.Add(this.cmbSaldoInicial);
             this.Controls.Add(this.txtTotalsaldoi);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -474,7 +495,7 @@
             this.Controls.Add(this.lblUnLempira);
             this.Controls.Add(this.txt1L);
             this.Controls.Add(this.lblBilletes);
-            this.Name = "FrmSaldoInicialInsert";
+            this.Name = "FrmCierreDiaInsert";
             this.Text = "FrmSaldoInicialInsert";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -524,5 +545,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtTotalsaldoi;
+        private System.Windows.Forms.ComboBox cmbSaldoInicial;
+        private System.Windows.Forms.Label lblSaldoInicial;
     }
 }

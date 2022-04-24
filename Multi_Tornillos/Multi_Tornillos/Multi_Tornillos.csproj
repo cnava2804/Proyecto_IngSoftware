@@ -60,6 +60,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Bitacora\FrmBitacora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Bitacora\FrmBitacora.Designer.cs">
+      <DependentUpon>FrmBitacora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CierreDia\FrmCierreDiaInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CierreDia\FrmCierreDiaInsert.Designer.cs">
+      <DependentUpon>FrmCierreDiaInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CierreDia\FrmCierreDiaList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CierreDia\FrmCierreDiaList.Designer.cs">
+      <DependentUpon>FrmCierreDiaList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +162,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\Bitacora\FrmBitacora.resx">
+      <DependentUpon>FrmBitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CierreDia\FrmCierreDiaInsert.resx">
+      <DependentUpon>FrmCierreDiaInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CierreDia\FrmCierreDiaList.resx">
+      <DependentUpon>FrmCierreDiaList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,6 +228,7 @@
   <ItemGroup>
     <None Include="Resources\logo a colores.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

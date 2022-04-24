@@ -84,7 +84,9 @@
     <Compile Include="Usuario.cs">
       <DependentUpon>Multi_Tornillos.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\BitacoraViewModel.cs" />
     <Compile Include="ViewModels\CajaViewModel.cs" />
+    <Compile Include="ViewModels\CierreDiaViewModel.cs" />
     <Compile Include="ViewModels\SaldosInicialesViewModel.cs" />
     <Compile Include="ViewModels\UsuarioViewModel.cs" />
   </ItemGroup>

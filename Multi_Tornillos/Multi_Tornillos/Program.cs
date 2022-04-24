@@ -3,6 +3,7 @@ using Multi_Tornillos.Views;
 using Multi_Tornillos.Views.Caja;
 using Multi_Tornillos.Views.SaldosIniciales;
 using Multi_Tornillos.Views.Usuario;
+using Multi_Tornillos.Views.CierreDia;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace Multi_Tornillos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogin()); ;
+            Application.Run(new FrmCierreDiaList()); ;
         }
     }
 }

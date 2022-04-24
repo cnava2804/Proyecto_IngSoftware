@@ -40,8 +40,12 @@ namespace Multi_TornillosBLL
                 {
                     SaldoInicial_Id = saldo.SaldoInicial_Id,
                     SaldoInicialTotal = (decimal)saldo.SaldoInicialTotal,
-                    SaldoInicialFecha = (DateTime)saldo.SaldoInicialFecha
+                    SaldoInicialFecha = (DateTime)saldo.SaldoInicialFecha,
+                    UsuarioId = saldo.Usuario.UsuarioId,
+                    CajaId = saldo.Caja.CajaId
                     
+
+                 
                 });
             }
 
