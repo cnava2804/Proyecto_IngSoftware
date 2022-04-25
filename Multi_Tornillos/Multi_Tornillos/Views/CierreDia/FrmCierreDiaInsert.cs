@@ -50,6 +50,11 @@ namespace Multi_Tornillos.Views.CierreDia
 
         decimal totalcincoCent, totaldiezCent, totalveinteCent, totalcincuentaCent;
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void txt2L_Click(object sender, EventArgs e)
         {
             txt2L.Text = "";
@@ -195,6 +200,9 @@ namespace Multi_Tornillos.Views.CierreDia
                             totalcien + totaldoscientos + totalquinientos;
             sumaCentavos = totalcincoCent + totaldiezCent + totalveinteCent + totalcincuentaCent;
             suma_total_CierreDia = sumaBilletes + sumaCentavos + Saldoi;
+
+            ganancia = suma_total_CierreDia - Saldoi;
+            txtganancia.Text = ganancia.ToString();
 
             txtTotalsaldoi.Text = suma_total_CierreDia.ToString();
             txtTotalBilletes.Text = sumaBilletes.ToString();
