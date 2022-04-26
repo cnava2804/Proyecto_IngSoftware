@@ -22,7 +22,7 @@ namespace Multi_Tornillos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmCierreDiaList()); ;
+            Application.Run(new FrmSaldoInicialList()); ;
         }
     }
 }
