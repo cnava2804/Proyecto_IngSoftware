@@ -21,24 +21,40 @@ namespace Multi_Tornillos.Views.SaldosIniciales
         DateTime fecha;
         int da;
 
+        CajaController Cajas;
+        public string idcaja;
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        private void FrmSaldoInicialInsert_Load(object sender, EventArgs e)
+        {
+            lblIdCaja.Text= idcaja;
+            
+
+
+        }
+        //private void EncontrarId()
+        //{
+        //    Cajas = new CajaController();
+        //    var caj = Cajas.GetCajaid(idcaja);
+        //    lblIdCaja.Text= caj.CajaId.ToString();
+        //}
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             da = UsuarioLog.UsuarioId;
             lblusuarioId.Text = da.ToString();
+         
 
             Multi_TornillosDAL.SaldosIniciales saldo = new Multi_TornillosDAL.SaldosIniciales
             {
                 SaldoInicialTotal = Convert.ToDecimal(txtTotalsaldoi.Text),
                 SaldoInicialFecha = Convert.ToDateTime(label6.Text),
                 UsuarioId = Convert.ToInt32(lblusuarioId.Text),
-                CajaId = 1
+                CajaId = Convert.ToInt32(lblIdCaja.Text)
 
             };
             if (controller.Add(saldo))
