@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Multi_Tornillos.Views;
 using Multi_Tornillos.Views.Caja;
+using Multi_Tornillos.Views.SaldosIniciales;
 
 namespace Multi_Tornillos.Views
 {
@@ -39,6 +40,10 @@ namespace Multi_Tornillos.Views
 
         private void btnLoguear_Click(object sender, EventArgs e)
         {
+            //FrmSaldoInicialInsert saldoInicialInsert = new FrmSaldoInicialInsert();
+            //saldoInicialInsert.idcaja = cmbCajas.Text;
+            //saldoInicialInsert.Show();
+
             var resu = controller.log(txtRTN.Text, txtPassword.Text);
             if (resu == 1)
             {
@@ -46,8 +51,10 @@ namespace Multi_Tornillos.Views
                 {
                     FrmMenu menu = new FrmMenu();
                     this.Hide();
+                    menu.idcaja = cmbCajas.Text;
                     menu.ShowDialog();
                     this.Show();
+                   
                 }
                 else 
                 {

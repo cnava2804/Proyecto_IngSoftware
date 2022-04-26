@@ -33,11 +33,16 @@
           <Property Name="UsuarioId" Type="int" Nullable="false" />
           <Property Name="CajaId" Type="int" Nullable="false" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'FlujoDeCaja.dbo.Cierres' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Cierres">
           <Key>
+            
+            
+            
             <PropertyRef Name="Cierre_Id" />
           </Key>
-          <Property Name="Cierre_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cierre_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CierreTotal" Type="decimal" Precision="18" Scale="0" />
           <Property Name="CierreFechaInicial" Type="datetime" />
           <Property Name="CierreFechaFinal" Type="datetime" />
@@ -266,6 +271,17 @@
           <EntitySet Name="Depositos" EntityType="Self.Depositos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SaldosIniciales" EntityType="Self.SaldosIniciales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cierres" EntityType="Self.Cierres" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Cierres].[Cierre_Id] AS [Cierre_Id], 
+    [Cierres].[CierreTotal] AS [CierreTotal], 
+    [Cierres].[CierreFechaInicial] AS [CierreFechaInicial], 
+    [Cierres].[CierreFechaFinal] AS [CierreFechaFinal], 
+    [Cierres].[CajaId] AS [CajaId], 
+    [Cierres].[UsuarioId] AS [UsuarioId], 
+    [Cierres].[CierreDia_Id] AS [CierreDia_Id]
+    FROM [dbo].[Cierres] AS [Cierres]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Bitacora_CierreDias" Association="Self.FK_Bitacora_CierreDias">
             <End Role="CierreDias" EntitySet="CierreDias" />
             <End Role="Bitacora" EntitySet="Bitacora" />
