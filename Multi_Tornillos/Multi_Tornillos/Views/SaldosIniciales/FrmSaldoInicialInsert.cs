@@ -18,21 +18,28 @@ namespace Multi_Tornillos.Views.SaldosIniciales
         int totaldos, totalcinco, totaldiez, totalveinte, totalcincuenta, totalcien, totaldoscientos, totalquinientos;
         decimal cincoCent, diezCent, veinteCent, cincuentaCent;
         decimal suma_total_Saldoi;
+        DateTime fecha;
+        int da;
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            da = UsuarioLog.UsuarioId;
+            lblusuarioId.Text = da.ToString();
+
             Multi_TornillosDAL.SaldosIniciales saldo = new Multi_TornillosDAL.SaldosIniciales
             {
                 SaldoInicialTotal = Convert.ToDecimal(txtTotalsaldoi.Text),
-                SaldoInicialFecha = DateTime.Now,
-                UsuarioId = Convert.ToInt32(UsuarioLog.UsuarioId),
+                SaldoInicialFecha = Convert.ToDateTime(label6.Text),
+                UsuarioId = Convert.ToInt32(lblusuarioId.Text),
                 CajaId = 1
-               
+
             };
             if (controller.Add(saldo))
             {
@@ -204,12 +211,15 @@ namespace Multi_Tornillos.Views.SaldosIniciales
         public FrmSaldoInicialInsert()
         {
             string usuario;
-
+            int usu;
             InitializeComponent();
             controller = new SaldosInicialesController();
             usuario = UsuarioLog.UsuarioNombre;
             lblusuario.Text = usuario;
-            
+            fecha = DateTime.Now;
+            label6.Text = fecha.ToString();
+            usu = UsuarioLog.UsuarioId;
+
             txt1L.Text = "0";
             txt2L.Text = "0";
             txt5L.Text = "0";

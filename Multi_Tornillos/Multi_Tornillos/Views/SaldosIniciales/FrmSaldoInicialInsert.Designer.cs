@@ -69,6 +69,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTotalsaldoi = new System.Windows.Forms.TextBox();
+            this.lblusuarioId = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblBilletes
@@ -428,11 +429,22 @@
             this.txtTotalsaldoi.Size = new System.Drawing.Size(100, 35);
             this.txtTotalsaldoi.TabIndex = 50;
             // 
+            // lblusuarioId
+            // 
+            this.lblusuarioId.AutoSize = true;
+            this.lblusuarioId.Location = new System.Drawing.Point(352, 9);
+            this.lblusuarioId.Name = "lblusuarioId";
+            this.lblusuarioId.Size = new System.Drawing.Size(16, 13);
+            this.lblusuarioId.TabIndex = 51;
+            this.lblusuarioId.Text = "...";
+            this.lblusuarioId.Visible = false;
+            // 
             // FrmSaldoInicialInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblusuarioId);
             this.Controls.Add(this.txtTotalsaldoi);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -524,5 +536,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtTotalsaldoi;
+        private System.Windows.Forms.Label lblusuarioId;
     }
 }
