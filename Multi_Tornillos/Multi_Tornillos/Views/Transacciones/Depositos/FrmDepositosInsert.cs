@@ -8,51 +8,51 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Multi_TornillosBLL;
+using Multi_TornillosDAL;
 
 namespace Multi_Tornillos.Views.Transacciones.Depositos
 {
     public partial class FrmDepositosInsert : Form
     {
         private readonly DepositosController controller;
+        private readonly FlujoDeCajaEntities db; 
         int unlps, doslps, cincolps, diezlps, veintelps, cincuentalps, cienlps, doscientoslps, quinientoslps;
         int totaldos, totalcinco, totaldiez, totalveinte, totalcincuenta, totalcien, totaldoscientos, totalquinientos;
         decimal cincoCent, diezCent, veinteCent, cincuentaCent;
         decimal suma_total_Saldoi;
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            Multi_TornillosDAL.SaldosIniciales saldo = new Multi_TornillosDAL.SaldosIniciales
-            {
-                SaldoInicialTotal = Convert.ToDecimal(txtTotalsaldoi.Text),
-                SaldoInicialFecha = DateTime.Now,
-                UsuarioId = Convert.ToInt32(UsuarioLog.UsuarioId),
-                CajaId = 1
-               
-            };
-            //if (controller.Add(saldo))
-            //{
-            //    MessageBox.Show("ingresado correctamente");
-            //    controller.Dispose();
-            //    this.Dispose();
-
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Error para agregar");
-            //}
-        }
-
         decimal totalcincoCent, totaldiezCent, totalveinteCent, totalcincuentaCent;
+
+        int sumaBilletes;
+        decimal sumaCentavos;
+        public FrmDepositosInsert()
+        {
+            string usuario;
+
+            InitializeComponent();
+            controller = new DepositosController();
+            usuario = UsuarioLog.UsuarioNombre;
+            lblusuario.Text = usuario;
+            
+            txt1L.Text = "0";
+            txt2L.Text = "0";
+            txt5L.Text = "0";
+            txt10L.Text = "0";
+            txt20L.Text = "0";
+            txt50L.Text = "0";
+            txt100L.Text = "0";
+            txt200L.Text = "0";
+            txt500L.Text = "0";
+            txt5C.Text = "0";
+            txt10C.Text = "0";
+            txt20C.Text = "0";
+            txt50C.Text = "0";
+        }
+
 
         private void txt2L_Click(object sender, EventArgs e)
         {
             txt2L.Text = "";
-            
+
         }
 
         private void txt5L_Click(object sender, EventArgs e)
@@ -93,15 +93,14 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
         private void txt1L_Click(object sender, EventArgs e)
         {
             txt1L.Text = "";
-           
+
         }
 
         private void txtTotalBilletes_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
-        
 
         private void btnsumar_Click(object sender, EventArgs e)
         {
@@ -111,9 +110,9 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
                 unlps = Convert.ToInt32(txt1L.Text);
 
             }
-            else if(txt1L != null)
+            else if (txt1L != null)
             {
-                
+
                 unlps = Convert.ToInt32(txt1L.Text);
             }
 
@@ -169,25 +168,25 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
             if (txt5C != null)
             {
                 cincoCent = Convert.ToDecimal(txt5C.Text);
-                totalcincoCent = (cincoCent/20);
+                totalcincoCent = (cincoCent / 20);
             }
 
             if (txt10C != null)
             {
                 diezCent = Convert.ToDecimal(txt10C.Text);
-                totaldiezCent = (diezCent/10);
+                totaldiezCent = (diezCent / 10);
             }
 
             if (txt20C != null)
             {
                 veinteCent = Convert.ToDecimal(txt20C.Text);
-                totalveinteCent = (veinteCent/5);
+                totalveinteCent = (veinteCent / 5);
             }
 
             if (txt50C != null)
             {
                 cincuentaCent = Convert.ToDecimal(txt50C.Text);
-                totalcincuentaCent = (cincuentaCent/2);
+                totalcincuentaCent = (cincuentaCent / 2);
             }
             sumaBilletes = unlps + totaldos + totalcinco + totaldiez + totalveinte + totalcincuenta +
                             totalcien + totaldoscientos + totalquinientos;
@@ -199,105 +198,58 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
             txtTotalMonedas.Text = sumaCentavos.ToString();
         }
 
-        int sumaBilletes;
-        decimal sumaCentavos;
-        public FrmDepositosInsert()
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            string usuario;
-
-            InitializeComponent();
-            controller = new DepositosController();
-            usuario = UsuarioLog.UsuarioNombre;
-            lblusuario.Text = usuario;
-            
-            txt1L.Text = "0";
-            txt2L.Text = "0";
-            txt5L.Text = "0";
-            txt10L.Text = "0";
-            txt20L.Text = "0";
-            txt50L.Text = "0";
-            txt100L.Text = "0";
-            txt200L.Text = "0";
-            txt500L.Text = "0";
-            txt5C.Text = "0";
-            txt10C.Text = "0";
-            txt20C.Text = "0";
-            txt50C.Text = "0";
-            //SumatoriaBilletes();
-
-            //SumatoriaTotalBilletes();
-            //txtTotalBilletes.Text = sumaBilletes.ToString();
-
+            this.Close();
         }
 
-        //private void SumatoriaTotalBilletes()
-        //{
-        //    sumaBilletes = unlps + totaldos + totalcinco + totaldiez;
-
-        //}
-
-        public void SumatoriaBilletes()
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (txt1L != null)
+            Multi_TornillosDAL.Depositos deposito = new Multi_TornillosDAL.Depositos
             {
-                unlps = Convert.ToInt32(txt1L.Text);
+                DepositoSaldoTotal = Convert.ToDecimal(txtTotalsaldoi.Text),
+                DepositoDescripcion = txtDescripcion.Text,
+                DepositoFecha = DateTime.Now,
+                DepositoCantidadUnlps = Convert.ToInt32(txt1L.Text),
+                DepositoCantidadDoslps = Convert.ToInt32(txt2L.Text),
+                DepositoCantidadCincolps = Convert.ToInt32(txt5L.Text),
+                DepositoCantidadDiezlps = Convert.ToInt32(txt10L.Text),
+                DepositoCantidadVeintelps = Convert.ToInt32(txt20L.Text),
+                DepositoCantidadCincuentalps = Convert.ToInt32(txt50L.Text),
+                DepositoCantidadCienlps = Convert.ToInt32(txt100L.Text),
+                DepositoCantidadDoscientoslps = Convert.ToInt32(txt200L.Text),
+                DepositoCantidadQuinientos = Convert.ToInt32(txt500L.Text),
+                DepositoCantidadCincocent = Convert.ToInt32(txt5C.Text),
+                DepositoCantidadDiezcent = Convert.ToInt32(txt10C.Text),
+                DepositoCantidadVeintecent = Convert.ToInt32(txt20C.Text),
+                DepositoCantidadCincuentacent = Convert.ToInt32(txt50C.Text),
+                UsuarioId = Convert.ToInt32(UsuarioLog.UsuarioId),
+                CajaId = 1,
+                SaldoInicial_Id = 1
+
+
+            };
+
+            //var DepositoId = db.SaldosIniciales.ToList().Select(d => d.SaldoInicial_Id).Max();
+
+            //var saldo = db.SaldosIniciales.Find(int.Parse(txtTotalsaldoi.Text));
+            ////Actualizar el saldo del cliente al que se le deposito
+            //saldo.ClienteSaldo = saldo.ClienteSaldo + Convert.ToDecimal(txtTotalsaldoi.Text);
+
+            //db.Entry(saldo).State = System.Data.Entity.EntityState.Modified;
+            //db.SaveChanges();
+
+            if (controller.Add(deposito))
+            {
+                MessageBox.Show("Deposito ingresado correctamente");
+                controller.Dispose();
+                this.Dispose();
 
             }
             else
             {
-                unlps = 0;
+                MessageBox.Show("Error para agregar");
             }
-
-            if (txt2L != null)
-            {
-                doslps = Convert.ToInt32(txt2L.Text);
-                totaldos = doslps * 2;
-            }
-
-            if (txt5L != null)
-            {
-                cincolps = Convert.ToInt32(txt5L.Text);
-                totalcinco = cincolps * 5;
-            }
-
-            if (txt10L != null)
-            {
-                diezlps = Convert.ToInt32(txt10L.Text);
-                totaldiez = diezlps * 10;
-            }
-
-            if (txt20L != null)
-            {
-                veintelps = Convert.ToInt32(txt20L.Text);
-                totalveinte = veintelps * 20;
-            }
-
-            if (txt50L != null)
-            {
-                cincuentalps = Convert.ToInt32(txt50L.Text);
-                totalcincuenta = cincuentalps * 50;
-            }
-
-            if (txt100L != null)
-            {
-                cienlps = Convert.ToInt32(txt100L.Text);
-                totalcien = cienlps * 100;
-            }
-
-            if (txt200L != null)
-            {
-                doscientoslps = Convert.ToInt32(txt200L.Text);
-                totaldoscientos = doscientoslps * 200;
-            }
-
-            if (txt500L != null)
-            {
-                quinientoslps = Convert.ToInt32(txt500L.Text);
-                totalquinientos = quinientoslps * 500;
-            }
-            sumaBilletes = unlps + totaldos + totalcinco + totaldiez + totalveinte + totalcincuenta +
-                            totalcien + totaldoscientos + totalquinientos;
-            txtTotalBilletes.Text = sumaBilletes.ToString();
         }
 
         private void label10_Click(object sender, EventArgs e)

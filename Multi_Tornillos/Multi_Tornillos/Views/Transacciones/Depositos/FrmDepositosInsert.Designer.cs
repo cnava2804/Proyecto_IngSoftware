@@ -69,6 +69,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTotalsaldoi = new System.Windows.Forms.TextBox();
+            this.lblDescripcion = new System.Windows.Forms.Label();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblBilletes
@@ -428,11 +430,31 @@
             this.txtTotalsaldoi.Size = new System.Drawing.Size(100, 35);
             this.txtTotalsaldoi.TabIndex = 50;
             // 
-            // FrmSaldoInicialInsert
+            // lblDescripcion
+            // 
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Location = new System.Drawing.Point(450, 230);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(63, 13);
+            this.lblDescripcion.TabIndex = 52;
+            this.lblDescripcion.Text = "Descripcion";
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Enabled = false;
+            this.txtDescripcion.Location = new System.Drawing.Point(453, 251);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(284, 90);
+            this.txtDescripcion.TabIndex = 51;
+            // 
+            // FrmDepositosInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblDescripcion);
+            this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtTotalsaldoi);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -474,8 +496,8 @@
             this.Controls.Add(this.lblUnLempira);
             this.Controls.Add(this.txt1L);
             this.Controls.Add(this.lblBilletes);
-            this.Name = "FrmSaldoInicialInsert";
-            this.Text = "FrmSaldoInicialInsert";
+            this.Name = "FrmDepositosInsert";
+            this.Text = "Deposito";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -524,5 +546,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtTotalsaldoi;
+        private System.Windows.Forms.Label lblDescripcion;
+        private System.Windows.Forms.TextBox txtDescripcion;
     }
 }
