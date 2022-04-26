@@ -23,9 +23,7 @@ namespace Multi_TornillosBLL
             List<SaldosIniciales> saldosIniciales = new List<SaldosIniciales>();
             saldosIniciales = db.SaldosIniciales.Where(s => s.SaldoInicial_Id.ToString().Contains(search) ||
                               s.SaldoInicialTotal.ToString().Contains(search) ||
-                              s.SaldoInicialFecha.ToString().Contains(search) ||
-                              s.CajaId.ToString().Contains(search) ||
-                              s.UsuarioId.ToString().Contains(search)).ToList();
+                              s.SaldoInicialFecha.ToString().Contains(search)).ToList();
 
             return ToViewModelList(saldosIniciales);
         }
@@ -39,13 +37,12 @@ namespace Multi_TornillosBLL
                 saldosInicialesViews.Add(new SaldosInicialesViewModel
                 {
                     SaldoInicial_Id = saldo.SaldoInicial_Id,
-                    SaldoInicialTotal = (decimal)saldo.SaldoInicialTotal,
-                    SaldoInicialFecha = (DateTime)saldo.SaldoInicialFecha,
+                    SaldoInicialTotal = saldo.SaldoInicialTotal.Value,
+                    SaldoInicialFecha = saldo.SaldoInicialFecha.Value,
                     UsuarioId = saldo.Usuario.UsuarioId,
                     CajaId = saldo.Caja.CajaId
                     
 
-                 
                 });
             }
 

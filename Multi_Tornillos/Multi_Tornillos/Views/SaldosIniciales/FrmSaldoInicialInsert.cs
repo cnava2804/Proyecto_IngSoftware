@@ -30,7 +30,8 @@ namespace Multi_Tornillos.Views.SaldosIniciales
             {
                 SaldoInicialTotal = Convert.ToDecimal(txtTotalsaldoi.Text),
                 SaldoInicialFecha = DateTime.Now,
-                UsuarioId = UsuarioLog.UsuarioId
+                UsuarioId = Convert.ToInt32(UsuarioLog.UsuarioId),
+                CajaId = 1
                
             };
             if (controller.Add(saldo))
