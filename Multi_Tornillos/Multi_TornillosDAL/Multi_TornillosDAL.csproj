@@ -62,6 +62,9 @@
     <Compile Include="Cierres.cs">
       <DependentUpon>Multi_Tornillos.tt</DependentUpon>
     </Compile>
+    <Compile Include="Depositos.cs">
+      <DependentUpon>Multi_Tornillos.tt</DependentUpon>
+    </Compile>
     <Compile Include="Multi_Tornillos.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -87,6 +90,7 @@
     <Compile Include="ViewModels\BitacoraViewModel.cs" />
     <Compile Include="ViewModels\CajaViewModel.cs" />
     <Compile Include="ViewModels\CierreDiaViewModel.cs" />
+    <Compile Include="ViewModels\DepositosViewModel.cs" />
     <Compile Include="ViewModels\SaldosInicialesViewModel.cs" />
     <Compile Include="ViewModels\UsuarioViewModel.cs" />
   </ItemGroup>

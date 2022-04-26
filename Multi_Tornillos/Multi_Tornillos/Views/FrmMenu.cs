@@ -35,5 +35,10 @@ namespace Multi_Tornillos.Views.Caja
             FrmSaldoInicialList saldoInicial = new FrmSaldoInicialList();
             tabControl1.TabPages.Add(saldoInicial);
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

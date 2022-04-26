@@ -23,8 +23,7 @@ namespace Multi_TornillosBLL
             List<CierreDias> cierreDias = new List<CierreDias>();
                  cierreDias = db.CierreDias.Where(c => c.CierreDia_Id.ToString().Contains(search) ||
                               c.CierreDiaTotal.ToString().Contains(search) ||
-                              c.CierreDiaFecha.ToString().Contains(search) ||
-                              c.SaldoInicial_Id.ToString().Contains(search)).ToList();
+                              c.CierreDiaFecha.ToString().Contains(search)).ToList();
 
             return ToViewModelList(cierreDias);
         }
@@ -49,13 +48,6 @@ namespace Multi_TornillosBLL
 
             return cierreDiaViews;
         }
-
-
-        public void GetSaldoI()
-        {
-            db.SaldosIniciales.Max(x => x.SaldoInicialTotal.Value);
-
-            }
 
         public CierreDias GetCierreDias(int Id)
         {

@@ -96,6 +96,18 @@
     <Compile Include="Views\SaldosIniciales\FrmSaldoInicialList.Designer.cs">
       <DependentUpon>FrmSaldoInicialList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Transacciones\Depositos\FrmDepositosInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Transacciones\Depositos\FrmDepositosInsert.Designer.cs">
+      <DependentUpon>FrmDepositosInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Transacciones\Depositos\FrmDepositosList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Transacciones\Depositos\FrmDepositosList.Designer.cs">
+      <DependentUpon>FrmDepositosList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Usuario\FrmUsuarioDelete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +206,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SaldosIniciales\FrmSaldoInicialList.resx">
       <DependentUpon>FrmSaldoInicialList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Transacciones\Depositos\FrmDepositosInsert.resx">
+      <DependentUpon>FrmDepositosInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Transacciones\Depositos\FrmDepositosList.resx">
+      <DependentUpon>FrmDepositosList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usuario\FrmUsuarioList.resx">
       <DependentUpon>FrmUsuarioList.cs</DependentUpon>

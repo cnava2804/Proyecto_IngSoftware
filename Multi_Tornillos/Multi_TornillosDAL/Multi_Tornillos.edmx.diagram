@@ -8,12 +8,9 @@
         <EntityTypeShape EntityType="FlujoDeCajaModel.Bitacora" Width="1.5" PointX="8.625" PointY="11.125" />
         <EntityTypeShape EntityType="FlujoDeCajaModel.Caja" Width="1.5" PointX="4.125" PointY="7.25" />
         <EntityTypeShape EntityType="FlujoDeCajaModel.CierreDias" Width="1.5" PointX="6.375" PointY="10.625" />
-        <EntityTypeShape EntityType="FlujoDeCajaModel.SaldosIniciales" Width="1.5" PointX="6.375" PointY="7.125" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_Bitacora_CierreDias" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_CierreDias_Caja" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_CierreDias_Caja1" />
-        <AssociationConnector Association="FlujoDeCajaModel.FK_SaldosIniciales_Caja" />
-        <AssociationConnector Association="FlujoDeCajaModel.FK_CierreDias_SaldosIniciales" />
         <EntityTypeShape EntityType="FlujoDeCajaModel.Cierres" Width="1.5" PointX="9" PointY="7.125" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_Cierres_Caja" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_Cierres_CierreDias" />
@@ -21,7 +18,14 @@
         <AssociationConnector Association="FlujoDeCajaModel.FK_Bitacora_Usuario" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_CierreDias_Usuario" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_Cierres_Usuario" />
+        <EntityTypeShape EntityType="FlujoDeCajaModel.SaldosIniciales" Width="1.5" PointX="6.375" PointY="6.75" />
+        <AssociationConnector Association="FlujoDeCajaModel.FK_SaldosIniciales_Caja" />
+        <AssociationConnector Association="FlujoDeCajaModel.FK_CierreDias_SaldosIniciales" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_SaldosIniciales_Usuario" />
+        <EntityTypeShape EntityType="FlujoDeCajaModel.Depositos" Width="1.5" PointX="11.625" PointY="7.25" />
+        <AssociationConnector Association="FlujoDeCajaModel.FK_Depositos_Caja" />
+        <AssociationConnector Association="FlujoDeCajaModel.FK_Depositos_SaldosIniciales" />
+        <AssociationConnector Association="FlujoDeCajaModel.FK_Depositos_Usuario" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
