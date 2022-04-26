@@ -56,21 +56,21 @@ namespace Multi_Tornillos.Views.Caja
             // mnuListaCajas
             // 
             this.mnuListaCajas.Name = "mnuListaCajas";
-            this.mnuListaCajas.Size = new System.Drawing.Size(72, 20);
+            this.mnuListaCajas.Size = new System.Drawing.Size(72, 62);
             this.mnuListaCajas.Text = "Lista cajas";
             this.mnuListaCajas.Click += new System.EventHandler(this.mnuListaCajas_Click);
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 62);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // saldoInicialToolStripMenuItem
             // 
             this.saldoInicialToolStripMenuItem.Name = "saldoInicialToolStripMenuItem";
-            this.saldoInicialToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.saldoInicialToolStripMenuItem.Size = new System.Drawing.Size(82, 62);
             this.saldoInicialToolStripMenuItem.Text = "Saldo Inicial";
             this.saldoInicialToolStripMenuItem.Click += new System.EventHandler(this.saldoInicialToolStripMenuItem_Click);
             // 

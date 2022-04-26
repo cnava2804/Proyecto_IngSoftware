@@ -50,6 +50,31 @@ advertencia 6002: La tabla o vista 'FlujoDeCaja.dbo.Cierres' no tiene definida n
           <Property Name="UsuarioId" Type="int" Nullable="false" />
           <Property Name="CierreDia_Id" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Depositos">
+          <Key>
+            <PropertyRef Name="Deposito_Id" />
+          </Key>
+          <Property Name="Deposito_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepositoSaldoTotal" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DepositoDescripcion" Type="varchar" MaxLength="50" />
+          <Property Name="DepositoFecha" Type="datetime" />
+          <Property Name="DepositoCantidadUnlps" Type="int" />
+          <Property Name="DepositoCantidadDoslps" Type="int" />
+          <Property Name="DepositoCantidadCincolps" Type="int" />
+          <Property Name="DepositoCantidadDiezlps" Type="int" />
+          <Property Name="DepositoCantidadVeintelps" Type="int" />
+          <Property Name="DepositoCantidadCincuentalps" Type="int" />
+          <Property Name="DepositoCantidadCienlps" Type="int" />
+          <Property Name="DepositoCantidadDoscientoslps" Type="int" />
+          <Property Name="DepositoCantidadQuinientos" Type="int" />
+          <Property Name="DepositoCantidadCincocent" Type="int" />
+          <Property Name="DepositoCantidadDiezcent" Type="int" />
+          <Property Name="DepositoCantidadVeintecent" Type="int" />
+          <Property Name="DepositoCantidadCincuentacent" Type="int" />
+          <Property Name="UsuarioId" Type="int" />
+          <Property Name="CajaId" Type="int" />
+          <Property Name="SaldoInicial_Id" Type="int" />
+        </EntityType>
         <EntityType Name="SaldosIniciales">
           <Key>
             <PropertyRef Name="SaldoInicial_Id" />
@@ -178,6 +203,42 @@ advertencia 6002: La tabla o vista 'FlujoDeCaja.dbo.Cierres' no tiene definida n
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Depositos_Caja">
+          <End Role="Caja" Type="Self.Caja" Multiplicity="0..1" />
+          <End Role="Depositos" Type="Self.Depositos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caja">
+              <PropertyRef Name="CajaId" />
+            </Principal>
+            <Dependent Role="Depositos">
+              <PropertyRef Name="CajaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Depositos_SaldosIniciales">
+          <End Role="SaldosIniciales" Type="Self.SaldosIniciales" Multiplicity="0..1" />
+          <End Role="Depositos" Type="Self.Depositos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SaldosIniciales">
+              <PropertyRef Name="SaldoInicial_Id" />
+            </Principal>
+            <Dependent Role="Depositos">
+              <PropertyRef Name="SaldoInicial_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Depositos_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Depositos" Type="Self.Depositos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Depositos">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SaldosIniciales_Caja">
           <End Role="Caja" Type="Self.Caja" Multiplicity="1" />
           <End Role="SaldosIniciales" Type="Self.SaldosIniciales" Multiplicity="*" />
@@ -206,6 +267,8 @@ advertencia 6002: La tabla o vista 'FlujoDeCaja.dbo.Cierres' no tiene definida n
           <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Caja" EntityType="Self.Caja" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CierreDias" EntityType="Self.CierreDias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cierres" EntityType="Self.Cierres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Depositos" EntityType="Self.Depositos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SaldosIniciales" EntityType="Self.SaldosIniciales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cierres" EntityType="Self.Cierres" store:Type="Tables" store:Schema="dbo">
@@ -254,6 +317,18 @@ advertencia 6002: La tabla o vista 'FlujoDeCaja.dbo.Cierres' no tiene definida n
           <AssociationSet Name="FK_Cierres_Usuario" Association="Self.FK_Cierres_Usuario">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Cierres" EntitySet="Cierres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Depositos_Caja" Association="Self.FK_Depositos_Caja">
+            <End Role="Caja" EntitySet="Caja" />
+            <End Role="Depositos" EntitySet="Depositos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Depositos_SaldosIniciales" Association="Self.FK_Depositos_SaldosIniciales">
+            <End Role="SaldosIniciales" EntitySet="SaldosIniciales" />
+            <End Role="Depositos" EntitySet="Depositos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Depositos_Usuario" Association="Self.FK_Depositos_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Depositos" EntitySet="Depositos" />
           </AssociationSet>
           <AssociationSet Name="FK_SaldosIniciales_Caja" Association="Self.FK_SaldosIniciales_Caja">
             <End Role="Caja" EntitySet="Caja" />
@@ -319,6 +394,19 @@ advertencia 6002: La tabla o vista 'FlujoDeCaja.dbo.Cierres' no tiene definida n
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="SaldosIniciales" EntitySet="SaldosIniciales" />
           </AssociationSet>
+          <EntitySet Name="Depositos" EntityType="FlujoDeCajaModel.Depositos" />
+          <AssociationSet Name="FK_Depositos_Caja" Association="FlujoDeCajaModel.FK_Depositos_Caja">
+            <End Role="Caja" EntitySet="Caja" />
+            <End Role="Depositos" EntitySet="Depositos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Depositos_SaldosIniciales" Association="FlujoDeCajaModel.FK_Depositos_SaldosIniciales">
+            <End Role="SaldosIniciales" EntitySet="SaldosIniciales" />
+            <End Role="Depositos" EntitySet="Depositos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Depositos_Usuario" Association="FlujoDeCajaModel.FK_Depositos_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Depositos" EntitySet="Depositos" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Bitacora">
           <Key>
@@ -342,6 +430,7 @@ advertencia 6002: La tabla o vista 'FlujoDeCaja.dbo.Cierres' no tiene definida n
           <NavigationProperty Name="CierreDias1" Relationship="FlujoDeCajaModel.FK_CierreDias_Caja1" FromRole="Caja" ToRole="CierreDias" />
           <NavigationProperty Name="Cierres" Relationship="FlujoDeCajaModel.FK_Cierres_Caja" FromRole="Caja" ToRole="Cierres" />
           <NavigationProperty Name="SaldosIniciales" Relationship="FlujoDeCajaModel.FK_SaldosIniciales_Caja" FromRole="Caja" ToRole="SaldosIniciales" />
+          <NavigationProperty Name="Depositos" Relationship="FlujoDeCajaModel.FK_Depositos_Caja" FromRole="Caja" ToRole="Depositos" />
         </EntityType>
         <EntityType Name="CierreDias">
           <Key>
@@ -448,6 +537,7 @@ advertencia 6002: La tabla o vista 'FlujoDeCaja.dbo.Cierres' no tiene definida n
           <NavigationProperty Name="CierreDias" Relationship="FlujoDeCajaModel.FK_CierreDias_Usuario" FromRole="Usuario" ToRole="CierreDias" />
           <NavigationProperty Name="Cierres" Relationship="FlujoDeCajaModel.FK_Cierres_Usuario" FromRole="Usuario" ToRole="Cierres" />
           <NavigationProperty Name="SaldosIniciales" Relationship="FlujoDeCajaModel.FK_SaldosIniciales_Usuario" FromRole="Usuario" ToRole="SaldosIniciales" />
+          <NavigationProperty Name="Depositos" Relationship="FlujoDeCajaModel.FK_Depositos_Usuario" FromRole="Usuario" ToRole="Depositos" />
         </EntityType>
         <Association Name="FK_Bitacora_Usuario">
           <End Type="FlujoDeCajaModel.Usuario" Role="Usuario" Multiplicity="1" />
@@ -497,6 +587,7 @@ advertencia 6002: La tabla o vista 'FlujoDeCaja.dbo.Cierres' no tiene definida n
           <NavigationProperty Name="Caja" Relationship="FlujoDeCajaModel.FK_SaldosIniciales_Caja" FromRole="SaldosIniciales" ToRole="Caja" />
           <NavigationProperty Name="CierreDias" Relationship="FlujoDeCajaModel.FK_CierreDias_SaldosIniciales" FromRole="SaldosIniciales" ToRole="CierreDias" />
           <NavigationProperty Name="Usuario" Relationship="FlujoDeCajaModel.FK_SaldosIniciales_Usuario" FromRole="SaldosIniciales" ToRole="Usuario" />
+          <NavigationProperty Name="Depositos" Relationship="FlujoDeCajaModel.FK_Depositos_SaldosIniciales" FromRole="SaldosIniciales" ToRole="Depositos" />
         </EntityType>
         <Association Name="FK_SaldosIniciales_Caja">
           <End Type="FlujoDeCajaModel.Caja" Role="Caja" Multiplicity="1" />
@@ -530,6 +621,70 @@ advertencia 6002: La tabla o vista 'FlujoDeCaja.dbo.Cierres' no tiene definida n
               <PropertyRef Name="UsuarioId" />
             </Principal>
             <Dependent Role="SaldosIniciales">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Depositos">
+          <Key>
+            <PropertyRef Name="Deposito_Id" />
+          </Key>
+          <Property Name="Deposito_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepositoSaldoTotal" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DepositoDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepositoFecha" Type="DateTime" Precision="3" />
+          <Property Name="DepositoCantidadUnlps" Type="Int32" />
+          <Property Name="DepositoCantidadDoslps" Type="Int32" />
+          <Property Name="DepositoCantidadCincolps" Type="Int32" />
+          <Property Name="DepositoCantidadDiezlps" Type="Int32" />
+          <Property Name="DepositoCantidadVeintelps" Type="Int32" />
+          <Property Name="DepositoCantidadCincuentalps" Type="Int32" />
+          <Property Name="DepositoCantidadCienlps" Type="Int32" />
+          <Property Name="DepositoCantidadDoscientoslps" Type="Int32" />
+          <Property Name="DepositoCantidadQuinientos" Type="Int32" />
+          <Property Name="DepositoCantidadCincocent" Type="Int32" />
+          <Property Name="DepositoCantidadDiezcent" Type="Int32" />
+          <Property Name="DepositoCantidadVeintecent" Type="Int32" />
+          <Property Name="DepositoCantidadCincuentacent" Type="Int32" />
+          <Property Name="UsuarioId" Type="Int32" />
+          <Property Name="CajaId" Type="Int32" />
+          <Property Name="SaldoInicial_Id" Type="Int32" />
+          <NavigationProperty Name="Caja" Relationship="FlujoDeCajaModel.FK_Depositos_Caja" FromRole="Depositos" ToRole="Caja" />
+          <NavigationProperty Name="SaldosIniciales" Relationship="FlujoDeCajaModel.FK_Depositos_SaldosIniciales" FromRole="Depositos" ToRole="SaldosIniciales" />
+          <NavigationProperty Name="Usuario" Relationship="FlujoDeCajaModel.FK_Depositos_Usuario" FromRole="Depositos" ToRole="Usuario" />
+        </EntityType>
+        <Association Name="FK_Depositos_Caja">
+          <End Type="FlujoDeCajaModel.Caja" Role="Caja" Multiplicity="0..1" />
+          <End Type="FlujoDeCajaModel.Depositos" Role="Depositos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caja">
+              <PropertyRef Name="CajaId" />
+            </Principal>
+            <Dependent Role="Depositos">
+              <PropertyRef Name="CajaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Depositos_SaldosIniciales">
+          <End Type="FlujoDeCajaModel.SaldosIniciales" Role="SaldosIniciales" Multiplicity="0..1" />
+          <End Type="FlujoDeCajaModel.Depositos" Role="Depositos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SaldosIniciales">
+              <PropertyRef Name="SaldoInicial_Id" />
+            </Principal>
+            <Dependent Role="Depositos">
+              <PropertyRef Name="SaldoInicial_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Depositos_Usuario">
+          <End Type="FlujoDeCajaModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+          <End Type="FlujoDeCajaModel.Depositos" Role="Depositos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Depositos">
               <PropertyRef Name="UsuarioId" />
             </Dependent>
           </ReferentialConstraint>
@@ -603,6 +758,32 @@ advertencia 6002: La tabla o vista 'FlujoDeCaja.dbo.Cierres' no tiene definida n
                 <ScalarProperty Name="SaldoInicialFecha" ColumnName="SaldoInicialFecha" />
                 <ScalarProperty Name="SaldoInicialTotal" ColumnName="SaldoInicialTotal" />
                 <ScalarProperty Name="SaldoInicial_Id" ColumnName="SaldoInicial_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Depositos">
+            <EntityTypeMapping TypeName="FlujoDeCajaModel.Depositos">
+              <MappingFragment StoreEntitySet="Depositos">
+                <ScalarProperty Name="SaldoInicial_Id" ColumnName="SaldoInicial_Id" />
+                <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="DepositoCantidadCincuentacent" ColumnName="DepositoCantidadCincuentacent" />
+                <ScalarProperty Name="DepositoCantidadVeintecent" ColumnName="DepositoCantidadVeintecent" />
+                <ScalarProperty Name="DepositoCantidadDiezcent" ColumnName="DepositoCantidadDiezcent" />
+                <ScalarProperty Name="DepositoCantidadCincocent" ColumnName="DepositoCantidadCincocent" />
+                <ScalarProperty Name="DepositoCantidadQuinientos" ColumnName="DepositoCantidadQuinientos" />
+                <ScalarProperty Name="DepositoCantidadDoscientoslps" ColumnName="DepositoCantidadDoscientoslps" />
+                <ScalarProperty Name="DepositoCantidadCienlps" ColumnName="DepositoCantidadCienlps" />
+                <ScalarProperty Name="DepositoCantidadCincuentalps" ColumnName="DepositoCantidadCincuentalps" />
+                <ScalarProperty Name="DepositoCantidadVeintelps" ColumnName="DepositoCantidadVeintelps" />
+                <ScalarProperty Name="DepositoCantidadDiezlps" ColumnName="DepositoCantidadDiezlps" />
+                <ScalarProperty Name="DepositoCantidadCincolps" ColumnName="DepositoCantidadCincolps" />
+                <ScalarProperty Name="DepositoCantidadDoslps" ColumnName="DepositoCantidadDoslps" />
+                <ScalarProperty Name="DepositoCantidadUnlps" ColumnName="DepositoCantidadUnlps" />
+                <ScalarProperty Name="DepositoFecha" ColumnName="DepositoFecha" />
+                <ScalarProperty Name="DepositoDescripcion" ColumnName="DepositoDescripcion" />
+                <ScalarProperty Name="DepositoSaldoTotal" ColumnName="DepositoSaldoTotal" />
+                <ScalarProperty Name="Deposito_Id" ColumnName="Deposito_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

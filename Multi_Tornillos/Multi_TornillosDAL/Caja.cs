@@ -21,6 +21,8 @@ namespace Multi_TornillosDAL
             this.CierreDias1 = new HashSet<CierreDias>();
             this.Cierres = new HashSet<Cierres>();
             this.SaldosIniciales = new HashSet<SaldosIniciales>();
+            this.Depositos = new HashSet<Depositos>();
+
         }
     
         public int CajaId { get; set; }
@@ -34,5 +36,8 @@ namespace Multi_TornillosDAL
         public virtual ICollection<Cierres> Cierres { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SaldosIniciales> SaldosIniciales { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Depositos> Depositos { get; set; }
+
     }
 }

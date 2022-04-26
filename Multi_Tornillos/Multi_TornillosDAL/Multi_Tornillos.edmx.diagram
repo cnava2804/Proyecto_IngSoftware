@@ -22,6 +22,10 @@
         <AssociationConnector Association="FlujoDeCajaModel.FK_SaldosIniciales_Caja" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_CierreDias_SaldosIniciales" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_SaldosIniciales_Usuario" />
+        <EntityTypeShape EntityType="FlujoDeCajaModel.Depositos" Width="1.5" PointX="11.625" PointY="7.25" />
+        <AssociationConnector Association="FlujoDeCajaModel.FK_Depositos_Caja" />
+        <AssociationConnector Association="FlujoDeCajaModel.FK_Depositos_SaldosIniciales" />
+        <AssociationConnector Association="FlujoDeCajaModel.FK_Depositos_Usuario" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

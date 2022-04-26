@@ -31,5 +31,6 @@ namespace Multi_TornillosDAL
         public virtual DbSet<Cierres> Cierres { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<SaldosIniciales> SaldosIniciales { get; set; }
+        public virtual DbSet<Depositos> Depositos { get; set; }
     }
 }
