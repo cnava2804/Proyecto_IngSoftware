@@ -247,7 +247,6 @@
             this.txtTotalBilletes.Name = "txtTotalBilletes";
             this.txtTotalBilletes.Size = new System.Drawing.Size(100, 35);
             this.txtTotalBilletes.TabIndex = 19;
-            this.txtTotalBilletes.TextChanged += new System.EventHandler(this.txtTotalBilletes_TextChanged);
             // 
             // txtTotalMonedas
             // 
@@ -330,7 +329,6 @@
             this.label10.Size = new System.Drawing.Size(51, 13);
             this.label10.TabIndex = 20;
             this.label10.Text = "Monedas";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label1
             // 
@@ -459,7 +457,6 @@
             this.txtdiferencia.Name = "txtdiferencia";
             this.txtdiferencia.Size = new System.Drawing.Size(100, 35);
             this.txtdiferencia.TabIndex = 54;
-            this.txtdiferencia.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label7
             // 
