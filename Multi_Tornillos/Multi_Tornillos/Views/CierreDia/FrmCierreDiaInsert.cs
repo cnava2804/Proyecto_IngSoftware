@@ -25,19 +25,28 @@ namespace Multi_Tornillos.Views.CierreDia
         decimal diferencia;
         decimal totalcincoCent, totaldiezCent, totalveinteCent, totalcincuentaCent;
 
+        private void cmbSaldoInicial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblsaldoid.Text=Convert.ToString(cmbSaldoInicial.SelectedValue);
+        }
+
         int sumaBilletes;
         decimal sumaCentavos;
         public FrmCierreDiaInsert()
         {
             string usuario;
-
+            int usuarioid;
             InitializeComponent();
             db = new FlujoDeCajaEntities();
             controller = new CierreDiaController();
             SI();
             usuario = UsuarioLog.UsuarioNombre;
             lblusuario.Text = usuario;
-            
+            lblIdCaja.Text = UsuarioLog.CajaId;
+            lblCajaNumero.Text = UsuarioLog.CajaNumero;
+            usuarioid=UsuarioLog.UsuarioId;
+            lblusuarioid.Text = Convert.ToString(usuarioid);
+
             txt1L.Text = "0";
             txt2L.Text = "0";
             txt5L.Text = "0";
@@ -61,9 +70,9 @@ namespace Multi_Tornillos.Views.CierreDia
         {
             cmbSaldoInicial.DataSource = saldoInicial.GetSaldosIniciales(cmbSaldoInicial.Text);
             cmbSaldoInicial.DisplayMember = "SaldoInicialTotal";
-            cmbSaldoInicial.ValueMember = "SaldoInicialTotal";
+            cmbSaldoInicial.ValueMember = "SaldoInicial_Id";
 
-            }
+        }
 
         //public void SumatoriaBilletes()
         //{
@@ -288,9 +297,9 @@ namespace Multi_Tornillos.Views.CierreDia
             {
                 CierreDiaTotal = Convert.ToDecimal(txtdiferencia.Text),
                 CierreDiaFecha = DateTime.Now,
-                SaldoInicial_Id = 1,
-                UsuarioId = 1,
-                CajaId = 1
+                SaldoInicial_Id =Convert.ToInt32(lblsaldoid.Text),
+                UsuarioId = Convert.ToInt32(lblusuarioid.Text),
+                CajaId = Convert.ToInt32( lblIdCaja.Text)
 
             };
             if (controller.Add(cierreDia))

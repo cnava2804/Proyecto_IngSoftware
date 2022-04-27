@@ -18,6 +18,7 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
         {
             InitializeComponent();
             UpdateDates();
+            lblCajaNumero.Text = UsuarioLog.CajaNumero;
         }
 
         private void UpdateDates()

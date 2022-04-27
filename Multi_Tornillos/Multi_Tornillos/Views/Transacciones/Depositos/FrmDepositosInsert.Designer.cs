@@ -76,6 +76,8 @@
             this.lblSaldoInicial = new System.Windows.Forms.Label();
             this.cmbSaldoInicial = new System.Windows.Forms.ComboBox();
             this.lblvalue = new System.Windows.Forms.Label();
+            this.lblCajaNumero = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -455,6 +457,8 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.lblCajaNumero,
             this.lblIdCaja});
             this.statusStrip1.Location = new System.Drawing.Point(0, 448);
             this.statusStrip1.Name = "statusStrip1";
@@ -499,6 +503,18 @@
             this.lblvalue.Size = new System.Drawing.Size(16, 13);
             this.lblvalue.TabIndex = 56;
             this.lblvalue.Text = "...";
+            // 
+            // lblCajaNumero
+            // 
+            this.lblCajaNumero.Name = "lblCajaNumero";
+            this.lblCajaNumero.Size = new System.Drawing.Size(16, 17);
+            this.lblCajaNumero.Text = "...";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(33, 17);
+            this.toolStripStatusLabel1.Text = "Caja:";
             // 
             // FrmDepositosInsert
             // 
@@ -611,5 +627,7 @@
         private System.Windows.Forms.Label lblSaldoInicial;
         private System.Windows.Forms.ComboBox cmbSaldoInicial;
         private System.Windows.Forms.Label lblvalue;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel lblCajaNumero;
     }
 }

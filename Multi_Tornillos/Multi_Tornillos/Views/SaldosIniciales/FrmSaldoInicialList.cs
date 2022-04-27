@@ -31,7 +31,6 @@ namespace Multi_Tornillos.Views.SaldosIniciales
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             FrmSaldoInicialInsert saldoInicialInsert = new FrmSaldoInicialInsert();
-            saldoInicialInsert.idcaja = lblIdCaja.Text;
             saldoInicialInsert.ShowDialog();
             saldoInicialInsert.Dispose();
             UpdateDates();
@@ -39,7 +38,8 @@ namespace Multi_Tornillos.Views.SaldosIniciales
 
         private void FrmSaldoInicialList_Load(object sender, EventArgs e)
         {
-            lblIdCaja.Text = idcaja;
+            lblIdCaja.Text = UsuarioLog.CajaId;
+            lblCajaNumero.Text=UsuarioLog.CajaNumero;
         }
     }
 }

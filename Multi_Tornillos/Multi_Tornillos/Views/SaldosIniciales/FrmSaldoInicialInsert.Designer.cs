@@ -71,8 +71,9 @@
             this.txtTotalsaldoi = new System.Windows.Forms.TextBox();
             this.lblusuarioId = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblIdCaja = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblCajaNumero = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -329,7 +330,6 @@
             this.label10.Size = new System.Drawing.Size(51, 13);
             this.label10.TabIndex = 20;
             this.label10.Text = "Monedas";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label1
             // 
@@ -447,6 +447,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
+            this.lblCajaNumero,
             this.lblIdCaja});
             this.statusStrip1.Location = new System.Drawing.Point(0, 428);
             this.statusStrip1.Name = "statusStrip1";
@@ -454,17 +455,23 @@
             this.statusStrip1.TabIndex = 52;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(46, 17);
-            this.toolStripStatusLabel1.Text = "Id Caja:";
-            // 
             // lblIdCaja
             // 
             this.lblIdCaja.Name = "lblIdCaja";
             this.lblIdCaja.Size = new System.Drawing.Size(16, 17);
             this.lblIdCaja.Text = "...";
+            // 
+            // lblCajaNumero
+            // 
+            this.lblCajaNumero.Name = "lblCajaNumero";
+            this.lblCajaNumero.Size = new System.Drawing.Size(16, 17);
+            this.lblCajaNumero.Text = "...";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(33, 17);
+            this.toolStripStatusLabel1.Text = "Caja:";
             // 
             // FrmSaldoInicialInsert
             // 
@@ -570,6 +577,7 @@
         private System.Windows.Forms.Label lblusuarioId;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel lblCajaNumero;
         private System.Windows.Forms.ToolStripStatusLabel lblIdCaja;
     }
 }

@@ -30,7 +30,7 @@ namespace Multi_Tornillos.Views
         private void caja()
         {
             cmbCajas.DataSource = caj.GetCajas(cmbCajas.Text);
-            cmbCajas.DisplayMember = "Cajaid";
+            cmbCajas.DisplayMember = "CajaNumero";
             cmbCajas.ValueMember = "Cajaid";
         }
         private void button2_Click_1(object sender, EventArgs e)
@@ -51,7 +51,8 @@ namespace Multi_Tornillos.Views
                 {
                     FrmMenu menu = new FrmMenu();
                     this.Hide();
-                    menu.idcaja = cmbCajas.Text;
+                    UsuarioLog.CajaId = lblidcaja.Text;
+                    UsuarioLog.CajaNumero = cmbCajas.Text;
                     menu.ShowDialog();
                     this.Show();
                    
@@ -67,6 +68,9 @@ namespace Multi_Tornillos.Views
             }
         }
 
-
+        private void cmbCajas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblidcaja.Text = cmbCajas.SelectedValue.ToString();
+        }
     }
 }

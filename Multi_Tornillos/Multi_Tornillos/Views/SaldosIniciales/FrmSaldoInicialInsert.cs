@@ -21,8 +21,6 @@ namespace Multi_Tornillos.Views.SaldosIniciales
         DateTime fecha;
         int da;
 
-        CajaController Cajas;
-        public string idcaja;
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -31,10 +29,8 @@ namespace Multi_Tornillos.Views.SaldosIniciales
 
         private void FrmSaldoInicialInsert_Load(object sender, EventArgs e)
         {
-            lblIdCaja.Text= idcaja;
-            
-
-
+            lblIdCaja.Text= UsuarioLog.CajaId;
+            lblCajaNumero.Text = UsuarioLog.CajaNumero;
         }
         //private void EncontrarId()
         //{
@@ -325,12 +321,6 @@ namespace Multi_Tornillos.Views.SaldosIniciales
                             totalcien + totaldoscientos + totalquinientos;
             txtTotalBilletes.Text = sumaBilletes.ToString();
         }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
     }
 }

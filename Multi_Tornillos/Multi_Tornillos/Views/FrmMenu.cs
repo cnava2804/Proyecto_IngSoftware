@@ -1,5 +1,7 @@
 ﻿using Multi_Tornillos.Views.SaldosIniciales;
+using Multi_Tornillos.Views.CierreDia;
 using Multi_Tornillos.Views.Transacciones.Depositos;
+using Multi_TornillosBLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,8 +21,6 @@ namespace Multi_Tornillos.Views.Caja
             InitializeComponent();
         }
 
-        public string idcaja;
-
         private void mnuListaCajas_Click(object sender, EventArgs e)
         {
             FrmCajaList cajas = new FrmCajaList();
@@ -37,7 +37,6 @@ namespace Multi_Tornillos.Views.Caja
         {
 
             FrmSaldoInicialList saldoInicial = new FrmSaldoInicialList();
-            saldoInicial.idcaja = lblIdCaja.Text;
             tabControl1.TabPages.Add(saldoInicial);
             
         }
@@ -54,9 +53,14 @@ namespace Multi_Tornillos.Views.Caja
         }
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-            lblIdCaja.Text= idcaja;
-    }
+            lblCajaNumero.Text= UsuarioLog.CajaNumero;
+            lblCajaId.Text= UsuarioLog.CajaId;
+        }
 
-      
+        private void cierreDeDiasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCierreDiaList cierre = new FrmCierreDiaList();
+            tabControl1.TabPages.Add(cierre);
+        }
     }
 }
