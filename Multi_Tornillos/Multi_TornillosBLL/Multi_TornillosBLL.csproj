@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitacoraController.cs" />
+    <Compile Include="CacheDinero.cs" />
     <Compile Include="CajaController.cs" />
     <Compile Include="CierreDiaController.cs" />
     <Compile Include="comboxsaldo.cs" />

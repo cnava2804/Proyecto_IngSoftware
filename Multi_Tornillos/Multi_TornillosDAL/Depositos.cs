@@ -33,10 +33,8 @@ namespace Multi_TornillosDAL
         public Nullable<int> DepositoCantidadCincuentacent { get; set; }
         public Nullable<int> UsuarioId { get; set; }
         public Nullable<int> CajaId { get; set; }
-        public Nullable<int> SaldoInicial_Id { get; set; }
     
-        public virtual SaldosIniciales SaldosIniciales { get; set; }
-        public virtual Usuario Usuario { get; set; }
         public virtual Caja Caja { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }
