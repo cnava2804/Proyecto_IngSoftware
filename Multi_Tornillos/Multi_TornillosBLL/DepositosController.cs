@@ -67,7 +67,6 @@ namespace Multi_TornillosBLL
                     DepositoCantidadDiezcent = deposito.DepositoCantidadDiezcent.Value,
                     DepositoCantidadVeintecent = deposito.DepositoCantidadVeintecent.Value,
                     DepositoCantidadCincuentacent = deposito.DepositoCantidadCincuentacent.Value,
-                    SaldoInicial_Id = deposito.SaldosIniciales.SaldoInicial_Id,
                     CajaId = deposito.Caja.CajaId,
                     UsuarioId = deposito.Usuario.UsuarioId
 

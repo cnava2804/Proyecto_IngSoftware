@@ -13,6 +13,7 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
 {
     public partial class FrmDepositosList : Form
     {
+        int decidido;
         DepositosController controller;
         public FrmDepositosList()
         {
@@ -34,6 +35,12 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
             depositosInsert.ShowDialog();
             depositosInsert.Dispose();
             UpdateDates();
+        }
+
+        private void FrmDepositosList_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            decidido = 0;
+            UsuarioLog.decision = decidido;
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace Multi_Tornillos.Views.Caja
 {
-    partial class FrmMenu
+    public partial class FrmMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -215,6 +215,6 @@ namespace Multi_Tornillos.Views.Caja
         private System.Windows.Forms.ToolStripStatusLabel lblCajaId;
         private System.Windows.Forms.ToolStripMenuItem cierreDeDiasToolStripMenuItem;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSaldoCaja;
+        public System.Windows.Forms.TextBox txtSaldoCaja;
     }
 }

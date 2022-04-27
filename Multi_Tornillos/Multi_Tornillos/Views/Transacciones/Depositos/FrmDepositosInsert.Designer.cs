@@ -72,12 +72,9 @@
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lblIdCaja = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblSaldoInicial = new System.Windows.Forms.Label();
-            this.cmbSaldoInicial = new System.Windows.Forms.ComboBox();
-            this.lblvalue = new System.Windows.Forms.Label();
-            this.lblCajaNumero = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblCajaNumero = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblIdCaja = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -251,7 +248,6 @@
             this.txtTotalBilletes.Name = "txtTotalBilletes";
             this.txtTotalBilletes.Size = new System.Drawing.Size(100, 35);
             this.txtTotalBilletes.TabIndex = 19;
-            this.txtTotalBilletes.TextChanged += new System.EventHandler(this.txtTotalBilletes_TextChanged);
             // 
             // txtTotalMonedas
             // 
@@ -466,43 +462,11 @@
             this.statusStrip1.TabIndex = 53;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // lblIdCaja
+            // toolStripStatusLabel1
             // 
-            this.lblIdCaja.Name = "lblIdCaja";
-            this.lblIdCaja.Size = new System.Drawing.Size(16, 17);
-            this.lblIdCaja.Text = "...";
-            // 
-            // lblSaldoInicial
-            // 
-            this.lblSaldoInicial.AutoSize = true;
-            this.lblSaldoInicial.Enabled = false;
-            this.lblSaldoInicial.Location = new System.Drawing.Point(260, 27);
-            this.lblSaldoInicial.Name = "lblSaldoInicial";
-            this.lblSaldoInicial.Size = new System.Drawing.Size(64, 13);
-            this.lblSaldoInicial.TabIndex = 55;
-            this.lblSaldoInicial.Text = "Saldo Inicial";
-            // 
-            // cmbSaldoInicial
-            // 
-            this.cmbSaldoInicial.AllowDrop = true;
-            this.cmbSaldoInicial.FormattingEnabled = true;
-            this.cmbSaldoInicial.Location = new System.Drawing.Point(263, 53);
-            this.cmbSaldoInicial.Name = "cmbSaldoInicial";
-            this.cmbSaldoInicial.Size = new System.Drawing.Size(121, 21);
-            this.cmbSaldoInicial.Sorted = true;
-            this.cmbSaldoInicial.TabIndex = 54;
-            this.cmbSaldoInicial.Tag = "";
-            this.cmbSaldoInicial.SelectedIndexChanged += new System.EventHandler(this.cmbSaldoInicial_SelectedIndexChanged);
-            this.cmbSaldoInicial.SelectedValueChanged += new System.EventHandler(this.cmbSaldoInicial_SelectedValueChanged);
-            // 
-            // lblvalue
-            // 
-            this.lblvalue.AutoSize = true;
-            this.lblvalue.Location = new System.Drawing.Point(295, 80);
-            this.lblvalue.Name = "lblvalue";
-            this.lblvalue.Size = new System.Drawing.Size(16, 13);
-            this.lblvalue.TabIndex = 56;
-            this.lblvalue.Text = "...";
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(33, 17);
+            this.toolStripStatusLabel1.Text = "Caja:";
             // 
             // lblCajaNumero
             // 
@@ -510,20 +474,17 @@
             this.lblCajaNumero.Size = new System.Drawing.Size(16, 17);
             this.lblCajaNumero.Text = "...";
             // 
-            // toolStripStatusLabel1
+            // lblIdCaja
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(33, 17);
-            this.toolStripStatusLabel1.Text = "Caja:";
+            this.lblIdCaja.Name = "lblIdCaja";
+            this.lblIdCaja.Size = new System.Drawing.Size(16, 17);
+            this.lblIdCaja.Text = "...";
             // 
             // FrmDepositosInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 470);
-            this.Controls.Add(this.lblvalue);
-            this.Controls.Add(this.lblSaldoInicial);
-            this.Controls.Add(this.cmbSaldoInicial);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.txtDescripcion);
@@ -624,9 +585,6 @@
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblIdCaja;
-        private System.Windows.Forms.Label lblSaldoInicial;
-        private System.Windows.Forms.ComboBox cmbSaldoInicial;
-        private System.Windows.Forms.Label lblvalue;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel lblCajaNumero;
     }

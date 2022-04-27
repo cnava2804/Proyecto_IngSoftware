@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Multi_TornillosBLL;
 using Multi_TornillosDAL;
+using Multi_Tornillos;
 
 namespace Multi_Tornillos.Views.Transacciones.Depositos
 {
@@ -22,24 +23,9 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
         decimal suma_total_Saldoi;
         decimal totalcincoCent, totaldiezCent, totalveinteCent, totalcincuentaCent;
 
-        private void cmbSaldoInicial_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lblvalue.Text = Convert.ToString(cmbSaldoInicial.SelectedValue);
-        }
 
-        private void cmbSaldoInicial_SelectedValueChanged(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        SaldosInicialesController saldoInicial = new SaldosInicialesController();
-        public void SI()
-        {
-            cmbSaldoInicial.DataSource = saldoInicial.GetSaldosIniciales(cmbSaldoInicial.Text);
-            cmbSaldoInicial.DisplayMember = "SaldoInicialTotal";
-            cmbSaldoInicial.ValueMember = "SaldoInicial_Id";
-        }
+        int decidido =UsuarioLog.decision;
+        
 
         int sumaBilletes;
         decimal sumaCentavos;
@@ -54,20 +40,49 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
             lblusuario.Text = usuario;
             lblCajaNumero.Text = UsuarioLog.CajaNumero;
             lblIdCaja.Text = UsuarioLog.CajaId;
-            SI();
-            txt1L.Text = "0";
-            txt2L.Text = "0";
-            txt5L.Text = "0";
-            txt10L.Text = "0";
-            txt20L.Text = "0";
-            txt50L.Text = "0";
-            txt100L.Text = "0";
-            txt200L.Text = "0";
-            txt500L.Text = "0";
-            txt5C.Text = "0";
-            txt10C.Text = "0";
-            txt20C.Text = "0";
-            txt50C.Text = "0";
+            datos_de_inicio();
+            
+        }
+
+        private void datos_de_inicio()
+        {
+            
+                if (decidido==1)
+                {
+                txt1L.Text = CacheDinero.DepositoCantidadUnlps.ToString();
+                txt2L.Text = CacheDinero.DepositoCantidadDoslps.ToString();
+                txt5L.Text = CacheDinero.DepositoCantidadCincolps.ToString();
+                txt10L.Text = CacheDinero.DepositoCantidadDiezlps.ToString();
+                txt20L.Text = CacheDinero.DepositoCantidadVeintelps.ToString();
+                txt50L.Text = CacheDinero.DepositoCantidadCincuentalps.ToString();
+                txt100L.Text = CacheDinero.DepositoCantidadCienlps.ToString();
+                txt200L.Text = CacheDinero.DepositoCantidadDoscientoslps.ToString();
+                txt500L.Text = CacheDinero.DepositoCantidadQuinientos.ToString();
+                txt5C.Text = CacheDinero.DepositoCantidadCincocent.ToString();
+                txt10C.Text = CacheDinero.DepositoCantidadDiezcent.ToString();
+                txt20C.Text = CacheDinero.DepositoCantidadVeintecent.ToString();
+                txt50C.Text = CacheDinero.DepositoCantidadCincuentacent.ToString();
+
+            }
+                else if(decidido==0)
+                {
+                    txt1L.Text = "0";
+                    txt2L.Text = "0";
+                    txt5L.Text = "0";
+                    txt10L.Text = "0";
+                    txt20L.Text = "0";
+                    txt50L.Text = "0";
+                    txt100L.Text = "0";
+                    txt200L.Text = "0";
+                    txt500L.Text = "0";
+                    txt5C.Text = "0";
+                    txt10C.Text = "0";
+                    txt20C.Text = "0";
+                    txt50C.Text = "0";
+                }
+
+            
+            
         }
 
         private void FrmDepositosInsert_Load(object sender, EventArgs e)
@@ -118,11 +133,6 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
         private void txt1L_Click(object sender, EventArgs e)
         {
             txt1L.Text = "";
-
-        }
-
-        private void txtTotalBilletes_TextChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -225,7 +235,65 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            string mensaje = "Esta seguro de cancelar esta operacion?";
+            string cancelar = "Cancelando";
+            MessageBoxButtons opcion = MessageBoxButtons.OKCancel;
+            DialogResult mbx;
+            mbx = MessageBox.Show(mensaje, cancelar, opcion);
+
+            if (mbx == System.Windows.Forms.DialogResult.OK)
+            {
+                string mnsj = "Guardar Datos?";
+                string cancel = "Datos";
+                MessageBoxButtons op = MessageBoxButtons.YesNo;
+                DialogResult guardardatos;
+                guardardatos = MessageBox.Show(mnsj, cancel, op);
+                if (guardardatos == System.Windows.Forms.DialogResult.Yes)
+                {
+                    decidido= Convert.ToInt32(1);
+                    CacheDinero.DepositoDescripcion = txtDescripcion.Text;
+                    CacheDinero.DepositoCantidadUnlps = Convert.ToInt32(txt1L.Text);
+                    CacheDinero.DepositoCantidadDoslps = Convert.ToInt32(txt2L.Text);
+                    CacheDinero.DepositoCantidadCincolps = Convert.ToInt32(txt5L.Text);
+                    CacheDinero.DepositoCantidadDiezlps = Convert.ToInt32(txt10L.Text);
+                    CacheDinero.DepositoCantidadVeintelps = Convert.ToInt32(txt20L.Text);
+                    CacheDinero.DepositoCantidadCincuentalps = Convert.ToInt32(txt50L.Text);
+                    CacheDinero.DepositoCantidadCienlps = Convert.ToInt32(txt100L.Text);
+                    CacheDinero.DepositoCantidadDoscientoslps = Convert.ToInt32(txt200L.Text);
+                    CacheDinero.DepositoCantidadQuinientos = Convert.ToInt32(txt500L.Text);
+                    CacheDinero.DepositoCantidadCincocent = Convert.ToInt32(txt5C.Text);
+                    CacheDinero.DepositoCantidadDiezcent = Convert.ToInt32(txt10C.Text);
+                    CacheDinero.DepositoCantidadVeintecent = Convert.ToInt32(txt20C.Text);
+                    CacheDinero.DepositoCantidadCincuentacent = Convert.ToInt32(txt50C.Text);
+                    UsuarioLog.decision = decidido;
+                    this.Close();
+                }
+                else if (guardardatos == System.Windows.Forms.DialogResult.No)
+                {
+                    decidido =Convert.ToInt32(0);
+                    txt1L.Text = "0";
+                    txt2L.Text = "0";
+                    txt5L.Text = "0";
+                    txt10L.Text = "0";
+                    txt20L.Text = "0";
+                    txt50L.Text = "0";
+                    txt100L.Text = "0";
+                    txt200L.Text = "0";
+                    txt500L.Text = "0";
+                    txt5C.Text = "0";
+                    txt10C.Text = "0";
+                    txt20C.Text = "0";
+                    txt50C.Text = "0";
+                    UsuarioLog.decision = decidido;
+                    this.Close();
+                }
+
+            }
+            else if (mbx == System.Windows.Forms.DialogResult.Cancel)
+            {
+
+            }
+
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -249,20 +317,12 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
                 DepositoCantidadVeintecent = Convert.ToInt32(txt20C.Text),
                 DepositoCantidadCincuentacent = Convert.ToInt32(txt50C.Text),
                 UsuarioId = Convert.ToInt32(UsuarioLog.UsuarioId),
-                CajaId = Convert.ToInt32(lblIdCaja.Text),
-                SaldoInicial_Id = Convert.ToInt32(lblvalue.Text)
-
-
+                CajaId = Convert.ToInt32(lblIdCaja.Text)
             };
-
-            //var DepositoId = db.SaldosIniciales.ToList().Select(d => d.SaldoInicial_Id).Max();
-
-            //var saldo = db.SaldosIniciales.Find(int.Parse(txtTotalsaldoi.Text));
-            ////Actualizar el saldo del cliente al que se le deposito
-            //saldo.ClienteSaldo = saldo.ClienteSaldo + Convert.ToDecimal(txtTotalsaldoi.Text);
-
-            //db.Entry(saldo).State = System.Data.Entity.EntityState.Modified;
-            //db.SaveChanges();
+            Multi_TornillosDAL.Caja caja = new Multi_TornillosDAL.Caja
+            {
+                CajaSaldoTotal= Convert.ToDecimal(txtTotalsaldoi.Text)+ deposito.DepositoSaldoTotal
+            };
 
             if (controller.Add(deposito))
             {
@@ -276,12 +336,6 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
                 MessageBox.Show("Error para agregar");
             }
         }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
     }
 }
