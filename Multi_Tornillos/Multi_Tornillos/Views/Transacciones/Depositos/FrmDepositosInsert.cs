@@ -24,12 +24,12 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
 
         private void cmbSaldoInicial_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            lblvalue.Text = Convert.ToString(cmbSaldoInicial.SelectedValue);
         }
 
         private void cmbSaldoInicial_SelectedValueChanged(object sender, EventArgs e)
         {
-            SI();
+            
 
         }
 
@@ -39,8 +39,6 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
             cmbSaldoInicial.DataSource = saldoInicial.GetSaldosIniciales(cmbSaldoInicial.Text);
             cmbSaldoInicial.DisplayMember = "SaldoInicialTotal";
             cmbSaldoInicial.ValueMember = "SaldoInicial_Id";
-            lblvalue.Text=Convert.ToString(cmbSaldoInicial.SelectedValue);
-            
         }
 
         int sumaBilletes;
@@ -54,6 +52,7 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
             usuario = UsuarioLog.UsuarioNombre;
             label6.Text =Convert.ToString( DateTime.Now);
             lblusuario.Text = usuario;
+            cmbSaldoInicial.SelectedValue = 0;
             SI();
             txt1L.Text = "0";
             txt2L.Text = "0";
