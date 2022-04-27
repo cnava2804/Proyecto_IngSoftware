@@ -42,6 +42,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblIdCaja = new System.Windows.Forms.ToolStripStatusLabel();
+            this.atusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblcajaNum = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDatos)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -143,7 +145,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
-            this.lblIdCaja});
+            this.lblIdCaja,
+            this.atusLabel2,
+            this.lblcajaNum});
             this.statusStrip1.Location = new System.Drawing.Point(0, 442);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(800, 22);
@@ -161,6 +165,18 @@
             this.lblIdCaja.Name = "lblIdCaja";
             this.lblIdCaja.Size = new System.Drawing.Size(16, 17);
             this.lblIdCaja.Text = "...";
+            // 
+            // atusLabel2
+            // 
+            this.atusLabel2.Name = "atusLabel2";
+            this.atusLabel2.Size = new System.Drawing.Size(33, 17);
+            this.atusLabel2.Text = "Caja:";
+            // 
+            // lblcajaNum
+            // 
+            this.lblcajaNum.Name = "lblcajaNum";
+            this.lblcajaNum.Size = new System.Drawing.Size(16, 17);
+            this.lblcajaNum.Text = "...";
             // 
             // FrmSaldoInicialList
             // 
@@ -199,5 +215,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         public System.Windows.Forms.ToolStripStatusLabel lblIdCaja;
+        private System.Windows.Forms.ToolStripStatusLabel atusLabel2;
+        public System.Windows.Forms.ToolStripStatusLabel lblcajaNum;
     }
 }

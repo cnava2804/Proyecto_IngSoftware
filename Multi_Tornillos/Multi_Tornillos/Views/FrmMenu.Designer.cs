@@ -37,6 +37,8 @@ namespace Multi_Tornillos.Views.Caja
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblIdCaja = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblCajaNum = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -90,7 +92,9 @@ namespace Multi_Tornillos.Views.Caja
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
-            this.lblIdCaja});
+            this.lblIdCaja,
+            this.toolStripStatusLabel2,
+            this.lblCajaNum});
             this.statusStrip1.Location = new System.Drawing.Point(0, 428);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(800, 22);
@@ -108,6 +112,18 @@ namespace Multi_Tornillos.Views.Caja
             this.lblIdCaja.Name = "lblIdCaja";
             this.lblIdCaja.Size = new System.Drawing.Size(16, 17);
             this.lblIdCaja.Text = "...";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(33, 17);
+            this.toolStripStatusLabel2.Text = "Caja:";
+            // 
+            // lblCajaNum
+            // 
+            this.lblCajaNum.Name = "lblCajaNum";
+            this.lblCajaNum.Size = new System.Drawing.Size(16, 17);
+            this.lblCajaNum.Text = "...";
             // 
             // FrmMenu
             // 
@@ -141,5 +157,7 @@ namespace Multi_Tornillos.Views.Caja
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         public System.Windows.Forms.ToolStripStatusLabel lblIdCaja;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        public System.Windows.Forms.ToolStripStatusLabel lblCajaNum;
     }
 }

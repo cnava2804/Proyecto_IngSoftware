@@ -31,6 +31,7 @@ namespace Multi_Tornillos.Views
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblid = new System.Windows.Forms.Label();
             this.cmbCajas = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -56,6 +57,7 @@ namespace Multi_Tornillos.Views
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblid);
             this.groupBox1.Controls.Add(this.cmbCajas);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnSalir);
@@ -72,6 +74,17 @@ namespace Multi_Tornillos.Views
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
+            // lblid
+            // 
+            this.lblid.AutoSize = true;
+            this.lblid.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblid.Location = new System.Drawing.Point(160, 66);
+            this.lblid.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblid.Name = "lblid";
+            this.lblid.Size = new System.Drawing.Size(21, 19);
+            this.lblid.TabIndex = 8;
+            this.lblid.Text = "...";
+            // 
             // cmbCajas
             // 
             this.cmbCajas.FormattingEnabled = true;
@@ -79,6 +92,7 @@ namespace Multi_Tornillos.Views
             this.cmbCajas.Name = "cmbCajas";
             this.cmbCajas.Size = new System.Drawing.Size(63, 21);
             this.cmbCajas.TabIndex = 7;
+            this.cmbCajas.SelectedIndexChanged += new System.EventHandler(this.cmbCajas_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -177,6 +191,7 @@ namespace Multi_Tornillos.Views
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar Sesión";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -196,5 +211,6 @@ namespace Multi_Tornillos.Views
         private System.Windows.Forms.Button btnSalir;
         public System.Windows.Forms.ComboBox cmbCajas;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblid;
     }
 }

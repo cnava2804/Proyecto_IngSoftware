@@ -19,19 +19,25 @@ namespace Multi_Tornillos.Views
     {
         private readonly FlujoDeCajaEntities db;
         UsuarioController controller;
+        private Multi_TornillosDAL.Caja ca;
+
         public FrmLogin()
         {
             InitializeComponent();
             controller = new UsuarioController();
             caja();
+
         }
 
         CajaController caj = new CajaController();
         private void caja()
         {
+
             cmbCajas.DataSource = caj.GetCajas(cmbCajas.Text);
-            cmbCajas.DisplayMember = "Cajaid";
+            cmbCajas.DisplayMember = "CajaNumero";
             cmbCajas.ValueMember = "Cajaid";
+
+
         }
         private void button2_Click_1(object sender, EventArgs e)
         {
@@ -51,12 +57,13 @@ namespace Multi_Tornillos.Views
                 {
                     FrmMenu menu = new FrmMenu();
                     this.Hide();
-                    menu.idcaja = cmbCajas.Text;
+                    menu.idcaja = lblid.Text;
+                    menu.cajaNum = cmbCajas.Text;
                     menu.ShowDialog();
                     this.Show();
-                   
+
                 }
-                else 
+                else
                 {
 
                 }
@@ -67,6 +74,16 @@ namespace Multi_Tornillos.Views
             }
         }
 
+        private void cmbCajas_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+            lblid.Text = Convert.ToString(cmbCajas.SelectedValue);
+
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -19,6 +19,7 @@ namespace Multi_Tornillos.Views.Caja
         }
 
         public string idcaja;
+        public string cajaNum;
 
         private void mnuListaCajas_Click(object sender, EventArgs e)
         {
@@ -37,6 +38,7 @@ namespace Multi_Tornillos.Views.Caja
 
             FrmSaldoInicialList saldoInicial = new FrmSaldoInicialList();
             saldoInicial.idcaja = lblIdCaja.Text;
+            saldoInicial.cajaNum = lblCajaNum.Text;
             tabControl1.TabPages.Add(saldoInicial);
             
         }
@@ -44,6 +46,7 @@ namespace Multi_Tornillos.Views.Caja
         private void FrmMenu_Load(object sender, EventArgs e)
         {
             lblIdCaja.Text= idcaja;
+            lblCajaNum.Text = cajaNum;
     }
     }
 }

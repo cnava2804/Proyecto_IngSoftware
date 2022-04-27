@@ -21,6 +21,7 @@ namespace Multi_Tornillos.Views.SaldosIniciales
         }
 
         public string idcaja;
+        public string cajaNum;
         private void UpdateDates()
         {
             controller = new SaldosInicialesController();
@@ -32,6 +33,7 @@ namespace Multi_Tornillos.Views.SaldosIniciales
         {
             FrmSaldoInicialInsert saldoInicialInsert = new FrmSaldoInicialInsert();
             saldoInicialInsert.idcaja = lblIdCaja.Text;
+            saldoInicialInsert.cajaNum = lblcajaNum.Text;            
             saldoInicialInsert.ShowDialog();
             saldoInicialInsert.Dispose();
             UpdateDates();

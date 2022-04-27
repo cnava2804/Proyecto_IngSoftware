@@ -15,6 +15,7 @@ namespace Multi_Tornillos.Views.Caja
     {
         private Multi_TornillosDAL.Caja caja;
         private readonly CajaController controller;
+    
 
 
         public FrmCajaEdit(Multi_TornillosDAL.Caja caja)
