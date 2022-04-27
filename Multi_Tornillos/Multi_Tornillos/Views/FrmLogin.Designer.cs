@@ -39,6 +39,7 @@ namespace Multi_Tornillos.Views
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtRTN = new System.Windows.Forms.TextBox();
+            this.lblidcaja = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +57,7 @@ namespace Multi_Tornillos.Views
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblidcaja);
             this.groupBox1.Controls.Add(this.cmbCajas);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnSalir);
@@ -79,6 +81,7 @@ namespace Multi_Tornillos.Views
             this.cmbCajas.Name = "cmbCajas";
             this.cmbCajas.Size = new System.Drawing.Size(63, 21);
             this.cmbCajas.TabIndex = 7;
+            this.cmbCajas.SelectedIndexChanged += new System.EventHandler(this.cmbCajas_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -163,6 +166,15 @@ namespace Multi_Tornillos.Views
             this.txtRTN.Size = new System.Drawing.Size(280, 26);
             this.txtRTN.TabIndex = 0;
             // 
+            // lblidcaja
+            // 
+            this.lblidcaja.AutoSize = true;
+            this.lblidcaja.Location = new System.Drawing.Point(161, 61);
+            this.lblidcaja.Name = "lblidcaja";
+            this.lblidcaja.Size = new System.Drawing.Size(16, 13);
+            this.lblidcaja.TabIndex = 8;
+            this.lblidcaja.Text = "...";
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -196,5 +208,6 @@ namespace Multi_Tornillos.Views
         private System.Windows.Forms.Button btnSalir;
         public System.Windows.Forms.ComboBox cmbCajas;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblidcaja;
     }
 }

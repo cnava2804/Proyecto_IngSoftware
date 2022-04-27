@@ -18,6 +18,8 @@ namespace Multi_Tornillos.Views.CierreDia
         {
             InitializeComponent();
             UpdateDates();
+            lblCajaNumero.Text = UsuarioLog.CajaNumero;
+            lblIdCaja.Text = UsuarioLog.CajaId;
         }
 
         private void UpdateDates()

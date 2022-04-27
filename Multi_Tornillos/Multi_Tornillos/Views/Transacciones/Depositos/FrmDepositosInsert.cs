@@ -52,7 +52,8 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
             usuario = UsuarioLog.UsuarioNombre;
             label6.Text =Convert.ToString( DateTime.Now);
             lblusuario.Text = usuario;
-            cmbSaldoInicial.SelectedValue = 0;
+            lblCajaNumero.Text = UsuarioLog.CajaNumero;
+            lblIdCaja.Text = UsuarioLog.CajaId;
             SI();
             txt1L.Text = "0";
             txt2L.Text = "0";
@@ -71,7 +72,7 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
 
         private void FrmDepositosInsert_Load(object sender, EventArgs e)
         {
-            lblIdCaja.Text = idcaja;
+            lblIdCaja.Text = UsuarioLog.CajaId;
         }
         private void txt2L_Click(object sender, EventArgs e)
         {

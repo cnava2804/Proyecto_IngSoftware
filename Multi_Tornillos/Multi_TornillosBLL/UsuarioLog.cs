@@ -13,5 +13,8 @@ namespace Multi_TornillosBLL
         public static string UsuarioDNI { get; set; }
         public static string UsuarioPassword { get; set; }
         public static string UsuarioTipo { get; set; }
+        public static string CajaId { get; set; }
+        public static string CajaNumero { get; set; }
+
     }
 }
