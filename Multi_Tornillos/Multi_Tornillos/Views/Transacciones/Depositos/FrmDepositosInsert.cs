@@ -22,17 +22,39 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
         decimal suma_total_Saldoi;
         decimal totalcincoCent, totaldiezCent, totalveinteCent, totalcincuentaCent;
 
+        private void cmbSaldoInicial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbSaldoInicial_SelectedValueChanged(object sender, EventArgs e)
+        {
+            SI();
+
+        }
+
+        SaldosInicialesController saldoInicial = new SaldosInicialesController();
+        public void SI()
+        {
+            cmbSaldoInicial.DataSource = saldoInicial.GetSaldosIniciales(cmbSaldoInicial.Text);
+            cmbSaldoInicial.DisplayMember = "SaldoInicialTotal";
+            cmbSaldoInicial.ValueMember = "SaldoInicial_Id";
+            lblvalue.Text=Convert.ToString(cmbSaldoInicial.SelectedValue);
+            
+        }
+
         int sumaBilletes;
         decimal sumaCentavos;
+        public string idcaja;
         public FrmDepositosInsert()
         {
             string usuario;
-
             InitializeComponent();
             controller = new DepositosController();
             usuario = UsuarioLog.UsuarioNombre;
+            label6.Text =Convert.ToString( DateTime.Now);
             lblusuario.Text = usuario;
-            
+            SI();
             txt1L.Text = "0";
             txt2L.Text = "0";
             txt5L.Text = "0";
@@ -48,7 +70,10 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
             txt50C.Text = "0";
         }
 
-
+        private void FrmDepositosInsert_Load(object sender, EventArgs e)
+        {
+            lblIdCaja.Text = idcaja;
+        }
         private void txt2L_Click(object sender, EventArgs e)
         {
             txt2L.Text = "";
@@ -224,8 +249,8 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
                 DepositoCantidadVeintecent = Convert.ToInt32(txt20C.Text),
                 DepositoCantidadCincuentacent = Convert.ToInt32(txt50C.Text),
                 UsuarioId = Convert.ToInt32(UsuarioLog.UsuarioId),
-                CajaId = 1,
-                SaldoInicial_Id = 1
+                CajaId = Convert.ToInt32(lblIdCaja.Text),
+                SaldoInicial_Id = Convert.ToInt32(lblvalue.Text)
 
 
             };

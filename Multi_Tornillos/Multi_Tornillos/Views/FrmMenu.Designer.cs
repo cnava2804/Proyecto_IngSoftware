@@ -37,6 +37,9 @@ namespace Multi_Tornillos.Views.Caja
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblIdCaja = new System.Windows.Forms.ToolStripStatusLabel();
+            this.transaccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.depositosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.retirosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -46,7 +49,8 @@ namespace Multi_Tornillos.Views.Caja
             this.mnuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuListaCajas,
             this.usuariosToolStripMenuItem,
-            this.saldoInicialToolStripMenuItem});
+            this.saldoInicialToolStripMenuItem,
+            this.transaccionesToolStripMenuItem});
             this.mnuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnuPrincipal.Name = "mnuPrincipal";
             this.mnuPrincipal.Size = new System.Drawing.Size(800, 24);
@@ -56,21 +60,21 @@ namespace Multi_Tornillos.Views.Caja
             // mnuListaCajas
             // 
             this.mnuListaCajas.Name = "mnuListaCajas";
-            this.mnuListaCajas.Size = new System.Drawing.Size(72, 62);
+            this.mnuListaCajas.Size = new System.Drawing.Size(72, 20);
             this.mnuListaCajas.Text = "Lista cajas";
             this.mnuListaCajas.Click += new System.EventHandler(this.mnuListaCajas_Click);
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 62);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // saldoInicialToolStripMenuItem
             // 
             this.saldoInicialToolStripMenuItem.Name = "saldoInicialToolStripMenuItem";
-            this.saldoInicialToolStripMenuItem.Size = new System.Drawing.Size(82, 62);
+            this.saldoInicialToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
             this.saldoInicialToolStripMenuItem.Text = "Saldo Inicial";
             this.saldoInicialToolStripMenuItem.Click += new System.EventHandler(this.saldoInicialToolStripMenuItem_Click);
             // 
@@ -109,6 +113,28 @@ namespace Multi_Tornillos.Views.Caja
             this.lblIdCaja.Size = new System.Drawing.Size(16, 17);
             this.lblIdCaja.Text = "...";
             // 
+            // transaccionesToolStripMenuItem
+            // 
+            this.transaccionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.depositosToolStripMenuItem,
+            this.retirosToolStripMenuItem});
+            this.transaccionesToolStripMenuItem.Name = "transaccionesToolStripMenuItem";
+            this.transaccionesToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+            this.transaccionesToolStripMenuItem.Text = "Transacciones";
+            // 
+            // depositosToolStripMenuItem
+            // 
+            this.depositosToolStripMenuItem.Name = "depositosToolStripMenuItem";
+            this.depositosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.depositosToolStripMenuItem.Text = "Depositos";
+            this.depositosToolStripMenuItem.Click += new System.EventHandler(this.depositosToolStripMenuItem_Click);
+            // 
+            // retirosToolStripMenuItem
+            // 
+            this.retirosToolStripMenuItem.Name = "retirosToolStripMenuItem";
+            this.retirosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.retirosToolStripMenuItem.Text = "Retiros";
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -141,5 +167,8 @@ namespace Multi_Tornillos.Views.Caja
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         public System.Windows.Forms.ToolStripStatusLabel lblIdCaja;
+        private System.Windows.Forms.ToolStripMenuItem transaccionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem depositosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem retirosToolStripMenuItem;
     }
 }

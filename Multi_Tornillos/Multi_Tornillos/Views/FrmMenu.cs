@@ -1,4 +1,5 @@
 ﻿using Multi_Tornillos.Views.SaldosIniciales;
+using Multi_Tornillos.Views.Transacciones.Depositos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,6 +41,11 @@ namespace Multi_Tornillos.Views.Caja
             tabControl1.TabPages.Add(saldoInicial);
             
         }
+          private void depositosToolStripMenuItem_Click(object sender, EventArgs e)
+                {
+                   FrmDepositosList depositos = new FrmDepositosList();
+                    tabControl1.TabPages.Add(depositos);
+                }
 
 
         private void label2_Click(object sender, EventArgs e)
@@ -51,5 +57,6 @@ namespace Multi_Tornillos.Views.Caja
             lblIdCaja.Text= idcaja;
     }
 
+      
     }
 }
