@@ -31,6 +31,7 @@ namespace Multi_Tornillos.Views
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblidcaja = new System.Windows.Forms.Label();
             this.cmbCajas = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -39,7 +40,7 @@ namespace Multi_Tornillos.Views
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtRTN = new System.Windows.Forms.TextBox();
-            this.lblidcaja = new System.Windows.Forms.Label();
+            this.lblSaldoC = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +58,7 @@ namespace Multi_Tornillos.Views
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblSaldoC);
             this.groupBox1.Controls.Add(this.lblidcaja);
             this.groupBox1.Controls.Add(this.cmbCajas);
             this.groupBox1.Controls.Add(this.label3);
@@ -74,12 +76,21 @@ namespace Multi_Tornillos.Views
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
+            // lblidcaja
+            // 
+            this.lblidcaja.AutoSize = true;
+            this.lblidcaja.Location = new System.Drawing.Point(161, 61);
+            this.lblidcaja.Name = "lblidcaja";
+            this.lblidcaja.Size = new System.Drawing.Size(16, 13);
+            this.lblidcaja.TabIndex = 8;
+            this.lblidcaja.Text = "...";
+            // 
             // cmbCajas
             // 
             this.cmbCajas.FormattingEnabled = true;
             this.cmbCajas.Location = new System.Drawing.Point(136, 37);
             this.cmbCajas.Name = "cmbCajas";
-            this.cmbCajas.Size = new System.Drawing.Size(63, 21);
+            this.cmbCajas.Size = new System.Drawing.Size(83, 21);
             this.cmbCajas.TabIndex = 7;
             this.cmbCajas.SelectedIndexChanged += new System.EventHandler(this.cmbCajas_SelectedIndexChanged);
             // 
@@ -166,14 +177,14 @@ namespace Multi_Tornillos.Views
             this.txtRTN.Size = new System.Drawing.Size(280, 26);
             this.txtRTN.TabIndex = 0;
             // 
-            // lblidcaja
+            // lblSaldoC
             // 
-            this.lblidcaja.AutoSize = true;
-            this.lblidcaja.Location = new System.Drawing.Point(161, 61);
-            this.lblidcaja.Name = "lblidcaja";
-            this.lblidcaja.Size = new System.Drawing.Size(16, 13);
-            this.lblidcaja.TabIndex = 8;
-            this.lblidcaja.Text = "...";
+            this.lblSaldoC.AutoSize = true;
+            this.lblSaldoC.Location = new System.Drawing.Point(263, 61);
+            this.lblSaldoC.Name = "lblSaldoC";
+            this.lblSaldoC.Size = new System.Drawing.Size(16, 13);
+            this.lblSaldoC.TabIndex = 9;
+            this.lblSaldoC.Text = "...";
             // 
             // FrmLogin
             // 
@@ -209,5 +220,6 @@ namespace Multi_Tornillos.Views
         public System.Windows.Forms.ComboBox cmbCajas;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblidcaja;
+        private System.Windows.Forms.Label lblSaldoC;
     }
 }

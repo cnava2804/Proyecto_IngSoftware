@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Multi_TornillosDAL;
+using Multi_TornillosDAL.ViewModels;
+using System.Data.SqlClient;
 
 namespace Multi_Tornillos.Views.Caja
 {
@@ -20,11 +22,13 @@ namespace Multi_Tornillos.Views.Caja
     {
 
         public readonly FlujoDeCajaEntities db;
-        public readonly CajaController cajaController;
         public FrmMenu()
         {
             InitializeComponent();
-            SaldoCaja();
+            //SaldoCaja();
+            MaxId();
+
+
         }
 
         private void mnuListaCajas_Click(object sender, EventArgs e)
@@ -71,10 +75,46 @@ namespace Multi_Tornillos.Views.Caja
 
         private void SaldoCaja()
         {
-            Multi_TornillosDAL.Caja saldocaja = new Multi_TornillosDAL.Caja
+            Multi_TornillosDAL.ViewModels.CajaViewModel saldocaja = new Multi_TornillosDAL.ViewModels.CajaViewModel
             {
-                CajaSaldoTotal = Convert.ToDecimal(lblSaldoCaja.Text)
+                
             };
+            txtSaldoCaja.Text = Convert.ToDecimal(saldocaja.CajaSaldoTotal).ToString();
+
+            //string connstring = "connection string";
+            //using (SqlConnection cn = new SqlConnection(connstring))
+            //{
+            //    cn.Open();
+
+            //    string sql = "SELECT campo1 FROM Caja WHERE id =@id";
+            //    SqlCommand cmd = new SqlCommand(query, cn);
+            //    cmd.Parameters.AddwithValue("@id", 4950);
+
+            //    SqlDataReader reader = cmd.ExecuteReader();
+
+            //    if (reader.Read())
+            //    {
+            //        txtSaldoCaja.Text = Convert.ToString(reader("CajaSaldoTotal"));
+            //    }
+
+            //}
+
+
         }
+
+        private void MaxId()
+        {
+            string sql = @"SELECT TOP 1 CajaSaldoTotal FROM Caja WHERE CajaSaldoTotal = CajaSaldoTotal ORDER BY CajaSaldoTotal DESC";
+            using (SqlConnection conn = new SqlConnection("data source=DESKTOP-I3P9B28;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True"))
+            {
+                SqlCommand command = new SqlCommand(sql, conn);
+                conn.Open();
+                string codmax = Convert.ToString(command.ExecuteScalar());
+                int cod = Convert.ToInt32(codmax);
+                txtSaldoCaja.Text = Convert.ToString(cod);
+            }
+        }
+
+
     }
 }
