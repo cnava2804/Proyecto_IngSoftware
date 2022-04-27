@@ -11,14 +11,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Multi_TornillosDAL;
 
 namespace Multi_Tornillos.Views.Caja
 {
+
     public partial class FrmMenu : Form
     {
+
+        public readonly FlujoDeCajaEntities db;
+        public readonly CajaController cajaController;
         public FrmMenu()
         {
             InitializeComponent();
+            SaldoCaja();
         }
 
         private void mnuListaCajas_Click(object sender, EventArgs e)
@@ -38,13 +44,13 @@ namespace Multi_Tornillos.Views.Caja
 
             FrmSaldoInicialList saldoInicial = new FrmSaldoInicialList();
             tabControl1.TabPages.Add(saldoInicial);
-            
+
         }
-          private void depositosToolStripMenuItem_Click(object sender, EventArgs e)
-                {
-                   FrmDepositosList depositos = new FrmDepositosList();
-                    tabControl1.TabPages.Add(depositos);
-                }
+        private void depositosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDepositosList depositos = new FrmDepositosList();
+            tabControl1.TabPages.Add(depositos);
+        }
 
 
         private void label2_Click(object sender, EventArgs e)
@@ -53,14 +59,22 @@ namespace Multi_Tornillos.Views.Caja
         }
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-            lblCajaNumero.Text= UsuarioLog.CajaNumero;
-            lblCajaId.Text= UsuarioLog.CajaId;
+            lblCajaNumero.Text = UsuarioLog.CajaNumero;
+            lblCajaId.Text = UsuarioLog.CajaId;
         }
 
         private void cierreDeDiasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmCierreDiaList cierre = new FrmCierreDiaList();
             tabControl1.TabPages.Add(cierre);
+        }
+
+        private void SaldoCaja()
+        {
+            Multi_TornillosDAL.Caja saldocaja = new Multi_TornillosDAL.Caja
+            {
+                CajaSaldoTotal = Convert.ToDecimal(lblSaldoCaja.Text)
+            };
         }
     }
 }

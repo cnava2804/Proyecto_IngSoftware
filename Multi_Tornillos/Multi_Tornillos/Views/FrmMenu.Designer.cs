@@ -36,18 +36,22 @@ namespace Multi_Tornillos.Views.Caja
             this.transaccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.depositosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.retirosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cierreDeDiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new JacksiroKe.MdiTabCtrl.TabControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblCajaNumero = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblCajaId = new System.Windows.Forms.ToolStripStatusLabel();
-            this.cierreDeDiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblSaldoCaja = new System.Windows.Forms.Label();
             this.mnuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuPrincipal
             // 
+            this.mnuPrincipal.Dock = System.Windows.Forms.DockStyle.Left;
             this.mnuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuListaCajas,
             this.usuariosToolStripMenuItem,
@@ -55,28 +59,28 @@ namespace Multi_Tornillos.Views.Caja
             this.transaccionesToolStripMenuItem});
             this.mnuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnuPrincipal.Name = "mnuPrincipal";
-            this.mnuPrincipal.Size = new System.Drawing.Size(800, 24);
+            this.mnuPrincipal.Size = new System.Drawing.Size(98, 450);
             this.mnuPrincipal.TabIndex = 0;
             this.mnuPrincipal.Text = "menuStrip1";
             // 
             // mnuListaCajas
             // 
             this.mnuListaCajas.Name = "mnuListaCajas";
-            this.mnuListaCajas.Size = new System.Drawing.Size(72, 20);
+            this.mnuListaCajas.Size = new System.Drawing.Size(85, 19);
             this.mnuListaCajas.Text = "Lista cajas";
             this.mnuListaCajas.Click += new System.EventHandler(this.mnuListaCajas_Click);
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(85, 19);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // saldoInicialToolStripMenuItem
             // 
             this.saldoInicialToolStripMenuItem.Name = "saldoInicialToolStripMenuItem";
-            this.saldoInicialToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.saldoInicialToolStripMenuItem.Size = new System.Drawing.Size(85, 19);
             this.saldoInicialToolStripMenuItem.Text = "Saldo Inicial";
             this.saldoInicialToolStripMenuItem.Click += new System.EventHandler(this.saldoInicialToolStripMenuItem_Click);
             // 
@@ -87,29 +91,36 @@ namespace Multi_Tornillos.Views.Caja
             this.retirosToolStripMenuItem,
             this.cierreDeDiasToolStripMenuItem});
             this.transaccionesToolStripMenuItem.Name = "transaccionesToolStripMenuItem";
-            this.transaccionesToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+            this.transaccionesToolStripMenuItem.Size = new System.Drawing.Size(85, 19);
             this.transaccionesToolStripMenuItem.Text = "Transacciones";
             // 
             // depositosToolStripMenuItem
             // 
             this.depositosToolStripMenuItem.Name = "depositosToolStripMenuItem";
-            this.depositosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.depositosToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.depositosToolStripMenuItem.Text = "Depositos";
             this.depositosToolStripMenuItem.Click += new System.EventHandler(this.depositosToolStripMenuItem_Click);
             // 
             // retirosToolStripMenuItem
             // 
             this.retirosToolStripMenuItem.Name = "retirosToolStripMenuItem";
-            this.retirosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.retirosToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.retirosToolStripMenuItem.Text = "Retiros";
+            // 
+            // cierreDeDiasToolStripMenuItem
+            // 
+            this.cierreDeDiasToolStripMenuItem.Name = "cierreDeDiasToolStripMenuItem";
+            this.cierreDeDiasToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.cierreDeDiasToolStripMenuItem.Text = "Cierre de Dias";
+            this.cierreDeDiasToolStripMenuItem.Click += new System.EventHandler(this.cierreDeDiasToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 24);
+            this.tabControl1.Location = new System.Drawing.Point(98, 0);
             this.tabControl1.MenuRenderer = null;
             this.tabControl1.Name = "tabControl1";
-            this.tabControl1.Size = new System.Drawing.Size(800, 426);
+            this.tabControl1.Size = new System.Drawing.Size(702, 450);
             this.tabControl1.TabCloseButtonImage = null;
             this.tabControl1.TabCloseButtonImageDisabled = null;
             this.tabControl1.TabCloseButtonImageHot = null;
@@ -117,46 +128,69 @@ namespace Multi_Tornillos.Views.Caja
             // 
             // statusStrip1
             // 
+            this.statusStrip1.AutoSize = false;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel3,
             this.lblCajaNumero,
-            this.lblCajaId});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.lblCajaId,
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(98, 419);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(702, 31);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel3
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(33, 17);
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(33, 26);
             this.toolStripStatusLabel3.Text = "Caja:";
             // 
             // lblCajaNumero
             // 
             this.lblCajaNumero.Name = "lblCajaNumero";
-            this.lblCajaNumero.Size = new System.Drawing.Size(16, 17);
+            this.lblCajaNumero.Size = new System.Drawing.Size(16, 26);
             this.lblCajaNumero.Text = "...";
             // 
             // lblCajaId
             // 
             this.lblCajaId.Name = "lblCajaId";
-            this.lblCajaId.Size = new System.Drawing.Size(16, 17);
+            this.lblCajaId.Size = new System.Drawing.Size(16, 26);
             this.lblCajaId.Text = "...";
             // 
-            // cierreDeDiasToolStripMenuItem
+            // label1
             // 
-            this.cierreDeDiasToolStripMenuItem.Name = "cierreDeDiasToolStripMenuItem";
-            this.cierreDeDiasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cierreDeDiasToolStripMenuItem.Text = "Cierre de Dias";
-            this.cierreDeDiasToolStripMenuItem.Click += new System.EventHandler(this.cierreDeDiasToolStripMenuItem_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(552, 427);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Saldo:";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 26);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // lblSaldoCaja
+            // 
+            this.lblSaldoCaja.AutoSize = true;
+            this.lblSaldoCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaldoCaja.Location = new System.Drawing.Point(618, 427);
+            this.lblSaldoCaja.Name = "lblSaldoCaja";
+            this.lblSaldoCaja.Size = new System.Drawing.Size(24, 20);
+            this.lblSaldoCaja.TabIndex = 4;
+            this.lblSaldoCaja.Text = "...";
             // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblSaldoCaja);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.mnuPrincipal);
@@ -189,5 +223,8 @@ namespace Multi_Tornillos.Views.Caja
         private System.Windows.Forms.ToolStripStatusLabel lblCajaNumero;
         private System.Windows.Forms.ToolStripStatusLabel lblCajaId;
         private System.Windows.Forms.ToolStripMenuItem cierreDeDiasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblSaldoCaja;
     }
 }

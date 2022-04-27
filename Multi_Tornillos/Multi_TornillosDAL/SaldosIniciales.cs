@@ -27,11 +27,11 @@ namespace Multi_TornillosDAL
         public int UsuarioId { get; set; }
         public int CajaId { get; set; }
     
-        public virtual Caja Caja { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CierreDias> CierreDias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Depositos> Depositos { get; set; }
         public virtual Usuario Usuario { get; set; }
+        public virtual Caja Caja { get; set; }
     }
 }

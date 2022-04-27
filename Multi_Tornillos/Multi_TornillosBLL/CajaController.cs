@@ -23,7 +23,8 @@ namespace Multi_TornillosBLL
         {
             List<Caja> cajas = new List<Caja>();
             cajas = db.Caja.Where(c => c.CajaId.ToString().Contains(search) ||
-                                       c.CajaNumero.Contains(search)).ToList();
+                                       c.CajaNumero.Contains(search) || 
+                                       c.CajaSaldoTotal.ToString().Contains(search)).ToList();
             
                         
             return ToViewModelList(cajas);
@@ -38,7 +39,8 @@ namespace Multi_TornillosBLL
                 cajasViewModel.Add(new CajaViewModel 
                 {
                     CajaId = caja.CajaId,
-                    CajaNumero= caja.CajaNumero
+                    CajaNumero= caja.CajaNumero,
+                    CajaSaldoTotal = caja.CajaSaldoTotal.Value
                 });
             }
 

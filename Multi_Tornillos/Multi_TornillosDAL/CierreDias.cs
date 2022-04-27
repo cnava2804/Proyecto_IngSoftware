@@ -30,11 +30,11 @@ namespace Multi_TornillosDAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bitacora> Bitacora { get; set; }
-        public virtual Caja Caja { get; set; }
-        public virtual Caja Caja1 { get; set; }
         public virtual SaldosIniciales SaldosIniciales { get; set; }
         public virtual Usuario Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cierres> Cierres { get; set; }
+        public virtual Caja Caja { get; set; }
+        public virtual Caja Caja1 { get; set; }
     }
 }
