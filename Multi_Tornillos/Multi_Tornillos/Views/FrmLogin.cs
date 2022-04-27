@@ -17,7 +17,7 @@ namespace Multi_Tornillos.Views
 {
     public partial class FrmLogin : Form
     {
-        private readonly FlujoDeCajaEntities db;
+       
         UsuarioController controller;
         public FrmLogin()
         {
@@ -32,6 +32,7 @@ namespace Multi_Tornillos.Views
             cmbCajas.DataSource = caj.GetCajas(cmbCajas.Text);
             cmbCajas.DisplayMember = "CajaNumero";
             cmbCajas.ValueMember = "Cajaid";
+
         }
         private void button2_Click_1(object sender, EventArgs e)
         {
