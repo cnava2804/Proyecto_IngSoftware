@@ -14,5 +14,8 @@ namespace Multi_TornillosDAL.ViewModels
 
         [DisplayName("Num. Caja")]
         public string CajaNumero { get; set; }
+
+        [DisplayName("Saldo Caja")]
+        public decimal CajaSaldoTotal { get; set; } 
     }
 }
