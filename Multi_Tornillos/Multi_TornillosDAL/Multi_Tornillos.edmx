@@ -22,6 +22,19 @@
           <Property Name="CajaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CajaNumero" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="CajaSaldoTotal" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CajaCantidadUnlps" Type="int" />
+          <Property Name="CajaCantidadDoslps" Type="int" />
+          <Property Name="CajaCantidadCincolps" Type="int" />
+          <Property Name="CajaCantidadDiezlps" Type="int" />
+          <Property Name="CajaCantidadVeintelps" Type="int" />
+          <Property Name="CajaCantidadCincuentalps" Type="int" />
+          <Property Name="CajaCantidadCienlps" Type="int" />
+          <Property Name="CajaCantidadDoscientoslps" Type="int" />
+          <Property Name="CajaCantidadQuinientos" Type="int" />
+          <Property Name="CajaCantidadCincocent" Type="int" />
+          <Property Name="CajaCantidadDiezcent" Type="int" />
+          <Property Name="CajaCantidadVeintecent" Type="int" />
+          <Property Name="CajaCantidadCincuentacent" Type="int" />
         </EntityType>
         <EntityType Name="CierreDias">
           <Key>
@@ -67,6 +80,30 @@
           <Property Name="DepositoCantidadDiezcent" Type="int" />
           <Property Name="DepositoCantidadVeintecent" Type="int" />
           <Property Name="DepositoCantidadCincuentacent" Type="int" />
+          <Property Name="UsuarioId" Type="int" />
+          <Property Name="CajaId" Type="int" />
+        </EntityType>
+        <EntityType Name="Retiros">
+          <Key>
+            <PropertyRef Name="Retiro_Id" />
+          </Key>
+          <Property Name="Retiro_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RetiroSaldoTotal" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="RetiroDescripcion" Type="varchar" MaxLength="50" />
+          <Property Name="RetiroFecha" Type="datetime" />
+          <Property Name="RetiroCantidadUnlps" Type="int" />
+          <Property Name="RetiroCantidadDoslps" Type="int" />
+          <Property Name="RetiroCantidadCincolps" Type="int" />
+          <Property Name="RetiroCantidadDiezlps" Type="int" />
+          <Property Name="RetiroCantidadVeintelps" Type="int" />
+          <Property Name="RetiroCantidadCincuentalps" Type="int" />
+          <Property Name="RetiroCantidadCienlps" Type="int" />
+          <Property Name="RetiroCantidadDoscientoslps" Type="int" />
+          <Property Name="RetiroCantidadQuinientos" Type="int" />
+          <Property Name="RetiroCantidadCincocent" Type="int" />
+          <Property Name="RetiroCantidadDiezcent" Type="int" />
+          <Property Name="RetiroCantidadVeintecent" Type="int" />
+          <Property Name="RetiroCantidadCincuentacent" Type="int" />
           <Property Name="UsuarioId" Type="int" />
           <Property Name="CajaId" Type="int" />
         </EntityType>
@@ -222,6 +259,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Retiros_Caja">
+          <End Role="Caja" Type="Self.Caja" Multiplicity="0..1" />
+          <End Role="Retiros" Type="Self.Retiros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caja">
+              <PropertyRef Name="CajaId" />
+            </Principal>
+            <Dependent Role="Retiros">
+              <PropertyRef Name="CajaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Retiros_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Retiros" Type="Self.Retiros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Retiros">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SaldosIniciales_Caja">
           <End Role="Caja" Type="Self.Caja" Multiplicity="1" />
           <End Role="SaldosIniciales" Type="Self.SaldosIniciales" Multiplicity="*" />
@@ -252,6 +313,7 @@
           <EntitySet Name="CierreDias" EntityType="Self.CierreDias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cierres" EntityType="Self.Cierres" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Depositos" EntityType="Self.Depositos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Retiros" EntityType="Self.Retiros" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SaldosIniciales" EntityType="Self.SaldosIniciales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Bitacora_CierreDias" Association="Self.FK_Bitacora_CierreDias">
@@ -298,6 +360,14 @@
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Depositos" EntitySet="Depositos" />
           </AssociationSet>
+          <AssociationSet Name="FK_Retiros_Caja" Association="Self.FK_Retiros_Caja">
+            <End Role="Caja" EntitySet="Caja" />
+            <End Role="Retiros" EntitySet="Retiros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Retiros_Usuario" Association="Self.FK_Retiros_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Retiros" EntitySet="Retiros" />
+          </AssociationSet>
           <AssociationSet Name="FK_SaldosIniciales_Caja" Association="Self.FK_SaldosIniciales_Caja">
             <End Role="Caja" EntitySet="Caja" />
             <End Role="SaldosIniciales" EntitySet="SaldosIniciales" />
@@ -339,7 +409,7 @@
           <NavigationProperty Name="Cierres" Relationship="Self.FK_Cierres_CierreDias" FromRole="CierreDias" ToRole="Cierres" />
           <NavigationProperty Name="Caja" Relationship="FlujoDeCajaModel.FK_CierreDias_Caja" FromRole="CierreDias" ToRole="Caja" />
           <NavigationProperty Name="Caja1" Relationship="FlujoDeCajaModel.FK_CierreDias_Caja1" FromRole="CierreDias" ToRole="Caja" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="Cierres">
           <Key>
             <PropertyRef Name="Cierre_Id" />
@@ -382,6 +452,7 @@
           <NavigationProperty Name="Cierres" Relationship="Self.FK_Cierres_Usuario" FromRole="Usuario" ToRole="Cierres" />
           <NavigationProperty Name="SaldosIniciales" Relationship="Self.FK_SaldosIniciales_Usuario" FromRole="Usuario" ToRole="SaldosIniciales" />
           <NavigationProperty Name="Depositos" Relationship="FlujoDeCajaModel.FK_Depositos_Usuario" FromRole="Usuario" ToRole="Depositos" />
+          <NavigationProperty Name="Retiros" Relationship="FlujoDeCajaModel.FK_Retiros_Usuario" FromRole="Usuario" ToRole="Retiros" />
         </EntityType>
         <Association Name="FK_Bitacora_CierreDias">
           <End Role="CierreDias" Type="Self.CierreDias" Multiplicity="1" />
@@ -501,6 +572,16 @@
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="SaldosIniciales" EntitySet="SaldosIniciales" />
           </AssociationSet>
+          <EntitySet Name="Depositos" EntityType="FlujoDeCajaModel.Depositos" />
+          <AssociationSet Name="FK_Depositos_Usuario" Association="FlujoDeCajaModel.FK_Depositos_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Depositos" EntitySet="Depositos" />
+          </AssociationSet>
+          <EntitySet Name="Retiros" EntityType="FlujoDeCajaModel.Retiros" />
+          <AssociationSet Name="FK_Retiros_Usuario" Association="FlujoDeCajaModel.FK_Retiros_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Retiros" EntitySet="Retiros" />
+          </AssociationSet>
           <EntitySet Name="Caja" EntityType="FlujoDeCajaModel.Caja" />
           <AssociationSet Name="FK_CierreDias_Caja" Association="FlujoDeCajaModel.FK_CierreDias_Caja">
             <End Role="Caja" EntitySet="Caja" />
@@ -514,20 +595,95 @@
             <End Role="Caja" EntitySet="Caja" />
             <End Role="Cierres" EntitySet="Cierres" />
           </AssociationSet>
-          <AssociationSet Name="FK_SaldosIniciales_Caja" Association="FlujoDeCajaModel.FK_SaldosIniciales_Caja">
-            <End Role="Caja" EntitySet="Caja" />
-            <End Role="SaldosIniciales" EntitySet="SaldosIniciales" />
-          </AssociationSet>
-          <EntitySet Name="Depositos" EntityType="FlujoDeCajaModel.Depositos" />
           <AssociationSet Name="FK_Depositos_Caja" Association="FlujoDeCajaModel.FK_Depositos_Caja">
             <End Role="Caja" EntitySet="Caja" />
             <End Role="Depositos" EntitySet="Depositos" />
           </AssociationSet>
-          <AssociationSet Name="FK_Depositos_Usuario" Association="FlujoDeCajaModel.FK_Depositos_Usuario">
-            <End Role="Usuario" EntitySet="Usuario" />
-            <End Role="Depositos" EntitySet="Depositos" />
+          <AssociationSet Name="FK_Retiros_Caja" Association="FlujoDeCajaModel.FK_Retiros_Caja">
+            <End Role="Caja" EntitySet="Caja" />
+            <End Role="Retiros" EntitySet="Retiros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaldosIniciales_Caja" Association="FlujoDeCajaModel.FK_SaldosIniciales_Caja">
+            <End Role="Caja" EntitySet="Caja" />
+            <End Role="SaldosIniciales" EntitySet="SaldosIniciales" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Depositos">
+          <Key>
+            <PropertyRef Name="Deposito_Id" />
+          </Key>
+          <Property Name="Deposito_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepositoSaldoTotal" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DepositoDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepositoFecha" Type="DateTime" Precision="3" />
+          <Property Name="DepositoCantidadUnlps" Type="Int32" />
+          <Property Name="DepositoCantidadDoslps" Type="Int32" />
+          <Property Name="DepositoCantidadCincolps" Type="Int32" />
+          <Property Name="DepositoCantidadDiezlps" Type="Int32" />
+          <Property Name="DepositoCantidadVeintelps" Type="Int32" />
+          <Property Name="DepositoCantidadCincuentalps" Type="Int32" />
+          <Property Name="DepositoCantidadCienlps" Type="Int32" />
+          <Property Name="DepositoCantidadDoscientoslps" Type="Int32" />
+          <Property Name="DepositoCantidadQuinientos" Type="Int32" />
+          <Property Name="DepositoCantidadCincocent" Type="Int32" />
+          <Property Name="DepositoCantidadDiezcent" Type="Int32" />
+          <Property Name="DepositoCantidadVeintecent" Type="Int32" />
+          <Property Name="DepositoCantidadCincuentacent" Type="Int32" />
+          <Property Name="UsuarioId" Type="Int32" />
+          <Property Name="CajaId" Type="Int32" />
+          <NavigationProperty Name="Usuario" Relationship="FlujoDeCajaModel.FK_Depositos_Usuario" FromRole="Depositos" ToRole="Usuario" />
+          <NavigationProperty Name="Caja" Relationship="FlujoDeCajaModel.FK_Depositos_Caja" FromRole="Depositos" ToRole="Caja" />
+        </EntityType>
+        <Association Name="FK_Depositos_Usuario">
+          <End Type="FlujoDeCajaModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+          <End Type="FlujoDeCajaModel.Depositos" Role="Depositos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Depositos">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Retiros">
+          <Key>
+            <PropertyRef Name="Retiro_Id" />
+          </Key>
+          <Property Name="Retiro_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RetiroSaldoTotal" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="RetiroDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RetiroFecha" Type="DateTime" Precision="3" />
+          <Property Name="RetiroCantidadUnlps" Type="Int32" />
+          <Property Name="RetiroCantidadDoslps" Type="Int32" />
+          <Property Name="RetiroCantidadCincolps" Type="Int32" />
+          <Property Name="RetiroCantidadDiezlps" Type="Int32" />
+          <Property Name="RetiroCantidadVeintelps" Type="Int32" />
+          <Property Name="RetiroCantidadCincuentalps" Type="Int32" />
+          <Property Name="RetiroCantidadCienlps" Type="Int32" />
+          <Property Name="RetiroCantidadDoscientoslps" Type="Int32" />
+          <Property Name="RetiroCantidadQuinientos" Type="Int32" />
+          <Property Name="RetiroCantidadCincocent" Type="Int32" />
+          <Property Name="RetiroCantidadDiezcent" Type="Int32" />
+          <Property Name="RetiroCantidadVeintecent" Type="Int32" />
+          <Property Name="RetiroCantidadCincuentacent" Type="Int32" />
+          <Property Name="UsuarioId" Type="Int32" />
+          <Property Name="CajaId" Type="Int32" />
+          <NavigationProperty Name="Usuario" Relationship="FlujoDeCajaModel.FK_Retiros_Usuario" FromRole="Retiros" ToRole="Usuario" />
+          <NavigationProperty Name="Caja" Relationship="FlujoDeCajaModel.FK_Retiros_Caja" FromRole="Retiros" ToRole="Caja" />
+        </EntityType>
+        <Association Name="FK_Retiros_Usuario">
+          <End Type="FlujoDeCajaModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+          <End Type="FlujoDeCajaModel.Retiros" Role="Retiros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="UsuarioId" />
+            </Principal>
+            <Dependent Role="Retiros">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="Caja">
           <Key>
             <PropertyRef Name="CajaId" />
@@ -535,11 +691,25 @@
           <Property Name="CajaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CajaNumero" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="CajaSaldoTotal" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CajaCantidadUnlps" Type="Int32" />
+          <Property Name="CajaCantidadDoslps" Type="Int32" />
+          <Property Name="CajaCantidadCincolps" Type="Int32" />
+          <Property Name="CajaCantidadDiezlps" Type="Int32" />
+          <Property Name="CajaCantidadVeintelps" Type="Int32" />
+          <Property Name="CajaCantidadCincuentalps" Type="Int32" />
+          <Property Name="CajaCantidadCienlps" Type="Int32" />
+          <Property Name="CajaCantidadDoscientoslps" Type="Int32" />
+          <Property Name="CajaCantidadQuinientos" Type="Int32" />
+          <Property Name="CajaCantidadCincocent" Type="Int32" />
+          <Property Name="CajaCantidadDiezcent" Type="Int32" />
+          <Property Name="CajaCantidadVeintecent" Type="Int32" />
+          <Property Name="CajaCantidadCincuentacent" Type="Int32" />
           <NavigationProperty Name="CierreDias" Relationship="FlujoDeCajaModel.FK_CierreDias_Caja" FromRole="Caja" ToRole="CierreDias" />
           <NavigationProperty Name="CierreDias1" Relationship="FlujoDeCajaModel.FK_CierreDias_Caja1" FromRole="Caja" ToRole="CierreDias" />
           <NavigationProperty Name="Cierres" Relationship="FlujoDeCajaModel.FK_Cierres_Caja" FromRole="Caja" ToRole="Cierres" />
-          <NavigationProperty Name="SaldosIniciales" Relationship="FlujoDeCajaModel.FK_SaldosIniciales_Caja" FromRole="Caja" ToRole="SaldosIniciales" />
           <NavigationProperty Name="Depositos" Relationship="FlujoDeCajaModel.FK_Depositos_Caja" FromRole="Caja" ToRole="Depositos" />
+          <NavigationProperty Name="Retiros" Relationship="FlujoDeCajaModel.FK_Retiros_Caja" FromRole="Caja" ToRole="Retiros" />
+          <NavigationProperty Name="SaldosIniciales" Relationship="FlujoDeCajaModel.FK_SaldosIniciales_Caja" FromRole="Caja" ToRole="SaldosIniciales" />
         </EntityType>
         <Association Name="FK_CierreDias_Caja">
           <End Type="FlujoDeCajaModel.Caja" Role="Caja" Multiplicity="1" />
@@ -577,44 +747,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SaldosIniciales_Caja">
-          <End Type="FlujoDeCajaModel.Caja" Role="Caja" Multiplicity="1" />
-          <End Type="FlujoDeCajaModel.SaldosIniciales" Role="SaldosIniciales" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Caja">
-              <PropertyRef Name="CajaId" />
-            </Principal>
-            <Dependent Role="SaldosIniciales">
-              <PropertyRef Name="CajaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Depositos">
-          <Key>
-            <PropertyRef Name="Deposito_Id" />
-          </Key>
-          <Property Name="Deposito_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DepositoSaldoTotal" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="DepositoDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DepositoFecha" Type="DateTime" Precision="3" />
-          <Property Name="DepositoCantidadUnlps" Type="Int32" />
-          <Property Name="DepositoCantidadDoslps" Type="Int32" />
-          <Property Name="DepositoCantidadCincolps" Type="Int32" />
-          <Property Name="DepositoCantidadDiezlps" Type="Int32" />
-          <Property Name="DepositoCantidadVeintelps" Type="Int32" />
-          <Property Name="DepositoCantidadCincuentalps" Type="Int32" />
-          <Property Name="DepositoCantidadCienlps" Type="Int32" />
-          <Property Name="DepositoCantidadDoscientoslps" Type="Int32" />
-          <Property Name="DepositoCantidadQuinientos" Type="Int32" />
-          <Property Name="DepositoCantidadCincocent" Type="Int32" />
-          <Property Name="DepositoCantidadDiezcent" Type="Int32" />
-          <Property Name="DepositoCantidadVeintecent" Type="Int32" />
-          <Property Name="DepositoCantidadCincuentacent" Type="Int32" />
-          <Property Name="UsuarioId" Type="Int32" />
-          <Property Name="CajaId" Type="Int32" />
-          <NavigationProperty Name="Caja" Relationship="FlujoDeCajaModel.FK_Depositos_Caja" FromRole="Depositos" ToRole="Caja" />
-          <NavigationProperty Name="Usuario" Relationship="FlujoDeCajaModel.FK_Depositos_Usuario" FromRole="Depositos" ToRole="Usuario" />
-        </EntityType>
         <Association Name="FK_Depositos_Caja">
           <End Type="FlujoDeCajaModel.Caja" Role="Caja" Multiplicity="0..1" />
           <End Type="FlujoDeCajaModel.Depositos" Role="Depositos" Multiplicity="*" />
@@ -627,15 +759,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Depositos_Usuario">
-          <End Type="FlujoDeCajaModel.Usuario" Role="Usuario" Multiplicity="0..1" />
-          <End Type="FlujoDeCajaModel.Depositos" Role="Depositos" Multiplicity="*" />
+        <Association Name="FK_Retiros_Caja">
+          <End Type="FlujoDeCajaModel.Caja" Role="Caja" Multiplicity="0..1" />
+          <End Type="FlujoDeCajaModel.Retiros" Role="Retiros" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Usuario">
-              <PropertyRef Name="UsuarioId" />
+            <Principal Role="Caja">
+              <PropertyRef Name="CajaId" />
             </Principal>
-            <Dependent Role="Depositos">
-              <PropertyRef Name="UsuarioId" />
+            <Dependent Role="Retiros">
+              <PropertyRef Name="CajaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaldosIniciales_Caja">
+          <End Type="FlujoDeCajaModel.Caja" Role="Caja" Multiplicity="1" />
+          <End Type="FlujoDeCajaModel.SaldosIniciales" Role="SaldosIniciales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caja">
+              <PropertyRef Name="CajaId" />
+            </Principal>
+            <Dependent Role="SaldosIniciales">
+              <PropertyRef Name="CajaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -703,15 +847,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Caja">
-            <EntityTypeMapping TypeName="FlujoDeCajaModel.Caja">
-              <MappingFragment StoreEntitySet="Caja">
-                <ScalarProperty Name="CajaSaldoTotal" ColumnName="CajaSaldoTotal" />
-                <ScalarProperty Name="CajaNumero" ColumnName="CajaNumero" />
-                <ScalarProperty Name="CajaId" ColumnName="CajaId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Depositos">
             <EntityTypeMapping TypeName="FlujoDeCajaModel.Depositos">
               <MappingFragment StoreEntitySet="Depositos">
@@ -734,6 +869,53 @@
                 <ScalarProperty Name="DepositoDescripcion" ColumnName="DepositoDescripcion" />
                 <ScalarProperty Name="DepositoSaldoTotal" ColumnName="DepositoSaldoTotal" />
                 <ScalarProperty Name="Deposito_Id" ColumnName="Deposito_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Retiros">
+            <EntityTypeMapping TypeName="FlujoDeCajaModel.Retiros">
+              <MappingFragment StoreEntitySet="Retiros">
+                <ScalarProperty Name="CajaId" ColumnName="CajaId" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="RetiroCantidadCincuentacent" ColumnName="RetiroCantidadCincuentacent" />
+                <ScalarProperty Name="RetiroCantidadVeintecent" ColumnName="RetiroCantidadVeintecent" />
+                <ScalarProperty Name="RetiroCantidadDiezcent" ColumnName="RetiroCantidadDiezcent" />
+                <ScalarProperty Name="RetiroCantidadCincocent" ColumnName="RetiroCantidadCincocent" />
+                <ScalarProperty Name="RetiroCantidadQuinientos" ColumnName="RetiroCantidadQuinientos" />
+                <ScalarProperty Name="RetiroCantidadDoscientoslps" ColumnName="RetiroCantidadDoscientoslps" />
+                <ScalarProperty Name="RetiroCantidadCienlps" ColumnName="RetiroCantidadCienlps" />
+                <ScalarProperty Name="RetiroCantidadCincuentalps" ColumnName="RetiroCantidadCincuentalps" />
+                <ScalarProperty Name="RetiroCantidadVeintelps" ColumnName="RetiroCantidadVeintelps" />
+                <ScalarProperty Name="RetiroCantidadDiezlps" ColumnName="RetiroCantidadDiezlps" />
+                <ScalarProperty Name="RetiroCantidadCincolps" ColumnName="RetiroCantidadCincolps" />
+                <ScalarProperty Name="RetiroCantidadDoslps" ColumnName="RetiroCantidadDoslps" />
+                <ScalarProperty Name="RetiroCantidadUnlps" ColumnName="RetiroCantidadUnlps" />
+                <ScalarProperty Name="RetiroFecha" ColumnName="RetiroFecha" />
+                <ScalarProperty Name="RetiroDescripcion" ColumnName="RetiroDescripcion" />
+                <ScalarProperty Name="RetiroSaldoTotal" ColumnName="RetiroSaldoTotal" />
+                <ScalarProperty Name="Retiro_Id" ColumnName="Retiro_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Caja">
+            <EntityTypeMapping TypeName="FlujoDeCajaModel.Caja">
+              <MappingFragment StoreEntitySet="Caja">
+                <ScalarProperty Name="CajaCantidadCincuentacent" ColumnName="CajaCantidadCincuentacent" />
+                <ScalarProperty Name="CajaCantidadVeintecent" ColumnName="CajaCantidadVeintecent" />
+                <ScalarProperty Name="CajaCantidadDiezcent" ColumnName="CajaCantidadDiezcent" />
+                <ScalarProperty Name="CajaCantidadCincocent" ColumnName="CajaCantidadCincocent" />
+                <ScalarProperty Name="CajaCantidadQuinientos" ColumnName="CajaCantidadQuinientos" />
+                <ScalarProperty Name="CajaCantidadDoscientoslps" ColumnName="CajaCantidadDoscientoslps" />
+                <ScalarProperty Name="CajaCantidadCienlps" ColumnName="CajaCantidadCienlps" />
+                <ScalarProperty Name="CajaCantidadCincuentalps" ColumnName="CajaCantidadCincuentalps" />
+                <ScalarProperty Name="CajaCantidadVeintelps" ColumnName="CajaCantidadVeintelps" />
+                <ScalarProperty Name="CajaCantidadDiezlps" ColumnName="CajaCantidadDiezlps" />
+                <ScalarProperty Name="CajaCantidadCincolps" ColumnName="CajaCantidadCincolps" />
+                <ScalarProperty Name="CajaCantidadDoslps" ColumnName="CajaCantidadDoslps" />
+                <ScalarProperty Name="CajaCantidadUnlps" ColumnName="CajaCantidadUnlps" />
+                <ScalarProperty Name="CajaSaldoTotal" ColumnName="CajaSaldoTotal" />
+                <ScalarProperty Name="CajaNumero" ColumnName="CajaNumero" />
+                <ScalarProperty Name="CajaId" ColumnName="CajaId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

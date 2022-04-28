@@ -44,11 +44,13 @@
   <ItemGroup>
     <Compile Include="BitacoraController.cs" />
     <Compile Include="CacheDinero.cs" />
+    <Compile Include="CacheDineroRetiro.cs" />
     <Compile Include="CajaController.cs" />
     <Compile Include="CierreDiaController.cs" />
     <Compile Include="comboxsaldo.cs" />
     <Compile Include="DepositosController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RetirosController.cs" />
     <Compile Include="SaldosInicialesController.cs" />
     <Compile Include="UsuarioController.cs" />
     <Compile Include="UsuarioLog.cs" />

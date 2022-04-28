@@ -31,6 +31,7 @@ namespace Multi_Tornillos.Views
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblSaldoC = new System.Windows.Forms.Label();
             this.lblidcaja = new System.Windows.Forms.Label();
             this.cmbCajas = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@ namespace Multi_Tornillos.Views
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtRTN = new System.Windows.Forms.TextBox();
-            this.lblSaldoC = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +76,16 @@ namespace Multi_Tornillos.Views
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
+            // lblSaldoC
+            // 
+            this.lblSaldoC.AutoSize = true;
+            this.lblSaldoC.Location = new System.Drawing.Point(263, 61);
+            this.lblSaldoC.Name = "lblSaldoC";
+            this.lblSaldoC.Size = new System.Drawing.Size(16, 13);
+            this.lblSaldoC.TabIndex = 9;
+            this.lblSaldoC.Text = "...";
+            this.lblSaldoC.Visible = false;
+            // 
             // lblidcaja
             // 
             this.lblidcaja.AutoSize = true;
@@ -84,6 +94,7 @@ namespace Multi_Tornillos.Views
             this.lblidcaja.Size = new System.Drawing.Size(16, 13);
             this.lblidcaja.TabIndex = 8;
             this.lblidcaja.Text = "...";
+            this.lblidcaja.Visible = false;
             // 
             // cmbCajas
             // 
@@ -164,9 +175,9 @@ namespace Multi_Tornillos.Views
             this.label1.Location = new System.Drawing.Point(20, 107);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 19);
+            this.label1.Size = new System.Drawing.Size(40, 19);
             this.label1.TabIndex = 1;
-            this.label1.Text = "RTN:";
+            this.label1.Text = "DNI:";
             // 
             // txtRTN
             // 
@@ -176,15 +187,6 @@ namespace Multi_Tornillos.Views
             this.txtRTN.Name = "txtRTN";
             this.txtRTN.Size = new System.Drawing.Size(280, 26);
             this.txtRTN.TabIndex = 0;
-            // 
-            // lblSaldoC
-            // 
-            this.lblSaldoC.AutoSize = true;
-            this.lblSaldoC.Location = new System.Drawing.Point(263, 61);
-            this.lblSaldoC.Name = "lblSaldoC";
-            this.lblSaldoC.Size = new System.Drawing.Size(16, 13);
-            this.lblSaldoC.TabIndex = 9;
-            this.lblSaldoC.Text = "...";
             // 
             // FrmLogin
             // 

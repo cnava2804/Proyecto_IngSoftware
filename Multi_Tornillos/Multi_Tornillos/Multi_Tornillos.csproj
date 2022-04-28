@@ -108,6 +108,18 @@
     <Compile Include="Views\Transacciones\Depositos\FrmDepositosList.Designer.cs">
       <DependentUpon>FrmDepositosList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Transacciones\Retiros\FrmRetirosInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Transacciones\Retiros\FrmRetirosInsert.Designer.cs">
+      <DependentUpon>FrmRetirosInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Transacciones\Retiros\FrmRetirosList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Transacciones\Retiros\FrmRetirosList.Designer.cs">
+      <DependentUpon>FrmRetirosList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Usuario\FrmUsuarioDelete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +224,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Transacciones\Depositos\FrmDepositosList.resx">
       <DependentUpon>FrmDepositosList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Transacciones\Retiros\FrmRetirosInsert.resx">
+      <DependentUpon>FrmRetirosInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Transacciones\Retiros\FrmRetirosList.resx">
+      <DependentUpon>FrmRetirosList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usuario\FrmUsuarioList.resx">
       <DependentUpon>FrmUsuarioList.cs</DependentUpon>

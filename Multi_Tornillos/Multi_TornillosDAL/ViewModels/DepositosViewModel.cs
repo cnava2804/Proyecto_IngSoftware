@@ -34,6 +34,15 @@ namespace Multi_TornillosDAL.ViewModels
         public int DepositoCantidadCincuentacent { get; set; }
 
         [Browsable(false)]
+        public decimal OperacionDeposito
+        {
+            get
+            {
+                return CajaSaldoTotal += DepositoSaldoTotal;
+            }
+        }
+
+        [Browsable(false)]
         public Nullable<int> SaldoInicial_Id { get; set; }
 
         [Browsable(false)]
@@ -41,6 +50,10 @@ namespace Multi_TornillosDAL.ViewModels
 
         [Browsable(false)]
         public Nullable<int> CajaId { get; set; }
+
+        [Browsable(false)]
+        public decimal CajaSaldoTotal { get; set; }
+
         [Browsable(false)]
         public virtual SaldosIniciales SaldosIniciales { get; set; }
 

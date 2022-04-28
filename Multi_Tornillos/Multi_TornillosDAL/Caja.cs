@@ -20,13 +20,27 @@ namespace Multi_TornillosDAL
             this.CierreDias = new HashSet<CierreDias>();
             this.CierreDias1 = new HashSet<CierreDias>();
             this.Cierres = new HashSet<Cierres>();
-            this.SaldosIniciales = new HashSet<SaldosIniciales>();
             this.Depositos = new HashSet<Depositos>();
+            this.Retiros = new HashSet<Retiros>();
+            this.SaldosIniciales = new HashSet<SaldosIniciales>();
         }
     
         public int CajaId { get; set; }
         public string CajaNumero { get; set; }
         public Nullable<decimal> CajaSaldoTotal { get; set; }
+        public Nullable<int> CajaCantidadUnlps { get; set; }
+        public Nullable<int> CajaCantidadDoslps { get; set; }
+        public Nullable<int> CajaCantidadCincolps { get; set; }
+        public Nullable<int> CajaCantidadDiezlps { get; set; }
+        public Nullable<int> CajaCantidadVeintelps { get; set; }
+        public Nullable<int> CajaCantidadCincuentalps { get; set; }
+        public Nullable<int> CajaCantidadCienlps { get; set; }
+        public Nullable<int> CajaCantidadDoscientoslps { get; set; }
+        public Nullable<int> CajaCantidadQuinientos { get; set; }
+        public Nullable<int> CajaCantidadCincocent { get; set; }
+        public Nullable<int> CajaCantidadDiezcent { get; set; }
+        public Nullable<int> CajaCantidadVeintecent { get; set; }
+        public Nullable<int> CajaCantidadCincuentacent { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CierreDias> CierreDias { get; set; }
@@ -35,8 +49,10 @@ namespace Multi_TornillosDAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cierres> Cierres { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SaldosIniciales> SaldosIniciales { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Depositos> Depositos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Retiros> Retiros { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SaldosIniciales> SaldosIniciales { get; set; }
     }
 }
