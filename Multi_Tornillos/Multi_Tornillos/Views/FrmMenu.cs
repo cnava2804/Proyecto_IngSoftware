@@ -14,8 +14,10 @@ using System.Windows.Forms;
 using Multi_TornillosDAL;
 using Multi_TornillosDAL.ViewModels;
 using System.Data.SqlClient;
+using Multi_Tornillos.Views.Caja;
+using Multi_Tornillos.Views.Transacciones.Retiros;
 
-namespace Multi_Tornillos.Views.Caja
+namespace Multi_Tornillos.Views
 {
 
     public partial class FrmMenu : Form
@@ -102,10 +104,10 @@ namespace Multi_Tornillos.Views.Caja
 
         }
 
-        private void MaxId()
+        public void MaxId()
         {
-            string sql = @"SELECT TOP 1 CajaSaldoTotal FROM Caja WHERE CajaSaldoTotal = CajaSaldoTotal ORDER BY CajaSaldoTotal DESC";
-            using (SqlConnection conn = new SqlConnection("data source=Andrik-PC;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True"))
+            string sql = @"SELECT TOP 1 CajaSaldoTotal FROM Caja WHERE CajaSaldoTotal = CajaSaldoTotal ORDER BY CajaSaldoTotal ASC";
+            using (SqlConnection conn = new SqlConnection("data source=DESKTOP-I3P9B28;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True"))
             {
                 SqlCommand command = new SqlCommand(sql, conn);
                 conn.Open();
@@ -115,6 +117,15 @@ namespace Multi_Tornillos.Views.Caja
             }
         }
 
+        private void tabControl1_Load(object sender, EventArgs e)
+        {
+            MaxId();
+        }
 
+        private void retirosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRetirosList retiros = new FrmRetirosList();
+            tabControl1.TabPages.Add(retiros);
+        }
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace Multi_Tornillos.Views.Transacciones.Depositos
+﻿namespace Multi_Tornillos.Views.Transacciones.Retiros
 {
-    partial class FrmDepositosInsert
+    partial class FrmRetirosInsert
     {
         /// <summary>
         /// Required designer variable.
@@ -496,7 +496,7 @@
             this.txtIdDeposito.Size = new System.Drawing.Size(100, 20);
             this.txtIdDeposito.TabIndex = 55;
             // 
-            // FrmDepositosInsert
+            // FrmRetirosInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -547,9 +547,9 @@
             this.Controls.Add(this.lblUnLempira);
             this.Controls.Add(this.txt1L);
             this.Controls.Add(this.lblBilletes);
-            this.Name = "FrmDepositosInsert";
-            this.Text = "Deposito";
-            this.Load += new System.EventHandler(this.FrmDepositosInsert_Load_1);
+            this.Name = "FrmRetirosInsert";
+            this.Text = "Retiro";
+            this.Load += new System.EventHandler(this.FrmRetirosInsert_Load_1);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);

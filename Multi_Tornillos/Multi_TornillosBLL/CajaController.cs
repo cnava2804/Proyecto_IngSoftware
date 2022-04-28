@@ -24,7 +24,20 @@ namespace Multi_TornillosBLL
             List<Caja> cajas = new List<Caja>();
             cajas = db.Caja.Where(c => c.CajaId.ToString().Contains(search) ||
                                        c.CajaNumero.Contains(search) || 
-                                       c.CajaSaldoTotal.ToString().Contains(search)).ToList();
+                                       c.CajaSaldoTotal.ToString().Contains(search) || 
+                                       c.CajaCantidadUnlps.ToString().Contains(search) ||
+                                       c.CajaCantidadDoslps.ToString().Contains(search) ||
+                                       c.CajaCantidadCincolps.ToString().Contains(search) ||
+                                       c.CajaCantidadDiezlps.ToString().Contains(search) ||
+                                       c.CajaCantidadVeintelps.ToString().Contains(search) ||
+                                       c.CajaCantidadCincuentalps.ToString().Contains(search) ||
+                                       c.CajaCantidadCienlps.ToString().Contains(search) ||
+                                       c.CajaCantidadDoscientoslps.ToString().Contains(search) ||
+                                       c.CajaCantidadQuinientos.ToString().Contains(search) ||
+                                       c.CajaCantidadCincocent.ToString().Contains(search) ||
+                                       c.CajaCantidadDiezcent.ToString().Contains(search) ||
+                                       c.CajaCantidadVeintecent.ToString().Contains(search) ||
+                                       c.CajaCantidadCincuentacent.ToString().Contains(search)).ToList();
             
                         
             return ToViewModelList(cajas);
@@ -40,7 +53,20 @@ namespace Multi_TornillosBLL
                 {
                     CajaId = caja.CajaId,
                     CajaNumero= caja.CajaNumero,
-                    CajaSaldoTotal = caja.CajaSaldoTotal.Value
+                    CajaSaldoTotal = caja.CajaSaldoTotal.Value,
+                    CajaCantidadUnlps = caja.CajaCantidadUnlps.Value,
+                    CajaCantidadDoslps = caja.CajaCantidadDoslps.Value,
+                    CajaCantidadCincolps = caja.CajaCantidadCincolps.Value,
+                    CajaCantidadDiezlps = caja.CajaCantidadDiezlps.Value,
+                    CajaCantidadVeintelps = caja.CajaCantidadVeintelps.Value,
+                    CajaCantidadCincuentalps = caja.CajaCantidadCincuentalps.Value,
+                    CajaCantidadCienlps = caja.CajaCantidadCienlps.Value,
+                    CajaCantidadDoscientoslps = caja.CajaCantidadDoscientoslps.Value,
+                    CajaCantidadQuinientos = caja.CajaCantidadQuinientos.Value,
+                    CajaCantidadCincocent = caja.CajaCantidadCincocent.Value,
+                    CajaCantidadDiezcent = caja.CajaCantidadDiezcent.Value,
+                    CajaCantidadVeintecent = caja.CajaCantidadVeintecent.Value,
+                    CajaCantidadCincuentacent = caja.CajaCantidadCincuentacent.Value
                 });
             }
 

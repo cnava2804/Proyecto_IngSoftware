@@ -1,5 +1,4 @@
-﻿using Multi_Tornillos.Views.Transacciones.Depositos;
-using Multi_TornillosBLL;
+﻿using Multi_TornillosBLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,13 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Multi_Tornillos.Views.Transacciones.Depositos
+namespace Multi_Tornillos.Views.Transacciones.Retiros
 {
-    public partial class FrmDepositosList : Form
+    public partial class FrmRetirosList : Form
     {
         int decidido;
-        DepositosController controller;
-        public FrmDepositosList()
+        RetirosController controller;
+        public FrmRetirosList()
         {
             InitializeComponent();
             UpdateDates();
@@ -25,17 +24,17 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
 
         private void UpdateDates()
         {
-            controller = new DepositosController();
-            var saldoInicial = controller.GetDepositos(txtBuscar.Text);
+            controller = new RetirosController();
+            var saldoInicial = controller.GetRetiros(txtBuscar.Text);
             dgDatos.DataSource = saldoInicial;
-
+            
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            FrmDepositosInsert depositosInsert = new FrmDepositosInsert();
-            depositosInsert.ShowDialog();
-            depositosInsert.Dispose();
+            FrmRetirosInsert retirosInsert = new FrmRetirosInsert();
+            retirosInsert.ShowDialog();
+            retirosInsert.Dispose();
             UpdateDates();
         }
 
