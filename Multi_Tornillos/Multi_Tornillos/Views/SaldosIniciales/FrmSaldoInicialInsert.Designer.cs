@@ -71,9 +71,9 @@
             this.txtTotalsaldoi = new System.Windows.Forms.TextBox();
             this.lblusuarioId = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lblIdCaja = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblCajaNumero = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblCajaNumero = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblIdCaja = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,6 +93,7 @@
             this.txt1L.Size = new System.Drawing.Size(100, 20);
             this.txt1L.TabIndex = 1;
             this.txt1L.Click += new System.EventHandler(this.txt1L_Click);
+            this.txt1L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt1L_KeyPress);
             // 
             // lblUnLempira
             // 
@@ -119,6 +120,7 @@
             this.txt2L.Size = new System.Drawing.Size(100, 20);
             this.txt2L.TabIndex = 3;
             this.txt2L.Click += new System.EventHandler(this.txt2L_Click);
+            this.txt2L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt2L_KeyPress);
             // 
             // lbl5L
             // 
@@ -136,6 +138,7 @@
             this.txt5L.Size = new System.Drawing.Size(100, 20);
             this.txt5L.TabIndex = 5;
             this.txt5L.Click += new System.EventHandler(this.txt5L_Click);
+            this.txt5L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt5L_KeyPress);
             // 
             // lbl10L
             // 
@@ -153,6 +156,7 @@
             this.txt10L.Size = new System.Drawing.Size(100, 20);
             this.txt10L.TabIndex = 7;
             this.txt10L.Click += new System.EventHandler(this.txt10L_Click);
+            this.txt10L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt10L_KeyPress);
             // 
             // lbl20L
             // 
@@ -170,6 +174,7 @@
             this.txt20L.Size = new System.Drawing.Size(100, 20);
             this.txt20L.TabIndex = 9;
             this.txt20L.Click += new System.EventHandler(this.txt20L_Click);
+            this.txt20L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt20L_KeyPress);
             // 
             // lbl50L
             // 
@@ -187,6 +192,7 @@
             this.txt50L.Size = new System.Drawing.Size(100, 20);
             this.txt50L.TabIndex = 11;
             this.txt50L.Click += new System.EventHandler(this.txt50L_Click);
+            this.txt50L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt50L_KeyPress);
             // 
             // lbl100L
             // 
@@ -204,6 +210,7 @@
             this.txt100L.Size = new System.Drawing.Size(100, 20);
             this.txt100L.TabIndex = 13;
             this.txt100L.Click += new System.EventHandler(this.txt100L_Click);
+            this.txt100L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt100L_KeyPress);
             // 
             // lbl200L
             // 
@@ -221,6 +228,7 @@
             this.txt200L.Size = new System.Drawing.Size(100, 20);
             this.txt200L.TabIndex = 15;
             this.txt200L.Click += new System.EventHandler(this.txt200L_Click);
+            this.txt200L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt200L_KeyPress);
             // 
             // lbl500L
             // 
@@ -238,6 +246,7 @@
             this.txt500L.Size = new System.Drawing.Size(100, 20);
             this.txt500L.TabIndex = 17;
             this.txt500L.Click += new System.EventHandler(this.txt500L_Click);
+            this.txt500L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt500L_KeyPress);
             // 
             // txtTotalBilletes
             // 
@@ -273,6 +282,7 @@
             this.txt50C.Name = "txt50C";
             this.txt50C.Size = new System.Drawing.Size(100, 20);
             this.txt50C.TabIndex = 27;
+            this.txt50C.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt50C_KeyPress);
             // 
             // lbl20C
             // 
@@ -289,6 +299,7 @@
             this.txt20C.Name = "txt20C";
             this.txt20C.Size = new System.Drawing.Size(100, 20);
             this.txt20C.TabIndex = 25;
+            this.txt20C.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt20C_KeyPress);
             // 
             // lbl10C
             // 
@@ -305,6 +316,7 @@
             this.txt10C.Name = "txt10C";
             this.txt10C.Size = new System.Drawing.Size(100, 20);
             this.txt10C.TabIndex = 23;
+            this.txt10C.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt10C_KeyPress);
             // 
             // lbl5C
             // 
@@ -321,6 +333,7 @@
             this.txt5C.Name = "txt5C";
             this.txt5C.Size = new System.Drawing.Size(100, 20);
             this.txt5C.TabIndex = 21;
+            this.txt5C.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt5C_KeyPress);
             // 
             // label10
             // 
@@ -455,11 +468,11 @@
             this.statusStrip1.TabIndex = 52;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // lblIdCaja
+            // toolStripStatusLabel1
             // 
-            this.lblIdCaja.Name = "lblIdCaja";
-            this.lblIdCaja.Size = new System.Drawing.Size(16, 17);
-            this.lblIdCaja.Text = "...";
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(33, 17);
+            this.toolStripStatusLabel1.Text = "Caja:";
             // 
             // lblCajaNumero
             // 
@@ -467,11 +480,11 @@
             this.lblCajaNumero.Size = new System.Drawing.Size(16, 17);
             this.lblCajaNumero.Text = "...";
             // 
-            // toolStripStatusLabel1
+            // lblIdCaja
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(33, 17);
-            this.toolStripStatusLabel1.Text = "Caja:";
+            this.lblIdCaja.Name = "lblIdCaja";
+            this.lblIdCaja.Size = new System.Drawing.Size(16, 17);
+            this.lblIdCaja.Text = "...";
             // 
             // FrmSaldoInicialInsert
             // 
