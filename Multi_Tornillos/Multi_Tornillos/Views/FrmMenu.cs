@@ -107,7 +107,7 @@ namespace Multi_Tornillos.Views
         public void MaxId()
         {
             string sql = @"SELECT TOP 1 CajaSaldoTotal FROM Caja WHERE CajaSaldoTotal = CajaSaldoTotal ORDER BY CajaSaldoTotal ASC";
-            using (SqlConnection conn = new SqlConnection("data source=DESKTOP-I3P9B28;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True"))
+            using (SqlConnection conn = new SqlConnection("data source=DESKTOP-MP6SVTR;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True"))
             {
                 SqlCommand command = new SqlCommand(sql, conn);
                 conn.Open();
@@ -126,6 +126,12 @@ namespace Multi_Tornillos.Views
         {
             FrmRetirosList retiros = new FrmRetirosList();
             tabControl1.TabPages.Add(retiros);
+        }
+
+        private void cierresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCierresList frmCierres = new FrmCierresList();
+            tabControl1.TabPages.Add(frmCierres);
         }
     }
 }

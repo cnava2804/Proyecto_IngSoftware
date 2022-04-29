@@ -20,10 +20,10 @@ namespace Multi_TornillosDAL
         public Nullable<System.DateTime> CierreFechaFinal { get; set; }
         public int CajaId { get; set; }
         public int UsuarioId { get; set; }
-        public int CierreDia_Id { get; set; }
+        public Nullable<System.DateTime> CierreFecha { get; set; }
+        public string TipoCierre { get; set; }
     
-        public virtual CierreDias CierreDias { get; set; }
-        public virtual Usuario Usuario { get; set; }
         public virtual Caja Caja { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

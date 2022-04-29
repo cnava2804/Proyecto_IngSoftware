@@ -47,6 +47,7 @@
     <Compile Include="CacheDineroRetiro.cs" />
     <Compile Include="CajaController.cs" />
     <Compile Include="CierreDiaController.cs" />
+    <Compile Include="CierresController.cs" />
     <Compile Include="comboxsaldo.cs" />
     <Compile Include="DepositosController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
