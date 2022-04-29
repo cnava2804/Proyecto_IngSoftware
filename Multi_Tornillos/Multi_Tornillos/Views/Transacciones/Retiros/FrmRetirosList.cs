@@ -36,6 +36,8 @@ namespace Multi_Tornillos.Views.Transacciones.Retiros
             retirosInsert.ShowDialog();
             retirosInsert.Dispose();
             UpdateDates();
+            FrmMenu m = new FrmMenu();
+            m.Close();
         }
 
         private void FrmDepositosList_FormClosed(object sender, FormClosedEventArgs e)

@@ -15,6 +15,7 @@ namespace Multi_TornillosBLL
         public static string UsuarioTipo { get; set; }
         public static string CajaId { get; set; }
         public static string CajaNumero { get; set; }
+        public static string CajaSaldoTotal { get; set; }
         public static int decision { get; set; }
     }
 }
