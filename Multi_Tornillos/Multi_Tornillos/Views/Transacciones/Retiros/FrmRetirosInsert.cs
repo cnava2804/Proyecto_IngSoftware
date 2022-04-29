@@ -306,103 +306,124 @@ namespace Multi_Tornillos.Views.Transacciones.Retiros
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            Multi_TornillosDAL.Retiros retiro = new Multi_TornillosDAL.Retiros
-            {
-                RetiroSaldoTotal = Convert.ToDecimal(txtTotalsaldoi.Text),
-                RetiroDescripcion = txtDescripcion.Text,
-                RetiroFecha = DateTime.Now,
-                RetiroCantidadUnlps = Convert.ToInt32(txt1L.Text),
-                RetiroCantidadDoslps = Convert.ToInt32(txt2L.Text),
-                RetiroCantidadCincolps = Convert.ToInt32(txt5L.Text),
-                RetiroCantidadDiezlps = Convert.ToInt32(txt10L.Text),
-                RetiroCantidadVeintelps = Convert.ToInt32(txt20L.Text),
-                RetiroCantidadCincuentalps = Convert.ToInt32(txt50L.Text),
-                RetiroCantidadCienlps = Convert.ToInt32(txt100L.Text),
-                RetiroCantidadDoscientoslps = Convert.ToInt32(txt200L.Text),
-                RetiroCantidadQuinientos = Convert.ToInt32(txt500L.Text),
-                RetiroCantidadCincocent = Convert.ToInt32(txt5C.Text),
-                RetiroCantidadDiezcent = Convert.ToInt32(txt10C.Text),
-                RetiroCantidadVeintecent = Convert.ToInt32(txt20C.Text),
-                RetiroCantidadCincuentacent = Convert.ToInt32(txt50C.Text),
-                UsuarioId = Convert.ToInt32(UsuarioLog.UsuarioId),
-                CajaId = Convert.ToInt32(lblIdCaja.Text)
-            };
-            Multi_TornillosDAL.Caja caja = new Multi_TornillosDAL.Caja
-            {
-                CajaSaldoTotal= Convert.ToDecimal(txtTotalsaldoi.Text) - retiro.RetiroSaldoTotal,
-                CajaCantidadUnlps = Convert.ToInt32(txt1L.Text) - retiro.RetiroCantidadUnlps,
-                CajaCantidadDoslps = Convert.ToInt32(txt2L.Text) - retiro.RetiroCantidadDoslps,
-                CajaCantidadCincolps = Convert.ToInt32(txt5L.Text) - retiro.RetiroCantidadCincolps,
-                CajaCantidadDiezlps = Convert.ToInt32(txt10L.Text) - retiro.RetiroCantidadDiezlps,
-                CajaCantidadVeintelps = Convert.ToInt32(txt20L.Text) - retiro.RetiroCantidadVeintelps,
-                CajaCantidadCincuentalps = Convert.ToInt32(txt50L.Text) - retiro.RetiroCantidadCincuentalps,
-                CajaCantidadCienlps = Convert.ToInt32(txt100L.Text) - retiro.RetiroCantidadCienlps,
-                CajaCantidadDoscientoslps = Convert.ToInt32(txt200L.Text) - retiro.RetiroCantidadDoscientoslps,
-                CajaCantidadQuinientos = Convert.ToInt32(txt500L.Text) - retiro.RetiroCantidadQuinientos,
-                CajaCantidadCincocent = Convert.ToInt32(txt5C.Text) - retiro.RetiroCantidadCincocent,
-                CajaCantidadDiezcent = Convert.ToInt32(txt10C.Text) - retiro.RetiroCantidadDiezcent,
-                CajaCantidadVeintecent = Convert.ToInt32(txt20C.Text) - retiro.RetiroCantidadVeintecent,
-                CajaCantidadCincuentacent = Convert.ToInt32(txt50C.Text) - retiro.RetiroCantidadCincuentacent
-            };
-
             var RetiroId = db.Caja.ToList().Select(d => d.CajaId).Max();
 
 
             var saldo = db.Caja.Find(int.Parse(txtCajaId.Text));
-            //Actualizar el saldo del cliente al que se le retiro
-            saldo.CajaSaldoTotal = saldo.CajaSaldoTotal - Convert.ToDecimal(txtTotalsaldoi.Text);
-            saldo.CajaCantidadUnlps = saldo.CajaCantidadUnlps - Convert.ToInt32(txt1L.Text);
-            saldo.CajaCantidadDoslps = saldo.CajaCantidadDoslps - Convert.ToInt32(txt2L.Text);
-            saldo.CajaCantidadCincolps = saldo.CajaCantidadCincolps - Convert.ToInt32(txt5L.Text);
-            saldo.CajaCantidadDiezlps = saldo.CajaCantidadDiezlps - Convert.ToInt32(txt10L.Text);
-            saldo.CajaCantidadVeintelps = saldo.CajaCantidadVeintelps - Convert.ToInt32(txt20L.Text);
-            saldo.CajaCantidadCincuentalps = saldo.CajaCantidadCincuentalps - Convert.ToInt32(txt50L.Text);
-            saldo.CajaCantidadCienlps = saldo.CajaCantidadCienlps - Convert.ToInt32(txt100L.Text);
-            saldo.CajaCantidadDoscientoslps = saldo.CajaCantidadDoscientoslps - Convert.ToInt32(txt200L.Text);
-            saldo.CajaCantidadQuinientos = saldo.CajaCantidadQuinientos - Convert.ToInt32(txt500L.Text);
-            saldo.CajaCantidadCincocent = saldo.CajaCantidadCincocent - Convert.ToInt32(txt5C.Text);
-            saldo.CajaCantidadDiezcent = saldo.CajaCantidadDiezcent - Convert.ToInt32(txt10C.Text);
-            saldo.CajaCantidadVeintecent = saldo.CajaCantidadVeintecent - Convert.ToInt32(txt20C.Text);
-            saldo.CajaCantidadCincuentacent = saldo.CajaCantidadCincuentacent - Convert.ToInt32(txt50C.Text);
 
-            db.Entry(saldo).State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
-
-            ////Reducir el monto del cliente que retiro
-
-            //var saldo2 = db.Cliente.Find(int.Parse(txtClienteId2.Text));
-
-            //saldo2.ClienteSaldo = saldo2.ClienteSaldo - Convert.ToDecimal(txtMonto.Text);
-
-            //db.Entry(saldo2).State = System.Data.Entity.EntityState.Modified;
-            //db.SaveChanges();
-
-            if (controller.Add(retiro))
+            if ((Convert.ToDecimal(txtTotalsaldoi.Text) > saldo.CajaSaldoTotal) || (Convert.ToDecimal(txt1L.Text) > saldo.CajaCantidadUnlps
+                || Convert.ToDecimal(txt2L.Text) > saldo.CajaCantidadDoslps || Convert.ToDecimal(txt5L.Text) > saldo.CajaCantidadCincolps
+                || Convert.ToDecimal(txt10L.Text) > saldo.CajaCantidadDiezlps || Convert.ToDecimal(txt20L.Text) > saldo.CajaCantidadVeintelps
+                || Convert.ToDecimal(txt50L.Text) > saldo.CajaCantidadCincuentalps || Convert.ToDecimal(txt100L.Text) > saldo.CajaCantidadCienlps
+                || Convert.ToDecimal(txt200L.Text) > saldo.CajaCantidadDoscientoslps || Convert.ToDecimal(txt500L.Text) > saldo.CajaCantidadQuinientos
+                || Convert.ToDecimal(txt5C.Text) > saldo.CajaCantidadCincocent || Convert.ToDecimal(txt10C.Text) > saldo.CajaCantidadDiezcent
+                || Convert.ToDecimal(txt20C.Text) > saldo.CajaCantidadVeintecent || Convert.ToDecimal(txt50C.Text) > saldo.CajaCantidadCincuentacent))
             {
-                MessageBox.Show("Retiro ingresado correctamente");
-                controller.Dispose();
-                this.Dispose();
+                MessageBox.Show("Error no puede retirar esa cantidad");
                 
             }
             else
             {
-                MessageBox.Show("Error para agregar");
+                Multi_TornillosDAL.Retiros retiro = new Multi_TornillosDAL.Retiros
+                {
+                    RetiroSaldoTotal = Convert.ToDecimal(txtTotalsaldoi.Text),
+                    RetiroDescripcion = txtDescripcion.Text,
+                    RetiroFecha = DateTime.Now,
+                    RetiroCantidadUnlps = Convert.ToInt32(txt1L.Text),
+                    RetiroCantidadDoslps = Convert.ToInt32(txt2L.Text),
+                    RetiroCantidadCincolps = Convert.ToInt32(txt5L.Text),
+                    RetiroCantidadDiezlps = Convert.ToInt32(txt10L.Text),
+                    RetiroCantidadVeintelps = Convert.ToInt32(txt20L.Text),
+                    RetiroCantidadCincuentalps = Convert.ToInt32(txt50L.Text),
+                    RetiroCantidadCienlps = Convert.ToInt32(txt100L.Text),
+                    RetiroCantidadDoscientoslps = Convert.ToInt32(txt200L.Text),
+                    RetiroCantidadQuinientos = Convert.ToInt32(txt500L.Text),
+                    RetiroCantidadCincocent = Convert.ToInt32(txt5C.Text),
+                    RetiroCantidadDiezcent = Convert.ToInt32(txt10C.Text),
+                    RetiroCantidadVeintecent = Convert.ToInt32(txt20C.Text),
+                    RetiroCantidadCincuentacent = Convert.ToInt32(txt50C.Text),
+                    UsuarioId = Convert.ToInt32(UsuarioLog.UsuarioId),
+                    CajaId = Convert.ToInt32(lblIdCaja.Text)
+                };
+                Multi_TornillosDAL.Caja caja = new Multi_TornillosDAL.Caja
+                {
+                    CajaSaldoTotal = Convert.ToDecimal(txtTotalsaldoi.Text) - retiro.RetiroSaldoTotal,
+                    CajaCantidadUnlps = Convert.ToInt32(txt1L.Text) - retiro.RetiroCantidadUnlps,
+                    CajaCantidadDoslps = Convert.ToInt32(txt2L.Text) - retiro.RetiroCantidadDoslps,
+                    CajaCantidadCincolps = Convert.ToInt32(txt5L.Text) - retiro.RetiroCantidadCincolps,
+                    CajaCantidadDiezlps = Convert.ToInt32(txt10L.Text) - retiro.RetiroCantidadDiezlps,
+                    CajaCantidadVeintelps = Convert.ToInt32(txt20L.Text) - retiro.RetiroCantidadVeintelps,
+                    CajaCantidadCincuentalps = Convert.ToInt32(txt50L.Text) - retiro.RetiroCantidadCincuentalps,
+                    CajaCantidadCienlps = Convert.ToInt32(txt100L.Text) - retiro.RetiroCantidadCienlps,
+                    CajaCantidadDoscientoslps = Convert.ToInt32(txt200L.Text) - retiro.RetiroCantidadDoscientoslps,
+                    CajaCantidadQuinientos = Convert.ToInt32(txt500L.Text) - retiro.RetiroCantidadQuinientos,
+                    CajaCantidadCincocent = Convert.ToInt32(txt5C.Text) - retiro.RetiroCantidadCincocent,
+                    CajaCantidadDiezcent = Convert.ToInt32(txt10C.Text) - retiro.RetiroCantidadDiezcent,
+                    CajaCantidadVeintecent = Convert.ToInt32(txt20C.Text) - retiro.RetiroCantidadVeintecent,
+                    CajaCantidadCincuentacent = Convert.ToInt32(txt50C.Text) - retiro.RetiroCantidadCincuentacent
+                };
+
+               
+                //Actualizar el saldo del cliente al que se le retiro
+
+                saldo.CajaSaldoTotal = saldo.CajaSaldoTotal - Convert.ToDecimal(txtTotalsaldoi.Text);
+                saldo.CajaCantidadUnlps = saldo.CajaCantidadUnlps - Convert.ToInt32(txt1L.Text);
+                saldo.CajaCantidadDoslps = saldo.CajaCantidadDoslps - Convert.ToInt32(txt2L.Text);
+                saldo.CajaCantidadCincolps = saldo.CajaCantidadCincolps - Convert.ToInt32(txt5L.Text);
+                saldo.CajaCantidadDiezlps = saldo.CajaCantidadDiezlps - Convert.ToInt32(txt10L.Text);
+                saldo.CajaCantidadVeintelps = saldo.CajaCantidadVeintelps - Convert.ToInt32(txt20L.Text);
+                saldo.CajaCantidadCincuentalps = saldo.CajaCantidadCincuentalps - Convert.ToInt32(txt50L.Text);
+                saldo.CajaCantidadCienlps = saldo.CajaCantidadCienlps - Convert.ToInt32(txt100L.Text);
+                saldo.CajaCantidadDoscientoslps = saldo.CajaCantidadDoscientoslps - Convert.ToInt32(txt200L.Text);
+                saldo.CajaCantidadQuinientos = saldo.CajaCantidadQuinientos - Convert.ToInt32(txt500L.Text);
+                saldo.CajaCantidadCincocent = saldo.CajaCantidadCincocent - Convert.ToInt32(txt5C.Text);
+                saldo.CajaCantidadDiezcent = saldo.CajaCantidadDiezcent - Convert.ToInt32(txt10C.Text);
+                saldo.CajaCantidadVeintecent = saldo.CajaCantidadVeintecent - Convert.ToInt32(txt20C.Text);
+                saldo.CajaCantidadCincuentacent = saldo.CajaCantidadCincuentacent - Convert.ToInt32(txt50C.Text);
+
+                db.Entry(saldo).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+
+                ////Reducir el monto del cliente que retiro
+
+                //var saldo2 = db.Cliente.Find(int.Parse(txtClienteId2.Text));
+
+                //saldo2.ClienteSaldo = saldo2.ClienteSaldo - Convert.ToDecimal(txtMonto.Text);
+
+                //db.Entry(saldo2).State = System.Data.Entity.EntityState.Modified;
+                //db.SaveChanges();
+
+                if (controller.Add(retiro))
+                {
+                    MessageBox.Show("Retiro ingresado correctamente");
+                    controller.Dispose();
+                    this.Dispose();
+                    saldo.CajaSaldoTotal = CacheDinero.CajaSaldoTotal;
+                }
+                else
+                {
+                    MessageBox.Show("Error para agregar");
+                }
             }
+
+            //public void MaxId()
+            //{
+            //    FrmMenu frmMenu = new FrmMenu();
+            //    string sql = @"SELECT TOP 1 CajaSaldoTotal FROM Caja WHERE CajaSaldoTotal = CajaSaldoTotal ORDER BY CajaSaldoTotal DESC";
+            //    using (SqlConnection conn = new SqlConnection("data source=DESKTOP-I3P9B28;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True"))
+            //    {
+            //        SqlCommand command = new SqlCommand(sql, conn);
+            //        conn.Open();
+            //        string codmax = Convert.ToString(command.ExecuteScalar());
+            //        int cod = Convert.ToInt32(codmax);
+            //        frmMenu.txtSaldoCaja.Text = Convert.ToString(cod);
+            //    }
+            //}
+
         }
 
-        //public void MaxId()
-        //{
-        //    FrmMenu frmMenu = new FrmMenu();
-        //    string sql = @"SELECT TOP 1 CajaSaldoTotal FROM Caja WHERE CajaSaldoTotal = CajaSaldoTotal ORDER BY CajaSaldoTotal DESC";
-        //    using (SqlConnection conn = new SqlConnection("data source=DESKTOP-I3P9B28;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True"))
-        //    {
-        //        SqlCommand command = new SqlCommand(sql, conn);
-        //        conn.Open();
-        //        string codmax = Convert.ToString(command.ExecuteScalar());
-        //        int cod = Convert.ToInt32(codmax);
-        //        frmMenu.txtSaldoCaja.Text = Convert.ToString(cod);
-        //    }
-        //}
+
+
 
     }
 }

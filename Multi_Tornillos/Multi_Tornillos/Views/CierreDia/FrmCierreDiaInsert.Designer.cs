@@ -73,12 +73,10 @@
             this.lblSaldoInicial = new System.Windows.Forms.Label();
             this.txtdiferencia = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtCaja = new System.Windows.Forms.TextBox();
-            this.txtSaldoInicial = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lblIdCaja = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblCajaNumero = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblCajaNumero = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblIdCaja = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblusuarioid = new System.Windows.Forms.Label();
             this.lblsaldoid = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
@@ -475,20 +473,6 @@
             this.label7.TabIndex = 53;
             this.label7.Text = "Diferencia";
             // 
-            // txtCaja
-            // 
-            this.txtCaja.Location = new System.Drawing.Point(560, 282);
-            this.txtCaja.Name = "txtCaja";
-            this.txtCaja.Size = new System.Drawing.Size(100, 20);
-            this.txtCaja.TabIndex = 55;
-            // 
-            // txtSaldoInicial
-            // 
-            this.txtSaldoInicial.Location = new System.Drawing.Point(288, 366);
-            this.txtSaldoInicial.Name = "txtSaldoInicial";
-            this.txtSaldoInicial.Size = new System.Drawing.Size(100, 20);
-            this.txtSaldoInicial.TabIndex = 56;
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -501,11 +485,11 @@
             this.statusStrip1.TabIndex = 57;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // lblIdCaja
+            // toolStripStatusLabel1
             // 
-            this.lblIdCaja.Name = "lblIdCaja";
-            this.lblIdCaja.Size = new System.Drawing.Size(16, 17);
-            this.lblIdCaja.Text = "...";
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(33, 17);
+            this.toolStripStatusLabel1.Text = "Caja:";
             // 
             // lblCajaNumero
             // 
@@ -513,11 +497,11 @@
             this.lblCajaNumero.Size = new System.Drawing.Size(16, 17);
             this.lblCajaNumero.Text = "...";
             // 
-            // toolStripStatusLabel1
+            // lblIdCaja
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(33, 17);
-            this.toolStripStatusLabel1.Text = "Caja:";
+            this.lblIdCaja.Name = "lblIdCaja";
+            this.lblIdCaja.Size = new System.Drawing.Size(16, 17);
+            this.lblIdCaja.Text = "...";
             // 
             // lblusuarioid
             // 
@@ -546,8 +530,6 @@
             this.Controls.Add(this.lblsaldoid);
             this.Controls.Add(this.lblusuarioid);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.txtSaldoInicial);
-            this.Controls.Add(this.txtCaja);
             this.Controls.Add(this.txtdiferencia);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lblSaldoInicial);
@@ -649,8 +631,6 @@
         private System.Windows.Forms.Label lblSaldoInicial;
         private System.Windows.Forms.TextBox txtdiferencia;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtCaja;
-        private System.Windows.Forms.TextBox txtSaldoInicial;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel lblCajaNumero;

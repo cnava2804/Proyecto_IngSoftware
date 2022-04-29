@@ -25,6 +25,21 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
         decimal suma_total_Saldoi;
         decimal totalcincoCent, totaldiezCent, totalveinteCent, totalcincuentaCent;
 
+        private void txt1L_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void FrmDepositosInsert_Load_1(object sender, EventArgs e)
         {
             txtCajaId.Text = UsuarioLog.CajaId;
