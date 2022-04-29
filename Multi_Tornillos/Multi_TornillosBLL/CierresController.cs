@@ -2,6 +2,7 @@
 using Multi_TornillosDAL.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace Multi_TornillosBLL
             db = new FlujoDeCajaEntities();
         }
 
-        public List<CierresViewModel> GetCierre(string search)
+        public List<CierresViewModel> GetCierres(string search)
         {
             List<Cierres> cierres = new List<Cierres>();
             cierres = db.Cierres.Where(c => c.Cierre_Id.ToString().Contains(search) ||
@@ -54,6 +55,10 @@ namespace Multi_TornillosBLL
             return cierresViews;
         }
 
+        public Cierres GetCierre(int Id)
+        {
+            return db.Cierres.Find(Id);
+        }
 
         public bool Add(Cierres cierres)
         {
@@ -65,6 +70,21 @@ namespace Multi_TornillosBLL
             }
             catch (Exception)
             {
+                return false;
+            }
+        }
+
+        public bool Edit(Cierres cierres)
+        {
+            try
+            {
+                db.Entry(cierres).State = EntityState.Modified;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
             }
         }

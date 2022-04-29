@@ -81,6 +81,12 @@
     <Compile Include="Views\CierreDia\FrmCierreDiaList.Designer.cs">
       <DependentUpon>FrmCierreDiaList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Cierres\FrmCierresEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Cierres\FrmCierresEdit.Designer.cs">
+      <DependentUpon>FrmCierresEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Cierres\FrmCierresInsert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CierreDia\FrmCierreDiaList.resx">
       <DependentUpon>FrmCierreDiaList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Cierres\FrmCierresEdit.resx">
+      <DependentUpon>FrmCierresEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Cierres\FrmCierresInsert.resx">
       <DependentUpon>FrmCierresInsert.cs</DependentUpon>
