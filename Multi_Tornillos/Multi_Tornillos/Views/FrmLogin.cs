@@ -17,23 +17,15 @@ namespace Multi_Tornillos.Views
 {
     public partial class FrmLogin : Form
     {
-       
+        obtenerdatoscmb cb = new obtenerdatoscmb();  
         UsuarioController controller;
         public FrmLogin()
         {
             InitializeComponent();
             controller = new UsuarioController();
-            caja();
+            cb.rellenar(cmbCajas);
         }
 
-        CajaController caj = new CajaController();
-        private void caja()
-        {
-            cmbCajas.DataSource = caj.GetCajas(cmbCajas.Text);
-            cmbCajas.DisplayMember = "CajaNumero";
-            cmbCajas.ValueMember = "Cajaid";
-
-        }
         private void button2_Click_1(object sender, EventArgs e)
         {
             this.Close();
@@ -41,10 +33,7 @@ namespace Multi_Tornillos.Views
 
         private void btnLoguear_Click(object sender, EventArgs e)
         {
-            //FrmSaldoInicialInsert saldoInicialInsert = new FrmSaldoInicialInsert();
-            //saldoInicialInsert.idcaja = cmbCajas.Text;
-            //saldoInicialInsert.Show();
-
+         
             var resu = controller.log(txtRTN.Text, txtPassword.Text);
             if (resu == 1)
             {
@@ -54,6 +43,7 @@ namespace Multi_Tornillos.Views
                     this.Hide();
                     UsuarioLog.CajaId = lblidcaja.Text;
                     UsuarioLog.CajaNumero = cmbCajas.Text;
+                    UsuarioLog.CajaSaldoTotal = lblSaldoC.Text;
                     menu.ShowDialog();
                     this.Show();
                    
@@ -71,7 +61,12 @@ namespace Multi_Tornillos.Views
 
         private void cmbCajas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblidcaja.Text = cmbCajas.SelectedValue.ToString();
+            if (cmbCajas.SelectedIndex > 0)
+            {
+                string[] valore = cb.obtenerdatos(cmbCajas.Text);
+                lblidcaja.Text = valore[0];
+                lblSaldoC.Text = valore[2];
+            };
         }
     }
 }
