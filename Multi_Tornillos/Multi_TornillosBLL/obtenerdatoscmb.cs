@@ -10,7 +10,7 @@ namespace Multi_TornillosBLL
 {
     public class obtenerdatoscmb
     {
-        SqlConnection conn = new SqlConnection("data source=Andrik-PC;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True");
+        SqlConnection conn = new SqlConnection("data source=DESKTOP-I3P9B28;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True");
         public void rellenar(ComboBox cb)
         {
             SqlCommand sql = new SqlCommand("SELECT * FROM Caja", conn);
