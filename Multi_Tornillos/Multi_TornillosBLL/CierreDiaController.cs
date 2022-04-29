@@ -28,6 +28,7 @@ namespace Multi_TornillosBLL
             return ToViewModelList(cierreDias);
         }
 
+        
         private List<CierreDiaViewModel> ToViewModelList(List<CierreDias> cierreDias)
         {
             List<CierreDiaViewModel> cierreDiaViews = new List<CierreDiaViewModel>();

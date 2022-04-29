@@ -44,6 +44,7 @@ namespace Multi_Tornillos.Views
             this.lblCajaId = new System.Windows.Forms.ToolStripStatusLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSaldoCaja = new System.Windows.Forms.TextBox();
+            this.cierresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -89,7 +90,8 @@ namespace Multi_Tornillos.Views
             this.transaccionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.depositosToolStripMenuItem,
             this.retirosToolStripMenuItem,
-            this.cierreDeDiasToolStripMenuItem});
+            this.cierreDeDiasToolStripMenuItem,
+            this.cierresToolStripMenuItem});
             this.transaccionesToolStripMenuItem.Name = "transaccionesToolStripMenuItem";
             this.transaccionesToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
             this.transaccionesToolStripMenuItem.Text = "Transacciones";
@@ -181,6 +183,13 @@ namespace Multi_Tornillos.Views
             this.txtSaldoCaja.Size = new System.Drawing.Size(100, 22);
             this.txtSaldoCaja.TabIndex = 5;
             // 
+            // cierresToolStripMenuItem
+            // 
+            this.cierresToolStripMenuItem.Name = "cierresToolStripMenuItem";
+            this.cierresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cierresToolStripMenuItem.Text = "Cierres";
+            this.cierresToolStripMenuItem.Click += new System.EventHandler(this.cierresToolStripMenuItem_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,5 +232,6 @@ namespace Multi_Tornillos.Views
         private System.Windows.Forms.ToolStripMenuItem cierreDeDiasToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox txtSaldoCaja;
+        private System.Windows.Forms.ToolStripMenuItem cierresToolStripMenuItem;
     }
 }

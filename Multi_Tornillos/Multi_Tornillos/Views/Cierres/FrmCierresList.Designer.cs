@@ -1,6 +1,6 @@
 ﻿namespace Multi_Tornillos.Views.CierreDia
 {
-    partial class FrmCierreDiaList
+    partial class FrmCierresList
     {
         /// <summary>
         /// Required designer variable.
@@ -124,8 +124,9 @@
             // 
             this.btnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(46, 22);
+            this.btnBuscar.Size = new System.Drawing.Size(46, 19);
             this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // dgDatos
             // 
@@ -173,7 +174,7 @@
             this.lblIdCaja.Text = "...";
             this.lblIdCaja.Visible = false;
             // 
-            // FrmCierreDiaList
+            // FrmCierresList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -181,8 +182,8 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dgDatos);
-            this.Name = "FrmCierreDiaList";
-            this.Text = "FrmCierreDiaList";
+            this.Name = "FrmCierresList";
+            this.Text = "FrmCierresList";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDatos)).EndInit();

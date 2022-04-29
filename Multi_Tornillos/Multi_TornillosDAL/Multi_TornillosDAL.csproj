@@ -93,6 +93,7 @@
     <Compile Include="ViewModels\BitacoraViewModel.cs" />
     <Compile Include="ViewModels\CajaViewModel.cs" />
     <Compile Include="ViewModels\CierreDiaViewModel.cs" />
+    <Compile Include="ViewModels\CierresViewModel.cs" />
     <Compile Include="ViewModels\DepositosViewModel.cs" />
     <Compile Include="ViewModels\RetirosViewModel.cs" />
     <Compile Include="ViewModels\SaldosInicialesViewModel.cs" />
