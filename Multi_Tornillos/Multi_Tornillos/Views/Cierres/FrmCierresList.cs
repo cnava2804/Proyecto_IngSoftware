@@ -26,7 +26,7 @@ namespace Multi_Tornillos.Views.CierreDia
         private void UpdateDates()
         {
             controller = new CierresController();
-            var cierre = controller.GetCierre(txtBuscar.Text);
+            var cierre = controller.GetCierres(txtBuscar.Text);
             dgDatos.DataSource = cierre;
         }
 
@@ -41,6 +41,20 @@ namespace Multi_Tornillos.Views.CierreDia
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             UpdateDates();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            var c = controller.GetCierre(
+               Convert.ToInt32(dgDatos.CurrentRow.Cells[0].Value.ToString()));
+
+            if (c != null)
+            {
+                FrmCierresEdit edit = new FrmCierresEdit(c);
+                edit.ShowDialog();
+                edit.Dispose();
+                UpdateDates();
+            }
         }
     }
 }
