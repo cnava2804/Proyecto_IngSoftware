@@ -221,7 +221,7 @@ namespace Multi_Tornillos.Views
         private System.Windows.Forms.Button btnSalir;
         public System.Windows.Forms.ComboBox cmbCajas;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblidcaja;
+        public System.Windows.Forms.Label lblidcaja;
         private System.Windows.Forms.Label lblSaldoC;
     }
 }

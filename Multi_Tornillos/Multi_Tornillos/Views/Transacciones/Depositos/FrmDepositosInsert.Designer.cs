@@ -96,6 +96,7 @@
             this.txt1L.Size = new System.Drawing.Size(100, 20);
             this.txt1L.TabIndex = 1;
             this.txt1L.Click += new System.EventHandler(this.txt1L_Click);
+            this.txt1L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt1L_KeyPress);
             // 
             // lblUnLempira
             // 

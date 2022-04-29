@@ -106,20 +106,54 @@ namespace Multi_Tornillos.Views
 
         public void MaxId()
         {
-            string sql = @"SELECT TOP 1 CajaSaldoTotal FROM Caja WHERE CajaSaldoTotal = CajaSaldoTotal ORDER BY CajaSaldoTotal ASC";
-            using (SqlConnection conn = new SqlConnection("data source=DESKTOP-MP6SVTR;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True"))
+            FrmLogin log = new FrmLogin();
+            string Id = (log.cmbCajas.SelectedValue.ToString());
+            if (Id.ToString() != "1")
             {
-                SqlCommand command = new SqlCommand(sql, conn);
-                conn.Open();
-                string codmax = Convert.ToString(command.ExecuteScalar());
-                int cod = Convert.ToInt32(codmax);
-                txtSaldoCaja.Text = Convert.ToString(cod);
+                //string sql = @"SELECT TOP " + (log.cmbCajas.SelectedValue).ToString() + " CajaSaldoTotal FROM Caja WHERE CajaSaldoTotal = CajaSaldoTotal ORDER BY CajaSaldoTotal DESC";
+                string sql = @"SELECT TOP 2 CajaSaldoTotal FROM Caja WHERE CajaSaldoTotal = CajaSaldoTotal ORDER BY CajaSaldoTotal DESC";
+                //string sql = @"SELECT CajaSaldoTotal FROM Caja WHERE CajaSaldoTotal = CajaSaldoTotal ORDER BY CajaSaldoTotal ASC";
+                //string sql = @"SELECT CajaSaldoTotal FROM Caja WHERE CajaId = @ID ";
+                //sql.Parameters.AddWithValue("ID", lblID.Text)
+                //string sql = @"SELECT * FROM Caja WHERE CajaSaldoTotal=(SELECT max(CajaSaldoTotal) FROM Caja);";
+
+                using (SqlConnection conn = new SqlConnection("data source=DESKTOP-I3P9B28;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True"))
+                {
+                    SqlCommand command = new SqlCommand(sql, conn);
+                    conn.Open();
+                    string codmax = Convert.ToString(command.ExecuteScalar());
+                    int cod = Convert.ToInt32(codmax);
+                    txtSaldoCaja.Text = Convert.ToString(cod);
+                }
+
             }
+            else
+            {
+                //string sql = @"SELECT TOP " + (log.cmbCajas.SelectedValue).ToString() + " CajaSaldoTotal FROM Caja WHERE CajaSaldoTotal = CajaSaldoTotal ORDER BY CajaSaldoTotal DESC";
+                string sql = @"SELECT TOP 1 CajaSaldoTotal FROM Caja WHERE CajaSaldoTotal = CajaSaldoTotal ORDER BY CajaSaldoTotal ASC";
+                //string sql = @"SELECT CajaSaldoTotal FROM Caja WHERE CajaSaldoTotal = CajaSaldoTotal ORDER BY CajaSaldoTotal ASC";
+                //string sql = @"SELECT CajaSaldoTotal FROM Caja WHERE CajaId = @ID ";
+                //sql.Parameters.AddWithValue("ID", lblID.Text)
+                //string sql = @"SELECT * FROM Caja WHERE CajaSaldoTotal=(SELECT max(CajaSaldoTotal) FROM Caja);";
+
+                using (SqlConnection conn = new SqlConnection("data source=DESKTOP-I3P9B28;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True"))
+                {
+                    SqlCommand command = new SqlCommand(sql, conn);
+                    conn.Open();
+                    string codmax = Convert.ToString(command.ExecuteScalar());
+                    int cod = Convert.ToInt32(codmax);
+                    txtSaldoCaja.Text = Convert.ToString(cod);
+                }
+
+            }
+
+
+
         }
 
         private void tabControl1_Load(object sender, EventArgs e)
         {
-            MaxId();
+           MaxId();
         }
 
         private void retirosToolStripMenuItem_Click(object sender, EventArgs e)
