@@ -17,7 +17,7 @@ namespace Multi_Tornillos.Views
 {
     public partial class FrmLogin : Form
     {
-        obtenerdatoscmb cb = new obtenerdatoscmb();  
+        obtenerdatoscmb cb = new obtenerdatoscmb();
         UsuarioController controller;
         public FrmLogin()
         {
@@ -34,38 +34,69 @@ namespace Multi_Tornillos.Views
 
         private void btnLoguear_Click(object sender, EventArgs e)
         {
-         
-            var resu = controller.log(txtRTN.Text, txtPassword.Text);
-            if (resu == 1)
-            {
-                if (UsuarioLog.UsuarioTipo == "Administrador")
-                {
-                    FrmMenu menu = new FrmMenu();
-                    this.Hide();
-                    UsuarioLog.CajaId = lblidcaja.Text;
-                    UsuarioLog.CajaNumero = cmbCajas.Text;
-                    UsuarioLog.CajaSaldoTotal = lblSaldoC.Text;
-                    menu.ShowDialog();
-                    this.Show();
-                   
-                }
-                else 
-                {
-                    FrmMenu menu = new FrmMenu();
-                    this.Hide();
-                    UsuarioLog.CajaId = lblidcaja.Text;
-                    UsuarioLog.CajaNumero = cmbCajas.Text;
-                    UsuarioLog.CajaSaldoTotal = lblSaldoC.Text;
-                    menu.ShowDialog();
-                    this.Show();
 
-                }
+            var resu = controller.log(txtRTN.Text, txtPassword.Text);
+
+            if (txtRTN.Text == "" || txtPassword.Text == "")
+            {
+                MessageBox.Show("Hay campos vacios, por favor completelos todos.");
             }
             else
             {
-                MessageBox.Show("Credenciales Incorrectas");
+
+                string password = Encrypt.GetSHA256(txtPassword.Text.Trim());
+                string Loginusuario = txtRTN.Text;
+                using (FlujoDeCajaEntities db = new FlujoDeCajaEntities())
+                {
+                    var pass = from u in db.Usuario
+                               where u.UsuarioDNI == txtRTN.Text
+                               && u.UsuarioPassword == password
+                               select u;
+
+                    var user = pass.FirstOrDefault();
+                    if (user != null)
+                    {
+
+                        //if (resu == 1)
+                        //{
+                            if (UsuarioLog.UsuarioTipo == "Administrador")
+                            {
+                                FrmMenu menu = new FrmMenu();
+                                this.Hide();
+                                UsuarioLog.CajaId = lblidcaja.Text;
+                                UsuarioLog.CajaNumero = cmbCajas.Text;
+                                UsuarioLog.CajaSaldoTotal = lblSaldoC.Text;
+                                menu.ShowDialog();
+                                this.Show();
+                                txtRTN.Text = "";
+                                txtPassword.Text = "";
+                            }
+                            else
+                            {
+                                FrmMenu menu = new FrmMenu();
+                                this.Hide();
+                                UsuarioLog.CajaId = lblidcaja.Text;
+                                UsuarioLog.CajaNumero = cmbCajas.Text;
+                                UsuarioLog.CajaSaldoTotal = lblSaldoC.Text;
+                                menu.ShowDialog();
+                                this.Show();
+                                txtRTN.Text = "";
+                                txtPassword.Text = "";
+                            }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Credenciales Incorrectas");
+                    }
+                
+
+
+                }
+
+
+        
             }
-        }
+     }
 
         private void cmbCajas_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -94,3 +125,4 @@ namespace Multi_Tornillos.Views
         }
     }
 }
+

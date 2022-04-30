@@ -617,7 +617,7 @@ namespace Multi_Tornillos.Views.Transacciones.Retiros
             //{
             //    FrmMenu frmMenu = new FrmMenu();
             //    string sql = @"SELECT TOP 1 CajaSaldoTotal FROM Caja WHERE CajaSaldoTotal = CajaSaldoTotal ORDER BY CajaSaldoTotal DESC";
-            //    using (SqlConnection conn = new SqlConnection("data source=Andrik-PC;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True"))
+            //    using (SqlConnection conn = new SqlConnection("data source=DESKTOP-I3P9B28;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True"))
             //    {
             //        SqlCommand command = new SqlCommand(sql, conn);
             //        conn.Open();

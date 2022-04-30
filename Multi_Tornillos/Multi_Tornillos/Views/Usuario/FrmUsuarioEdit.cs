@@ -57,7 +57,7 @@ namespace Multi_Tornillos.Views.Usuario
                 {
                     UsuarioId = Convert.ToInt32(txtId.Text),
                     UsuarioNombre = txtNombre.Text,
-                    UsuarioPassword = txtPassword.Text,
+                    UsuarioPassword = Encrypt.GetSHA256(txtPassword.Text),
                     UsuarioDNI = txtRTN.Text,
                     UsuarioTipo = tipo
                 };

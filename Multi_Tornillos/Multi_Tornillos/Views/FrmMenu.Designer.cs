@@ -38,20 +38,16 @@ namespace Multi_Tornillos.Views
             this.retirosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cierreDeDiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cierresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1 = new JacksiroKe.MdiTabCtrl.TabControl();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblCajaNumero = new System.Windows.Forms.ToolStripStatusLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSaldoCaja = new System.Windows.Forms.TextBox();
             this.btnrefresh = new System.Windows.Forms.Button();
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.tabControl1 = new JacksiroKe.MdiTabCtrl.TabControl();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblCajaNumero = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lbletiqueta = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblCajaId = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            this.toolStripContainer1.BottomToolStripPanel.SuspendLayout();
-            this.toolStripContainer1.ContentPanel.SuspendLayout();
-            this.toolStripContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuPrincipal
@@ -65,7 +61,7 @@ namespace Multi_Tornillos.Views
             this.transaccionesToolStripMenuItem});
             this.mnuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnuPrincipal.Name = "mnuPrincipal";
-            this.mnuPrincipal.Size = new System.Drawing.Size(98, 471);
+            this.mnuPrincipal.Size = new System.Drawing.Size(98, 446);
             this.mnuPrincipal.TabIndex = 0;
             this.mnuPrincipal.Text = "menuStrip1";
             // 
@@ -129,47 +125,6 @@ namespace Multi_Tornillos.Views
             this.cierresToolStripMenuItem.Text = "Cierres";
             this.cierresToolStripMenuItem.Click += new System.EventHandler(this.cierresToolStripMenuItem_Click);
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.MenuRenderer = null;
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.Size = new System.Drawing.Size(705, 450);
-            this.tabControl1.TabCloseButtonImage = null;
-            this.tabControl1.TabCloseButtonImageDisabled = null;
-            this.tabControl1.TabCloseButtonImageHot = null;
-            this.tabControl1.TabIndex = 1;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.AutoSize = false;
-            this.statusStrip1.BackColor = System.Drawing.Color.DarkKhaki;
-            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel3,
-            this.lblCajaNumero,
-            this.lblCajaId});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 0);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(705, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel3
-            // 
-            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(33, 17);
-            this.toolStripStatusLabel3.Text = "Caja:";
-            // 
-            // lblCajaNumero
-            // 
-            this.lblCajaNumero.Name = "lblCajaNumero";
-            this.lblCajaNumero.Size = new System.Drawing.Size(16, 17);
-            this.lblCajaNumero.Text = "...";
-            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -202,31 +157,50 @@ namespace Multi_Tornillos.Views
             this.btnrefresh.UseVisualStyleBackColor = true;
             this.btnrefresh.Click += new System.EventHandler(this.btnrefresh_Click);
             // 
-            // toolStripContainer1
+            // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.AutoSize = true;
+            this.tabControl1.Location = new System.Drawing.Point(101, 0);
+            this.tabControl1.MenuRenderer = null;
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.Size = new System.Drawing.Size(702, 449);
+            this.tabControl1.TabCloseButtonImage = null;
+            this.tabControl1.TabCloseButtonImageDisabled = null;
+            this.tabControl1.TabCloseButtonImageHot = null;
+            this.tabControl1.TabIndex = 0;
             // 
-            // toolStripContainer1.BottomToolStripPanel
+            // statusStrip1
             // 
-            this.toolStripContainer1.BottomToolStripPanel.Controls.Add(this.statusStrip1);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lbletiqueta,
+            this.lblCajaNumero,
+            this.lblCajaId});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 446);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(803, 25);
+            this.statusStrip1.TabIndex = 0;
+            this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripContainer1.ContentPanel
+            // lblCajaNumero
             // 
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.tabControl1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(705, 449);
-            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStripContainer1.LeftToolStripPanelVisible = false;
-            this.toolStripContainer1.Location = new System.Drawing.Point(98, 0);
-            this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.RightToolStripPanelVisible = false;
-            this.toolStripContainer1.Size = new System.Drawing.Size(705, 471);
-            this.toolStripContainer1.TabIndex = 7;
-            this.toolStripContainer1.Text = "toolStripContainer1";
-            this.toolStripContainer1.TopToolStripPanelVisible = false;
+            this.lblCajaNumero.Name = "lblCajaNumero";
+            this.lblCajaNumero.Size = new System.Drawing.Size(16, 20);
+            this.lblCajaNumero.Text = "...";
+            // 
+            // lbletiqueta
+            // 
+            this.lbletiqueta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbletiqueta.Name = "lbletiqueta";
+            this.lbletiqueta.Size = new System.Drawing.Size(50, 20);
+            this.lbletiqueta.Text = "Caja:";
             // 
             // lblCajaId
             // 
             this.lblCajaId.Name = "lblCajaId";
-            this.lblCajaId.Size = new System.Drawing.Size(16, 17);
+            this.lblCajaId.Size = new System.Drawing.Size(16, 20);
             this.lblCajaId.Text = "...";
             this.lblCajaId.Visible = false;
             // 
@@ -235,11 +209,12 @@ namespace Multi_Tornillos.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 471);
+            this.Controls.Add(this.mnuPrincipal);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSaldoCaja);
             this.Controls.Add(this.btnrefresh);
-            this.Controls.Add(this.toolStripContainer1);
-            this.Controls.Add(this.mnuPrincipal);
+            this.Controls.Add(this.statusStrip1);
             this.KeyPreview = true;
             this.MainMenuStrip = this.mnuPrincipal;
             this.Name = "FrmMenu";
@@ -250,10 +225,6 @@ namespace Multi_Tornillos.Views
             this.mnuPrincipal.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.toolStripContainer1.BottomToolStripPanel.ResumeLayout(false);
-            this.toolStripContainer1.ContentPanel.ResumeLayout(false);
-            this.toolStripContainer1.ResumeLayout(false);
-            this.toolStripContainer1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,22 +233,21 @@ namespace Multi_Tornillos.Views
         #endregion
 
         public System.Windows.Forms.MenuStrip mnuPrincipal;
-        public JacksiroKe.MdiTabCtrl.TabControl tabControl1;
         public System.Windows.Forms.ToolStripMenuItem mnuListaCajas;
         public System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem saldoInicialToolStripMenuItem;
-        public System.Windows.Forms.StatusStrip statusStrip1;
         public System.Windows.Forms.ToolStripMenuItem transaccionesToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem depositosToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem retirosToolStripMenuItem;
-        public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
-        public System.Windows.Forms.ToolStripStatusLabel lblCajaNumero;
         public System.Windows.Forms.ToolStripMenuItem cierreDeDiasToolStripMenuItem;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox txtSaldoCaja;
         public System.Windows.Forms.ToolStripMenuItem cierresToolStripMenuItem;
         public System.Windows.Forms.Button btnrefresh;
-        private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        public System.Windows.Forms.ToolStripStatusLabel lblCajaId;
+        private JacksiroKe.MdiTabCtrl.TabControl tabControl1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel lblCajaNumero;
+        private System.Windows.Forms.ToolStripStatusLabel lbletiqueta;
+        private System.Windows.Forms.ToolStripStatusLabel lblCajaId;
     }
 }

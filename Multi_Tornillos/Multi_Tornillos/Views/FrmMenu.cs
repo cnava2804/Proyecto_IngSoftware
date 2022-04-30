@@ -61,8 +61,8 @@ namespace Multi_Tornillos.Views
         }
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-            lblCajaNumero.Text = UsuarioLog.CajaNumero;
-            lblCajaId.Text = UsuarioLog.CajaId;
+            lbletiqueta.Text = UsuarioLog.CajaNumero;
+            lblCajaNumero.Text = UsuarioLog.CajaId;
             txtSaldoCaja.Text = UsuarioLog.CajaSaldoTotal;
 
             if (UsuarioLog.UsuarioTipo=="Usuario")
@@ -107,8 +107,8 @@ namespace Multi_Tornillos.Views
 
         private void btnrefresh_Click(object sender, EventArgs e)
         {
-            string sql = @"SELECT TOP 1 CajaSaldoTotal FROM Caja WHERE CajaId ='" + lblCajaId.Text + "' ORDER BY CajaId ASC";
-            SqlConnection conn = new SqlConnection("data source=Andrik-PC;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True");
+            string sql = @"SELECT TOP 1 CajaSaldoTotal FROM Caja WHERE CajaId ='" + lblCajaNumero.Text + "' ORDER BY CajaId ASC";
+            SqlConnection conn = new SqlConnection("data source=DESKTOP-I3P9B28;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True");
             {
                 SqlCommand command = new SqlCommand(sql, conn);
                 conn.Open();

@@ -78,6 +78,7 @@
     <Compile Include="CierreDiaController.cs" />
     <Compile Include="CierresController.cs" />
     <Compile Include="DepositosController.cs" />
+    <Compile Include="Encrypt.cs" />
     <Compile Include="obtenerdatoscmb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RetirosController.cs" />
