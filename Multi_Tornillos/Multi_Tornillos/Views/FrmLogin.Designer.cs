@@ -98,6 +98,7 @@ namespace Multi_Tornillos.Views
             // 
             // cmbCajas
             // 
+            this.cmbCajas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCajas.FormattingEnabled = true;
             this.cmbCajas.Location = new System.Drawing.Point(136, 37);
             this.cmbCajas.Name = "cmbCajas";

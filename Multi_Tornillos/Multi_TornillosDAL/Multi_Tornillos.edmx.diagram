@@ -8,17 +8,11 @@
         <EntityTypeShape EntityType="FlujoDeCajaModel.Bitacora" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="FlujoDeCajaModel.CierreDias" Width="1.5" PointX="6" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="FlujoDeCajaModel.SaldosIniciales" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="FlujoDeCajaModel.Usuario" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_Bitacora_CierreDias" ManuallyRouted="false" />
-        <AssociationConnector Association="FlujoDeCajaModel.FK_Bitacora_Usuario" ManuallyRouted="false" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_CierreDias_SaldosIniciales" ManuallyRouted="false" />
-        <AssociationConnector Association="FlujoDeCajaModel.FK_CierreDias_Usuario" ManuallyRouted="false" />
-        <AssociationConnector Association="FlujoDeCajaModel.FK_SaldosIniciales_Usuario" ManuallyRouted="false" />
         <EntityTypeShape EntityType="FlujoDeCajaModel.Depositos" Width="1.5" PointX="3" PointY="2.25" />
-        <AssociationConnector Association="FlujoDeCajaModel.FK_Depositos_Usuario" />
         <EntityTypeShape EntityType="FlujoDeCajaModel.Retiros" Width="1.5" PointX="6" PointY="1.25" />
-        <AssociationConnector Association="FlujoDeCajaModel.FK_Retiros_Usuario" />
-        <EntityTypeShape EntityType="FlujoDeCajaModel.Caja" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="FlujoDeCajaModel.Caja" Width="1.5" PointX="0.75" PointY="2" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_CierreDias_Caja" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_CierreDias_Caja1" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_Depositos_Caja" />
@@ -26,7 +20,13 @@
         <AssociationConnector Association="FlujoDeCajaModel.FK_SaldosIniciales_Caja" />
         <EntityTypeShape EntityType="FlujoDeCajaModel.Cierres" Width="1.5" PointX="6" PointY="12" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_Cierres_Caja" />
+        <EntityTypeShape EntityType="FlujoDeCajaModel.Usuario" Width="1.5" PointX="0.75" PointY="8.5" />
+        <AssociationConnector Association="FlujoDeCajaModel.FK_Bitacora_Usuario" />
+        <AssociationConnector Association="FlujoDeCajaModel.FK_CierreDias_Usuario" />
         <AssociationConnector Association="FlujoDeCajaModel.FK_Cierres_Usuario" />
+        <AssociationConnector Association="FlujoDeCajaModel.FK_Depositos_Usuario" />
+        <AssociationConnector Association="FlujoDeCajaModel.FK_Retiros_Usuario" />
+        <AssociationConnector Association="FlujoDeCajaModel.FK_SaldosIniciales_Usuario" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

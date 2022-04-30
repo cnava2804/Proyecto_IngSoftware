@@ -452,6 +452,7 @@
             // 
             // cmbSaldoInicial
             // 
+            this.cmbSaldoInicial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSaldoInicial.FormattingEnabled = true;
             this.cmbSaldoInicial.Location = new System.Drawing.Point(161, 451);
             this.cmbSaldoInicial.Name = "cmbSaldoInicial";
@@ -515,6 +516,7 @@
             this.lblIdCaja.Name = "lblIdCaja";
             this.lblIdCaja.Size = new System.Drawing.Size(16, 17);
             this.lblIdCaja.Text = "...";
+            this.lblIdCaja.Visible = false;
             // 
             // lblusuarioid
             // 

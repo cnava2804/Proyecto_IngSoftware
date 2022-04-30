@@ -41,7 +41,7 @@ namespace Multi_Tornillos.Views.Usuario
                 Multi_TornillosDAL.Usuario usuario = new Multi_TornillosDAL.Usuario
                 {
                     UsuarioNombre = txtNombre.Text,
-                    UsuarioPassword = txtPassword.Text,
+                    UsuarioPassword = Encrypt.GetSHA256(txtPassword.Text),
                     UsuarioDNI = txtRTN.Text,
                     UsuarioTipo = tipo
                 };
