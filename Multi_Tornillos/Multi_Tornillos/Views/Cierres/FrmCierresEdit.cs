@@ -32,7 +32,7 @@ namespace Multi_Tornillos.Views.Cierres
             lblCajaNumero.Text = UsuarioLog.CajaNumero;
             usuarioid = UsuarioLog.UsuarioId;
             lblusuarioid.Text = Convert.ToString(usuarioid);
-
+            btnGuardar.Enabled = false;
             this.cierres = cierres;
 
             txtId.Text = cierres.CajaId.ToString();
@@ -80,6 +80,7 @@ namespace Multi_Tornillos.Views.Cierres
         private void btnSumar_Click(object sender, EventArgs e)
         {
             TotalCierres();
+            btnGuardar.Enabled = true;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

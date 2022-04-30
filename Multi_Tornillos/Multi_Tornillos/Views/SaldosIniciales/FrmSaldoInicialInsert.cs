@@ -51,6 +51,7 @@ namespace Multi_Tornillos.Views.SaldosIniciales
             fecha = DateTime.Now;
             label6.Text = fecha.ToString();
             usu = UsuarioLog.UsuarioId;
+            btnGuardar.Enabled=false;
 
             txt1L.Text = "0";
             txt2L.Text = "0";
@@ -424,6 +425,7 @@ namespace Multi_Tornillos.Views.SaldosIniciales
             txtTotalsaldoi.Text = suma_total_Saldoi.ToString();
             txtTotalBilletes.Text = sumaBilletes.ToString();
             txtTotalMonedas.Text = sumaCentavos.ToString();
+            btnGuardar.Enabled = true;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

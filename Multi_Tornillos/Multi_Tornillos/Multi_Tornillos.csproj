@@ -261,6 +261,15 @@
     <EmbeddedResource Include="Views\Transacciones\Retiros\FrmRetirosList.resx">
       <DependentUpon>FrmRetirosList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usuario\FrmUsuarioDelete.resx">
+      <DependentUpon>FrmUsuarioDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usuario\FrmUsuarioEdit.resx">
+      <DependentUpon>FrmUsuarioEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usuario\FrmUsuarioInsert.resx">
+      <DependentUpon>FrmUsuarioInsert.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Usuario\FrmUsuarioList.resx">
       <DependentUpon>FrmUsuarioList.cs</DependentUpon>
     </EmbeddedResource>

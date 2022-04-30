@@ -249,7 +249,7 @@ namespace Multi_Tornillos.Views.Cierres
             this.Controls.Add(this.dtFechaInicial);
             this.Name = "FrmCierresInsert";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCierresInsert";
+            this.Text = "Nuevo Cierre";
             ((System.ComponentModel.ISupportInitialize)(this.dgDatosFechas)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

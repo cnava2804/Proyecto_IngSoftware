@@ -589,7 +589,7 @@
             this.Controls.Add(this.txt1L);
             this.Controls.Add(this.lblBilletes);
             this.Name = "FrmCierreDiaInsert";
-            this.Text = "FrmSaldoInicialInsert";
+            this.Text = "Nuevo Cierre Por Dia";
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);

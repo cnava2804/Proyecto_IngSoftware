@@ -171,7 +171,7 @@
             this.lblIdCaja.Text = "...";
             this.lblIdCaja.Visible = false;
             // 
-            // FrmDepositosList
+            // FrmRetirosList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -179,8 +179,8 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dgDatos);
-            this.Name = "FrmDepositosList";
-            this.Text = "FrmSaldoInicialList";
+            this.Name = "FrmRetirosList";
+            this.Text = "Lista de Retiros";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmDepositosList_FormClosed);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

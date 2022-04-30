@@ -270,7 +270,7 @@ namespace Multi_Tornillos.Views.Cierres
             this.Controls.Add(this.dtFechaInicial);
             this.Name = "FrmCierresEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCierresEdit";
+            this.Text = "Editar Cierre";
             ((System.ComponentModel.ISupportInitialize)(this.dgDatosFechas)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

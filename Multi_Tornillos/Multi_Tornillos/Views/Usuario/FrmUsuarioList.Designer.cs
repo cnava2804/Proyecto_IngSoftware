@@ -144,7 +144,7 @@ namespace Multi_Tornillos.Views.Usuario
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmUsuarioList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrnUsuarioList";
+            this.Text = "Lista de Usuarios";
             ((System.ComponentModel.ISupportInitialize)(this.dgDatos)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

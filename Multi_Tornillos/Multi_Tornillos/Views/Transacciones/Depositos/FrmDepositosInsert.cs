@@ -49,7 +49,7 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
             lblusuario.Text = usuario;
             lblCajaNumero.Text = UsuarioLog.CajaNumero;
             lblIdCaja.Text = UsuarioLog.CajaId;
-
+            btnGuardar.Enabled = false;
             datos_de_inicio();
             
         }
@@ -448,6 +448,7 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
             txtTotalsaldoi.Text = suma_total_Saldoi.ToString();
             txtTotalBilletes.Text = sumaBilletes.ToString();
             txtTotalMonedas.Text = sumaCentavos.ToString();
+            btnGuardar.Enabled = true;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

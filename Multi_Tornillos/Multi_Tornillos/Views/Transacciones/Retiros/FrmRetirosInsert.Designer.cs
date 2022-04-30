@@ -548,7 +548,7 @@
             this.Controls.Add(this.txt1L);
             this.Controls.Add(this.lblBilletes);
             this.Name = "FrmRetirosInsert";
-            this.Text = "Retiro";
+            this.Text = "Nuevo Retiro";
             this.Load += new System.EventHandler(this.FrmRetirosInsert_Load_1);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

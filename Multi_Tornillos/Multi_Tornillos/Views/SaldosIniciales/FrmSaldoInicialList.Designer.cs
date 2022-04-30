@@ -180,7 +180,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dgDatos);
             this.Name = "FrmSaldoInicialList";
-            this.Text = "FrmSaldoInicialList";
+            this.Text = "Listado de Saldos Iniciales";
             this.Load += new System.EventHandler(this.FrmSaldoInicialList_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

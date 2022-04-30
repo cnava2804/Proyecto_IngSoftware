@@ -182,7 +182,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dgDatos);
             this.Name = "FrmCierreDiaList";
-            this.Text = "FrmCierreDiaList";
+            this.Text = "Lista de Cierres Por Dia";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDatos)).EndInit();
