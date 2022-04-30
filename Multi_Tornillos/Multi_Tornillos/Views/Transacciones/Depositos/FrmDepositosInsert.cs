@@ -593,26 +593,12 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
                 controller.Dispose();
                 this.Dispose();
                 
+                
             }
             else
             {
                 MessageBox.Show("Error para agregar");
             }
         }
-
-        //public void MaxId()
-        //{
-        //    FrmMenu frmMenu = new FrmMenu();
-        //    string sql = @"SELECT TOP 1 CajaSaldoTotal FROM Caja WHERE CajaSaldoTotal = CajaSaldoTotal ORDER BY CajaSaldoTotal DESC";
-        //    using (SqlConnection conn = new SqlConnection("data source=Andrik-PC;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True"))
-        //    {
-        //        SqlCommand command = new SqlCommand(sql, conn);
-        //        conn.Open();
-        //        string codmax = Convert.ToString(command.ExecuteScalar());
-        //        int cod = Convert.ToInt32(codmax);
-        //        frmMenu.txtSaldoCaja.Text = Convert.ToString(cod);
-        //    }
-        //}
-
     }
 }

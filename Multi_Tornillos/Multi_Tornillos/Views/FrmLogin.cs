@@ -24,6 +24,7 @@ namespace Multi_Tornillos.Views
             InitializeComponent();
             controller = new UsuarioController();
             cb.rellenar(cmbCajas);
+            btnLoguear.Enabled = false;
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -50,6 +51,13 @@ namespace Multi_Tornillos.Views
                 }
                 else 
                 {
+                    FrmMenu menu = new FrmMenu();
+                    this.Hide();
+                    UsuarioLog.CajaId = lblidcaja.Text;
+                    UsuarioLog.CajaNumero = cmbCajas.Text;
+                    UsuarioLog.CajaSaldoTotal = lblSaldoC.Text;
+                    menu.ShowDialog();
+                    this.Show();
 
                 }
             }
@@ -67,6 +75,22 @@ namespace Multi_Tornillos.Views
                 lblidcaja.Text = valore[0];
                 lblSaldoC.Text = valore[2];
             };
+            btnLoguear.Enabled = true;
+        }
+
+        private void txtRTN_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+              (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

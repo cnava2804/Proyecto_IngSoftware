@@ -45,6 +45,7 @@ namespace Multi_Tornillos.Views
             this.lblCajaId = new System.Windows.Forms.ToolStripStatusLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSaldoCaja = new System.Windows.Forms.TextBox();
+            this.btnrefresh = new System.Windows.Forms.Button();
             this.mnuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -99,28 +100,28 @@ namespace Multi_Tornillos.Views
             // depositosToolStripMenuItem
             // 
             this.depositosToolStripMenuItem.Name = "depositosToolStripMenuItem";
-            this.depositosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.depositosToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.depositosToolStripMenuItem.Text = "Depositos";
             this.depositosToolStripMenuItem.Click += new System.EventHandler(this.depositosToolStripMenuItem_Click);
             // 
             // retirosToolStripMenuItem
             // 
             this.retirosToolStripMenuItem.Name = "retirosToolStripMenuItem";
-            this.retirosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.retirosToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.retirosToolStripMenuItem.Text = "Retiros";
             this.retirosToolStripMenuItem.Click += new System.EventHandler(this.retirosToolStripMenuItem_Click);
             // 
             // cierreDeDiasToolStripMenuItem
             // 
             this.cierreDeDiasToolStripMenuItem.Name = "cierreDeDiasToolStripMenuItem";
-            this.cierreDeDiasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cierreDeDiasToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.cierreDeDiasToolStripMenuItem.Text = "Cierre de Dias";
             this.cierreDeDiasToolStripMenuItem.Click += new System.EventHandler(this.cierreDeDiasToolStripMenuItem_Click);
             // 
             // cierresToolStripMenuItem
             // 
             this.cierresToolStripMenuItem.Name = "cierresToolStripMenuItem";
-            this.cierresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cierresToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.cierresToolStripMenuItem.Text = "Cierres";
             this.cierresToolStripMenuItem.Click += new System.EventHandler(this.cierresToolStripMenuItem_Click);
             // 
@@ -189,11 +190,23 @@ namespace Multi_Tornillos.Views
             this.txtSaldoCaja.Size = new System.Drawing.Size(100, 22);
             this.txtSaldoCaja.TabIndex = 5;
             // 
+            // btnrefresh
+            // 
+            this.btnrefresh.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnrefresh.Location = new System.Drawing.Point(521, 427);
+            this.btnrefresh.Name = "btnrefresh";
+            this.btnrefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnrefresh.TabIndex = 6;
+            this.btnrefresh.Text = "Refresh";
+            this.btnrefresh.UseVisualStyleBackColor = true;
+            this.btnrefresh.Click += new System.EventHandler(this.btnrefresh_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnrefresh);
             this.Controls.Add(this.txtSaldoCaja);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.statusStrip1);
@@ -227,10 +240,11 @@ namespace Multi_Tornillos.Views
         private System.Windows.Forms.ToolStripMenuItem retirosToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.ToolStripStatusLabel lblCajaNumero;
-        private System.Windows.Forms.ToolStripStatusLabel lblCajaId;
+        public System.Windows.Forms.ToolStripStatusLabel lblCajaId;
         private System.Windows.Forms.ToolStripMenuItem cierreDeDiasToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox txtSaldoCaja;
         private System.Windows.Forms.ToolStripMenuItem cierresToolStripMenuItem;
+        private System.Windows.Forms.Button btnrefresh;
     }
 }

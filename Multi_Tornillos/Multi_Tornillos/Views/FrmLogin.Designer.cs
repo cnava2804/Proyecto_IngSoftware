@@ -187,6 +187,7 @@ namespace Multi_Tornillos.Views
             this.txtRTN.Name = "txtRTN";
             this.txtRTN.Size = new System.Drawing.Size(280, 26);
             this.txtRTN.TabIndex = 0;
+            this.txtRTN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRTN_KeyPress);
             // 
             // FrmLogin
             // 
@@ -213,7 +214,7 @@ namespace Multi_Tornillos.Views
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnLoguear;
+        public System.Windows.Forms.Button btnLoguear;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label1;

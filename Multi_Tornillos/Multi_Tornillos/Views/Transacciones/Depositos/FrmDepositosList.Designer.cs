@@ -182,6 +182,7 @@
             this.Name = "FrmDepositosList";
             this.Text = "FrmSaldoInicialList";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmDepositosList_FormClosed);
+            this.Load += new System.EventHandler(this.FrmDepositosList_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDatos)).EndInit();

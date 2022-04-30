@@ -64,6 +64,12 @@ namespace Multi_Tornillos.Views
             lblCajaNumero.Text = UsuarioLog.CajaNumero;
             lblCajaId.Text = UsuarioLog.CajaId;
             txtSaldoCaja.Text = UsuarioLog.CajaSaldoTotal;
+            mnuListaCajas.Enabled = false;
+            mnuListaCajas.Visible = false;
+            usuariosToolStripMenuItem.Enabled = false;
+            usuariosToolStripMenuItem.Visible = false;
+            saldoInicialToolStripMenuItem.Enabled = false;
+            saldoInicialToolStripMenuItem.Visible = false;
         }
 
         private void cierreDeDiasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -82,6 +88,19 @@ namespace Multi_Tornillos.Views
         {
             FrmCierresList frmCierres = new FrmCierresList();
             tabControl1.TabPages.Add(frmCierres);
+        }
+
+        private void btnrefresh_Click(object sender, EventArgs e)
+        {
+            string sql = @"SELECT TOP 1 CajaSaldoTotal FROM Caja WHERE CajaId ='" + lblCajaId.Text + "' ORDER BY CajaId ASC";
+            SqlConnection conn = new SqlConnection("data source=Andrik-PC;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True");
+            {
+                SqlCommand command = new SqlCommand(sql, conn);
+                conn.Open();
+                string codmax = Convert.ToString(command.ExecuteScalar());
+                int cod = Convert.ToInt32(codmax);
+                txtSaldoCaja.Text = Convert.ToString(cod);
+            }
         }
     }
 }

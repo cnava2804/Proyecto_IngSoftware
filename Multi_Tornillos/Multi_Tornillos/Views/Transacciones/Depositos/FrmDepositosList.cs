@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,6 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
         {
             InitializeComponent();
             UpdateDates();
-            lblCajaNumero.Text = UsuarioLog.CajaNumero;
         }
 
         private void UpdateDates()
@@ -43,6 +43,26 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
         {
             decidido = 0;
             UsuarioLog.decision = decidido;
+            SaldoActu();
+        }
+     
+        public void SaldoActu()
+        {
+            FrmMenu menu = new FrmMenu();
+            string sql = @"SELECT TOP 1 CajaSaldoTotal FROM Caja WHERE CajaId ='" + (UsuarioLog.CajaId) + "' ORDER BY CajaId ASC";
+            SqlConnection conn = new SqlConnection("data source=Andrik-PC;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True");
+            {
+                SqlCommand command = new SqlCommand(sql, conn);
+                conn.Open();
+                string codmax = Convert.ToString(command.ExecuteScalar());
+                int cod = Convert.ToInt32(codmax) + 1;
+                menu.txtSaldoCaja.Text = Convert.ToString(cod);
+            }
+        }
+
+        private void FrmDepositosList_Load(object sender, EventArgs e)
+        {
+            SaldoActu();
         }
     }
 }
