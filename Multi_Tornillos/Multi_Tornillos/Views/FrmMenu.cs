@@ -64,12 +64,27 @@ namespace Multi_Tornillos.Views
             lblCajaNumero.Text = UsuarioLog.CajaNumero;
             lblCajaId.Text = UsuarioLog.CajaId;
             txtSaldoCaja.Text = UsuarioLog.CajaSaldoTotal;
-            mnuListaCajas.Enabled = false;
-            mnuListaCajas.Visible = false;
-            usuariosToolStripMenuItem.Enabled = false;
-            usuariosToolStripMenuItem.Visible = false;
-            saldoInicialToolStripMenuItem.Enabled = false;
-            saldoInicialToolStripMenuItem.Visible = false;
+
+            if (UsuarioLog.UsuarioTipo=="Usuario")
+            {
+                mnuListaCajas.Enabled = false;
+                mnuListaCajas.Visible = false;
+                usuariosToolStripMenuItem.Enabled = false;
+                usuariosToolStripMenuItem.Visible = false;
+                saldoInicialToolStripMenuItem.Enabled = false;
+                saldoInicialToolStripMenuItem.Visible = false;
+            }
+            else
+            {
+                mnuListaCajas.Enabled = true;
+                mnuListaCajas.Visible = true;
+                usuariosToolStripMenuItem.Enabled = true;
+                usuariosToolStripMenuItem.Visible = true;
+                saldoInicialToolStripMenuItem.Enabled = true;
+                saldoInicialToolStripMenuItem.Visible = true;
+            }
+
+            
         }
 
         private void cierreDeDiasToolStripMenuItem_Click(object sender, EventArgs e)

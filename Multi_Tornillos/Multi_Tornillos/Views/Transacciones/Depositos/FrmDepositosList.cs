@@ -37,6 +37,7 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
             depositosInsert.ShowDialog();
             depositosInsert.Dispose();
             UpdateDates();
+            SaldoActu();
         }
 
         private void FrmDepositosList_FormClosed(object sender, FormClosedEventArgs e)
