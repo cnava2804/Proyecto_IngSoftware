@@ -103,7 +103,7 @@ namespace Multi_Tornillos.Views.Caja
             this.Controls.Add(this.lblCaja);
             this.Name = "FrmCajaEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCajaEdit";
+            this.Text = "Editar Caja";
             this.ResumeLayout(false);
             this.PerformLayout();
 

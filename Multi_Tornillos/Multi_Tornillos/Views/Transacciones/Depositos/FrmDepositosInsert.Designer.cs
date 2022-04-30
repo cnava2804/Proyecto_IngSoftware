@@ -561,7 +561,7 @@
             this.Controls.Add(this.txt1L);
             this.Controls.Add(this.lblBilletes);
             this.Name = "FrmDepositosInsert";
-            this.Text = "Deposito";
+            this.Text = "Nuevo Deposito";
             this.Load += new System.EventHandler(this.FrmDepositosInsert_Load_1);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

@@ -46,7 +46,7 @@ namespace Multi_Tornillos.Views.CierreDia
             lblCajaNumero.Text = UsuarioLog.CajaNumero;
             usuarioid=UsuarioLog.UsuarioId;
             lblusuarioid.Text = Convert.ToString(usuarioid);
-
+            btnGuardar.Enabled = false;
             txt1L.Text = "0";
             txt2L.Text = "0";
             txt5L.Text = "0";
@@ -382,6 +382,7 @@ namespace Multi_Tornillos.Views.CierreDia
             txtTotalsaldoi.Text = suma_total_CierreDia.ToString();
             txtTotalBilletes.Text = sumaBilletes.ToString();
             txtTotalMonedas.Text = sumaCentavos.ToString();
+            btnGuardar.Enabled = true;
         }
 
         private void txt2L_Click(object sender, EventArgs e)

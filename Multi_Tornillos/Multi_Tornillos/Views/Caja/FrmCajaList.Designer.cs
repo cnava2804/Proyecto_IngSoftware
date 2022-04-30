@@ -117,7 +117,7 @@ namespace Multi_Tornillos.Views.Caja
             this.Controls.Add(this.dgDatos);
             this.Controls.Add(this.mnuOpciones);
             this.Name = "FrmCajaList";
-            this.Text = "FrmCajaList";
+            this.Text = "Lista de Cajas";
             this.mnuOpciones.ResumeLayout(false);
             this.mnuOpciones.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgDatos)).EndInit();

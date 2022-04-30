@@ -143,7 +143,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dgDatos);
             this.Name = "FrmDepositosList";
-            this.Text = "FrmSaldoInicialList";
+            this.Text = "Lista de Depositos";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmDepositosList_FormClosed);
             this.Load += new System.EventHandler(this.FrmDepositosList_Load);
             this.toolStrip1.ResumeLayout(false);

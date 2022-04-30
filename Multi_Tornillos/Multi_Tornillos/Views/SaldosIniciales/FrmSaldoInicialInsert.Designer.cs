@@ -535,7 +535,7 @@
             this.Controls.Add(this.txt1L);
             this.Controls.Add(this.lblBilletes);
             this.Name = "FrmSaldoInicialInsert";
-            this.Text = "FrmSaldoInicialInsert";
+            this.Text = "Nuevo Saldo Inicial";
             this.Load += new System.EventHandler(this.FrmSaldoInicialInsert_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

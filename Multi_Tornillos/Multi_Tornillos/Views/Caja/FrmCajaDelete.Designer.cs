@@ -103,7 +103,7 @@ namespace Multi_Tornillos.Views.Caja
             this.Controls.Add(this.lblCaja);
             this.Name = "FrmCajaDelete";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCajaDelete";
+            this.Text = "Eliminar Caja";
             this.ResumeLayout(false);
             this.PerformLayout();
 
