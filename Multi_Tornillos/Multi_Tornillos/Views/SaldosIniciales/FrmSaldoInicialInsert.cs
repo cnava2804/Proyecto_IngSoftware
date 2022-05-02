@@ -150,6 +150,110 @@ namespace Multi_Tornillos.Views.SaldosIniciales
 
         }
 
+        private void txt1L_Leave(object sender, EventArgs e)
+        {
+            if (txt1L.Text == "")
+            {
+                txt1L.Text = "0";
+            }
+        }
+
+        private void txt2L_Leave(object sender, EventArgs e)
+        {
+            if (txt2L.Text == "")
+            {
+                txt2L.Text = "0";
+            }
+        }
+
+        private void txt5L_Leave(object sender, EventArgs e)
+        {
+            if (txt5L.Text == "")
+            {
+                txt5L.Text = "0";
+            }
+        }
+
+        private void txt10L_Leave(object sender, EventArgs e)
+        {
+            if (txt10L.Text == "")
+            {
+                txt10L.Text = "0";
+            }
+        }
+
+        private void txt20L_Leave(object sender, EventArgs e)
+        {
+            if (txt20L.Text == "")
+            {
+                txt20L.Text = "0";
+            }
+        }
+
+        private void txt50L_Leave(object sender, EventArgs e)
+        {
+            if (txt50L.Text == "")
+            {
+                txt50L.Text = "0";
+            }
+        }
+
+        private void txt100L_Leave(object sender, EventArgs e)
+        {
+            if (txt100L.Text == "")
+            {
+                txt100L.Text = "0";
+            }
+        }
+
+        private void txt200L_Leave(object sender, EventArgs e)
+        {
+            if (txt200L.Text == "")
+            {
+                txt200L.Text = "0";
+            }
+        }
+
+        private void txt500L_Leave(object sender, EventArgs e)
+        {
+            if (txt500L.Text == "")
+            {
+                txt500L.Text = "0";
+            }
+        }
+
+        private void txt5C_Leave(object sender, EventArgs e)
+        {
+            if (txt5C.Text == "")
+            {
+                txt5C.Text = "0";
+            }
+        }
+
+        private void txt10C_Leave(object sender, EventArgs e)
+        {
+            if (txt10C.Text == "")
+            {
+                txt10C.Text = "0";
+            }
+        }
+
+        private void txt20C_Leave(object sender, EventArgs e)
+        {
+            if (txt20C.Text == "")
+            {
+                txt20C.Text = "0";
+            }
+        }
+
+        private void txt50C_Leave(object sender, EventArgs e)
+        {
+            if (txt50C.Text == "")
+            {
+                txt50C.Text = "0";
+            }
+        }
+
         private void txt100L_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&

@@ -69,15 +69,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTotalsaldoi = new System.Windows.Forms.TextBox();
-            this.lblDescripcion = new System.Windows.Forms.Label();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblCajaNumero = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblIdCaja = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtCajaId = new System.Windows.Forms.TextBox();
             this.txtIdDeposito = new System.Windows.Forms.TextBox();
-            this.statusStrip1.SuspendLayout();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.lblDescripcion = new System.Windows.Forms.Label();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.statusStrip2 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblCajaNumero = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblIdCaja = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblBilletes
@@ -93,9 +95,10 @@
             // 
             this.txt1L.Location = new System.Drawing.Point(105, 62);
             this.txt1L.Name = "txt1L";
-            this.txt1L.Size = new System.Drawing.Size(100, 20);
+            this.txt1L.Size = new System.Drawing.Size(68, 20);
             this.txt1L.TabIndex = 1;
             this.txt1L.Click += new System.EventHandler(this.txt1L_Click);
+            this.txt1L.Leave += new System.EventHandler(this.txt1L_Leave);
             // 
             // lblUnLempira
             // 
@@ -119,9 +122,10 @@
             // 
             this.txt2L.Location = new System.Drawing.Point(105, 101);
             this.txt2L.Name = "txt2L";
-            this.txt2L.Size = new System.Drawing.Size(100, 20);
+            this.txt2L.Size = new System.Drawing.Size(68, 20);
             this.txt2L.TabIndex = 3;
             this.txt2L.Click += new System.EventHandler(this.txt2L_Click);
+            this.txt2L.Leave += new System.EventHandler(this.txt2L_Leave);
             // 
             // lbl5L
             // 
@@ -136,9 +140,10 @@
             // 
             this.txt5L.Location = new System.Drawing.Point(105, 136);
             this.txt5L.Name = "txt5L";
-            this.txt5L.Size = new System.Drawing.Size(100, 20);
+            this.txt5L.Size = new System.Drawing.Size(68, 20);
             this.txt5L.TabIndex = 5;
             this.txt5L.Click += new System.EventHandler(this.txt5L_Click);
+            this.txt5L.Leave += new System.EventHandler(this.txt5L_Leave);
             // 
             // lbl10L
             // 
@@ -153,9 +158,10 @@
             // 
             this.txt10L.Location = new System.Drawing.Point(105, 175);
             this.txt10L.Name = "txt10L";
-            this.txt10L.Size = new System.Drawing.Size(100, 20);
+            this.txt10L.Size = new System.Drawing.Size(68, 20);
             this.txt10L.TabIndex = 7;
             this.txt10L.Click += new System.EventHandler(this.txt10L_Click);
+            this.txt10L.Leave += new System.EventHandler(this.txt10L_Leave);
             // 
             // lbl20L
             // 
@@ -170,9 +176,10 @@
             // 
             this.txt20L.Location = new System.Drawing.Point(105, 211);
             this.txt20L.Name = "txt20L";
-            this.txt20L.Size = new System.Drawing.Size(100, 20);
+            this.txt20L.Size = new System.Drawing.Size(68, 20);
             this.txt20L.TabIndex = 9;
             this.txt20L.Click += new System.EventHandler(this.txt20L_Click);
+            this.txt20L.Leave += new System.EventHandler(this.txt20L_Leave);
             // 
             // lbl50L
             // 
@@ -187,9 +194,10 @@
             // 
             this.txt50L.Location = new System.Drawing.Point(105, 251);
             this.txt50L.Name = "txt50L";
-            this.txt50L.Size = new System.Drawing.Size(100, 20);
+            this.txt50L.Size = new System.Drawing.Size(68, 20);
             this.txt50L.TabIndex = 11;
             this.txt50L.Click += new System.EventHandler(this.txt50L_Click);
+            this.txt50L.Leave += new System.EventHandler(this.txt50L_Leave);
             // 
             // lbl100L
             // 
@@ -204,9 +212,10 @@
             // 
             this.txt100L.Location = new System.Drawing.Point(105, 287);
             this.txt100L.Name = "txt100L";
-            this.txt100L.Size = new System.Drawing.Size(100, 20);
+            this.txt100L.Size = new System.Drawing.Size(68, 20);
             this.txt100L.TabIndex = 13;
             this.txt100L.Click += new System.EventHandler(this.txt100L_Click);
+            this.txt100L.Leave += new System.EventHandler(this.txt100L_Leave);
             // 
             // lbl200L
             // 
@@ -221,9 +230,10 @@
             // 
             this.txt200L.Location = new System.Drawing.Point(105, 325);
             this.txt200L.Name = "txt200L";
-            this.txt200L.Size = new System.Drawing.Size(100, 20);
+            this.txt200L.Size = new System.Drawing.Size(68, 20);
             this.txt200L.TabIndex = 15;
             this.txt200L.Click += new System.EventHandler(this.txt200L_Click);
+            this.txt200L.Leave += new System.EventHandler(this.txt200L_Leave);
             // 
             // lbl500L
             // 
@@ -238,32 +248,33 @@
             // 
             this.txt500L.Location = new System.Drawing.Point(105, 363);
             this.txt500L.Name = "txt500L";
-            this.txt500L.Size = new System.Drawing.Size(100, 20);
+            this.txt500L.Size = new System.Drawing.Size(68, 20);
             this.txt500L.TabIndex = 17;
             this.txt500L.Click += new System.EventHandler(this.txt500L_Click);
+            this.txt500L.Leave += new System.EventHandler(this.txt500L_Leave);
             // 
             // txtTotalBilletes
             // 
             this.txtTotalBilletes.Enabled = false;
-            this.txtTotalBilletes.Location = new System.Drawing.Point(254, 214);
+            this.txtTotalBilletes.Location = new System.Drawing.Point(210, 214);
             this.txtTotalBilletes.Multiline = true;
             this.txtTotalBilletes.Name = "txtTotalBilletes";
-            this.txtTotalBilletes.Size = new System.Drawing.Size(100, 35);
+            this.txtTotalBilletes.Size = new System.Drawing.Size(88, 35);
             this.txtTotalBilletes.TabIndex = 19;
             // 
             // txtTotalMonedas
             // 
             this.txtTotalMonedas.Enabled = false;
-            this.txtTotalMonedas.Location = new System.Drawing.Point(649, 101);
+            this.txtTotalMonedas.Location = new System.Drawing.Point(565, 101);
             this.txtTotalMonedas.Multiline = true;
             this.txtTotalMonedas.Name = "txtTotalMonedas";
-            this.txtTotalMonedas.Size = new System.Drawing.Size(100, 35);
+            this.txtTotalMonedas.Size = new System.Drawing.Size(88, 35);
             this.txtTotalMonedas.TabIndex = 39;
             // 
             // lbl50C
             // 
             this.lbl50C.AutoSize = true;
-            this.lbl50C.Location = new System.Drawing.Point(450, 178);
+            this.lbl50C.Location = new System.Drawing.Point(366, 178);
             this.lbl50C.Name = "lbl50C";
             this.lbl50C.Size = new System.Drawing.Size(67, 13);
             this.lbl50C.TabIndex = 28;
@@ -271,15 +282,16 @@
             // 
             // txt50C
             // 
-            this.txt50C.Location = new System.Drawing.Point(526, 175);
+            this.txt50C.Location = new System.Drawing.Point(442, 175);
             this.txt50C.Name = "txt50C";
-            this.txt50C.Size = new System.Drawing.Size(100, 20);
+            this.txt50C.Size = new System.Drawing.Size(71, 20);
             this.txt50C.TabIndex = 27;
+            this.txt50C.Leave += new System.EventHandler(this.txt50C_Leave);
             // 
             // lbl20C
             // 
             this.lbl20C.AutoSize = true;
-            this.lbl20C.Location = new System.Drawing.Point(450, 139);
+            this.lbl20C.Location = new System.Drawing.Point(366, 139);
             this.lbl20C.Name = "lbl20C";
             this.lbl20C.Size = new System.Drawing.Size(67, 13);
             this.lbl20C.TabIndex = 26;
@@ -287,15 +299,16 @@
             // 
             // txt20C
             // 
-            this.txt20C.Location = new System.Drawing.Point(526, 136);
+            this.txt20C.Location = new System.Drawing.Point(442, 136);
             this.txt20C.Name = "txt20C";
-            this.txt20C.Size = new System.Drawing.Size(100, 20);
+            this.txt20C.Size = new System.Drawing.Size(71, 20);
             this.txt20C.TabIndex = 25;
+            this.txt20C.Leave += new System.EventHandler(this.txt20C_Leave);
             // 
             // lbl10C
             // 
             this.lbl10C.AutoSize = true;
-            this.lbl10C.Location = new System.Drawing.Point(450, 104);
+            this.lbl10C.Location = new System.Drawing.Point(366, 104);
             this.lbl10C.Name = "lbl10C";
             this.lbl10C.Size = new System.Drawing.Size(67, 13);
             this.lbl10C.TabIndex = 24;
@@ -303,15 +316,16 @@
             // 
             // txt10C
             // 
-            this.txt10C.Location = new System.Drawing.Point(526, 101);
+            this.txt10C.Location = new System.Drawing.Point(442, 101);
             this.txt10C.Name = "txt10C";
-            this.txt10C.Size = new System.Drawing.Size(100, 20);
+            this.txt10C.Size = new System.Drawing.Size(71, 20);
             this.txt10C.TabIndex = 23;
+            this.txt10C.Leave += new System.EventHandler(this.txt10C_Leave);
             // 
             // lbl5C
             // 
             this.lbl5C.AutoSize = true;
-            this.lbl5C.Location = new System.Drawing.Point(450, 65);
+            this.lbl5C.Location = new System.Drawing.Point(366, 65);
             this.lbl5C.Name = "lbl5C";
             this.lbl5C.Size = new System.Drawing.Size(61, 13);
             this.lbl5C.TabIndex = 22;
@@ -319,15 +333,16 @@
             // 
             // txt5C
             // 
-            this.txt5C.Location = new System.Drawing.Point(526, 62);
+            this.txt5C.Location = new System.Drawing.Point(442, 62);
             this.txt5C.Name = "txt5C";
-            this.txt5C.Size = new System.Drawing.Size(100, 20);
+            this.txt5C.Size = new System.Drawing.Size(71, 20);
             this.txt5C.TabIndex = 21;
+            this.txt5C.Leave += new System.EventHandler(this.txt5C_Leave);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(450, 27);
+            this.label10.Location = new System.Drawing.Point(366, 27);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(51, 13);
             this.label10.TabIndex = 20;
@@ -345,7 +360,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(523, 27);
+            this.label2.Location = new System.Drawing.Point(439, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 41;
@@ -354,7 +369,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(251, 193);
+            this.label3.Location = new System.Drawing.Point(207, 193);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 42;
@@ -363,7 +378,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(646, 80);
+            this.label4.Location = new System.Drawing.Point(562, 80);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 43;
@@ -371,7 +386,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(590, 415);
+            this.btnGuardar.Location = new System.Drawing.Point(306, 527);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 44;
@@ -381,7 +396,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(713, 415);
+            this.btnCancelar.Location = new System.Drawing.Point(429, 527);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 45;
@@ -391,7 +406,7 @@
             // 
             // btnsumar
             // 
-            this.btnsumar.Location = new System.Drawing.Point(453, 415);
+            this.btnsumar.Location = new System.Drawing.Point(169, 527);
             this.btnsumar.Name = "btnsumar";
             this.btnsumar.Size = new System.Drawing.Size(75, 23);
             this.btnsumar.TabIndex = 46;
@@ -420,7 +435,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(268, 332);
+            this.label5.Location = new System.Drawing.Point(233, 407);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 49;
@@ -429,16 +444,50 @@
             // txtTotalsaldoi
             // 
             this.txtTotalsaldoi.Enabled = false;
-            this.txtTotalsaldoi.Location = new System.Drawing.Point(254, 348);
+            this.txtTotalsaldoi.Location = new System.Drawing.Point(210, 423);
             this.txtTotalsaldoi.Multiline = true;
             this.txtTotalsaldoi.Name = "txtTotalsaldoi";
             this.txtTotalsaldoi.Size = new System.Drawing.Size(100, 35);
             this.txtTotalsaldoi.TabIndex = 50;
             // 
+            // txtCajaId
+            // 
+            this.txtCajaId.Location = new System.Drawing.Point(224, 38);
+            this.txtCajaId.Name = "txtCajaId";
+            this.txtCajaId.Size = new System.Drawing.Size(100, 20);
+            this.txtCajaId.TabIndex = 54;
+            this.txtCajaId.Visible = false;
+            // 
+            // txtIdDeposito
+            // 
+            this.txtIdDeposito.Location = new System.Drawing.Point(224, 12);
+            this.txtIdDeposito.Name = "txtIdDeposito";
+            this.txtIdDeposito.Size = new System.Drawing.Size(100, 20);
+            this.txtIdDeposito.TabIndex = 55;
+            this.txtIdDeposito.Visible = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(1366, 112);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(31, 13);
+            this.label9.TabIndex = 89;
+            this.label9.Text = "Total";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Enabled = false;
+            this.textBox5.Location = new System.Drawing.Point(1369, 133);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 35);
+            this.textBox5.TabIndex = 85;
+            // 
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(450, 230);
+            this.lblDescripcion.Location = new System.Drawing.Point(366, 236);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(63, 13);
             this.lblDescripcion.TabIndex = 52;
@@ -446,29 +495,29 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(453, 251);
+            this.txtDescripcion.Location = new System.Drawing.Point(369, 255);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(284, 90);
             this.txtDescripcion.TabIndex = 51;
             // 
-            // statusStrip1
+            // statusStrip2
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
+            this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel2,
             this.lblCajaNumero,
             this.lblIdCaja});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 448);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
-            this.statusStrip1.TabIndex = 53;
-            this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip2.Location = new System.Drawing.Point(0, 558);
+            this.statusStrip2.Name = "statusStrip2";
+            this.statusStrip2.Size = new System.Drawing.Size(716, 22);
+            this.statusStrip2.TabIndex = 90;
+            this.statusStrip2.Text = "statusStrip2";
             // 
-            // toolStripStatusLabel1
+            // toolStripStatusLabel2
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(33, 17);
-            this.toolStripStatusLabel1.Text = "Caja:";
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(33, 17);
+            this.toolStripStatusLabel2.Text = "Caja:";
             // 
             // lblCajaNumero
             // 
@@ -482,28 +531,16 @@
             this.lblIdCaja.Size = new System.Drawing.Size(16, 17);
             this.lblIdCaja.Text = "...";
             // 
-            // txtCajaId
-            // 
-            this.txtCajaId.Location = new System.Drawing.Point(289, 72);
-            this.txtCajaId.Name = "txtCajaId";
-            this.txtCajaId.Size = new System.Drawing.Size(100, 20);
-            this.txtCajaId.TabIndex = 54;
-            // 
-            // txtIdDeposito
-            // 
-            this.txtIdDeposito.Location = new System.Drawing.Point(289, 12);
-            this.txtIdDeposito.Name = "txtIdDeposito";
-            this.txtIdDeposito.Size = new System.Drawing.Size(100, 20);
-            this.txtIdDeposito.TabIndex = 55;
-            // 
             // FrmRetirosInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 470);
+            this.ClientSize = new System.Drawing.Size(716, 580);
+            this.Controls.Add(this.statusStrip2);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.txtIdDeposito);
             this.Controls.Add(this.txtCajaId);
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtTotalsaldoi);
@@ -550,8 +587,8 @@
             this.Name = "FrmRetirosInsert";
             this.Text = "Nuevo Retiro";
             this.Load += new System.EventHandler(this.FrmRetirosInsert_Load_1);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.statusStrip2.ResumeLayout(false);
+            this.statusStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -600,13 +637,15 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtTotalsaldoi;
-        private System.Windows.Forms.Label lblDescripcion;
-        private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel lblIdCaja;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel lblCajaNumero;
         private System.Windows.Forms.TextBox txtCajaId;
         private System.Windows.Forms.TextBox txtIdDeposito;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label lblDescripcion;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.StatusStrip statusStrip2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel lblCajaNumero;
+        private System.Windows.Forms.ToolStripStatusLabel lblIdCaja;
     }
 }
