@@ -77,6 +77,7 @@
             this.lblIdCaja = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtCajaId = new System.Windows.Forms.TextBox();
             this.txtIdDeposito = new System.Windows.Forms.TextBox();
+            this.lblUsuarioId = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -522,11 +523,21 @@
             this.txtIdDeposito.Size = new System.Drawing.Size(100, 20);
             this.txtIdDeposito.TabIndex = 55;
             // 
+            // lblUsuarioId
+            // 
+            this.lblUsuarioId.AutoSize = true;
+            this.lblUsuarioId.Location = new System.Drawing.Point(66, 0);
+            this.lblUsuarioId.Name = "lblUsuarioId";
+            this.lblUsuarioId.Size = new System.Drawing.Size(16, 13);
+            this.lblUsuarioId.TabIndex = 56;
+            this.lblUsuarioId.Text = "...";
+            // 
             // FrmDepositosInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 470);
+            this.Controls.Add(this.lblUsuarioId);
             this.Controls.Add(this.txtIdDeposito);
             this.Controls.Add(this.txtCajaId);
             this.Controls.Add(this.statusStrip1);
@@ -634,5 +645,6 @@
         private System.Windows.Forms.ToolStripStatusLabel lblCajaNumero;
         private System.Windows.Forms.TextBox txtCajaId;
         private System.Windows.Forms.TextBox txtIdDeposito;
+        private System.Windows.Forms.Label lblUsuarioId;
     }
 }

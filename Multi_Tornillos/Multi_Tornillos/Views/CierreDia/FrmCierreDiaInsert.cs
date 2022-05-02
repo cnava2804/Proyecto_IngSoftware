@@ -21,7 +21,13 @@ namespace Multi_Tornillos.Views.CierreDia
 
         int unlps, doslps, cincolps, diezlps, veintelps, cincuentalps, cienlps, doscientoslps, quinientoslps;
         int totaldos, totalcinco, totaldiez, totalveinte, totalcincuenta, totalcien, totaldoscientos, totalquinientos;
+
+        int unlpsc, doslpsc, cincolpsc, diezlpsc, veintelpsc, cincuentalpsc, cienlpsc, doscientoslpsc, quinientoslpsc;
+        int totaldosc, totalcincoc, totaldiezc, totalveintec, totalcincuentac, totalcienc, totaldoscientosc, totalquinientosc;
+
         decimal cincoCent, diezCent, veinteCent, cincuentaCent;
+        decimal cincoCentc, diezCentc, veinteCentc, cincuentaCentc;
+
         decimal suma_total_CierreDia;
         int Saldoi;
         decimal diferencia;
@@ -38,8 +44,12 @@ namespace Multi_Tornillos.Views.CierreDia
         }
         
 
-        int sumaBilletes;
-        decimal sumaCentavos;
+        int sumaBilletes, sumaBilletesc;
+        decimal sumaCentavos, sumaCentavosc;
+
+        decimal suma_total_Saldoi, suma_total_Saldoic;
+       
+        decimal totalcincoCentc, totaldiezCentc, totalveinteCentc, totalcincuentaCentc;
         public FrmCierreDiaInsert()
         {
             string usuario;
@@ -183,8 +193,155 @@ namespace Multi_Tornillos.Views.CierreDia
             }
 
         }
+        private void totales()
+        {
+            if (txt1L == null && txt1LCaja == null)
+            {
+                txt1L.Text = "0";
 
-      
+                unlps = Convert.ToInt32(txt1L.Text);
+
+                txt1LCaja.Text = "0";
+
+                unlpsc = Convert.ToInt32(txt1LCaja.Text);
+
+            }
+            else if (txt1L != null && txt1LCaja != null)
+            {
+
+                unlps = Convert.ToInt32(txt1L.Text);
+                unlpsc = Convert.ToInt32(txt1LCaja.Text);
+
+            }
+
+            if (txt2L != null && txt2LCaja != null)
+            {
+                doslps = Convert.ToInt32(txt2L.Text);
+                totaldos = doslps * 2;
+                doslpsc = Convert.ToInt32(txt2LCaja.Text);
+                totaldosc = doslpsc * 2;
+
+            }
+
+            if (txt5L != null && txt5LCaja != null)
+            {
+                cincolps = Convert.ToInt32(txt5L.Text);
+                totalcinco = cincolps * 5;
+                cincolpsc = Convert.ToInt32(txt5LCaja.Text);
+                totalcincoc = cincolpsc * 5;
+
+            }
+
+            if (txt10L != null && txt10LCaja != null)
+            {
+                diezlps = Convert.ToInt32(txt10L.Text);
+                totaldiez = diezlps * 10;
+                diezlpsc = Convert.ToInt32(txt10LCaja.Text);
+                totaldiezc = diezlpsc * 10;
+
+            }
+
+            if (txt20L != null && txt20LCaja != null)
+            {
+                veintelps = Convert.ToInt32(txt20L.Text);
+                totalveinte = veintelps * 20;
+                veintelpsc = Convert.ToInt32(txt20LCaja.Text);
+                totalveintec = veintelpsc * 20;
+
+            }
+
+            if (txt50L != null && txt50LCaja != null)
+            {
+                cincuentalps = Convert.ToInt32(txt50L.Text);
+                totalcincuenta = cincuentalps * 50;
+                cincuentalpsc = Convert.ToInt32(txt50LCaja.Text);
+                totalcincuentac = cincuentalpsc * 50;
+
+            }
+
+            if (txt100L != null && txt100LCaja != null)
+            {
+                cienlps = Convert.ToInt32(txt100L.Text);
+                totalcien = cienlps * 100;
+                cienlpsc = Convert.ToInt32(txt100LCaja.Text);
+                totalcienc = cienlpsc * 100;
+
+            }
+
+            if (txt200L != null && txt200LCaja != null)
+            {
+                doscientoslps = Convert.ToInt32(txt200L.Text);
+                totaldoscientos = doscientoslps * 200;
+                doscientoslpsc = Convert.ToInt32(txt200LCaja.Text);
+                totaldoscientosc = doscientoslpsc * 200;
+
+            }
+
+            if (txt500L != null && txt500LCaja != null)
+            {
+                quinientoslps = Convert.ToInt32(txt500L.Text);
+                totalquinientos = quinientoslps * 500;
+                quinientoslpsc = Convert.ToInt32(txt500LCaja.Text);
+                totalquinientosc = quinientoslpsc * 500;
+
+            }
+
+
+            if (txt5C != null && txt5CCaja != null)
+            {
+                cincoCent = Convert.ToDecimal(txt5C.Text);
+                totalcincoCent = (cincoCent / 20);
+                cincoCentc = Convert.ToDecimal(txt5CCaja.Text);
+                totalcincoCentc = (cincoCentc / 20);
+
+            }
+
+            if (txt10C != null && txt10CCaja != null)
+            {
+                diezCent = Convert.ToDecimal(txt10C.Text);
+                totaldiezCent = (diezCent / 10);
+                diezCentc = Convert.ToDecimal(txt10CCaja.Text);
+                totaldiezCentc = (diezCentc / 10);
+
+            }
+
+            if (txt20C != null && txt20CCaja != null)
+            {
+                veinteCent = Convert.ToDecimal(txt20C.Text);
+                totalveinteCent = (veinteCent / 5);
+                veinteCentc = Convert.ToDecimal(txt20CCaja.Text);
+                totalveinteCentc = (veinteCentc / 5);
+
+            }
+
+            if (txt50C != null && txt50CCaja != null)
+            {
+                cincuentaCent = Convert.ToDecimal(txt50C.Text);
+                totalcincuentaCent = (cincuentaCent / 2);
+                cincuentaCentc = Convert.ToDecimal(txt50CCaja.Text);
+                totalcincuentaCentc = (cincuentaCentc / 2);
+
+            }
+
+            sumaBilletes = unlps + totaldos + totalcinco + totaldiez + totalveinte + totalcincuenta +
+                            totalcien + totaldoscientos + totalquinientos;
+            sumaCentavos = totalcincoCent + totaldiezCent + totalveinteCent + totalcincuentaCent;
+            suma_total_Saldoi = sumaBilletes + sumaCentavos;
+
+            txtTotalsaldoi.Text = suma_total_Saldoi.ToString();
+            txtTotalBilletes.Text = sumaBilletes.ToString();
+            txtTotalMonedas.Text = sumaCentavos.ToString();
+
+            sumaBilletesc = unlpsc + totaldosc + totalcincoc + totaldiezc + totalveintec + totalcincuentac +
+                          totalcienc + totaldoscientosc + totalquinientosc;
+            sumaCentavosc = totalcincoCentc + totaldiezCentc + totalveinteCentc + totalcincuentaCentc;
+            suma_total_Saldoic = sumaBilletesc + sumaCentavosc;
+
+
+            txtTotalCaja.Text = suma_total_Saldoic.ToString();
+            txtTotalBilletesCaja.Text = sumaBilletesc.ToString();
+            txtTotalMonedasCaja.Text = sumaCentavosc.ToString();
+        }
 
         private void FrmCierreDiaInsert_Load(object sender, EventArgs e)
         {
@@ -443,102 +600,8 @@ namespace Multi_Tornillos.Views.CierreDia
 
         private void btnsumar_Click(object sender, EventArgs e)
         {
-            if (txt1L == null)
-            {
-                txt1L.Text = "0";
-                unlps = Convert.ToInt32(txt1L.Text);
+            totales();
 
-            }
-            else if (txt1L != null)
-            {
-
-                unlps = Convert.ToInt32(txt1L.Text);
-            }
-
-            if (txt2L != null)
-            {
-                doslps = Convert.ToInt32(txt2L.Text);
-                totaldos = doslps * 2;
-            }
-
-            if (txt5L != null)
-            {
-                cincolps = Convert.ToInt32(txt5L.Text);
-                totalcinco = cincolps * 5;
-            }
-
-            if (txt10L != null)
-            {
-                diezlps = Convert.ToInt32(txt10L.Text);
-                totaldiez = diezlps * 10;
-            }
-
-            if (txt20L != null)
-            {
-                veintelps = Convert.ToInt32(txt20L.Text);
-                totalveinte = veintelps * 20;
-            }
-
-            if (txt50L != null)
-            {
-                cincuentalps = Convert.ToInt32(txt50L.Text);
-                totalcincuenta = cincuentalps * 50;
-            }
-
-            if (txt100L != null)
-            {
-                cienlps = Convert.ToInt32(txt100L.Text);
-                totalcien = cienlps * 100;
-            }
-
-            if (txt200L != null)
-            {
-                doscientoslps = Convert.ToInt32(txt200L.Text);
-                totaldoscientos = doscientoslps * 200;
-            }
-
-            if (txt500L != null)
-            {
-                quinientoslps = Convert.ToInt32(txt500L.Text);
-                totalquinientos = quinientoslps * 500;
-            }
-
-
-            if (txt5C != null)
-            {
-                cincoCent = Convert.ToDecimal(txt5C.Text);
-                totalcincoCent = (cincoCent / 20);
-            }
-
-            if (txt10C != null)
-            {
-                diezCent = Convert.ToDecimal(txt10C.Text);
-                totaldiezCent = (diezCent / 10);
-            }
-
-            if (txt20C != null)
-            {
-                veinteCent = Convert.ToDecimal(txt20C.Text);
-                totalveinteCent = (veinteCent / 5);
-            }
-
-            if (txt50C != null)
-            {
-                cincuentaCent = Convert.ToDecimal(txt50C.Text);
-                totalcincuentaCent = (cincuentaCent / 2);
-            }
-            Saldoi = Convert.ToInt32(cmbSaldoInicial.Text);
-            sumaBilletes = unlps + totaldos + totalcinco + totaldiez + totalveinte + totalcincuenta +
-                            totalcien + totaldoscientos + totalquinientos;
-            sumaCentavos = totalcincoCent + totaldiezCent + totalveinteCent + totalcincuentaCent;
-            suma_total_CierreDia = sumaBilletes + sumaCentavos;
-
-            diferencia = suma_total_CierreDia - Saldoi;
-            txtdiferencia.Text = diferencia.ToString();
-
-            txtTotalsaldoi.Text = suma_total_CierreDia.ToString();
-            txtTotalBilletes.Text = sumaBilletes.ToString();
-            txtTotalMonedas.Text = sumaCentavos.ToString();
             btnGuardar.Enabled = true;
         }
 

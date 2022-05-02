@@ -35,7 +35,6 @@ namespace Multi_Tornillos.Views
         private void btnLoguear_Click(object sender, EventArgs e)
         {
 
-            
 
             if (txtRTN.Text == "" || txtPassword.Text == "")
             {
@@ -50,6 +49,7 @@ namespace Multi_Tornillos.Views
                 {
                     //var pass = from u in db.Usuario
                     //           where u.UsuarioDNI == txtRTN.Text
+
                     //           && u.UsuarioPassword == password
                     //           select u;
 
@@ -85,7 +85,9 @@ namespace Multi_Tornillos.Views
                                 txtPassword.Text = "";
                             }
                         
+
                     }
+                    
                     else
                     {
                         MessageBox.Show("Credenciales Incorrectas");

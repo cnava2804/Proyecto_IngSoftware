@@ -122,6 +122,7 @@
             this.dgDatos.Location = new System.Drawing.Point(11, 39);
             this.dgDatos.Margin = new System.Windows.Forms.Padding(2);
             this.dgDatos.Name = "dgDatos";
+            this.dgDatos.ReadOnly = true;
             this.dgDatos.RowHeadersWidth = 51;
             this.dgDatos.RowTemplate.Height = 24;
             this.dgDatos.Size = new System.Drawing.Size(778, 400);
