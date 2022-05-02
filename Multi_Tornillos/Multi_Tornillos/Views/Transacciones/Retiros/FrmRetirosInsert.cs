@@ -23,10 +23,13 @@ namespace Multi_Tornillos.Views.Transacciones.Retiros
         int unlps, doslps, cincolps, diezlps, veintelps, cincuentalps, cienlps, doscientoslps, quinientoslps;
         int totaldos, totalcinco, totaldiez, totalveinte, totalcincuenta, totalcien, totaldoscientos, totalquinientos;
 
-      
+        int unlpsc, doslpsc, cincolpsc, diezlpsc, veintelpsc, cincuentalpsc, cienlpsc, doscientoslpsc, quinientoslpsc;
+        int totaldosc, totalcincoc, totaldiezc, totalveintec, totalcincuentac, totalcienc, totaldoscientosc, totalquinientosc;
 
-      
+
         decimal cincoCent, diezCent, veinteCent, cincuentaCent;
+
+        decimal cincoCentc, diezCentc, veinteCentc, cincuentaCentc;
 
         private void txt1L_Leave(object sender, EventArgs e)
         {
@@ -136,49 +139,51 @@ namespace Multi_Tornillos.Views.Transacciones.Retiros
 
       
 
-        decimal suma_total_Saldoi;
+        decimal suma_total_Saldoi, suma_total_Saldoic;
         decimal totalcincoCent, totaldiezCent, totalveinteCent, totalcincuentaCent;
-        
+        decimal totalcincoCentc, totaldiezCentc, totalveinteCentc, totalcincuentaCentc;
+
 
         private void FrmRetirosInsert_Load_1(object sender, EventArgs e)
         {
             txtCajaId.Text = UsuarioLog.CajaId;
+            
 
-            //string sql = @"SELECT CajaSaldoTotal,CajaCantidadUnlps,CajaCantidadDoslps,CajaCantidadCincolps,CajaCantidadDiezlps,CajaCantidadVeintelps,CajaCantidadCincuentalps,CajaCantidadCienlps,CajaCantidadDoscientoslps,CajaCantidadQuinientos,CajaCantidadCincocent,CajaCantidadDiezcent,CajaCantidadVeintecent,CajaCantidadCincuentacent FROM Caja WHERE CajaId = @id";
-            //SqlConnection conn = new SqlConnection("data source=Andrik-PC;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True");
-            //{
-            //    SqlCommand command = new SqlCommand(sql, conn);
-            //    conn.Open();
-            //    command.Parameters.AddWithValue("@id", lblIdCaja.Text);
-            //    //string codmax = Convert.ToString(command.ExecuteScalar());
-            //    //int cod = Convert.ToInt32(codmax);
-            //    SqlDataReader reader = command.ExecuteReader();
-
-
-            //    if (reader.Read()==true)
-            //    {
-            //        txtTotalCaja.Text = reader["CajaSaldoTotal"].ToString();
-            //        txt1LCaja.Text = reader["CajaCantidadUnlps"].ToString();
-            //        txt2LCaja.Text = reader["CajaCantidadDoslps"].ToString();
-            //        txt5LCaja.Text = reader["CajaCantidadCincolps"].ToString();
-            //        txt10LCaja.Text = reader["CajaCantidadDiezlps"].ToString();
-            //        txt20LCaja.Text = reader["CajaCantidadVeintelps"].ToString();
-            //        txt50LCaja.Text = reader["CajaCantidadCincuentalps"].ToString();
-            //        txt100LCaja.Text = reader["CajaCantidadCienlps"].ToString();
-            //        txt200LCaja.Text = reader["CajaCantidadDoscientoslps"].ToString();
-            //        txt500LCaja.Text = reader["CajaCantidadQuinientos"].ToString();
-
-            //        txt5CCaja.Text = reader["CajaCantidadCincocent"].ToString();
-            //        txt10CCaja.Text = reader["CajaCantidadDiezcent"].ToString();
-            //        txt20CCaja.Text = reader["CajaCantidadVeintecent"].ToString();
-            //        txt50CCaja.Text = reader["CajaCantidadCincuentacent"].ToString();
+            string sql = @"SELECT CajaSaldoTotal,CajaCantidadUnlps,CajaCantidadDoslps,CajaCantidadCincolps,CajaCantidadDiezlps,CajaCantidadVeintelps,CajaCantidadCincuentalps,CajaCantidadCienlps,CajaCantidadDoscientoslps,CajaCantidadQuinientos,CajaCantidadCincocent,CajaCantidadDiezcent,CajaCantidadVeintecent,CajaCantidadCincuentacent FROM Caja WHERE CajaId = @id";
+            SqlConnection conn = new SqlConnection("data source=DESKTOP-MP6SVTR;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True");
+            {
+                SqlCommand command = new SqlCommand(sql, conn);
+                conn.Open();
+                command.Parameters.AddWithValue("@id", lblIdCaja.Text);
+                //string codmax = Convert.ToString(command.ExecuteScalar());
+                //int cod = Convert.ToInt32(codmax);
+                SqlDataReader reader = command.ExecuteReader();
 
 
-            //    }
+                if (reader.Read() == true)
+                {
+                    txtTotalCaja.Text = reader["CajaSaldoTotal"].ToString();
+                    txt1LCaja.Text = reader["CajaCantidadUnlps"].ToString();
+                    txt2LCaja.Text = reader["CajaCantidadDoslps"].ToString();
+                    txt5LCaja.Text = reader["CajaCantidadCincolps"].ToString();
+                    txt10LCaja.Text = reader["CajaCantidadDiezlps"].ToString();
+                    txt20LCaja.Text = reader["CajaCantidadVeintelps"].ToString();
+                    txt50LCaja.Text = reader["CajaCantidadCincuentalps"].ToString();
+                    txt100LCaja.Text = reader["CajaCantidadCienlps"].ToString();
+                    txt200LCaja.Text = reader["CajaCantidadDoscientoslps"].ToString();
+                    txt500LCaja.Text = reader["CajaCantidadQuinientos"].ToString();
+
+                    txt5CCaja.Text = reader["CajaCantidadCincocent"].ToString();
+                    txt10CCaja.Text = reader["CajaCantidadDiezcent"].ToString();
+                    txt20CCaja.Text = reader["CajaCantidadVeintecent"].ToString();
+                    txt50CCaja.Text = reader["CajaCantidadCincuentacent"].ToString();
+
+
+                }
 
 
 
-            //}
+            }
         }
 
         int decidido =UsuarioLog.decision;
@@ -505,106 +510,134 @@ namespace Multi_Tornillos.Views.Transacciones.Retiros
 
         }
 
-
-        private void btnsumar_Click(object sender, EventArgs e)
+        private void totales()
         {
-            if (txt1L == null )
+            if (txt1L == null && txt1LCaja == null)
             {
-                txt1L.Text = "0";              
+                txt1L.Text = "0";
 
                 unlps = Convert.ToInt32(txt1L.Text);
-               
+
+                txt1LCaja.Text = "0";
+
+                unlpsc = Convert.ToInt32(txt1LCaja.Text);
+
             }
-            else if (txt1L != null)
+            else if (txt1L != null && txt1LCaja != null)
             {
 
                 unlps = Convert.ToInt32(txt1L.Text);
-                
+                unlpsc = Convert.ToInt32(txt1LCaja.Text);
+
             }
 
-            if (txt2L != null )
+            if (txt2L != null && txt2LCaja != null)
             {
                 doslps = Convert.ToInt32(txt2L.Text);
                 totaldos = doslps * 2;
-                
+                doslpsc = Convert.ToInt32(txt2LCaja.Text);
+                totaldosc = doslpsc * 2;
+
             }
 
-            if (txt5L != null )
+            if (txt5L != null && txt5LCaja != null)
             {
                 cincolps = Convert.ToInt32(txt5L.Text);
                 totalcinco = cincolps * 5;
-               
+                cincolpsc = Convert.ToInt32(txt5LCaja.Text);
+                totalcincoc = cincolpsc * 5;
+
             }
 
-            if (txt10L != null )
+            if (txt10L != null && txt10LCaja != null)
             {
                 diezlps = Convert.ToInt32(txt10L.Text);
                 totaldiez = diezlps * 10;
-                
+                diezlpsc = Convert.ToInt32(txt10LCaja.Text);
+                totaldiezc = diezlpsc * 10;
+
             }
 
-            if (txt20L != null )
+            if (txt20L != null && txt20LCaja != null)
             {
                 veintelps = Convert.ToInt32(txt20L.Text);
                 totalveinte = veintelps * 20;
-               
+                veintelpsc = Convert.ToInt32(txt20LCaja.Text);
+                totalveintec = veintelpsc * 20;
+
             }
 
-            if (txt50L != null )
+            if (txt50L != null && txt50LCaja != null)
             {
                 cincuentalps = Convert.ToInt32(txt50L.Text);
                 totalcincuenta = cincuentalps * 50;
-               
+                cincuentalpsc = Convert.ToInt32(txt50LCaja.Text);
+                totalcincuentac = cincuentalpsc * 50;
+
             }
 
-            if (txt100L != null )
+            if (txt100L != null && txt100LCaja != null)
             {
                 cienlps = Convert.ToInt32(txt100L.Text);
                 totalcien = cienlps * 100;
-                
+                cienlpsc = Convert.ToInt32(txt100LCaja.Text);
+                totalcienc = cienlpsc * 100;
+
             }
 
-            if (txt200L != null )
+            if (txt200L != null && txt200LCaja != null)
             {
                 doscientoslps = Convert.ToInt32(txt200L.Text);
                 totaldoscientos = doscientoslps * 200;
-               
+                doscientoslpsc = Convert.ToInt32(txt200LCaja.Text);
+                totaldoscientosc = doscientoslpsc * 200;
+
             }
 
-            if (txt500L != null )
+            if (txt500L != null && txt500LCaja != null)
             {
                 quinientoslps = Convert.ToInt32(txt500L.Text);
                 totalquinientos = quinientoslps * 500;
-               
+                quinientoslpsc = Convert.ToInt32(txt500LCaja.Text);
+                totalquinientosc = quinientoslpsc * 500;
+
             }
 
 
-            if (txt5C != null )
+            if (txt5C != null && txt5CCaja != null)
             {
                 cincoCent = Convert.ToDecimal(txt5C.Text);
                 totalcincoCent = (cincoCent / 20);
-               
+                cincoCentc = Convert.ToDecimal(txt5CCaja.Text);
+                totalcincoCentc = (cincoCentc / 20);
+
             }
 
-            if (txt10C != null)
+            if (txt10C != null && txt10CCaja != null)
             {
                 diezCent = Convert.ToDecimal(txt10C.Text);
                 totaldiezCent = (diezCent / 10);
-                
+                diezCentc = Convert.ToDecimal(txt10CCaja.Text);
+                totaldiezCentc = (diezCentc / 10);
+
             }
 
-            if (txt20C != null)
+            if (txt20C != null && txt20CCaja != null)
             {
                 veinteCent = Convert.ToDecimal(txt20C.Text);
                 totalveinteCent = (veinteCent / 5);
-               
+                veinteCentc = Convert.ToDecimal(txt20CCaja.Text);
+                totalveinteCentc = (veinteCentc / 5);
+
             }
 
-            if (txt50C != null )
+            if (txt50C != null && txt50CCaja != null)
             {
                 cincuentaCent = Convert.ToDecimal(txt50C.Text);
                 totalcincuentaCent = (cincuentaCent / 2);
-               
+                cincuentaCentc = Convert.ToDecimal(txt50CCaja.Text);
+                totalcincuentaCentc = (cincuentaCentc / 2);
+
             }
 
             sumaBilletes = unlps + totaldos + totalcinco + totaldiez + totalveinte + totalcincuenta +
@@ -616,7 +649,19 @@ namespace Multi_Tornillos.Views.Transacciones.Retiros
             txtTotalBilletes.Text = sumaBilletes.ToString();
             txtTotalMonedas.Text = sumaCentavos.ToString();
 
-           
+            sumaBilletesc = unlpsc + totaldosc + totalcincoc + totaldiezc + totalveintec + totalcincuentac +
+                          totalcienc + totaldoscientosc + totalquinientosc;
+            sumaCentavosc = totalcincoCentc + totaldiezCentc + totalveinteCentc + totalcincuentaCentc;
+            suma_total_Saldoic = sumaBilletesc + sumaCentavosc;
+
+            txtTotalCaja.Text = suma_total_Saldoic.ToString();
+            txtTotalBilletesCaja.Text = sumaBilletesc.ToString();
+            txtTotalMonedasCaja.Text = sumaCentavosc.ToString();
+        }
+
+        private void btnsumar_Click(object sender, EventArgs e)
+        {
+            totales();                 
 
             btnGuardar.Enabled = true;
         }
@@ -789,7 +834,7 @@ namespace Multi_Tornillos.Views.Transacciones.Retiros
             //{
             //    FrmMenu frmMenu = new FrmMenu();
             //    string sql = @"SELECT TOP 1 CajaSaldoTotal FROM Caja WHERE CajaSaldoTotal = CajaSaldoTotal ORDER BY CajaSaldoTotal DESC";
-            //    using (SqlConnection conn = new SqlConnection("data source=Andrik-PC;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True"))
+            //    using (SqlConnection conn = new SqlConnection("data source=DESKTOP-MP6SVTR;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True"))
             //    {
             //        SqlCommand command = new SqlCommand(sql, conn);
             //        conn.Open();

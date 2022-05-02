@@ -1001,6 +1001,7 @@
             this.Controls.Add(this.txt1L);
             this.Controls.Add(this.lblBilletes);
             this.Name = "FrmCierreDiaInsert";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo Cierre Por Dia";
             this.Load += new System.EventHandler(this.FrmCierreDiaInsert_Load);
             this.statusStrip1.ResumeLayout(false);
