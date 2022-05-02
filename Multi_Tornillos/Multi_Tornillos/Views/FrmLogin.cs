@@ -35,7 +35,6 @@ namespace Multi_Tornillos.Views
         private void btnLoguear_Click(object sender, EventArgs e)
         {
 
-          
 
             if (txtRTN.Text == "" || txtPassword.Text == "")
             {
@@ -50,40 +49,43 @@ namespace Multi_Tornillos.Views
                 {
                     //var pass = from u in db.Usuario
                     //           where u.UsuarioDNI == txtRTN.Text
-                    ////           && u.UsuarioPassword == password
-                    ////           select u;
+
+                    //           && u.UsuarioPassword == password
+                    //           select u;
 
                     //var user = pass.FirstOrDefault();
+                    //if (user != null)
+                    //{
                     var resu = controller.log(txtRTN.Text, password);
+
                     if (resu == 1)
-                    {
+                        {
+                            if (UsuarioLog.UsuarioTipo == "Administrador")
+                            {
+                                FrmMenu menu = new FrmMenu();
+                                this.Hide();
+                                UsuarioLog.CajaId = lblidcaja.Text;
+                                UsuarioLog.CajaNumero = cmbCajas.Text;
+                                UsuarioLog.CajaSaldoTotal = lblSaldoC.Text;
+                                menu.ShowDialog();
+                                this.Show();
+                                txtRTN.Text = "";
+                                txtPassword.Text = "";
+                            }
+                            else
+                            {
+                                FrmMenu menu = new FrmMenu();
+                                this.Hide();
+                                UsuarioLog.CajaId = lblidcaja.Text;
+                                UsuarioLog.CajaNumero = cmbCajas.Text;
+                                UsuarioLog.CajaSaldoTotal = lblSaldoC.Text;
+                                menu.ShowDialog();
+                                this.Show();
+                                txtRTN.Text = "";
+                                txtPassword.Text = "";
+                            }
                         
 
-                         
-                        if (UsuarioLog.UsuarioTipo == "Administrador")
-                        {
-                            FrmMenu menu = new FrmMenu();
-                            this.Hide();
-                            UsuarioLog.CajaId = lblidcaja.Text;
-                            UsuarioLog.CajaNumero = cmbCajas.Text;
-                            UsuarioLog.CajaSaldoTotal = lblSaldoC.Text;
-                            menu.ShowDialog();
-                            this.Show();
-                            txtRTN.Text = "";
-                            txtPassword.Text = "";
-                        }
-                        else
-                        {
-                            FrmMenu menu = new FrmMenu();
-                            this.Hide();
-                            UsuarioLog.CajaId = lblidcaja.Text;
-                            UsuarioLog.CajaNumero = cmbCajas.Text;
-                            UsuarioLog.CajaSaldoTotal = lblSaldoC.Text;
-                            menu.ShowDialog();
-                            this.Show();
-                            txtRTN.Text = "";
-                            txtPassword.Text = "";
-                        }
                     }
                     
                     else

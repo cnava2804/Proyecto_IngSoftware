@@ -17,12 +17,12 @@ namespace Multi_TornillosDAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Caja()
         {
-            this.CierreDias = new HashSet<CierreDias>();
-            this.CierreDias1 = new HashSet<CierreDias>();
             this.Depositos = new HashSet<Depositos>();
             this.Retiros = new HashSet<Retiros>();
             this.SaldosIniciales = new HashSet<SaldosIniciales>();
             this.Cierres = new HashSet<Cierres>();
+            this.CierreDias = new HashSet<CierreDias>();
+            this.CierreDias1 = new HashSet<CierreDias>();
         }
     
         public int CajaId { get; set; }
@@ -43,10 +43,6 @@ namespace Multi_TornillosDAL
         public Nullable<int> CajaCantidadCincuentacent { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CierreDias> CierreDias { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CierreDias> CierreDias1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Depositos> Depositos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Retiros> Retiros { get; set; }
@@ -54,5 +50,9 @@ namespace Multi_TornillosDAL
         public virtual ICollection<SaldosIniciales> SaldosIniciales { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cierres> Cierres { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CierreDias> CierreDias { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CierreDias> CierreDias1 { get; set; }
     }
 }

@@ -116,7 +116,10 @@
             this.txt1LCaja = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCajaId = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblBilletes
@@ -472,6 +475,7 @@
             this.lblusuario.Size = new System.Drawing.Size(16, 13);
             this.lblusuario.TabIndex = 47;
             this.lblusuario.Text = "...";
+            this.lblusuario.Visible = false;
             // 
             // label6
             // 
@@ -481,6 +485,7 @@
             this.label6.Size = new System.Drawing.Size(16, 13);
             this.label6.TabIndex = 48;
             this.label6.Text = "...";
+            this.label6.Visible = false;
             // 
             // label5
             // 
@@ -576,6 +581,7 @@
             this.lblusuarioid.Size = new System.Drawing.Size(16, 13);
             this.lblusuarioid.TabIndex = 58;
             this.lblusuarioid.Text = "...";
+            this.lblusuarioid.Visible = false;
             // 
             // lblsaldoid
             // 
@@ -904,17 +910,36 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Location = new System.Drawing.Point(713, 55);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(524, 424);
             this.groupBox1.TabIndex = 132;
             this.groupBox1.TabStop = false;
             // 
+            // txtCajaId
+            // 
+            this.txtCajaId.Location = new System.Drawing.Point(236, 55);
+            this.txtCajaId.Name = "txtCajaId";
+            this.txtCajaId.Size = new System.Drawing.Size(100, 20);
+            this.txtCajaId.TabIndex = 133;
+            this.txtCajaId.Visible = false;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(8, 360);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(70, 13);
+            this.label19.TabIndex = 134;
+            this.label19.Text = "500 Lempiras";
+            // 
             // FrmCierreDiaInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 524);
+            this.Controls.Add(this.txtCajaId);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtTotalMonedasCaja);
@@ -1006,6 +1031,8 @@
             this.Load += new System.EventHandler(this.FrmCierreDiaInsert_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1101,5 +1128,7 @@
         private System.Windows.Forms.TextBox txt1LCaja;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtCajaId;
+        private System.Windows.Forms.Label label19;
     }
 }

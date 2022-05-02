@@ -15,7 +15,7 @@ namespace Multi_Tornillos.Views.Cierres
 {
     public partial class FrmCierresInsert : Form
     {
-        public SqlConnection cn = new SqlConnection("data source=DESKTOP-MP6SVTR;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True");
+        public SqlConnection cn = new SqlConnection("data source=DESKTOP-I3P9B28;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True");
 
         private readonly CierresController controller;
         public FrmCierresInsert()
