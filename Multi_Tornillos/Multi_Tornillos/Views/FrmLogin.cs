@@ -35,7 +35,7 @@ namespace Multi_Tornillos.Views
         private void btnLoguear_Click(object sender, EventArgs e)
         {
 
-            var resu = controller.log(txtRTN.Text, txtPassword.Text);
+            
 
             if (txtRTN.Text == "" || txtPassword.Text == "")
             {
@@ -53,12 +53,17 @@ namespace Multi_Tornillos.Views
                                && u.UsuarioPassword == password
                                select u;
 
+                   
+                    //if (resu == 1)
+                    //{
                     var user = pass.FirstOrDefault();
                     if (user != null)
                     {
+                        var resu = controller.log(txtRTN.Text, txtPassword.Text);
 
-                        //if (resu == 1)
-                        //{
+                        if (resu == 1)
+                        {
+
                             if (UsuarioLog.UsuarioTipo == "Administrador")
                             {
                                 FrmMenu menu = new FrmMenu();
@@ -83,6 +88,7 @@ namespace Multi_Tornillos.Views
                                 txtRTN.Text = "";
                                 txtPassword.Text = "";
                             }
+                        }
                     }
                     else
                     {
