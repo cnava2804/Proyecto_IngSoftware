@@ -23,7 +23,20 @@ namespace Multi_TornillosBLL
             List<CierreDias> cierreDias = new List<CierreDias>();
                  cierreDias = db.CierreDias.Where(c => c.CierreDia_Id.ToString().Contains(search) ||
                               c.CierreDiaTotal.ToString().Contains(search) ||
-                              c.CierreDiaFecha.ToString().Contains(search)).ToList();
+                              c.CierreDiaFecha.ToString().Contains(search) ||
+                              c.CierreDiaCatidadUnlps.ToString().Contains(search) ||
+                              c.CierreDiaCatidadDoslps.ToString().Contains(search) ||
+                              c.CierreDiaCatidadCincolps.ToString().Contains(search) ||
+                              c.CierreDiaCatidadDiezlps.ToString().Contains(search) ||
+                              c.CierreDiaCatidadVeintelps.ToString().Contains(search) ||
+                              c.CierreDiaCatidadCincuentalps.ToString().Contains(search) ||
+                              c.CierreDiaCatidadCienlps.ToString().Contains(search) ||
+                              c.CierreDiaCatidadDoscientoslps.ToString().Contains(search) ||
+                              c.CierreDiaCatidadQuinientos.ToString().Contains(search) ||
+                              c.CierreDiaCatidadCincocent.ToString().Contains(search) ||
+                              c.CierreDiaCatidadDiezcent.ToString().Contains(search) ||
+                              c.CierreDiaCatidadVeintecent.ToString().Contains(search) ||
+                              c.CierreDiaCatidadCincuentacent.ToString().Contains(search)).ToList();
 
             return ToViewModelList(cierreDias);
         }
@@ -40,6 +53,19 @@ namespace Multi_TornillosBLL
                     CierreDia_Id = cierreDia.CierreDia_Id,
                     CierreDiaTotal = cierreDia.CierreDiaTotal.Value,
                     CierreDiaFecha = cierreDia.CierreDiaFecha.Value,
+                    CierreDiaCantidadUnlps = cierreDia.CierreDiaCatidadUnlps.Value,
+                    CierreDiaCantidadDoslps = cierreDia.CierreDiaCatidadDoslps.Value,
+                    CierreDiaCantidadCincolps = cierreDia.CierreDiaCatidadCincolps.Value,
+                    CierreDiaCantidadDiezlps = cierreDia.CierreDiaCatidadDiezlps.Value,
+                    CierreDiaCantidadVeintelps = cierreDia.CierreDiaCatidadVeintelps.Value,
+                    CierreDiaCantidadCincuentalps = cierreDia.CierreDiaCatidadCincuentalps.Value,
+                    CierreDiaCantidadCienlps = cierreDia.CierreDiaCatidadCienlps.Value,
+                    CierreDiaCantidadDoscientoslps = cierreDia.CierreDiaCatidadDoscientoslps.Value,
+                    CierreDiaCantidadQuinientos = cierreDia.CierreDiaCatidadQuinientos.Value,
+                    CierreDiaCantidadCincocent = cierreDia.CierreDiaCatidadCincocent.Value,
+                    CierreDiaCantidadDiezcent = cierreDia.CierreDiaCatidadDiezcent.Value,
+                    CierreDiaCantidadVeintecent = cierreDia.CierreDiaCatidadVeintecent.Value,
+                    CierreDiaCantidadCincuentacent = cierreDia.CierreDiaCatidadCincuentacent.Value,
                     SaldoInicial_Id = cierreDia.SaldosIniciales.SaldoInicial_Id,
                     CajaId = cierreDia.Caja.CajaId,
                     UsuarioId = cierreDia.Usuario.UsuarioId

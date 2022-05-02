@@ -18,11 +18,11 @@ namespace Multi_TornillosDAL
         public Usuario()
         {
             this.Bitacora = new HashSet<Bitacora>();
-            this.CierreDias = new HashSet<CierreDias>();
             this.Cierres = new HashSet<Cierres>();
             this.Depositos = new HashSet<Depositos>();
             this.Retiros = new HashSet<Retiros>();
             this.SaldosIniciales = new HashSet<SaldosIniciales>();
+            this.CierreDias = new HashSet<CierreDias>();
         }
     
         public int UsuarioId { get; set; }
@@ -34,8 +34,6 @@ namespace Multi_TornillosDAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bitacora> Bitacora { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CierreDias> CierreDias { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cierres> Cierres { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Depositos> Depositos { get; set; }
@@ -43,5 +41,7 @@ namespace Multi_TornillosDAL
         public virtual ICollection<Retiros> Retiros { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SaldosIniciales> SaldosIniciales { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CierreDias> CierreDias { get; set; }
     }
 }

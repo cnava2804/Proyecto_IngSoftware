@@ -35,7 +35,7 @@ namespace Multi_Tornillos.Views
         private void btnLoguear_Click(object sender, EventArgs e)
         {
 
-            var resu = controller.log(txtRTN.Text, txtPassword.Text);
+            
 
             if (txtRTN.Text == "" || txtPassword.Text == "")
             {
@@ -48,17 +48,18 @@ namespace Multi_Tornillos.Views
                 string Loginusuario = txtRTN.Text;
                 using (FlujoDeCajaEntities db = new FlujoDeCajaEntities())
                 {
-                    var pass = from u in db.Usuario
-                               where u.UsuarioDNI == txtRTN.Text
-                               && u.UsuarioPassword == password
-                               select u;
+                    //var pass = from u in db.Usuario
+                    //           where u.UsuarioDNI == txtRTN.Text
+                    //           && u.UsuarioPassword == password
+                    //           select u;
 
-                    var user = pass.FirstOrDefault();
-                    if (user != null)
-                    {
+                    //var user = pass.FirstOrDefault();
+                    //if (user != null)
+                    //{
+                    var resu = controller.log(txtRTN.Text, password);
 
-                        //if (resu == 1)
-                        //{
+                    if (resu == 1)
+                        {
                             if (UsuarioLog.UsuarioTipo == "Administrador")
                             {
                                 FrmMenu menu = new FrmMenu();
@@ -83,6 +84,7 @@ namespace Multi_Tornillos.Views
                                 txtRTN.Text = "";
                                 txtPassword.Text = "";
                             }
+                        
                     }
                     else
                     {

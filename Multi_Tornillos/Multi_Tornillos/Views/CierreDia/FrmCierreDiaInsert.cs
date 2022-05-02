@@ -17,6 +17,7 @@ namespace Multi_Tornillos.Views.CierreDia
     public partial class FrmCierreDiaInsert : Form
     {
         private readonly CierreDiaController controller;
+        private Multi_TornillosDAL.Caja caja;
 
         int unlps, doslps, cincolps, diezlps, veintelps, cincuentalps, cienlps, doscientoslps, quinientoslps;
         int totaldos, totalcinco, totaldiez, totalveinte, totalcincuenta, totalcien, totaldoscientos, totalquinientos;
@@ -25,11 +26,17 @@ namespace Multi_Tornillos.Views.CierreDia
         int Saldoi;
         decimal diferencia;
         decimal totalcincoCent, totaldiezCent, totalveinteCent, totalcincuentaCent;
+        public string idcaja;
+
+
+      
+
 
         private void cmbSaldoInicial_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblsaldoid.Text=Convert.ToString(cmbSaldoInicial.SelectedValue);
         }
+        
 
         int sumaBilletes;
         decimal sumaCentavos;
@@ -45,7 +52,8 @@ namespace Multi_Tornillos.Views.CierreDia
             lblusuario.Text = usuario;
             lblIdCaja.Text = UsuarioLog.CajaId;
             lblCajaNumero.Text = UsuarioLog.CajaNumero;
-            usuarioid=UsuarioLog.UsuarioId;
+            txtCajaId.Text = UsuarioLog.CajaId;
+            usuarioid =UsuarioLog.UsuarioId;
             lblusuarioid.Text = Convert.ToString(usuarioid);
             btnGuardar.Enabled = false;
             txt1L.Text = "0";
@@ -176,10 +184,15 @@ namespace Multi_Tornillos.Views.CierreDia
 
         }
 
+      
+
         private void FrmCierreDiaInsert_Load(object sender, EventArgs e)
         {
+            lblIdCaja.Text = UsuarioLog.CajaId;
+           
+
             string sql = @"SELECT CajaSaldoTotal,CajaCantidadUnlps,CajaCantidadDoslps,CajaCantidadCincolps,CajaCantidadDiezlps,CajaCantidadVeintelps,CajaCantidadCincuentalps,CajaCantidadCienlps,CajaCantidadDoscientoslps,CajaCantidadQuinientos,CajaCantidadCincocent,CajaCantidadDiezcent,CajaCantidadVeintecent,CajaCantidadCincuentacent FROM Caja WHERE CajaId = @id";
-            SqlConnection conn = new SqlConnection("data source=DESKTOP-MP6SVTR;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True");
+            SqlConnection conn = new SqlConnection("data source=DESKTOP-I3P9B28;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True");
             {
                 SqlCommand command = new SqlCommand(sql, conn);
                 conn.Open();
@@ -583,26 +596,128 @@ namespace Multi_Tornillos.Views.CierreDia
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            Multi_TornillosDAL.CierreDias cierreDia = new Multi_TornillosDAL.CierreDias
-            {
-                CierreDiaTotal = Convert.ToDecimal(txtdiferencia.Text),
-                CierreDiaFecha = DateTime.Now,
-                SaldoInicial_Id =Convert.ToInt32(lblsaldoid.Text),
-                UsuarioId = Convert.ToInt32(lblusuarioid.Text),
-                CajaId = Convert.ToInt32( lblIdCaja.Text)
 
-            };
-            if (controller.Add(cierreDia))
+            var CierreDiaId = db.Caja.ToList().Select(d => d.CajaId).Max();
+
+
+            var saldo = db.Caja.Find(int.Parse(txtCajaId.Text));
+
+            if ((Convert.ToDecimal(txtTotalsaldoi.Text) > saldo.CajaSaldoTotal) || (Convert.ToDecimal(txt1L.Text) > saldo.CajaCantidadUnlps
+                || Convert.ToDecimal(txt2L.Text) > saldo.CajaCantidadDoslps || Convert.ToDecimal(txt5L.Text) > saldo.CajaCantidadCincolps
+                || Convert.ToDecimal(txt10L.Text) > saldo.CajaCantidadDiezlps || Convert.ToDecimal(txt20L.Text) > saldo.CajaCantidadVeintelps
+                || Convert.ToDecimal(txt50L.Text) > saldo.CajaCantidadCincuentalps || Convert.ToDecimal(txt100L.Text) > saldo.CajaCantidadCienlps
+                || Convert.ToDecimal(txt200L.Text) > saldo.CajaCantidadDoscientoslps || Convert.ToDecimal(txt500L.Text) > saldo.CajaCantidadQuinientos
+                || Convert.ToDecimal(txt5C.Text) > saldo.CajaCantidadCincocent || Convert.ToDecimal(txt10C.Text) > saldo.CajaCantidadDiezcent
+                || Convert.ToDecimal(txt20C.Text) > saldo.CajaCantidadVeintecent || Convert.ToDecimal(txt50C.Text) > saldo.CajaCantidadCincuentacent))
             {
-                MessageBox.Show("ingresado correctamente");
-                controller.Dispose();
-                this.Dispose();
+                MessageBox.Show("Error no puede retirar esa cantidad");
 
             }
             else
             {
-                MessageBox.Show("Error para agregar");
+                Multi_TornillosDAL.CierreDias cierreDia = new Multi_TornillosDAL.CierreDias
+                {
+                    CierreDiaTotal = Convert.ToDecimal(txtdiferencia.Text),
+                    CierreDiaFecha = DateTime.Now,
+                    CierreDiaCatidadUnlps = Convert.ToInt32(txt1L.Text),
+                    CierreDiaCatidadDoslps = Convert.ToInt32(txt2L.Text),
+                    CierreDiaCatidadCincolps = Convert.ToInt32(txt5L.Text),
+                    CierreDiaCatidadDiezlps = Convert.ToInt32(txt10L.Text),
+                    CierreDiaCatidadVeintelps = Convert.ToInt32(txt20L.Text),
+                    CierreDiaCatidadCincuentalps = Convert.ToInt32(txt50L.Text),
+                    CierreDiaCatidadCienlps = Convert.ToInt32(txt100L.Text),
+                    CierreDiaCatidadDoscientoslps = Convert.ToInt32(txt200L.Text),
+                    CierreDiaCatidadQuinientos = Convert.ToInt32(txt500L.Text),
+                    CierreDiaCatidadCincocent = Convert.ToInt32(txt5C.Text),
+                    CierreDiaCatidadDiezcent = Convert.ToInt32(txt10C.Text),
+                    CierreDiaCatidadVeintecent = Convert.ToInt32(txt20C.Text),
+                    CierreDiaCatidadCincuentacent = Convert.ToInt32(txt50C.Text),
+                    SaldoInicial_Id = Convert.ToInt32(lblsaldoid.Text),
+                    UsuarioId = Convert.ToInt32(lblusuarioid.Text),
+                    CajaId = Convert.ToInt32(lblIdCaja.Text)
+                };
+                Multi_TornillosDAL.Caja caja = new Multi_TornillosDAL.Caja
+                {
+                    CajaSaldoTotal = Convert.ToDecimal(txtTotalsaldoi.Text) - cierreDia.CierreDiaTotal,
+                    CajaCantidadUnlps = Convert.ToInt32(txt1L.Text) - cierreDia.CierreDiaCatidadUnlps,
+                    CajaCantidadDoslps = Convert.ToInt32(txt2L.Text) - cierreDia.CierreDiaCatidadDoslps,
+                    CajaCantidadCincolps = Convert.ToInt32(txt5L.Text) - cierreDia.CierreDiaCatidadCincolps,
+                    CajaCantidadDiezlps = Convert.ToInt32(txt10L.Text) - cierreDia.CierreDiaCatidadDiezlps,
+                    CajaCantidadVeintelps = Convert.ToInt32(txt20L.Text) - cierreDia.CierreDiaCatidadVeintelps,
+                    CajaCantidadCincuentalps = Convert.ToInt32(txt50L.Text) - cierreDia.CierreDiaCatidadCincuentalps,
+                    CajaCantidadCienlps = Convert.ToInt32(txt100L.Text) - cierreDia.CierreDiaCatidadCienlps,
+                    CajaCantidadDoscientoslps = Convert.ToInt32(txt200L.Text) - cierreDia.CierreDiaCatidadDoscientoslps,
+                    CajaCantidadQuinientos = Convert.ToInt32(txt500L.Text) - cierreDia.CierreDiaCatidadQuinientos,
+                    CajaCantidadCincocent = Convert.ToInt32(txt5C.Text) - cierreDia.CierreDiaCatidadCincocent,
+                    CajaCantidadDiezcent = Convert.ToInt32(txt10C.Text) - cierreDia.CierreDiaCatidadDiezcent,
+                    CajaCantidadVeintecent = Convert.ToInt32(txt20C.Text) - cierreDia.CierreDiaCatidadVeintecent,
+                    CajaCantidadCincuentacent = Convert.ToInt32(txt50C.Text) - cierreDia.CierreDiaCatidadCincuentacent
+                };
+
+
+                //Actualizar el saldo del cliente al que se le cierreDia
+
+                saldo.CajaSaldoTotal = saldo.CajaSaldoTotal - Convert.ToDecimal(txtTotalsaldoi.Text);
+                saldo.CajaCantidadUnlps = saldo.CajaCantidadUnlps - Convert.ToInt32(txt1L.Text);
+                saldo.CajaCantidadDoslps = saldo.CajaCantidadDoslps - Convert.ToInt32(txt2L.Text);
+                saldo.CajaCantidadCincolps = saldo.CajaCantidadCincolps - Convert.ToInt32(txt5L.Text);
+                saldo.CajaCantidadDiezlps = saldo.CajaCantidadDiezlps - Convert.ToInt32(txt10L.Text);
+                saldo.CajaCantidadVeintelps = saldo.CajaCantidadVeintelps - Convert.ToInt32(txt20L.Text);
+                saldo.CajaCantidadCincuentalps = saldo.CajaCantidadCincuentalps - Convert.ToInt32(txt50L.Text);
+                saldo.CajaCantidadCienlps = saldo.CajaCantidadCienlps - Convert.ToInt32(txt100L.Text);
+                saldo.CajaCantidadDoscientoslps = saldo.CajaCantidadDoscientoslps - Convert.ToInt32(txt200L.Text);
+                saldo.CajaCantidadQuinientos = saldo.CajaCantidadQuinientos - Convert.ToInt32(txt500L.Text);
+                saldo.CajaCantidadCincocent = saldo.CajaCantidadCincocent - Convert.ToInt32(txt5C.Text);
+                saldo.CajaCantidadDiezcent = saldo.CajaCantidadDiezcent - Convert.ToInt32(txt10C.Text);
+                saldo.CajaCantidadVeintecent = saldo.CajaCantidadVeintecent - Convert.ToInt32(txt20C.Text);
+                saldo.CajaCantidadCincuentacent = saldo.CajaCantidadCincuentacent - Convert.ToInt32(txt50C.Text);
+
+                db.Entry(saldo).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+
+                ////Reducir el monto del cliente que cierreDia
+
+                //var saldo2 = db.Cliente.Find(int.Parse(txtClienteId2.Text));
+
+                //saldo2.ClienteSaldo = saldo2.ClienteSaldo - Convert.ToDecimal(txtMonto.Text);
+
+                //db.Entry(saldo2).State = System.Data.Entity.EntityState.Modified;
+                //db.SaveChanges();
+
+                if (controller.Add(cierreDia))
+                {
+                    MessageBox.Show("CierreDia ingresado correctamente");
+                    controller.Dispose();
+                    this.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("Error para agregar");
+                }
             }
+
+
+
+            //Multi_TornillosDAL.CierreDias cierreDia = new Multi_TornillosDAL.CierreDias
+            //{
+            //    CierreDiaTotal = Convert.ToDecimal(txtdiferencia.Text),
+            //    CierreDiaFecha = DateTime.Now,
+            //    SaldoInicial_Id =Convert.ToInt32(lblsaldoid.Text),
+            //    UsuarioId = Convert.ToInt32(lblusuarioid.Text),
+            //    CajaId = Convert.ToInt32( lblIdCaja.Text)
+
+            //};
+            //if (controller.Add(cierreDia))
+            //{
+            //    MessageBox.Show("ingresado correctamente");
+            //    controller.Dispose();
+            //    this.Dispose();
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Error para agregar");
+            //}
         }
 
 
