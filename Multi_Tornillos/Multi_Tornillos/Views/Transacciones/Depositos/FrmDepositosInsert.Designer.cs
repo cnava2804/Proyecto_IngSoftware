@@ -97,6 +97,7 @@
             this.txt1L.TabIndex = 1;
             this.txt1L.Click += new System.EventHandler(this.txt1L_Click);
             this.txt1L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt1L_KeyPress);
+            this.txt1L.Leave += new System.EventHandler(this.txt1L_Leave);
             // 
             // lblUnLempira
             // 
@@ -124,6 +125,7 @@
             this.txt2L.TabIndex = 3;
             this.txt2L.Click += new System.EventHandler(this.txt2L_Click);
             this.txt2L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt2L_KeyPress);
+            this.txt2L.Leave += new System.EventHandler(this.txt2L_Leave);
             // 
             // lbl5L
             // 
@@ -142,6 +144,7 @@
             this.txt5L.TabIndex = 5;
             this.txt5L.Click += new System.EventHandler(this.txt5L_Click);
             this.txt5L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt5L_KeyPress);
+            this.txt5L.Leave += new System.EventHandler(this.txt5L_Leave);
             // 
             // lbl10L
             // 
@@ -160,6 +163,7 @@
             this.txt10L.TabIndex = 7;
             this.txt10L.Click += new System.EventHandler(this.txt10L_Click);
             this.txt10L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt10L_KeyPress);
+            this.txt10L.Leave += new System.EventHandler(this.txt10L_Leave);
             // 
             // lbl20L
             // 
@@ -178,6 +182,7 @@
             this.txt20L.TabIndex = 9;
             this.txt20L.Click += new System.EventHandler(this.txt20L_Click);
             this.txt20L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt20L_KeyPress);
+            this.txt20L.Leave += new System.EventHandler(this.txt20L_Leave);
             // 
             // lbl50L
             // 
@@ -196,6 +201,7 @@
             this.txt50L.TabIndex = 11;
             this.txt50L.Click += new System.EventHandler(this.txt50L_Click);
             this.txt50L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt50L_KeyPress);
+            this.txt50L.Leave += new System.EventHandler(this.txt50L_Leave);
             // 
             // lbl100L
             // 
@@ -214,6 +220,7 @@
             this.txt100L.TabIndex = 13;
             this.txt100L.Click += new System.EventHandler(this.txt100L_Click);
             this.txt100L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt100L_KeyPress);
+            this.txt100L.Leave += new System.EventHandler(this.txt100L_Leave);
             // 
             // lbl200L
             // 
@@ -232,6 +239,7 @@
             this.txt200L.TabIndex = 15;
             this.txt200L.Click += new System.EventHandler(this.txt200L_Click);
             this.txt200L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt200L_KeyPress);
+            this.txt200L.Leave += new System.EventHandler(this.txt200L_Leave);
             // 
             // lbl500L
             // 
@@ -250,6 +258,7 @@
             this.txt500L.TabIndex = 17;
             this.txt500L.Click += new System.EventHandler(this.txt500L_Click);
             this.txt500L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt500L_KeyPress);
+            this.txt500L.Leave += new System.EventHandler(this.txt500L_Leave);
             // 
             // txtTotalBilletes
             // 
@@ -285,6 +294,7 @@
             this.txt50C.Size = new System.Drawing.Size(100, 20);
             this.txt50C.TabIndex = 27;
             this.txt50C.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt50C_KeyPress);
+            this.txt50C.Leave += new System.EventHandler(this.txt50C_Leave);
             // 
             // lbl20C
             // 
@@ -302,6 +312,7 @@
             this.txt20C.Size = new System.Drawing.Size(100, 20);
             this.txt20C.TabIndex = 25;
             this.txt20C.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt20C_KeyPress);
+            this.txt20C.Leave += new System.EventHandler(this.txt20C_Leave);
             // 
             // lbl10C
             // 
@@ -319,6 +330,7 @@
             this.txt10C.Size = new System.Drawing.Size(100, 20);
             this.txt10C.TabIndex = 23;
             this.txt10C.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt10C_KeyPress);
+            this.txt10C.Leave += new System.EventHandler(this.txt10C_Leave);
             // 
             // lbl5C
             // 
@@ -336,6 +348,7 @@
             this.txt5C.Size = new System.Drawing.Size(100, 20);
             this.txt5C.TabIndex = 21;
             this.txt5C.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt5C_KeyPress);
+            this.txt5C.Leave += new System.EventHandler(this.txt5C_Leave);
             // 
             // label10
             // 

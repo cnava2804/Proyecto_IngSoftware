@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Multi_TornillosBLL;
 using Multi_Tornillos.Views.SaldosIniciales;
 using Multi_TornillosDAL;
+using System.Data.SqlClient;
 
 namespace Multi_Tornillos.Views.CierreDia
 {
@@ -173,6 +174,149 @@ namespace Multi_Tornillos.Views.CierreDia
                 e.Handled = true;
             }
 
+        }
+
+        private void FrmCierreDiaInsert_Load(object sender, EventArgs e)
+        {
+            string sql = @"SELECT CajaSaldoTotal,CajaCantidadUnlps,CajaCantidadDoslps,CajaCantidadCincolps,CajaCantidadDiezlps,CajaCantidadVeintelps,CajaCantidadCincuentalps,CajaCantidadCienlps,CajaCantidadDoscientoslps,CajaCantidadQuinientos,CajaCantidadCincocent,CajaCantidadDiezcent,CajaCantidadVeintecent,CajaCantidadCincuentacent FROM Caja WHERE CajaId = @id";
+            SqlConnection conn = new SqlConnection("data source=DESKTOP-MP6SVTR;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True");
+            {
+                SqlCommand command = new SqlCommand(sql, conn);
+                conn.Open();
+                command.Parameters.AddWithValue("@id", lblIdCaja.Text);
+                //string codmax = Convert.ToString(command.ExecuteScalar());
+                //int cod = Convert.ToInt32(codmax);
+                SqlDataReader reader = command.ExecuteReader();
+
+
+                if (reader.Read() == true)
+                {
+                    txtTotalCaja.Text = reader["CajaSaldoTotal"].ToString();
+                    txt1LCaja.Text = reader["CajaCantidadUnlps"].ToString();
+                    txt2LCaja.Text = reader["CajaCantidadDoslps"].ToString();
+                    txt5LCaja.Text = reader["CajaCantidadCincolps"].ToString();
+                    txt10LCaja.Text = reader["CajaCantidadDiezlps"].ToString();
+                    txt20LCaja.Text = reader["CajaCantidadVeintelps"].ToString();
+                    txt50LCaja.Text = reader["CajaCantidadCincuentalps"].ToString();
+                    txt100LCaja.Text = reader["CajaCantidadCienlps"].ToString();
+                    txt200LCaja.Text = reader["CajaCantidadDoscientoslps"].ToString();
+                    txt500LCaja.Text = reader["CajaCantidadQuinientos"].ToString();
+
+                    txt5CCaja.Text = reader["CajaCantidadCincocent"].ToString();
+                    txt10CCaja.Text = reader["CajaCantidadDiezcent"].ToString();
+                    txt20CCaja.Text = reader["CajaCantidadVeintecent"].ToString();
+                    txt50CCaja.Text = reader["CajaCantidadCincuentacent"].ToString();
+
+
+                }
+
+
+
+            }
+        }
+
+        private void txt1L_Leave(object sender, EventArgs e)
+        {
+            if (txt1L.Text == "")
+            {
+                txt1L.Text = "0";
+            }
+        }
+
+        private void txt2L_Leave(object sender, EventArgs e)
+        {
+            if (txt2L.Text == "")
+            {
+                txt2L.Text = "0";
+            }
+        }
+
+        private void txt5L_Leave(object sender, EventArgs e)
+        {
+            if (txt5L.Text == "")
+            {
+                txt5L.Text = "0";
+            }
+        }
+
+        private void txt10L_Leave(object sender, EventArgs e)
+        {
+            if (txt10L.Text == "")
+            {
+                txt10L.Text = "0";
+            }
+        }
+
+        private void txt20L_Leave(object sender, EventArgs e)
+        {
+            if (txt20L.Text == "")
+            {
+                txt20L.Text = "0";
+            }
+        }
+
+        private void txt50L_Leave(object sender, EventArgs e)
+        {
+            if (txt50L.Text == "")
+            {
+                txt50L.Text = "0";
+            }
+        }
+
+        private void txt100L_Leave(object sender, EventArgs e)
+        {
+            if (txt100L.Text == "")
+            {
+                txt100L.Text = "0";
+            }
+        }
+
+        private void txt200L_Leave(object sender, EventArgs e)
+        {
+            if (txt200L.Text == "")
+            {
+                txt200L.Text = "0";
+            }
+        }
+
+        private void txt500L_Leave(object sender, EventArgs e)
+        {
+            if (txt500L.Text == "")
+            {
+                txt500L.Text = "0";
+            }
+        }
+
+        private void txt5C_Leave(object sender, EventArgs e)
+        {
+            if (txt5C.Text == "")
+            {
+                txt5C.Text = "0";
+            }
+        }
+
+        private void txt10C_Leave(object sender, EventArgs e)
+        {
+            if (txt10C.Text == "")
+            {
+                txt10C.Text = "0";
+            }
+        }
+
+        private void txt20C_Leave(object sender, EventArgs e)
+        {
+            if (txt20C.Text == "")
+            {
+                txt20C.Text = "0";
+            }
+        }
+
+        private void txt50C_Leave(object sender, EventArgs e)
+        {
+            if (txt50C.Text == "")
+            {
+                txt50C.Text = "0";
+            }
         }
 
         private void txt500L_KeyPress(object sender, KeyPressEventArgs e)

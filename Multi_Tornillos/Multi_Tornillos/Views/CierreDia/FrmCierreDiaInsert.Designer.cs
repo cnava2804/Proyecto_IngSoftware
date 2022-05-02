@@ -79,6 +79,43 @@
             this.lblIdCaja = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblusuarioid = new System.Windows.Forms.Label();
             this.lblsaldoid = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtTotalMonedasCaja = new System.Windows.Forms.TextBox();
+            this.txtTotalCaja = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txt50CCaja = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txt20CCaja = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txt10CCaja = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txt5CCaja = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtTotalBilletesCaja = new System.Windows.Forms.TextBox();
+            this.txt500LCaja = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txt200LCaja = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txt100LCaja = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txt50LCaja = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.txt20LCaja = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txt10LCaja = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.txt5LCaja = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.txt2LCaja = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.txt1LCaja = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,6 +136,7 @@
             this.txt1L.TabIndex = 1;
             this.txt1L.Click += new System.EventHandler(this.txt1L_Click);
             this.txt1L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt1L_KeyPress);
+            this.txt1L.Leave += new System.EventHandler(this.txt1L_Leave);
             // 
             // lblUnLempira
             // 
@@ -126,6 +164,7 @@
             this.txt2L.TabIndex = 3;
             this.txt2L.Click += new System.EventHandler(this.txt2L_Click);
             this.txt2L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt2L_KeyPress);
+            this.txt2L.Leave += new System.EventHandler(this.txt2L_Leave);
             // 
             // lbl5L
             // 
@@ -144,6 +183,7 @@
             this.txt5L.TabIndex = 5;
             this.txt5L.Click += new System.EventHandler(this.txt5L_Click);
             this.txt5L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt5L_KeyPress);
+            this.txt5L.Leave += new System.EventHandler(this.txt5L_Leave);
             // 
             // lbl10L
             // 
@@ -162,6 +202,7 @@
             this.txt10L.TabIndex = 7;
             this.txt10L.Click += new System.EventHandler(this.txt10L_Click);
             this.txt10L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt10L_KeyPress);
+            this.txt10L.Leave += new System.EventHandler(this.txt10L_Leave);
             // 
             // lbl20L
             // 
@@ -180,6 +221,7 @@
             this.txt20L.TabIndex = 9;
             this.txt20L.Click += new System.EventHandler(this.txt20L_Click);
             this.txt20L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt20L_KeyPress);
+            this.txt20L.Leave += new System.EventHandler(this.txt20L_Leave);
             // 
             // lbl50L
             // 
@@ -198,6 +240,7 @@
             this.txt50L.TabIndex = 11;
             this.txt50L.Click += new System.EventHandler(this.txt50L_Click);
             this.txt50L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt50L_KeyPress);
+            this.txt50L.Leave += new System.EventHandler(this.txt50L_Leave);
             // 
             // lbl100L
             // 
@@ -216,6 +259,7 @@
             this.txt100L.TabIndex = 13;
             this.txt100L.Click += new System.EventHandler(this.txt100L_Click);
             this.txt100L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt100L_KeyPress);
+            this.txt100L.Leave += new System.EventHandler(this.txt100L_Leave);
             // 
             // lbl200L
             // 
@@ -234,6 +278,7 @@
             this.txt200L.TabIndex = 15;
             this.txt200L.Click += new System.EventHandler(this.txt200L_Click);
             this.txt200L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt200L_KeyPress);
+            this.txt200L.Leave += new System.EventHandler(this.txt200L_Leave);
             // 
             // lbl500L
             // 
@@ -252,6 +297,7 @@
             this.txt500L.TabIndex = 17;
             this.txt500L.Click += new System.EventHandler(this.txt500L_Click);
             this.txt500L.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt500L_KeyPress);
+            this.txt500L.Leave += new System.EventHandler(this.txt500L_Leave);
             // 
             // txtTotalBilletes
             // 
@@ -287,6 +333,7 @@
             this.txt50C.Size = new System.Drawing.Size(100, 20);
             this.txt50C.TabIndex = 27;
             this.txt50C.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt50C_KeyPress);
+            this.txt50C.Leave += new System.EventHandler(this.txt50C_Leave);
             // 
             // lbl20C
             // 
@@ -304,6 +351,7 @@
             this.txt20C.Size = new System.Drawing.Size(100, 20);
             this.txt20C.TabIndex = 25;
             this.txt20C.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt20C_KeyPress);
+            this.txt20C.Leave += new System.EventHandler(this.txt20C_Leave);
             // 
             // lbl10C
             // 
@@ -321,6 +369,7 @@
             this.txt10C.Size = new System.Drawing.Size(100, 20);
             this.txt10C.TabIndex = 23;
             this.txt10C.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt10C_KeyPress);
+            this.txt10C.Leave += new System.EventHandler(this.txt10C_Leave);
             // 
             // lbl5C
             // 
@@ -338,6 +387,7 @@
             this.txt5C.Size = new System.Drawing.Size(100, 20);
             this.txt5C.TabIndex = 21;
             this.txt5C.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt5C_KeyPress);
+            this.txt5C.Leave += new System.EventHandler(this.txt5C_Leave);
             // 
             // label10
             // 
@@ -426,7 +476,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(772, 9);
+            this.label6.Location = new System.Drawing.Point(666, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(16, 13);
             this.label6.TabIndex = 48;
@@ -495,7 +545,7 @@
             this.lblIdCaja});
             this.statusStrip1.Location = new System.Drawing.Point(0, 502);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(686, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1284, 22);
             this.statusStrip1.TabIndex = 57;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -537,11 +587,371 @@
             this.lblsaldoid.Text = "...";
             this.lblsaldoid.Visible = false;
             // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(918, 22);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(98, 20);
+            this.label29.TabIndex = 131;
+            this.label29.Text = "Datos Caja";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(1127, 284);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 13);
+            this.label8.TabIndex = 130;
+            this.label8.Text = "Total Monedas";
+            // 
+            // txtTotalMonedasCaja
+            // 
+            this.txtTotalMonedasCaja.Enabled = false;
+            this.txtTotalMonedasCaja.Location = new System.Drawing.Point(1110, 303);
+            this.txtTotalMonedasCaja.Multiline = true;
+            this.txtTotalMonedasCaja.Name = "txtTotalMonedasCaja";
+            this.txtTotalMonedasCaja.ReadOnly = true;
+            this.txtTotalMonedasCaja.Size = new System.Drawing.Size(100, 35);
+            this.txtTotalMonedasCaja.TabIndex = 129;
+            // 
+            // txtTotalCaja
+            // 
+            this.txtTotalCaja.Enabled = false;
+            this.txtTotalCaja.Location = new System.Drawing.Point(970, 435);
+            this.txtTotalCaja.Multiline = true;
+            this.txtTotalCaja.Name = "txtTotalCaja";
+            this.txtTotalCaja.ReadOnly = true;
+            this.txtTotalCaja.Size = new System.Drawing.Size(100, 35);
+            this.txtTotalCaja.TabIndex = 128;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(992, 412);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(55, 13);
+            this.label9.TabIndex = 127;
+            this.label9.Text = "Total Caja";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(903, 284);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(67, 13);
+            this.label11.TabIndex = 126;
+            this.label11.Text = "Total Billetes";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(1131, 78);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(49, 13);
+            this.label12.TabIndex = 125;
+            this.label12.Text = "Cantidad";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(794, 76);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(49, 13);
+            this.label13.TabIndex = 124;
+            this.label13.Text = "Cantidad";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1058, 229);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(67, 13);
+            this.label14.TabIndex = 123;
+            this.label14.Text = "50 Centavos";
+            // 
+            // txt50CCaja
+            // 
+            this.txt50CCaja.Location = new System.Drawing.Point(1134, 226);
+            this.txt50CCaja.Name = "txt50CCaja";
+            this.txt50CCaja.ReadOnly = true;
+            this.txt50CCaja.Size = new System.Drawing.Size(65, 20);
+            this.txt50CCaja.TabIndex = 122;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(1058, 190);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(67, 13);
+            this.label15.TabIndex = 121;
+            this.label15.Text = "20 Centavos";
+            // 
+            // txt20CCaja
+            // 
+            this.txt20CCaja.Location = new System.Drawing.Point(1134, 187);
+            this.txt20CCaja.Name = "txt20CCaja";
+            this.txt20CCaja.ReadOnly = true;
+            this.txt20CCaja.Size = new System.Drawing.Size(65, 20);
+            this.txt20CCaja.TabIndex = 120;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(1058, 155);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(67, 13);
+            this.label16.TabIndex = 119;
+            this.label16.Text = "10 Centavos";
+            // 
+            // txt10CCaja
+            // 
+            this.txt10CCaja.Location = new System.Drawing.Point(1134, 152);
+            this.txt10CCaja.Name = "txt10CCaja";
+            this.txt10CCaja.ReadOnly = true;
+            this.txt10CCaja.Size = new System.Drawing.Size(65, 20);
+            this.txt10CCaja.TabIndex = 118;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(1058, 116);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(61, 13);
+            this.label17.TabIndex = 117;
+            this.label17.Text = "5 Centavos";
+            // 
+            // txt5CCaja
+            // 
+            this.txt5CCaja.Location = new System.Drawing.Point(1134, 113);
+            this.txt5CCaja.Name = "txt5CCaja";
+            this.txt5CCaja.ReadOnly = true;
+            this.txt5CCaja.Size = new System.Drawing.Size(65, 20);
+            this.txt5CCaja.TabIndex = 116;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(1058, 78);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(51, 13);
+            this.label18.TabIndex = 115;
+            this.label18.Text = "Monedas";
+            // 
+            // txtTotalBilletesCaja
+            // 
+            this.txtTotalBilletesCaja.Enabled = false;
+            this.txtTotalBilletesCaja.Location = new System.Drawing.Point(886, 303);
+            this.txtTotalBilletesCaja.Multiline = true;
+            this.txtTotalBilletesCaja.Name = "txtTotalBilletesCaja";
+            this.txtTotalBilletesCaja.ReadOnly = true;
+            this.txtTotalBilletesCaja.Size = new System.Drawing.Size(100, 35);
+            this.txtTotalBilletesCaja.TabIndex = 114;
+            // 
+            // txt500LCaja
+            // 
+            this.txt500LCaja.Location = new System.Drawing.Point(797, 412);
+            this.txt500LCaja.Name = "txt500LCaja";
+            this.txt500LCaja.ReadOnly = true;
+            this.txt500LCaja.Size = new System.Drawing.Size(58, 20);
+            this.txt500LCaja.TabIndex = 113;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(721, 377);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(70, 13);
+            this.label20.TabIndex = 112;
+            this.label20.Text = "200 Lempiras";
+            // 
+            // txt200LCaja
+            // 
+            this.txt200LCaja.Location = new System.Drawing.Point(797, 374);
+            this.txt200LCaja.Name = "txt200LCaja";
+            this.txt200LCaja.ReadOnly = true;
+            this.txt200LCaja.Size = new System.Drawing.Size(58, 20);
+            this.txt200LCaja.TabIndex = 111;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(721, 339);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(70, 13);
+            this.label21.TabIndex = 110;
+            this.label21.Text = "100 Lempiras";
+            // 
+            // txt100LCaja
+            // 
+            this.txt100LCaja.Location = new System.Drawing.Point(797, 336);
+            this.txt100LCaja.Name = "txt100LCaja";
+            this.txt100LCaja.ReadOnly = true;
+            this.txt100LCaja.Size = new System.Drawing.Size(58, 20);
+            this.txt100LCaja.TabIndex = 109;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(721, 303);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(64, 13);
+            this.label22.TabIndex = 108;
+            this.label22.Text = "50 Lempiras";
+            // 
+            // txt50LCaja
+            // 
+            this.txt50LCaja.Location = new System.Drawing.Point(797, 300);
+            this.txt50LCaja.Name = "txt50LCaja";
+            this.txt50LCaja.ReadOnly = true;
+            this.txt50LCaja.Size = new System.Drawing.Size(58, 20);
+            this.txt50LCaja.TabIndex = 107;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(721, 263);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(64, 13);
+            this.label23.TabIndex = 106;
+            this.label23.Text = "20 Lempiras";
+            // 
+            // txt20LCaja
+            // 
+            this.txt20LCaja.Location = new System.Drawing.Point(797, 260);
+            this.txt20LCaja.Name = "txt20LCaja";
+            this.txt20LCaja.ReadOnly = true;
+            this.txt20LCaja.Size = new System.Drawing.Size(58, 20);
+            this.txt20LCaja.TabIndex = 105;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(721, 227);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(64, 13);
+            this.label24.TabIndex = 104;
+            this.label24.Text = "10 Lempiras";
+            // 
+            // txt10LCaja
+            // 
+            this.txt10LCaja.Location = new System.Drawing.Point(797, 224);
+            this.txt10LCaja.Name = "txt10LCaja";
+            this.txt10LCaja.ReadOnly = true;
+            this.txt10LCaja.Size = new System.Drawing.Size(58, 20);
+            this.txt10LCaja.TabIndex = 103;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(721, 188);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(58, 13);
+            this.label25.TabIndex = 102;
+            this.label25.Text = "5 Lempiras";
+            // 
+            // txt5LCaja
+            // 
+            this.txt5LCaja.Location = new System.Drawing.Point(797, 185);
+            this.txt5LCaja.Name = "txt5LCaja";
+            this.txt5LCaja.ReadOnly = true;
+            this.txt5LCaja.Size = new System.Drawing.Size(58, 20);
+            this.txt5LCaja.TabIndex = 101;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(721, 153);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(58, 13);
+            this.label26.TabIndex = 100;
+            this.label26.Text = "2 Lempiras";
+            // 
+            // txt2LCaja
+            // 
+            this.txt2LCaja.Location = new System.Drawing.Point(797, 150);
+            this.txt2LCaja.Name = "txt2LCaja";
+            this.txt2LCaja.ReadOnly = true;
+            this.txt2LCaja.Size = new System.Drawing.Size(58, 20);
+            this.txt2LCaja.TabIndex = 99;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(721, 114);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(53, 13);
+            this.label27.TabIndex = 98;
+            this.label27.Text = "1 Lempira";
+            // 
+            // txt1LCaja
+            // 
+            this.txt1LCaja.Location = new System.Drawing.Point(797, 111);
+            this.txt1LCaja.Name = "txt1LCaja";
+            this.txt1LCaja.ReadOnly = true;
+            this.txt1LCaja.Size = new System.Drawing.Size(58, 20);
+            this.txt1LCaja.TabIndex = 97;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(721, 76);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(40, 13);
+            this.label28.TabIndex = 96;
+            this.label28.Text = "Billetes";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(713, 55);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(524, 424);
+            this.groupBox1.TabIndex = 132;
+            this.groupBox1.TabStop = false;
+            // 
             // FrmCierreDiaInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 524);
+            this.ClientSize = new System.Drawing.Size(1284, 524);
+            this.Controls.Add(this.label29);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txtTotalMonedasCaja);
+            this.Controls.Add(this.txtTotalCaja);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.txt50CCaja);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.txt20CCaja);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.txt10CCaja);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.txt5CCaja);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.txtTotalBilletesCaja);
+            this.Controls.Add(this.txt500LCaja);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.txt200LCaja);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.txt100LCaja);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.txt50LCaja);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.txt20LCaja);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.txt10LCaja);
+            this.Controls.Add(this.label25);
+            this.Controls.Add(this.txt5LCaja);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.txt2LCaja);
+            this.Controls.Add(this.label27);
+            this.Controls.Add(this.txt1LCaja);
+            this.Controls.Add(this.label28);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblsaldoid);
             this.Controls.Add(this.lblusuarioid);
             this.Controls.Add(this.statusStrip1);
@@ -592,6 +1002,7 @@
             this.Controls.Add(this.lblBilletes);
             this.Name = "FrmCierreDiaInsert";
             this.Text = "Nuevo Cierre Por Dia";
+            this.Load += new System.EventHandler(this.FrmCierreDiaInsert_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -652,5 +1063,42 @@
         private System.Windows.Forms.ToolStripStatusLabel lblIdCaja;
         private System.Windows.Forms.Label lblusuarioid;
         private System.Windows.Forms.Label lblsaldoid;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtTotalMonedasCaja;
+        private System.Windows.Forms.TextBox txtTotalCaja;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txt50CCaja;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txt20CCaja;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txt10CCaja;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txt5CCaja;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtTotalBilletesCaja;
+        private System.Windows.Forms.TextBox txt500LCaja;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txt200LCaja;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txt100LCaja;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txt50LCaja;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox txt20LCaja;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox txt10LCaja;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox txt5LCaja;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox txt2LCaja;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox txt1LCaja;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
