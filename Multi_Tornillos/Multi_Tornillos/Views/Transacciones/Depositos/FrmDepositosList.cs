@@ -51,7 +51,7 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
         {
             FrmMenu menu = new FrmMenu();
             string sql = @"SELECT TOP 1 CajaSaldoTotal FROM Caja WHERE CajaId ='" + (UsuarioLog.CajaId) + "' ORDER BY CajaId ASC";
-            SqlConnection conn = new SqlConnection("data source=DESKTOP-MP6SVTR;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True");
+            SqlConnection conn = new SqlConnection("data source=Andrik-PC;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True");
             {
                 SqlCommand command = new SqlCommand(sql, conn);
                 conn.Open();

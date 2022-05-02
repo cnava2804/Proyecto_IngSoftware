@@ -108,7 +108,7 @@ namespace Multi_Tornillos.Views
         private void btnrefresh_Click(object sender, EventArgs e)
         {
             string sql = @"SELECT TOP 1 CajaSaldoTotal FROM Caja WHERE CajaId ='" + lblCajaNumero.Text + "' ORDER BY CajaId ASC";
-            SqlConnection conn = new SqlConnection("data source=DESKTOP-MP6SVTR;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True");
+            SqlConnection conn = new SqlConnection("data source=Andrik-PC;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True");
             {
                 SqlCommand command = new SqlCommand(sql, conn);
                 conn.Open();
