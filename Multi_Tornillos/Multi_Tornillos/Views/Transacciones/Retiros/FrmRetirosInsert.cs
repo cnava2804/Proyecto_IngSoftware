@@ -555,20 +555,20 @@ namespace Multi_Tornillos.Views.Transacciones.Retiros
                 };
                 Multi_TornillosDAL.Caja caja = new Multi_TornillosDAL.Caja
                 {
-                    CajaSaldoTotal = Convert.ToDecimal(txtTotalsaldoi.Text) - retiro.RetiroSaldoTotal,
-                    CajaCantidadUnlps = Convert.ToInt32(txt1L.Text) - retiro.RetiroCantidadUnlps,
-                    CajaCantidadDoslps = Convert.ToInt32(txt2L.Text) - retiro.RetiroCantidadDoslps,
-                    CajaCantidadCincolps = Convert.ToInt32(txt5L.Text) - retiro.RetiroCantidadCincolps,
-                    CajaCantidadDiezlps = Convert.ToInt32(txt10L.Text) - retiro.RetiroCantidadDiezlps,
-                    CajaCantidadVeintelps = Convert.ToInt32(txt20L.Text) - retiro.RetiroCantidadVeintelps,
-                    CajaCantidadCincuentalps = Convert.ToInt32(txt50L.Text) - retiro.RetiroCantidadCincuentalps,
-                    CajaCantidadCienlps = Convert.ToInt32(txt100L.Text) - retiro.RetiroCantidadCienlps,
-                    CajaCantidadDoscientoslps = Convert.ToInt32(txt200L.Text) - retiro.RetiroCantidadDoscientoslps,
-                    CajaCantidadQuinientos = Convert.ToInt32(txt500L.Text) - retiro.RetiroCantidadQuinientos,
-                    CajaCantidadCincocent = Convert.ToInt32(txt5C.Text) - retiro.RetiroCantidadCincocent,
-                    CajaCantidadDiezcent = Convert.ToInt32(txt10C.Text) - retiro.RetiroCantidadDiezcent,
-                    CajaCantidadVeintecent = Convert.ToInt32(txt20C.Text) - retiro.RetiroCantidadVeintecent,
-                    CajaCantidadCincuentacent = Convert.ToInt32(txt50C.Text) - retiro.RetiroCantidadCincuentacent
+                    CajaSaldoTotal = retiro.RetiroSaldoTotal - Convert.ToDecimal(txtTotalsaldoi.Text),
+                    CajaCantidadUnlps = retiro.RetiroCantidadUnlps - Convert.ToInt32(txt1L.Text),
+                    CajaCantidadDoslps = retiro.RetiroCantidadDoslps - Convert.ToInt32(txt2L.Text),
+                    CajaCantidadCincolps = retiro.RetiroCantidadCincolps - Convert.ToInt32(txt5L.Text),
+                    CajaCantidadDiezlps = retiro.RetiroCantidadDiezlps - Convert.ToInt32(txt10L.Text),
+                    CajaCantidadVeintelps = retiro.RetiroCantidadVeintelps - Convert.ToInt32(txt20L.Text),
+                    CajaCantidadCincuentalps = retiro.RetiroCantidadCincuentalps - Convert.ToInt32(txt50L.Text),
+                    CajaCantidadCienlps = retiro.RetiroCantidadCienlps - Convert.ToInt32(txt100L.Text),
+                    CajaCantidadDoscientoslps = retiro.RetiroCantidadDoscientoslps - Convert.ToInt32(txt200L.Text),
+                    CajaCantidadQuinientos = retiro.RetiroCantidadQuinientos - Convert.ToInt32(txt500L.Text),
+                    CajaCantidadCincocent = retiro.RetiroCantidadCincocent - Convert.ToInt32(txt5C.Text),
+                    CajaCantidadDiezcent = retiro.RetiroCantidadDiezcent - Convert.ToInt32(txt10C.Text),
+                    CajaCantidadVeintecent = retiro.RetiroCantidadVeintecent - Convert.ToInt32(txt20C.Text),
+                    CajaCantidadCincuentacent = retiro.RetiroCantidadCincuentacent - Convert.ToInt32(txt50C.Text)
                 };
 
                

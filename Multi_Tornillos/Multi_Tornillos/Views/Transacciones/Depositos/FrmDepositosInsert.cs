@@ -50,6 +50,7 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
             lblCajaNumero.Text = UsuarioLog.CajaNumero;
             lblIdCaja.Text = UsuarioLog.CajaId;
             btnGuardar.Enabled = false;
+            
             datos_de_inicio();
             
         }
@@ -534,7 +535,8 @@ namespace Multi_Tornillos.Views.Transacciones.Depositos
                 DepositoCantidadDiezcent = Convert.ToInt32(txt10C.Text),
                 DepositoCantidadVeintecent = Convert.ToInt32(txt20C.Text),
                 DepositoCantidadCincuentacent = Convert.ToInt32(txt50C.Text),
-                UsuarioId = Convert.ToInt32(UsuarioLog.UsuarioId),
+                UsuarioId = UsuarioLog.UsuarioId,
+                //UsuarioId = Convert.ToInt32(txtI),
                 CajaId = Convert.ToInt32(lblIdCaja.Text)
             };
             Multi_TornillosDAL.Caja caja = new Multi_TornillosDAL.Caja

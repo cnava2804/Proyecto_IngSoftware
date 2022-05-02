@@ -77,6 +77,7 @@
             this.lblIdCaja = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtCajaId = new System.Windows.Forms.TextBox();
             this.txtIdDeposito = new System.Windows.Forms.TextBox();
+            this.lbldUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -470,7 +471,8 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.lblCajaNumero,
-            this.lblIdCaja});
+            this.lblIdCaja,
+            this.lbldUsuario});
             this.statusStrip1.Location = new System.Drawing.Point(0, 448);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(800, 22);
@@ -508,6 +510,12 @@
             this.txtIdDeposito.Name = "txtIdDeposito";
             this.txtIdDeposito.Size = new System.Drawing.Size(100, 20);
             this.txtIdDeposito.TabIndex = 55;
+            // 
+            // lbldUsuario
+            // 
+            this.lbldUsuario.Name = "lbldUsuario";
+            this.lbldUsuario.Size = new System.Drawing.Size(16, 17);
+            this.lbldUsuario.Text = "...";
             // 
             // FrmDepositosInsert
             // 
@@ -621,5 +629,6 @@
         private System.Windows.Forms.ToolStripStatusLabel lblCajaNumero;
         private System.Windows.Forms.TextBox txtCajaId;
         private System.Windows.Forms.TextBox txtIdDeposito;
+        private System.Windows.Forms.ToolStripStatusLabel lbldUsuario;
     }
 }
