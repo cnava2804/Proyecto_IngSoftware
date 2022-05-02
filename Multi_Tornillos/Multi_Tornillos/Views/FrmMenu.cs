@@ -64,6 +64,7 @@ namespace Multi_Tornillos.Views
             lbletiqueta.Text = UsuarioLog.CajaNumero;
             lblCajaNumero.Text = UsuarioLog.CajaId;
             txtSaldoCaja.Text = UsuarioLog.CajaSaldoTotal;
+            lblIdUsuario.Text = Convert.ToString(UsuarioLog.UsuarioId);
 
             if (UsuarioLog.UsuarioTipo=="Usuario")
             {
@@ -108,7 +109,7 @@ namespace Multi_Tornillos.Views
         private void btnrefresh_Click(object sender, EventArgs e)
         {
             string sql = @"SELECT TOP 1 CajaSaldoTotal FROM Caja WHERE CajaId ='" + lblCajaNumero.Text + "' ORDER BY CajaId ASC";
-            SqlConnection conn = new SqlConnection("data source=DESKTOP-MP6SVTR;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True");
+            SqlConnection conn = new SqlConnection("data source=DESKTOP-I3P9B28;initial catalog=FlujoDeCaja;persist security info=True;user id=sa;password=1234;MultipleActiveResultSets=True");
             {
                 SqlCommand command = new SqlCommand(sql, conn);
                 conn.Open();

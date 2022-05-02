@@ -43,9 +43,10 @@ namespace Multi_Tornillos.Views
             this.btnrefresh = new System.Windows.Forms.Button();
             this.tabControl1 = new JacksiroKe.MdiTabCtrl.TabControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lblCajaNumero = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbletiqueta = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblCajaNumero = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblCajaId = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblIdUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -177,18 +178,13 @@ namespace Multi_Tornillos.Views
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lbletiqueta,
             this.lblCajaNumero,
-            this.lblCajaId});
+            this.lblCajaId,
+            this.lblIdUsuario});
             this.statusStrip1.Location = new System.Drawing.Point(0, 446);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(803, 25);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // lblCajaNumero
-            // 
-            this.lblCajaNumero.Name = "lblCajaNumero";
-            this.lblCajaNumero.Size = new System.Drawing.Size(16, 20);
-            this.lblCajaNumero.Text = "...";
             // 
             // lbletiqueta
             // 
@@ -197,12 +193,24 @@ namespace Multi_Tornillos.Views
             this.lbletiqueta.Size = new System.Drawing.Size(50, 20);
             this.lbletiqueta.Text = "Caja:";
             // 
+            // lblCajaNumero
+            // 
+            this.lblCajaNumero.Name = "lblCajaNumero";
+            this.lblCajaNumero.Size = new System.Drawing.Size(16, 20);
+            this.lblCajaNumero.Text = "...";
+            // 
             // lblCajaId
             // 
             this.lblCajaId.Name = "lblCajaId";
             this.lblCajaId.Size = new System.Drawing.Size(16, 20);
             this.lblCajaId.Text = "...";
             this.lblCajaId.Visible = false;
+            // 
+            // lblIdUsuario
+            // 
+            this.lblIdUsuario.Name = "lblIdUsuario";
+            this.lblIdUsuario.Size = new System.Drawing.Size(16, 20);
+            this.lblIdUsuario.Text = "...";
             // 
             // FrmMenu
             // 
@@ -249,5 +257,6 @@ namespace Multi_Tornillos.Views
         private System.Windows.Forms.ToolStripStatusLabel lblCajaNumero;
         private System.Windows.Forms.ToolStripStatusLabel lbletiqueta;
         private System.Windows.Forms.ToolStripStatusLabel lblCajaId;
+        private System.Windows.Forms.ToolStripStatusLabel lblIdUsuario;
     }
 }

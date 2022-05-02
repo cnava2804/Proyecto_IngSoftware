@@ -41,6 +41,7 @@ namespace Multi_Tornillos.Views
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtRTN = new System.Windows.Forms.TextBox();
+            this.lblIdUsuario = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +59,7 @@ namespace Multi_Tornillos.Views
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblIdUsuario);
             this.groupBox1.Controls.Add(this.lblSaldoC);
             this.groupBox1.Controls.Add(this.lblidcaja);
             this.groupBox1.Controls.Add(this.cmbCajas);
@@ -191,6 +193,15 @@ namespace Multi_Tornillos.Views
             this.txtRTN.TabIndex = 0;
             this.txtRTN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRTN_KeyPress);
             // 
+            // lblIdUsuario
+            // 
+            this.lblIdUsuario.AutoSize = true;
+            this.lblIdUsuario.Location = new System.Drawing.Point(19, 37);
+            this.lblIdUsuario.Name = "lblIdUsuario";
+            this.lblIdUsuario.Size = new System.Drawing.Size(16, 13);
+            this.lblIdUsuario.TabIndex = 10;
+            this.lblIdUsuario.Text = "...";
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,5 +237,6 @@ namespace Multi_Tornillos.Views
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label lblidcaja;
         private System.Windows.Forms.Label lblSaldoC;
+        public System.Windows.Forms.Label lblIdUsuario;
     }
 }

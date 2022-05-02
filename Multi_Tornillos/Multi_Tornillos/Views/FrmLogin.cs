@@ -19,6 +19,7 @@ namespace Multi_Tornillos.Views
     {
         obtenerdatoscmb cb = new obtenerdatoscmb();
         UsuarioController controller;
+        int users;
         public FrmLogin()
         {
             InitializeComponent();
@@ -66,6 +67,7 @@ namespace Multi_Tornillos.Views
                                 UsuarioLog.CajaId = lblidcaja.Text;
                                 UsuarioLog.CajaNumero = cmbCajas.Text;
                                 UsuarioLog.CajaSaldoTotal = lblSaldoC.Text;
+                                
                                 menu.ShowDialog();
                                 this.Show();
                                 txtRTN.Text = "";
